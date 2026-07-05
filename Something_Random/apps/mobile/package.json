@@ -1,0 +1,15 @@
+{
+  "name": "@nexus/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Run: npx expo start' && exit 0",
+    "build": "echo 'Mobile build handled by EAS' && exit 0",
+    "type-check": "echo 'No TypeScript files yet' && exit 0",
+    "lint": "echo 'No source files yet' && exit 0",
+    "test": "echo 'No tests yet' && exit 0"
+  },
+  "dependencies": {
+    "@nexus/types": "workspace:*"
+  }
+}

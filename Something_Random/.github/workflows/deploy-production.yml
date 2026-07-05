@@ -1,0 +1,89 @@
+name: Deploy to Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to deploy (e.g., v1.0.0)'
+        required: true
+        type: string
+
+jobs:
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://api.campusly.in
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.version }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build all services
+        run: npm run build
+
+      - name: Run database migrations
+        run: npm run migrate
+        env:
+          DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
+
+      - name: Deploy to Kubernetes (Production)
+        uses: azure/k8s-deploy@v4
+        with:
+          namespace: production
+          manifests: |
+            infra/k8s/production/auth-deployment.yaml
+            infra/k8s/production/user-deployment.yaml
+            infra/k8s/production/wallet-deployment.yaml
+          images: |
+            ghcr.io/${{ github.repository }}/auth-service:${{ inputs.version }}
+            ghcr.io/${{ github.repository }}/user-service:${{ inputs.version }}
+            ghcr.io/${{ github.repository }}/wallet-service:${{ inputs.version }}
+
+      - name: Wait for rollout
+        run: |
+          kubectl rollout status deployment/auth-service -n production --timeout=300s
+          kubectl rollout status deployment/user-service -n production --timeout=300s
+          kubectl rollout status deployment/wallet-service -n production --timeout=300s
+
+      - name: Run smoke tests
+        run: |
+          curl -f https://api.campusly.in/health || exit 1
+          curl -f https://api.campusly.in/auth/health || exit 1
+          curl -f https://api.campusly.in/user/health || exit 1
+          curl -f https://api.campusly.in/wallet/health || exit 1
+
+      - name: Notify Slack - Success
+        if: success()
+        uses: slackapi/slack-github-action@v1
+        with:
+          channel: '#deployments'
+          text: |
+            :white_check_mark: Production deployment successful!
+            Version: ${{ inputs.version }}
+            Deployed by: ${{ github.actor }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+
+      - name: Notify Slack - Failure
+        if: failure()
+        uses: slackapi/slack-github-action@v1
+        with:
+          channel: '#deployments'
+          text: |
+            :x: Production deployment FAILED!
+            Version: ${{ inputs.version }}
+            Deployed by: ${{ github.actor }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Support Nexus | Nexus Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#fc5d59",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#fff0ef",
+                      "on-secondary-fixed": "#410004",
+                      "surface-container-high": "#ffe2de",
+                      "outline": "#8f6f6c",
+                      "primary-container": "#d32f2f",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#7bd1f8",
+                      "tertiary": "#005f7b",
+                      "secondary-fixed-dim": "#ffb3ae",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#271816",
+                      "inverse-on-surface": "#ffedeb",
+                      "on-tertiary-container": "#e9f7ff",
+                      "surface": "#fff8f7",
+                      "background": "#fff8f7",
+                      "surface-container-highest": "#f9dcd9",
+                      "on-background": "#271816",
+                      "outline-variant": "#e4beba",
+                      "on-primary-container": "#fff2f0",
+                      "on-surface-variant": "#5b403d",
+                      "secondary-fixed": "#ffdad7",
+                      "primary": "#af101a",
+                      "on-primary-fixed-variant": "#930010",
+                      "on-primary-fixed": "#410003",
+                      "inverse-surface": "#3e2c2a",
+                      "on-tertiary": "#ffffff",
+                      "secondary": "#b3272a",
+                      "surface-tint": "#ba1a20",
+                      "on-secondary-fixed-variant": "#910816",
+                      "surface-variant": "#f9dcd9",
+                      "primary-fixed": "#ffdad6",
+                      "surface-dim": "#f1d3d0",
+                      "on-tertiary-fixed-variant": "#004d65",
+                      "inverse-primary": "#ffb3ac",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#fff8f7",
+                      "on-secondary-container": "#600009",
+                      "tertiary-container": "#00799c",
+                      "tertiary-fixed": "#bee9ff",
+                      "primary-fixed-dim": "#ffb3ac",
+                      "on-tertiary-fixed": "#001f2a",
+                      "surface-container": "#ffe9e7",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "card-padding": "40px",
+                      "margin-mobile": "20px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "section-gap": "120px",
+                      "margin-desktop": "auto"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-xl": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.015em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.015em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "17px",
+                              {
+                                      "lineHeight": "1.47",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-xl": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "19px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F7; /* Fog canvas */
+        }
+        .glass-fab {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background relative min-h-screen pb-32 md:pb-0">
+<!-- TopAppBar (from JSON) -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 fixed top-0 w-full z-50 backdrop-blur-xl border-b border-outline-variant/30 transition-all duration-[0.344s] ease-in-out hover:scale-[0.98]">
+<div class="flex justify-between items-center px-margin-mobile h-20 w-full max-w-[1440px] mx-auto">
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity duration-[0.344s] ease-in-out flex items-center">
+<span class="material-symbols-outlined" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary dark:text-primary-fixed uppercase">NEXUS CURATOR</h1>
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity duration-[0.344s] ease-in-out flex items-center">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="grid-bg min-h-screen pt-[120px] pb-[120px] px-margin-mobile md:px-gutter max-w-[1440px] mx-auto">
+<!-- Hero Section -->
+<section class="mb-section-gap max-w-4xl mx-auto text-center">
+<h2 class="font-display-lg text-display-lg md:font-display-xl md:text-display-xl text-on-surface mb-6">Support Nexus.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                An architectural help portal designed specifically for our fleet drivers. 
+                Navigate through crucial protocols, diagnostics, and updates with absolute clarity.
+            </p>
+</section>
+<!-- Search / Filter (Glassmorphic) -->
+<section class="mb-20 max-w-2xl mx-auto">
+<div class="relative bg-surface-container-lowest rounded-full border border-outline-variant/50 flex items-center px-6 py-4 shadow-sm focus-within:border-primary transition-colors duration-[0.344s] ease-in-out">
+<span class="material-symbols-outlined text-outline mr-4" data-icon="search">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface placeholder:text-outline p-0" placeholder="Search knowledge base..." type="text"/>
+</div>
+</section>
+<!-- Categories Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+<!-- Category 1: Critical Safety -->
+<a class="group block bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 p-card-padding hover:border-primary/50 transition-all duration-[0.344s] ease-in-out" href="#">
+<div class="mb-8">
+<span class="material-symbols-outlined text-[64px] text-error" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors duration-[0.344s]">Critical Safety</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Immediate action protocols for emergency situations, accident reporting, and vital safety bulletins ensuring driver and public security.
+                </p>
+</a>
+<!-- Category 2: Account Protocol -->
+<a class="group block bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 p-card-padding hover:border-primary/50 transition-all duration-[0.344s] ease-in-out" href="#">
+<div class="mb-8">
+<span class="material-symbols-outlined text-[64px] text-primary" data-icon="manage_accounts">manage_accounts</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors duration-[0.344s]">Account Protocol</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Guidelines for maintaining active status, compliance verification, earnings breakdowns, and tier-level advancement criteria.
+                </p>
+</a>
+<!-- Category 3: Vehicle Diagnostics -->
+<a class="group block bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 p-card-padding hover:border-primary/50 transition-all duration-[0.344s] ease-in-out" href="#">
+<div class="mb-8">
+<span class="material-symbols-outlined text-[64px] text-tertiary" data-icon="car_repair">car_repair</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors duration-[0.344s]">Vehicle Diagnostics</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Comprehensive troubleshooting guides, routine maintenance schedules, and integration procedures for onboard telemetry systems.
+                </p>
+</a>
+<!-- Category 4: Campus Map Updates -->
+<a class="group block bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 p-card-padding hover:border-primary/50 transition-all duration-[0.344s] ease-in-out relative overflow-hidden" href="#">
+<div class="absolute inset-0 opacity-5 pointer-events-none" data-alt="A highly stylized, minimalist architectural blueprint of a sprawling modern corporate campus. Rendered in clean lines on a bright white background, reflecting a high-end, precise, editorial aesthetic. Subtle technical details, grid lines, and geometric precision dominate the composition." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCP7SN-SajBBQ1UR0sW6bFsuf04xfrqeJV_ufPI7zGcIgarKh5c2vyCQpZc5v89iWvN_VO5N-EpmnM1SDrLr9lsz4Ht743ZmQZX8EIuVTf4mgjPNsALZsd7p1Wr2Yu-5Q2_tTf5_5MvE-tzMN25r4Is5gY6rOaFBS3M7Pzgw2cFW0kb97QFdETxoD21wlYYzomEfCBFRS1DqM8D3BB2OnNJ62oNiC93c9MqQfpeZ7x017Hn3k8oCjlZYg00yTRbw6UxjBLWVFDJXQ')"></div>
+<div class="relative z-10">
+<div class="mb-8 flex justify-between items-start">
+<span class="material-symbols-outlined text-[64px] text-primary" data-icon="map">map</span>
+<span class="bg-[#EF5350] text-white px-3 py-1 rounded-full font-label-md text-label-md uppercase tracking-wider">New</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors duration-[0.344s]">Campus Map Updates</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Real-time routing adjustments, restricted zone notifications, and structural changes across primary operational hubs.
+                    </p>
+</div>
+</a>
+</section>
+</main>
+<!-- Floating Action Button (Contextual Support) -->
+<button class="fixed bottom-32 md:bottom-12 right-6 md:right-12 z-40 bg-primary/90 text-white rounded-full px-8 py-4 flex items-center gap-3 glass-fab border border-white/20 shadow-lg hover:bg-primary transition-all duration-[0.344s] ease-in-out hover:-translate-y-1">
+<span class="material-symbols-outlined" data-icon="headset_mic">headset_mic</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">Contact HQ</span>
+</button>
+<!-- BottomNavBar (from JSON) - Only visible on Mobile -->
+<nav class="md:hidden bg-white/80 dark:bg-inverse-surface/80 fixed bottom-0 w-full z-50 rounded-t-[28px] backdrop-blur-xl border-t border-outline-variant/20 transition-transform duration-[0.344s] ease-in-out active:scale-95">
+<div class="flex justify-around items-center h-24 pb-4 px-4 w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-[0.344s] ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="directions_car">directions_car</span>
+<span class="font-label-md text-label-md">Active</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-[0.344s] ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Earnings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-[0.344s] ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<!-- Context: This is a Support/Help portal for drivers. While none match perfectly, "Fleet" is the closest intent-wise for vehicle issues, but given it's a general help portal accessed from the app, we'll keep Fleet inactive as there's no exact match for "Support". We will leave all inactive to prioritize the content canvas per instructions, but since JSON dictates the shell layout, we render them. Actually, standard protocol is to leave all inactive if no match. -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-[0.344s] ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="minor_crash">minor_crash</span>
+<span class="font-label-md text-label-md">Fleet</span>
+</a>
+</div>
+</nav>
+</body></html>

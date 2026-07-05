@@ -1,0 +1,17 @@
+{
+  "name": "@nexus/typescript-config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./base.json",
+  "exports": {
+    ".": "./base.json",
+    "./node": "./node.json"
+  },
+  "scripts": {
+    "clean": "rm -rf node_modules"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,10 @@
+variable "name_prefix" { type = string }
+variable "environment" { type = string }
+variable "common_tags" { type = map(string) }
+variable "vpc_id" { type = string }
+variable "public_subnet_ids" { type = list(string) }
+variable "private_subnet_ids" { type = list(string) }
+variable "sg_alb_id" { type = string }
+variable "sg_ecs_id" { type = string }
+variable "acm_certificate_arn" { type = string }
+variable "logs_bucket_name" { type = string }

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEXUS - Curator Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#f1d3d0",
+                        "surface-container-low": "#fff0ef",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-primary-fixed": "#410003",
+                        "surface": "#fff8f7",
+                        "on-primary-container": "#fff2f0",
+                        "on-primary": "#ffffff",
+                        "primary": "#af101a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#00799c",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "outline-variant": "#e4beba",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#3e2c2a",
+                        "primary-container": "#d32f2f",
+                        "tertiary-fixed": "#bee9ff",
+                        "secondary-container": "#fc5d59",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-container-high": "#ffe2de",
+                        "on-secondary-container": "#600009",
+                        "surface-tint": "#ba1a20",
+                        "primary-fixed": "#ffdad6",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-tertiary-container": "#e9f7ff",
+                        "outline": "#8f6f6c",
+                        "on-background": "#271816",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "on-secondary-fixed": "#410004",
+                        "tertiary": "#005f7b",
+                        "secondary": "#b3272a",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "surface-variant": "#f9dcd9",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface-bright": "#fff8f7",
+                        "surface-container": "#ffe9e7",
+                        "surface-container-highest": "#f9dcd9",
+                        "background": "#fff8f7",
+                        "on-primary-fixed-variant": "#930010",
+                        "inverse-on-surface": "#ffedeb",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#ffb3ac",
+                        "on-surface": "#271816",
+                        "on-surface-variant": "#5b403d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "card": "28px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-desktop": "auto",
+                        "card-padding": "40px",
+                        "base": "8px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F5F5F7; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .transition-weight { transition: all 0.344s ease-in-out; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)] flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 transition-weight">
+<div class="flex items-center gap-3 cursor-pointer active:scale-95 transition-weight hover:opacity-80">
+<span class="material-symbols-outlined text-primary text-3xl">rocket_launch</span>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary bg-clip-text hidden md:block">NEXUS</span>
+<span class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary bg-clip-text md:hidden">NEXUS</span>
+</div>
+<!-- Desktop Nav Items -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-headline-md text-headline-md text-on-surface-variant hover:opacity-80 transition-weight" href="#">Dashboard</a>
+<a class="font-headline-md text-headline-md text-primary hover:opacity-80 transition-weight" href="#">Curators</a>
+<a class="font-headline-md text-headline-md text-on-surface-variant hover:opacity-80 transition-weight" href="#">Fleet</a>
+<a class="font-headline-md text-headline-md text-on-surface-variant hover:opacity-80 transition-weight" href="#">Settings</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-md text-label-md hover:bg-surface-tint transition-weight active:scale-95">
+            Get Started
+        </button>
+</header>
+<!-- Main Layout with SideNav -->
+<div class="flex flex-1 pt-[88px] md:pt-[104px]">
+<!-- NavigationDrawer (Desktop Side) -->
+<aside class="hidden md:flex flex-col p-6 gap-4 bg-surface-dim/95 backdrop-blur-3xl h-[calc(100vh-104px)] w-80 rounded-r-xl border-r border-primary/20 shadow-2xl fixed left-0 top-[104px] z-40">
+<div class="flex items-center gap-4 mb-8">
+<img class="w-12 h-12 rounded-full object-cover border border-primary/20" data-alt="A highly detailed close up portrait of an elegant administrative user avatar in a minimalist brightly lit gallery space. The lighting is soft and even, emphasizing a pristine and modern aesthetic. The color palette focuses on whites, soft creams, and deep crimsons." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpqZWGJvax1EeohdtXoVlFLqcftxRecNsIExvPVmjcO2jrB7i5aBFQ8yUqUxnFEa3D7nZ5tMRDknx_edkA82FDg9Z-_S6_ILHYuwAw8oX68ELOh4kOJgh7tQzj7QGL73oxOQfUcIj5jqcgm-GDZi05RNRqsgiAhkoHe1i7ANegnrZJGqXI1h9OHZERG_2ubpYKzkA-RTmvKRdSai4mkWj8R4bXEo1GG3Vi_uWkPefoxbyTRT7kZgJtz_2VY3JkSMw0Ipbpzx-_QA"/>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Alex Nexus</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Verified Student</p>
+<p class="font-label-md text-label-md text-outline">Tier: Voyager</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:pl-6 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-body-md text-body-md">Campus Map</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:pl-6 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-body-md text-body-md">Schedule</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:pl-6 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-body-md text-body-md">Safety Center</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg bg-primary/10 text-primary border-l-4 border-primary hover:pl-6 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:pl-6 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span class="font-body-md text-body-md">Help</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop md:pl-[360px] pb-[120px] pt-12 transition-weight">
+<!-- Page Header -->
+<div class="mb-section-gap">
+<h1 class="font-display-xl text-display-xl text-primary mb-4">Curator Network</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Master command overview of active driving assets. Monitor impact scores, fleet unit assignments, and manage operational multipliers.
+                </p>
+</div>
+<!-- Dashboard Grid (Bento Style) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-section-gap">
+<!-- Leaderboard / Active Roster List (Spans 8 cols) -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-card border border-outline-variant p-card-padding">
+<div class="flex justify-between items-center mb-8 border-b border-outline-variant pb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Roster</h2>
+<button class="text-primary hover:text-surface-tint flex items-center gap-2 transition-weight">
+<span class="material-symbols-outlined">filter_list</span>
+<span class="font-label-md text-label-md">Filter</span>
+</button>
+</div>
+<div class="flex flex-col gap-4">
+<!-- List Item 1 -->
+<div class="flex items-center justify-between p-4 bg-surface hover:bg-surface-variant rounded-xl border border-transparent hover:border-outline-variant transition-weight cursor-pointer">
+<div class="flex items-center gap-4">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-primary" data-alt="A portrait of a highly professional curator driver wearing a minimalist dark uniform in a pristine, bright modern environment. High key lighting, striking red details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8aQ8PZJnKCKRGBuuYTMYYT5OF3a69B1-Uje_8GtfnYzZv-VD51_zBNYT2g1plER5D6ZhdfwdYlVkkVV8s5s0fAwDNuriLilNkKbk2u4iONeRhOowAXGJ5Oh8dY_Dd75Y0kJn7USPkCmcJD96EzHGKLuXFeFJIzr7Q78kerI4wBk6VLTcn3CwhUnZ2YStMIenyZdKKzLpQOXYZHEZ-tzPOFGzTb_pYNPWwRwqXe7F71O4MZjSRc8Oc8BImtMft-kD8ZhY5zwhV7w"/>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Elias Thorne</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Sector Alpha · Unit A-12</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right hidden sm:block">
+<p class="font-label-md text-label-md text-outline">Impact Score</p>
+<p class="font-headline-md text-headline-md text-secondary">98.4</p>
+</div>
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-center justify-between p-4 bg-surface hover:bg-surface-variant rounded-xl border border-transparent hover:border-outline-variant transition-weight cursor-pointer">
+<div class="flex items-center gap-4">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-outline-variant" data-alt="A portrait of an elite driving curator in a sleek, architectural setting with minimalist white walls and deep crimson accents. Professional, calm expression, high quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6nhyeNTkh9D8dmSJRUJKXPrbX9Wl8Xu8OussuAwTe8cqHlxtvmt_ARQOYxdVtACwZJuXzZ_4MNgw2GiydSlW4VQ_Dk0Wyh1Qywra68NHSSgemj06Z9I9x_QHwUpAvQKYfa65mo_k3LdrXEtHk31ZHr4Lq8MkIi_hRlQtL94jbxiReVk8SBTYwyhroGvv3Jr2q69bTHt0Y-88w6Vw0Ptfe-ZAInEpOBcQfoBbsmGON2GO5eI-ZAUNhoek5m2BNayPCdFiNkBfFJA"/>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Sarah Vance</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Sector Beta · Unit B-04</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right hidden sm:block">
+<p class="font-label-md text-label-md text-outline">Impact Score</p>
+<p class="font-headline-md text-headline-md text-on-surface">94.2</p>
+</div>
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sector Multipliers & Global Controls (Spans 4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<div class="bg-surface-container-lowest rounded-card border border-outline-variant p-card-padding flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">Sector Controls</h3>
+<div class="mb-6">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-2">Alpha Sector Surge Multiplier</label>
+<div class="flex items-center justify-between bg-surface-variant rounded-full px-4 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-weight">remove</span>
+<span class="font-headline-sm text-headline-sm text-primary">1.5x</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-weight">add</span>
+</div>
+</div>
+<div class="mb-8">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-2">Beta Sector Surge Multiplier</label>
+<div class="flex items-center justify-between bg-surface-variant rounded-full px-4 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-weight">remove</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">1.0x</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-weight">add</span>
+</div>
+</div>
+<button class="w-full bg-surface-container-high text-error border border-error-container hover:bg-error-container px-6 py-4 rounded-full font-label-md text-label-md transition-weight flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">warning</span>
+                            Deactivate Global Protocol
+                        </button>
+</div>
+</div>
+</div>
+<!-- Detailed Profile Card View (Mocking an open state) -->
+<div class="bg-surface-container-lowest rounded-card border border-outline-variant p-card-padding mb-section-gap flex flex-col lg:flex-row gap-12">
+<!-- Profile Identity -->
+<div class="lg:w-1/3 flex flex-col items-center text-center border-b lg:border-b-0 lg:border-r border-outline-variant pb-8 lg:pb-0 lg:pr-12">
+<img class="w-32 h-32 rounded-full object-cover border-4 border-primary mb-6" data-alt="A highly detailed close up portrait of Elias Thorne, elite driver, standing next to a sleek luxury vehicle. The environment is minimalist and gallery-like with stark white backgrounds and subtle crimson lighting accents. Premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeiWWorOBKOhAbdncSnbRl9esdPVKNpv8bwdLEQnL7K_0VldBDL81eSFZknZUSqr9SFdkPEPTmTNely3ekhSLBJA7uqfI7C5H9G_Ea-En6qomY3wUToVjlqXeZrqmqfO_PGH6zGUeFcJr0K7mEoxmr82rdTfwHW6AT_z6mdbgZIUtVLE9X6UjI4f8mrZRyyZc76EScKuO0p9K0Gei-PCzRnJqoi95Cdy2K7A-nFg8k0JUYyjHbHcO7UUL4w5XBqWgEFD5lVm5Uog"/>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Elias Thorne</h2>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md text-label-md mb-6 inline-block">Elite Tier</span>
+<div class="w-full flex justify-between px-4 mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Ascension Progress</span>
+<span class="font-label-md text-label-md text-primary">82%</span>
+</div>
+<div class="w-full bg-surface-variant h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[82%]"></div>
+</div>
+</div>
+<!-- Detail Grid -->
+<div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">directions_car</span>
+                            Fleet Unit Assigned
+                        </h4>
+<div class="bg-surface p-4 rounded-xl border border-outline-variant">
+<p class="font-body-lg text-body-lg text-primary mb-1">NXS-A12 Interceptor</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Last Maintenance: 2 Days Ago</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Status: Optimal</p>
+</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">history</span>
+                            Incident History
+                        </h4>
+<div class="bg-surface p-4 rounded-xl border border-outline-variant">
+<ul class="flex flex-col gap-2">
+<li class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">No recent incidents.</span>
+<span class="material-symbols-outlined text-tertiary-container">check_circle</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="md:col-span-2 flex justify-end gap-4 mt-4">
+<button class="bg-surface-variant text-on-surface px-6 py-3 rounded-full font-label-md text-label-md hover:bg-outline-variant transition-weight">
+                            Message
+                        </button>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-md text-label-md hover:bg-surface-tint transition-weight">
+                            Adjust Protocol
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/60 backdrop-blur-2xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] flex justify-around items-center h-20 pb-safe px-4 transition-weight">
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Explore</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary drop-shadow-[0_0_8px_rgba(255,185,95,0.5)] tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Rides</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Wallet</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Profile</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-8 mt-auto bg-surface-container-lowest border-t border-primary/30 flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-4 transition-opacity duration-200">
+<span class="font-display-lg text-primary text-xl">NEXUS</span>
+<p class="font-data-label text-data-label text-on-surface-variant text-sm">© 2024 NEXUS MOBILITY. AEROSPACE GRADE PRECISION.</p>
+<div class="flex gap-4">
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-weight" href="#">Privacy</a>
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-weight" href="#">Terms</a>
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-weight" href="#">Safety</a>
+</div>
+</footer>
+</body></html>

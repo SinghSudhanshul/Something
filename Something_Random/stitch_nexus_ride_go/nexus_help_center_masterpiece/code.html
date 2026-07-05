@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus - Help &amp; Support</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#bee9ff",
+                        "surface-tint": "#ba1a20",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "secondary": "#b3272a",
+                        "on-secondary-fixed-variant": "#910816",
+                        "inverse-primary": "#ffb3ac",
+                        "on-primary-fixed": "#410003",
+                        "on-background": "#271816",
+                        "primary-fixed": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#600009",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-tertiary-fixed": "#001f2a",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#930010",
+                        "outline": "#8f6f6c",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "on-surface-variant": "#5b403d",
+                        "background": "#fff8f7",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#fc5d59",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#fff0ef",
+                        "surface-bright": "#fff8f7",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#f9dcd9",
+                        "on-secondary-fixed": "#410004",
+                        "tertiary-container": "#00799c",
+                        "primary": "#af101a",
+                        "surface-dim": "#f1d3d0",
+                        "on-tertiary-container": "#e9f7ff",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#005f7b",
+                        "on-primary-container": "#fff2f0",
+                        "on-surface": "#271816",
+                        "inverse-surface": "#3e2c2a",
+                        "outline-variant": "#e4beba",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#f9dcd9",
+                        "surface": "#fff8f7",
+                        "surface-container-high": "#ffe2de",
+                        "surface-container": "#ffe9e7",
+                        "primary-container": "#d32f2f",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#ffedeb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "card-padding": "40px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-desktop": "auto",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "body-lg": ["19px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "body-md": ["17px", {"lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "display-xl": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F5F5F7; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+        .smooth-transition { transition: all 0.344s ease-in-out; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)] smooth-transition">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4 cursor-pointer active:scale-95 smooth-transition hover:opacity-80">
+<span class="material-symbols-outlined text-primary font-display-lg text-display-lg tracking-tighter bg-clip-text" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary bg-clip-text hidden md:block">NEXUS</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-data-label text-data-label text-outline hover:text-primary smooth-transition" href="#">Explore</a>
+<a class="font-data-label text-data-label text-outline hover:text-primary smooth-transition" href="#">Rides</a>
+<a class="font-data-label text-data-label text-outline hover:text-primary smooth-transition" href="#">Wallet</a>
+<a class="font-data-label text-data-label text-outline hover:text-primary smooth-transition" href="#">Profile</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md smooth-transition hover:bg-surface-tint active:scale-95">Get Started</button>
+</div>
+<div class="md:hidden">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-md text-label-md smooth-transition hover:bg-surface-tint active:scale-95">Get Started</button>
+</div>
+</div>
+</header>
+<!-- NavigationDrawer (Mobile/Hidden) - Suppressed as this is a specific screen, but structural code included for reference if needed globally -->
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-section-gap text-center md:text-left flex flex-col items-center md:items-start max-w-4xl mx-auto md:mx-0">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 tracking-tight">
+                How can we assist your journey?
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">
+                Aerospace-grade precision in every interaction. Find answers to elevate your Nexus mobility experience.
+            </p>
+<!-- Search Bar -->
+<div class="w-full max-w-2xl relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-4 pl-12 pr-6 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary smooth-transition shadow-sm" placeholder="Search for rides, safety protocols, or account settings..." type="text"/>
+</div>
+</section>
+<!-- Category Grid (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap">
+<!-- Rides Category -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-[28px] border border-outline-variant p-card-padding smooth-transition hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] cursor-pointer group flex flex-col justify-between min-h-[320px]">
+<div>
+<div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6 smooth-transition group-hover:scale-110 group-hover:bg-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="directions_car" data-weight="fill" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary smooth-transition">Rides &amp; Navigation</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Everything regarding booking, tracking, vehicle specifications, and active journey support.</p>
+</div>
+<div class="mt-8 flex items-center gap-2 text-primary font-label-md text-label-md">
+<span>Explore Rides FAQ</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 smooth-transition">arrow_forward</span>
+</div>
+</div>
+<!-- Safety Category -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-[28px] border border-outline-variant p-card-padding smooth-transition hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] cursor-pointer group flex flex-col justify-between min-h-[320px]">
+<div>
+<div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6 smooth-transition group-hover:scale-110 group-hover:bg-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="security" data-weight="fill" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-4 group-hover:text-primary smooth-transition">Safety Center</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Emergency protocols, vehicle safety ratings, and curator vetting processes.</p>
+</div>
+<div class="mt-8 flex items-center gap-2 text-primary font-label-md text-label-md">
+<span>View Protocols</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 smooth-transition">arrow_forward</span>
+</div>
+</div>
+<!-- Account Category -->
+<div class="md:col-span-6 glass-panel rounded-[28px] p-card-padding smooth-transition hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] cursor-pointer group flex flex-col justify-between min-h-[280px]">
+<div>
+<div class="bg-surface-variant w-14 h-14 rounded-full flex items-center justify-center mb-6 smooth-transition group-hover:scale-110">
+<span class="material-symbols-outlined text-on-surface-variant text-2xl" data-icon="person">person</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Account &amp; Profile</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your settings, verified status, and personal preferences.</p>
+</div>
+</div>
+<!-- Wallet Category -->
+<div class="md:col-span-6 glass-panel rounded-[28px] p-card-padding smooth-transition hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] cursor-pointer group flex flex-col justify-between min-h-[280px]">
+<div>
+<div class="bg-surface-variant w-14 h-14 rounded-full flex items-center justify-center mb-6 smooth-transition group-hover:scale-110">
+<span class="material-symbols-outlined text-on-surface-variant text-2xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Wallet &amp; Billing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Payment methods, tier status (Voyager), and transaction history.</p>
+</div>
+</div>
+</section>
+<!-- Popular Articles List (Gallery Style Grid) -->
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8">Frequently Consulted</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-6">
+<!-- Article Item -->
+<a class="group flex items-center justify-between p-6 bg-surface-container-lowest rounded-xl border border-outline-variant smooth-transition hover:border-primary hover:shadow-sm" href="#">
+<span class="font-body-lg text-body-lg text-on-surface group-hover:text-primary smooth-transition">How to upgrade to Voyager Tier?</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary smooth-transition">chevron_right</span>
+</a>
+<!-- Article Item -->
+<a class="group flex items-center justify-between p-6 bg-surface-container-lowest rounded-xl border border-outline-variant smooth-transition hover:border-primary hover:shadow-sm" href="#">
+<span class="font-body-lg text-body-lg text-on-surface group-hover:text-primary smooth-transition">Understanding the Aerospace Pricing Model</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary smooth-transition">chevron_right</span>
+</a>
+<!-- Article Item -->
+<a class="group flex items-center justify-between p-6 bg-surface-container-lowest rounded-xl border border-outline-variant smooth-transition hover:border-primary hover:shadow-sm" href="#">
+<span class="font-body-lg text-body-lg text-on-surface group-hover:text-primary smooth-transition">Campus Map integration guidelines</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary smooth-transition">chevron_right</span>
+</a>
+<!-- Article Item -->
+<a class="group flex items-center justify-between p-6 bg-surface-container-lowest rounded-xl border border-outline-variant smooth-transition hover:border-primary hover:shadow-sm" href="#">
+<span class="font-body-lg text-body-lg text-on-surface group-hover:text-primary smooth-transition">Reporting an issue with a recent ride</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary smooth-transition">chevron_right</span>
+</a>
+</div>
+</section>
+</main>
+<!-- FAB for Direct Support (Suppressed normally per rules, but requested explicitly in prompt) -->
+<div class="fixed bottom-24 md:bottom-8 right-margin-mobile md:right-margin-desktop z-40">
+<button class="bg-primary text-on-primary rounded-full py-4 px-6 shadow-lg flex items-center gap-3 smooth-transition hover:bg-surface-tint hover:-translate-y-1 active:translate-y-0 active:scale-95 group">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-label-md text-label-md whitespace-nowrap">Direct Curator Support</span>
+</button>
+</div>
+<!-- BottomNavBar (Mobile Only) - Suppressed per rules as this is a support page (task-focused/dead-end), NOT a top-level destination. -->
+<!-- Footer -->
+<footer class="w-full py-8 mt-auto bg-surface-container-lowest border-t border-primary/30 flat no shadows smooth-transition">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-4 max-w-[1440px] mx-auto w-full">
+<div class="font-display-lg text-primary text-xl">NEXUS</div>
+<div class="flex gap-6">
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200" href="#">Privacy</a>
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200" href="#">Terms</a>
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200" href="#">Safety</a>
+</div>
+<div class="font-data-label text-data-label text-outline text-sm text-center md:text-right">
+                © 2024 NEXUS MOBILITY. AEROSPACE GRADE PRECISION.
+            </div>
+</div>
+</footer>
+</body></html>

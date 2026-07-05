@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Launch Ritual</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#ffb3ac",
+                        "primary": "#af101a",
+                        "inverse-surface": "#3e2c2a",
+                        "on-surface-variant": "#5b403d",
+                        "surface-container": "#ffe9e7",
+                        "background": "#fff8f7",
+                        "error-container": "#ffdad6",
+                        "surface": "#fff8f7",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fc5d59",
+                        "on-secondary-container": "#600009",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "tertiary": "#005f7b",
+                        "on-primary-fixed": "#410003",
+                        "tertiary-container": "#00799c",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ffe2de",
+                        "outline-variant": "#e4beba",
+                        "tertiary-fixed": "#bee9ff",
+                        "surface-tint": "#ba1a20",
+                        "on-secondary-fixed": "#410004",
+                        "primary-container": "#d32f2f",
+                        "outline": "#8f6f6c",
+                        "secondary": "#b3272a",
+                        "primary-fixed": "#ffdad6",
+                        "on-primary-fixed-variant": "#930010",
+                        "on-surface": "#271816",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fff8f7",
+                        "surface-variant": "#f9dcd9",
+                        "inverse-on-surface": "#ffedeb",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#ffb3ac",
+                        "surface-container-low": "#fff0ef",
+                        "surface-container-highest": "#f9dcd9",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#e9f7ff",
+                        "on-primary-container": "#fff2f0",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-background": "#271816",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#910816",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-dim": "#f1d3d0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "margin-desktop": "auto",
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "card-padding": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        @keyframes customPulse {
+            0% { transform: scale(0.95); opacity: 0.5; box-shadow: 0 0 0 0 rgba(175, 16, 26, 0.4); }
+            70% { transform: scale(1.05); opacity: 0.8; box-shadow: 0 0 0 40px rgba(175, 16, 26, 0); }
+            100% { transform: scale(0.95); opacity: 0.5; box-shadow: 0 0 0 0 rgba(175, 16, 26, 0); }
+        }
+        .pulse-ring {
+            animation: customPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        .glass-panel {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background overflow-hidden antialiased h-screen w-full relative">
+<!-- Full Screen Shader Background -->
+<!-- STITCH_THREEJS_START:ANIMATION_64 class="absolute inset-0 w-full h-full z-0 opacity-80" -->
+<div class="absolute inset-0 w-full h-full z-0 opacity-80" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_64" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_64');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+renderer.setSize(width, height);
+renderer.setPixelRatio(window.devicePixelRatio);
+container.appendChild(renderer.domElement);
+
+// Create a minimalist "Nexus Orb"
+const geometry = new THREE.IcosahedronGeometry(1.5, 4);
+const material = new THREE.MeshPhongMaterial({
+    color: 0xd32f2f,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.8
+});
+const orb = new THREE.Mesh(geometry, material);
+scene.add(orb);
+
+// Add inner core
+const coreGeo = new THREE.SphereGeometry(0.8, 32, 32);
+const coreMat = new THREE.MeshBasicMaterial({ color: 0xd32f2f });
+const core = new THREE.Mesh(coreGeo, coreMat);
+scene.add(core);
+
+const light = new THREE.PointLight(0xffffff, 1, 100);
+light.position.set(5, 5, 5);
+scene.add(light);
+scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+camera.position.z = 5;
+
+function animate() {
+    requestAnimationFrame(animate);
+    
+    orb.rotation.y += 0.01;
+    orb.rotation.z += 0.005;
+    
+    const scale = 1.0 + Math.sin(Date.now() * 0.002) * 0.1;
+    orb.scale.set(scale, scale, scale);
+    
+    renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+});
+
+animate();
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_64 -->
+<!-- Main Content Canvas -->
+<div class="relative z-10 w-full h-full flex flex-col justify-between items-center py-section-gap px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<!-- Top Monumental Typography -->
+<div class="text-center w-full transform -translate-y-4">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-xl md:text-display-xl text-primary tracking-tighter uppercase mb-4 drop-shadow-sm">
+                INITIATING
+            </h1>
+</div>
+<!-- Center 3D Ritual Orb & Pulse -->
+<div class="relative flex items-center justify-center w-[300px] h-[300px] md:w-[500px] md:h-[500px]">
+<!-- Pulse Ring Background -->
+<div class="absolute inset-0 rounded-full border-[1px] border-primary/40 pulse-ring"></div>
+<div class="absolute inset-8 rounded-full border-[1px] border-primary/20 pulse-ring" style="animation-delay: -1.5s;"></div>
+<!-- 3D Scene -->
+<!-- STITCH_SHADER_START:ANIMATION_65 class="absolute inset-0 w-full h-full z-20" -->
+<div class="absolute inset-0 w-full h-full z-20" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_65" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_65');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+varying vec2 v_texCoord;
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 center = vec2(0.5, 0.5);
+    
+    // Create a pulsing radial gradient
+    float dist = distance(uv, center);
+    float pulse = 0.5 + 0.5 * sin(u_time * 2.0);
+    
+    // Crimson signature color
+    vec3 crimson = vec3(0.827, 0.184, 0.184); // #d32f2f
+    vec3 background = vec3(0.96, 0.96, 0.97); // #f5f5f7
+    
+    // Wave effect
+    float wave = sin(dist * 20.0 - u_time * 4.0) * 0.02;
+    float alpha = smoothstep(0.4 + pulse * 0.1, 0.0, dist + wave);
+    
+    vec3 finalColor = mix(background, crimson, alpha * 0.15);
+    
+    // Add glowing orbit lines
+    float orbit = abs(sin(dist * 40.0 + u_time));
+    orbit = smoothstep(0.02, 0.0, orbit);
+    finalColor += crimson * orbit * alpha * 0.5;
+
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_65 -->
+</div>
+<!-- Bottom Typography & Status -->
+<div class="text-center w-full flex flex-col items-center gap-8 transform translate-y-4">
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-xl md:text-display-xl text-on-surface tracking-tighter uppercase drop-shadow-sm">
+                SEQUENCE
+            </h2>
+<!-- Status Message -->
+<p class="font-body-md text-body-md text-outline tracking-wide uppercase">
+                Aerospace-grade synchronization in progress...
+            </p>
+</div>
+</div>
+<!-- Floating Glassmorphic Overlays -->
+<!-- Top Left Status -->
+<div class="absolute top-12 left-margin-mobile md:left-gutter z-30 hidden md:flex">
+<div class="glass-panel bg-white/80 border border-outline-variant/30 rounded-full px-6 py-3 flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-widest text-xs">Propulsion: READY</span>
+</div>
+</div>
+<!-- Bottom Right Status -->
+<div class="absolute bottom-12 right-margin-mobile md:right-gutter z-30 hidden md:flex">
+<div class="glass-panel bg-white/80 border border-outline-variant/30 rounded-full px-6 py-3 flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-widest text-xs">Environment: OPTIMIZED</span>
+</div>
+</div>
+<!-- Mobile Combined Status (Visible only on small screens) -->
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex md:hidden w-[calc(100%-40px)] flex-col gap-2">
+<div class="glass-panel bg-white/80 border border-outline-variant/30 rounded-xl p-4 flex justify-between items-center w-full shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-widest text-[10px]">Propulsion</span>
+</div>
+<span class="font-label-md text-label-md text-primary">READY</span>
+</div>
+<div class="glass-panel bg-white/80 border border-outline-variant/30 rounded-xl p-4 flex justify-between items-center w-full shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-widest text-[10px]">Environment</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">OPTIMIZED</span>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Elite Fleet Showcase | NEXUS</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#ffdad7",
+                        "on-background": "#271816",
+                        "background": "#fff8f7",
+                        "surface-container-highest": "#f9dcd9",
+                        "inverse-primary": "#ffb3ac",
+                        "on-primary-fixed-variant": "#930010",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#f1d3d0",
+                        "primary-fixed": "#ffdad6",
+                        "primary": "#af101a",
+                        "on-surface": "#271816",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fff2f0",
+                        "surface-container": "#ffe9e7",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "secondary": "#b3272a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#ffedeb",
+                        "on-primary-fixed": "#410003",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#bee9ff",
+                        "outline": "#8f6f6c",
+                        "primary-container": "#d32f2f",
+                        "surface-tint": "#ba1a20",
+                        "surface-container-low": "#fff0ef",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#f9dcd9",
+                        "surface-container-high": "#ffe2de",
+                        "secondary-container": "#fc5d59",
+                        "on-tertiary-fixed": "#001f2a",
+                        "tertiary-container": "#00799c",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "outline-variant": "#e4beba",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-secondary-fixed": "#410004",
+                        "on-secondary-container": "#600009",
+                        "tertiary": "#005f7b",
+                        "surface-bright": "#fff8f7",
+                        "surface": "#fff8f7",
+                        "on-surface-variant": "#5b403d",
+                        "inverse-surface": "#3e2c2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "auto",
+                        "card-padding": "40px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["17px", {"lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "body-lg": ["19px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-xl": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Base styles enforcing the gallery minimalist aesthetic */
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-surface');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+        
+        .glass-crimson-orb {
+            position: fixed;
+            border-radius: 50%;
+            background: radial-gradient(circle, theme('colors.primary-container') 0%, transparent 70%);
+            opacity: 0.15;
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col relative">
+<!-- Atmospheric Background Elements -->
+<div class="glass-crimson-orb w-[600px] h-[600px] top-[-200px] right-[-100px]"></div>
+<div class="glass-crimson-orb w-[800px] h-[800px] bottom-[-300px] left-[-200px] opacity-10"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)] bg-background/80 backdrop-blur-xl flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 max-w-[1440px] mx-auto left-0 right-0">
+<div class="flex items-center gap-4 cursor-pointer active:scale-95 hover:opacity-80 transition-all duration-300">
+<span class="material-symbols-outlined text-primary font-display-lg text-display-lg" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary bg-clip-text">NEXUS</span>
+</div>
+<!-- Desktop Nav Links (Mandated by rule) -->
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md text-primary underline hover:opacity-80 transition-all duration-300 cursor-pointer active:scale-95 uppercase" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-all duration-300 cursor-pointer active:scale-95 uppercase" href="#">Rides</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-all duration-300 cursor-pointer active:scale-95 uppercase" href="#">Wallet</a>
+</nav>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-on-primary-fixed-variant transition-all duration-344 ease-in-out cursor-pointer active:scale-95 shadow-none">
+            Get Started
+        </button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-40 px-margin-mobile md:px-margin-desktop max-w-[1440px] w-full mx-auto flex flex-col gap-section-gap">
+<!-- Hero Section -->
+<section class="flex flex-col items-center text-center mt-12 mb-8">
+<span class="bg-surface-container text-primary font-label-md text-label-md px-4 py-1 rounded-full mb-6 border border-outline-variant/30 uppercase tracking-widest">Masterpiece Collection</span>
+<h1 class="font-display-xl text-display-xl text-on-surface max-w-4xl leading-tight">
+                Elite Fleet Showcase
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-2xl">
+                A highly curated gallery of the most exclusive, aerospace-grade transport units available in the Nexus network. Uncompromising performance meets unparalleled luxury.
+            </p>
+</section>
+<!-- Masterpiece Gallery -->
+<div class="flex flex-col gap-24">
+<!-- Vehicle 01 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant p-card-padding flex flex-col xl:flex-row gap-12 hover:border-primary/30 transition-colors duration-344 ease-in-out">
+<div class="xl:w-2/3 relative rounded-lg overflow-hidden min-h-[400px] xl:min-h-[600px] bg-surface-variant">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A stunning, cinematic side-profile photograph of an ultra-luxury autonomous vehicle showcased in a pristine, minimalist gallery environment. The sleek, aerodynamic body of the car is finished in a high-gloss, deep obsidian black that reflects the soft, diffused white lighting from above. The exhibition space features expansive white fog-like backgrounds, ensuring the vehicle stands out sharply. Subtle crimson red accents illuminate the futuristic wheel rims and interior lighting, perfectly capturing the gallery minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL2eQt7Chl8VBfkGmry6_fKiQrNI84rKcr9FHbL05sk2UMxsPeLv2UkR-Qg4j2255VnC9Gri481vjgBB0tvVZSR381EU8V22F5hGfHgAzeOA4-k2mhwSA6j-wpJ5zrwrX-ll6mHNGqxRL6VbNiUSKNZiRvzkiEJyORl9y5fgc0OfIrf95mjhBkvBo3AMR47BfwB55K-faq7sLEnHSZmbXfsAQryQuvmoxpQ8RqpPQRAn8S8ftYXeufKl6q2JJxJB1LTf8lGt6iaw"/>
+</div>
+<div class="xl:w-1/3 flex flex-col justify-center">
+<div class="mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">NX-Phantom</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">The absolute zenith of private autonomous transit. Designed for those who demand total isolation from the external environment without sacrificing kinetic urgency.</p>
+</div>
+<div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-10 border-t border-outline-variant/50 pt-6">
+<div>
+<span class="block font-label-md text-label-md text-outline uppercase mb-1">Velocity</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Mach 0.3</span>
+</div>
+<div>
+<span class="block font-label-md text-label-md text-outline uppercase mb-1">Battery</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">980 km</span>
+</div>
+<div class="col-span-2">
+<span class="block font-label-md text-label-md text-outline uppercase mb-1">Comfort Profile</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Zero-G Suspension, Active Noise Cancellation</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md px-6 py-4 rounded-full hover:bg-on-primary-fixed-variant transition-all duration-344 ease-in-out mt-auto shadow-none">
+                        Request Deployment
+                    </button>
+</div>
+</article>
+<!-- Vehicle 02 (Asymmetric reverse layout for visual rhythm) -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant p-card-padding flex flex-col xl:flex-row-reverse gap-12 hover:border-primary/30 transition-colors duration-344 ease-in-out">
+<div class="xl:w-2/3 relative rounded-lg overflow-hidden min-h-[400px] xl:min-h-[600px] bg-surface-variant">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="An awe-inspiring front three-quarter view of an exclusive aerospace-grade concept car displayed within a vast, brilliantly lit showroom. The vehicle boasts aggressive yet elegant geometric lines, painted in a striking matte white with contrasting deep black carbon fiber details. The high-key lighting creates a bright, modern light-mode atmosphere, eliminating harsh shadows and emphasizing the car's physical presence. Brilliant red LED signatures glow from the sleek headlights, echoing a sophisticated, high-end consumer electronics vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk8c0jZ3q0fypIa1vy707LzhPTZnhgEIBP0LFQZJY4IY8xr_GyPcmA_oOkX4xxNFjo0KdWOU0gmiB4pMt2RKuPA6mI2kt0mp0r5G6A7oY1Sf2jsAr7zT1FxMi6xI1L32wuvv1XSciA7HZT0mdoe96dtXxt3b-HGZX-a12sX_1vgrvQedryfki6cAloh1bptzi_GtPY2Mcc9ka3Beoqdh4srstflfDWTAzgtZnaAIXHenCbIS1pS-c1BFpVWep-_oUqwA4PiP8NIg"/>
+</div>
+<div class="xl:w-1/3 flex flex-col justify-center">
+<div class="mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Aero-Vanguard</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">A predatory silhouette concealing a sanctuary of peace. The Vanguard is engineered for high-density urban environments, carving through traffic with algorithmic precision.</p>
+</div>
+<div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-10 border-t border-outline-variant/50 pt-6">
+<div>
+<span class="block font-label-md text-label-md text-outline uppercase mb-1">Velocity</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">240 km/h</span>
+</div>
+<div>
+<span class="block font-label-md text-label-md text-outline uppercase mb-1">Battery</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">1,200 km</span>
+</div>
+<div class="col-span-2">
+<span class="block font-label-md text-label-md text-outline uppercase mb-1">Comfort Profile</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Biometric Climate Control, Panorama Glass</span>
+</div>
+</div>
+<button class="w-full bg-surface-container text-primary font-label-md text-label-md px-6 py-4 rounded-full border border-primary/20 hover:border-primary transition-all duration-344 ease-in-out mt-auto shadow-none">
+                        View Technical Specs
+                    </button>
+</div>
+</article>
+<!-- Vehicle 03 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant p-card-padding flex flex-col xl:flex-row gap-12 hover:border-primary/30 transition-colors duration-344 ease-in-out">
+<div class="xl:w-2/3 relative rounded-lg overflow-hidden min-h-[400px] xl:min-h-[600px] bg-surface-variant">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A dramatic, high-fidelity interior shot of a masterpiece luxury transport pod, viewed through its open gull-wing doors against a stark, pure white studio background. The cabin is an exercise in restraint and precision, featuring premium white leather seating and minimalist black structural elements. Intense, deliberate lighting highlights the tactile materiality of the surfaces, reinforcing a premium, authoritative aesthetic. Small, precise vibrant red interface elements add a touch of demand-generation signal to this otherwise serene environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChw2nbGHqenj6SzrOWkMHbwFzEoPk-iELE1z7a_ZOrRWFGcyvhZNx1SMHa9vc6fB5iGXSB9yLspcLja9ADKMNUIP-583syJVIXibvIuOKCo0AQGt11_uU0dnPgwHco8VpaSVkO9fFZIa8fowpuJnKxIe2ijsXDpsihOv7cqrYiI8MuzPunHy7TJONy12OV7urPunisdeSb-IbLXeB4_9t_4YHy3k_e1cCCgzd8O3OgCH9Ot1-rTiir4iNs7XWSxYm9oCoy3Fshow"/>
+</div>
+<div class="xl:w-1/3 flex flex-col justify-center">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Lumina Pod</h2>
+<span class="bg-secondary-container text-on-surface font-label-md text-label-md px-3 py-1 rounded-full text-[10px] uppercase">Limited</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">An immersive mobile lounge. The Lumina prioritizes communal space and ambient intelligence, seamlessly extending your living or working environment.</p>
+</div>
+<div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-10 border-t border-outline-variant/50 pt-6">
+<div>
+<span class="block font-label-md text-label-md text-outline uppercase mb-1">Velocity</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">180 km/h</span>
+</div>
+<div>
+<span class="block font-label-md text-label-md text-outline uppercase mb-1">Battery</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Infinite*</span>
+</div>
+<div class="col-span-2">
+<span class="block font-label-md text-label-md text-outline uppercase mb-1">Comfort Profile</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Acoustic Sealing, Holographic Displays</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md px-6 py-4 rounded-full hover:bg-on-primary-fixed-variant transition-all duration-344 ease-in-out mt-auto shadow-none">
+                        Request Deployment
+                    </button>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] bg-surface-container-lowest/60 backdrop-blur-2xl flex justify-around items-center h-20 pb-safe px-4">
+<!-- Explore (Active) -->
+<div class="flex flex-col items-center gap-1 text-secondary drop-shadow-[0_0_8px_rgba(255,185,95,0.5)] tap-highlight-transparent active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-data-label text-data-label uppercase text-[10px] tracking-wider">Explore</span>
+</div>
+<!-- Rides (Inactive) -->
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 cursor-pointer">
+<span class="material-symbols-outlined text-[28px]">directions_car</span>
+<span class="font-data-label text-data-label uppercase text-[10px] tracking-wider">Rides</span>
+</div>
+<!-- Wallet (Inactive) -->
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 cursor-pointer">
+<span class="material-symbols-outlined text-[28px]">account_balance_wallet</span>
+<span class="font-data-label text-data-label uppercase text-[10px] tracking-wider">Wallet</span>
+</div>
+<!-- Profile (Inactive) -->
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 cursor-pointer">
+<span class="material-symbols-outlined text-[28px]">person</span>
+<span class="font-data-label text-data-label uppercase text-[10px] tracking-wider">Profile</span>
+</div>
+</nav>
+</body></html>

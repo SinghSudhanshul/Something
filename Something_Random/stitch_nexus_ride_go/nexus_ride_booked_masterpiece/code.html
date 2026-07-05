@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus - Ride Booked</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb3ac",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "surface-container-low": "#fff0ef",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#ba1a20",
+                        "secondary-fixed": "#ffdad7",
+                        "on-surface-variant": "#5b403d",
+                        "on-secondary-fixed-variant": "#910816",
+                        "surface-container": "#ffe9e7",
+                        "surface-bright": "#fff8f7",
+                        "on-surface": "#271816",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#b3272a",
+                        "background": "#fff8f7",
+                        "on-secondary-container": "#600009",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "surface-variant": "#f9dcd9",
+                        "primary-container": "#d32f2f",
+                        "on-tertiary-container": "#e9f7ff",
+                        "outline-variant": "#e4beba",
+                        "on-secondary-fixed": "#410004",
+                        "tertiary-fixed": "#bee9ff",
+                        "on-tertiary-fixed": "#001f2a",
+                        "outline": "#8f6f6c",
+                        "surface-container-highest": "#f9dcd9",
+                        "secondary-container": "#fc5d59",
+                        "on-primary-container": "#fff2f0",
+                        "primary-fixed": "#ffdad6",
+                        "inverse-surface": "#3e2c2a",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#ffedeb",
+                        "surface-dim": "#f1d3d0",
+                        "tertiary": "#005f7b",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#00799c",
+                        "on-error-container": "#93000a",
+                        "on-background": "#271816",
+                        "on-primary-fixed": "#410003",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface-container-high": "#ffe2de",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#930010",
+                        "surface": "#fff8f7",
+                        "primary": "#af101a"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px",
+                        "2xl": "28px"
+                    },
+                    spacing: {
+                        "margin-desktop": "auto",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "section-gap": "120px",
+                        "card-padding": "40px",
+                        "base": "8px"
+                    },
+                    fontFamily: {
+                        "display-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"]
+                    },
+                    fontSize: {
+                        "display-xl": ["80px", { lineHeight: "1.05", letterSpacing: "-0.022em", fontWeight: "700" }],
+                        "headline-md": ["32px", { lineHeight: "1.2", letterSpacing: "-0.015em", fontWeight: "700" }],
+                        "display-lg-mobile": ["40px", { lineHeight: "1.1", letterSpacing: "-0.022em", fontWeight: "700" }],
+                        "display-lg": ["56px", { lineHeight: "1.1", letterSpacing: "-0.022em", fontWeight: "700" }],
+                        "body-md": ["17px", { lineHeight: "1.47", letterSpacing: "-0.01em", fontWeight: "400" }],
+                        "body-lg": ["19px", { lineHeight: "1.5", letterSpacing: "0", fontWeight: "400" }],
+                        "label-md": ["14px", { lineHeight: "1.2", letterSpacing: "0.02em", fontWeight: "600" }],
+                        "headline-sm": ["24px", { lineHeight: "1.2", letterSpacing: "-0.015em", fontWeight: "700" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        body { background-color: #F5F5F7; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .text-fog-contrast { color: #271816; }
+        .border-hairline { border: 1px solid #e4beba; }
+        
+        .transition-premium { transition: all 0.344s ease-in-out; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background min-h-screen pb-32 overflow-x-hidden md:pb-0">
+<!-- Top Navigation Placeholder (Hidden on this transactional screen as per Semantic Shell Mandate) -->
+<!-- Navigation explicitly suppressed for "Success/Confirmation" splash screens -->
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[1440px] mx-auto min-h-screen relative">
+<!-- Hero Section: Cinematic High-Contrast Image -->
+<div class="w-full h-[442px] md:h-[530px] relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A cinematic, high-contrast interior shot of a luxury autonomous vehicle cabin. The lighting is moody with subtle deep crimson accents highlighting the pristine white leather seats. The dashboard features minimalist geometric lines. Shot on medium format film, extremely sharp focus on the textures of the high-end materials, gallery minimalist aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUe9e3nRyqFmgPdQTYdWmwKxYXeptsXPnjZ-Uq39j35jRnSwarg3GF7r04x5fEU1C1WGRk1SufZ4w4XocT0Upf4m19fatvUOdJClXzGKTa2JfzNDUhW1PgAPCHNsrRqxqvufLIl4M2MGhPGOBxouo5XYtvNr9r8DxYOMApYpqpBfI1RFa8WFtCccpO2Oxs24hS0ILwcnWqt8RamIzVh24BvKXmL3d0CWVbrtCfYcHJANEhuA4bgdLmFRHyY52zHsJNvIh8E_3aEw')"></div>
+<!-- Gradient Overlay for Text Readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-[#F5F5F7] via-[#F5F5F7]/40 to-transparent"></div>
+<!-- Headline Placement -->
+<div class="absolute bottom-10 left-margin-mobile md:left-10 z-10">
+<h1 class="font-display-lg-mobile md:font-display-lg text-on-background uppercase">RIDE BOOKED</h1>
+<p class="font-body-lg text-on-surface-variant mt-2 max-w-md">Your Nexus Masterpiece is arriving shortly. Prepare for an exceptional journey.</p>
+</div>
+</div>
+<!-- Details Container -->
+<div class="px-margin-mobile md:px-10 mt-section-gap flex flex-col lg:flex-row gap-gutter">
+<!-- Left Column: Ride Details & Map -->
+<div class="flex-1 space-y-gutter">
+<!-- Driver Details Card -->
+<div class="bg-surface-container-lowest rounded-2xl border-hairline p-card-padding transition-premium hover:shadow-lg">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="font-headline-sm text-on-surface mb-1">Your Driver</h2>
+<p class="font-body-md text-on-surface-variant">Arriving in 4 mins</p>
+</div>
+<div class="bg-surface-variant text-on-surface px-4 py-2 rounded-full font-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 16px;">star</span>
+                            4.98
+                        </div>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="A professional, minimalist headshot of a luxury chauffeur, wearing a pristine dark suit. The background is a clean, bright white studio setting. High key lighting, editorial style, conveying trust and premium service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQh8pp9gF9byxNsZUYOL74K66CWY5kAofw1kPMrbIUK6foyZV_8JHcnvrPAJ5hGqqHhD3Omnd33TdJUdSjHeXvyBrT1r0_g1Dh_nn6iZEROQvtkXQ2z6DKGipVBVtfj9kjeptkwKV2Ev2Q3XPuoQAY1IuObb9ubCWwFryfi9bBW_Sqn1tonn5CJwvb278UPqu50TbePBw5qPqPo4yFe2ToZM4g5TtdOyfx7khu_ARGqqXwZqSiYr6mNFM9oRFy1iZnCg0t3wf1Pw"/>
+</div>
+<div>
+<h3 class="font-headline-md text-on-background">Alexander</h3>
+<p class="font-body-lg text-on-surface-variant uppercase tracking-widest mt-1">NEX 784V</p>
+<p class="font-label-md text-outline mt-2">Black Nexus X-Series</p>
+</div>
+</div>
+</div>
+<!-- Destination & Status Card -->
+<div class="bg-surface-container-lowest rounded-2xl border-hairline p-card-padding">
+<div class="relative pl-8">
+<!-- Connecting Line -->
+<div class="absolute left-3 top-4 bottom-4 w-[2px] bg-outline-variant/50"></div>
+<!-- Pickup -->
+<div class="relative mb-10">
+<div class="absolute -left-8 top-1 w-6 h-6 rounded-full bg-surface-variant flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-on-surface"></div>
+</div>
+<p class="font-label-md text-outline uppercase tracking-wider mb-1">Pickup</p>
+<p class="font-body-lg text-on-background">1200 Gallery Row, Arts District</p>
+</div>
+<!-- Dropoff -->
+<div class="relative">
+<div class="absolute -left-8 top-1 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<p class="font-label-md text-outline uppercase tracking-wider mb-1">Destination</p>
+<p class="font-body-lg text-on-background">The Grand Minimalist Museum</p>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary text-on-primary font-label-md py-5 rounded-full transition-premium hover:bg-secondary flex justify-center items-center gap-3">
+<span class="material-symbols-outlined">map</span>
+                    OPEN MAP
+                </button>
+</div>
+<!-- Right Column: Relaxation Suite (Bento Layout) -->
+<div class="flex-1 lg:max-w-lg space-y-gutter">
+<h2 class="font-headline-sm text-on-surface mb-4 px-2">Relaxation Suite</h2>
+<!-- Glassmorphic Spotify Widget -->
+<div class="glass-panel rounded-2xl p-6 relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="flex items-start gap-4 mb-6 relative z-10">
+<img class="w-24 h-24 rounded-lg object-cover shadow-sm" data-alt="Album art for a minimal, ambient electronic music album. The artwork features subtle geometric shapes in pale crimson and pure white, creating a serene, gallery-like visual. High resolution, pristine edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD05a7v41b1rHs1PrE2VtMW8QNpSHGalwDRCOOBidCPq5M1zUTA9wrvEy_-sKIlp-k5BWx_mt6_7SunU4x0kMiLsNeFneUVjnikYK-H8Mvha8Ed0hFNrWb-VNWwV7sbhZZhkhrqflzPexf_Tx-bfiA4e2ofGl-QPN8_hzxn8x6f9PeqRKgcWbD4HxArkKCavtGAVc8DOBylNKJfX0XiBpRq5IpmruCL38Af9BqGvklfC_F3Ei6nPOTsdT78Vfon8vcWAd8ZpROwIQ"/>
+<div class="flex-1">
+<p class="font-label-md text-primary uppercase tracking-widest mb-1 text-[11px]">In-Ride Audio</p>
+<h4 class="font-headline-sm text-on-background line-clamp-1">Ambient Gallery</h4>
+<p class="font-body-md text-on-surface-variant line-clamp-1">Nexus Curated Selection</p>
+</div>
+<span class="material-symbols-outlined text-outline">graphic_eq</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1 bg-surface-variant rounded-full mb-6 relative z-10">
+<div class="w-1/3 h-full bg-primary rounded-full relative">
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white"></div>
+</div>
+</div>
+<!-- Controls -->
+<div class="flex justify-center items-center gap-8 relative z-10">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size: 28px;">skip_previous</span></button>
+<button class="w-14 h-14 rounded-full bg-on-background text-surface flex items-center justify-center hover:scale-105 transition-transform"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 32px;">play_arrow</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size: 28px;">skip_next</span></button>
+</div>
+</div>
+<!-- Environment Controls Grid -->
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Climate Control -->
+<div class="glass-panel rounded-2xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-premium hover:border-primary/50 group">
+<span class="material-symbols-outlined text-on-surface mb-3 group-hover:text-primary transition-colors" style="font-size: 32px;">ac_unit</span>
+<p class="font-label-md text-on-surface">Climate</p>
+<p class="font-headline-sm text-primary mt-1">72°F</p>
+</div>
+<!-- Mood Lighting -->
+<div class="glass-panel rounded-2xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-premium hover:border-primary/50 group">
+<span class="material-symbols-outlined text-on-surface mb-3 group-hover:text-primary transition-colors" style="font-size: 32px;">lightbulb</span>
+<p class="font-label-md text-on-surface">Mood Light</p>
+<p class="font-body-md text-on-surface-variant mt-1">Gallery Fog</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

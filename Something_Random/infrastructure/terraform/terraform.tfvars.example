@@ -1,0 +1,7 @@
+aws_region          = "ap-south-1"
+environment         = "dev"
+project_name        = "nexus"
+db_instance_class   = "db.t4g.medium"
+redis_node_type     = "cache.t4g.medium"
+acm_certificate_arn = "arn:aws:acm:ap-south-1:ACCOUNT_ID:certificate/CERT_ID"
+alert_email         = "devops@nexus.app"

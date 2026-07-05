@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Admin | Command Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#f1d3d0",
+                    "surface-container-low": "#fff0ef",
+                    "on-secondary-fixed-variant": "#910816",
+                    "on-primary-fixed": "#410003",
+                    "surface": "#fff8f7",
+                    "on-primary-container": "#fff2f0",
+                    "on-primary": "#ffffff",
+                    "primary": "#af101a",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#00799c",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#7bd1f8",
+                    "outline-variant": "#e4beba",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#3e2c2a",
+                    "primary-container": "#d32f2f",
+                    "tertiary-fixed": "#bee9ff",
+                    "secondary-container": "#fc5d59",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffdad7",
+                    "surface-container-high": "#ffe2de",
+                    "on-secondary-container": "#600009",
+                    "surface-tint": "#ba1a20",
+                    "primary-fixed": "#ffdad6",
+                    "on-tertiary-fixed": "#001f2a",
+                    "on-tertiary-container": "#e9f7ff",
+                    "outline": "#8f6f6c",
+                    "on-background": "#271816",
+                    "secondary-fixed-dim": "#ffb3ae",
+                    "on-secondary-fixed": "#410004",
+                    "tertiary": "#005f7b",
+                    "secondary": "#b3272a",
+                    "primary-fixed-dim": "#ffb3ac",
+                    "surface-variant": "#f9dcd9",
+                    "on-tertiary-fixed-variant": "#004d65",
+                    "surface-bright": "#fff8f7",
+                    "surface-container": "#ffe9e7",
+                    "surface-container-highest": "#f9dcd9",
+                    "background": "#fff8f7",
+                    "on-primary-fixed-variant": "#930010",
+                    "inverse-on-surface": "#ffedeb",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#ffb3ac",
+                    "on-surface": "#271816",
+                    "on-surface-variant": "#5b403d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "margin-desktop": "auto",
+                    "card-padding": "40px",
+                    "base": "8px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "display-xl": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-xl": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                    "body-lg": ["19px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                    "body-md": ["17px", {"lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        body {
+            background-color: #f5f5f7; /* Fog Base */
+            color: #271816;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Hide scrollbar for clean gallery look */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        
+        .transition-heavy {
+            transition: all 0.344s ease-in-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md text-on-surface">
+<!-- TopAppBar (Web & Shared Anchor) -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)] flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[32px]">rocket_launch</span>
+<span class="font-display-lg text-display-lg md:text-display-lg tracking-tighter text-primary bg-clip-text hidden md:block">NEXUS</span>
+<span class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary bg-clip-text md:hidden">NEXUS</span>
+</div>
+<!-- Web Navigation Cluster -->
+<nav class="hidden md:flex items-center gap-8 font-label-md text-label-md uppercase tracking-wider">
+<a class="text-primary border-b-2 border-primary pb-1 transition-heavy hover:opacity-80" href="#">Command</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-heavy pb-1 hover:opacity-80" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-heavy pb-1 hover:opacity-80" href="#">Drivers</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-heavy pb-1 hover:opacity-80" href="#">Settings</a>
+</nav>
+<button class="font-label-md text-label-md bg-primary text-on-primary px-6 py-3 rounded-full hover:bg-secondary transition-heavy active:scale-95 cursor-pointer">
+            Get Started
+        </button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-32 pb-40 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-16">
+<h1 class="font-display-xl text-display-xl md:text-display-xl hidden md:block text-on-surface mb-2">Command Center</h1>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:hidden text-on-surface mb-2">Command Center</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Master control interface for Nexus global operations. Monitoring network load, privacy compliance, and curator metrics in real-time.</p>
+</div>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Active Network Load (Monumental Card) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-[28px] border border-outline-variant p-card-padding flex flex-col justify-between min-h-[400px]">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Network Load</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Real-time global throughput</p>
+</div>
+<span class="bg-error-container text-on-error-container font-label-md text-label-md px-3 py-1 rounded-full flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span> Live
+                    </span>
+</div>
+<!-- Data Visualization Placeholder (Abstracted) -->
+<div class="flex-grow flex items-end justify-between gap-2 h-48 relative">
+<!-- Faux Bar Chart -->
+<div class="w-full bg-surface-dim rounded-t-lg h-[40%] transition-heavy hover:bg-primary/20 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-heavy bg-inverse-surface text-inverse-on-surface font-label-md text-label-md px-2 py-1 rounded">40TB</div>
+</div>
+<div class="w-full bg-surface-dim rounded-t-lg h-[60%] transition-heavy hover:bg-primary/20 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-heavy bg-inverse-surface text-inverse-on-surface font-label-md text-label-md px-2 py-1 rounded">60TB</div>
+</div>
+<div class="w-full bg-surface-dim rounded-t-lg h-[85%] transition-heavy hover:bg-primary/20 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-heavy bg-inverse-surface text-inverse-on-surface font-label-md text-label-md px-2 py-1 rounded">85TB</div>
+</div>
+<div class="w-full bg-primary rounded-t-lg h-[95%] transition-heavy hover:bg-secondary cursor-pointer group relative shadow-[0_0_15px_rgba(175,16,26,0.3)]">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-heavy bg-inverse-surface text-inverse-on-surface font-label-md text-label-md px-2 py-1 rounded">95TB</div>
+</div>
+<div class="w-full bg-surface-dim rounded-t-lg h-[50%] transition-heavy hover:bg-primary/20 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-heavy bg-inverse-surface text-inverse-on-surface font-label-md text-label-md px-2 py-1 rounded">50TB</div>
+</div>
+<div class="w-full bg-surface-dim rounded-t-lg h-[30%] transition-heavy hover:bg-primary/20 cursor-pointer group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-heavy bg-inverse-surface text-inverse-on-surface font-label-md text-label-md px-2 py-1 rounded">30TB</div>
+</div>
+</div>
+</div>
+<!-- Global User Privacy Status (High Density) -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-[28px] border border-outline-variant p-card-padding flex flex-col">
+<div class="mb-8">
+<span class="material-symbols-outlined text-primary text-[32px] mb-4">shield_locked</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Privacy Status</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Global compliance index</p>
+</div>
+<div class="flex-grow flex flex-col justify-center items-center">
+<div class="relative w-48 h-48 flex items-center justify-center">
+<!-- Abstract Ring -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="#f1d3d0" stroke-width="8"></circle>
+<circle class="transition-all duration-1000" cx="50" cy="50" fill="none" r="45" stroke="#af101a" stroke-dasharray="283" stroke-dashoffset="20" stroke-width="8"></circle>
+</svg>
+<div class="absolute text-center">
+<span class="font-display-lg text-display-lg text-on-surface block leading-none">99.8<span class="text-headline-sm">%</span></span>
+</div>
+</div>
+</div>
+<div class="mt-8 border-t border-outline-variant pt-4 flex justify-between">
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase">Encrypted</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">4.2B</div>
+</div>
+<div class="text-right">
+<div class="font-label-md text-label-md text-on-surface-variant uppercase">Anomalies</div>
+<div class="font-headline-sm text-headline-sm text-primary">0.02%</div>
+</div>
+</div>
+</div>
+<!-- Central Map Visualization -->
+<div class="md:col-span-12 bg-surface-container-lowest rounded-[28px] border border-outline-variant overflow-hidden relative min-h-[500px]">
+<!-- Pseudo Map Background using placeholder image logic -->
+<div class="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-multiply" data-alt="A highly detailed, minimalist digital map visualization of the world. The map uses a sophisticated palette of deep blacks, soft grays, and pristine whites, creating a modern, high-key light-mode aesthetic. Glowing crimson data nodes dot the landscape, connected by thin, sharp geometric lines representing network traffic. The mood is authoritative, precise, and technologically advanced, resembling a high-end command center interface." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBG4q6KgrsDTmHvAH2EkfdYRqtWKeTgc2X7V91hp1VQDdY6cQv1_TRduoT-J9wQJmoMHwDfmMUxKXV_zA-PVOrlu3mXCAuSSJX3pqbCpGeHL9kk0kxTS5iQ2Z1O7HXdxq6bovkUYwR0LW2jfK7mETqimJvsBNODGaMjv6IqkdLbfQ0bVsKxjuTX73ZDMWeOinuiIJXHcg8rOptiTNe5DITPVjrCPHPBn8uJ_Z535qXHT0nYY3Vw47q-e_izKMaDNiFB0v5wD5tUAg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute top-card-padding left-card-padding">
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Nodes</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Global routing efficiency</p>
+</div>
+<!-- Floating Info Panel -->
+<div class="absolute bottom-card-padding right-card-padding glass-panel rounded-xl border border-white/20 p-6 shadow-xl max-w-sm">
+<div class="flex items-center gap-3 mb-4 border-b border-outline-variant/30 pb-4">
+<span class="material-symbols-outlined text-primary fill-icon">location_on</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface uppercase">Primary Node</div>
+<div class="font-body-lg text-body-lg font-bold text-on-surface">EU-Central-Alpha</div>
+</div>
+</div>
+<div class="flex justify-between items-center mb-2">
+<span class="font-body-md text-on-surface-variant">Latency</span>
+<span class="font-label-md text-on-surface">12ms</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Status</span>
+<span class="font-label-md text-primary flex items-center gap-1"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> Optimal</span>
+</div>
+</div>
+</div>
+<!-- Curator Performance Metrics -->
+<div class="md:col-span-6 bg-surface-container-lowest rounded-[28px] border border-outline-variant p-card-padding">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-8">Curator Performance</h2>
+<div class="space-y-6">
+<!-- Metric Row -->
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-dim flex items-center justify-center text-primary font-headline-sm">A</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Alpha Team</div>
+<div class="font-body-sm text-on-surface-variant">Resolution Rate</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-32 h-2 bg-surface-dim rounded-full overflow-hidden">
+<div class="h-full bg-on-surface w-[92%] transition-all duration-1000 group-hover:bg-primary"></div>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface w-12 text-right">92%</span>
+</div>
+</div>
+<!-- Metric Row -->
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-dim flex items-center justify-center text-primary font-headline-sm">B</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Beta Squad</div>
+<div class="font-body-sm text-on-surface-variant">Resolution Rate</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-32 h-2 bg-surface-dim rounded-full overflow-hidden">
+<div class="h-full bg-on-surface w-[88%] transition-all duration-1000 group-hover:bg-primary"></div>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface w-12 text-right">88%</span>
+</div>
+</div>
+<!-- Metric Row -->
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-dim flex items-center justify-center text-primary font-headline-sm">G</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Gamma Ops</div>
+<div class="font-body-sm text-on-surface-variant">Resolution Rate</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-32 h-2 bg-surface-dim rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[74%] transition-all duration-1000"></div>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary w-12 text-right">74%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Lists (Pending & Alerts) -->
+<div class="md:col-span-6 flex flex-col gap-gutter">
+<!-- Pending Approvals -->
+<div class="bg-surface-container-lowest rounded-[28px] border border-outline-variant p-card-padding flex-grow">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-6 flex justify-between items-center">
+                        Pending Protocols
+                        <span class="text-primary font-label-md bg-primary/10 px-3 py-1 rounded-full">3 Require Action</span>
+</h2>
+<ul class="space-y-4">
+<li class="flex items-start gap-4 pb-4 border-b border-outline-variant/30 last:border-0 hover:pl-2 transition-heavy cursor-pointer">
+<span class="material-symbols-outlined text-outline mt-1">description</span>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Protocol Alpha-09 Update</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-1">Revising data retention limits for EU region nodes.</p>
+</div>
+</li>
+<li class="flex items-start gap-4 pb-4 border-b border-outline-variant/30 last:border-0 hover:pl-2 transition-heavy cursor-pointer">
+<span class="material-symbols-outlined text-outline mt-1">security_update</span>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Firewall Ruleset Delta</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-1">Emergency patch deployment for ingress traffic.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- System Alerts -->
+<div class="bg-error-container rounded-[28px] border border-error/20 p-card-padding">
+<h2 class="font-headline-sm text-headline-sm text-on-error-container mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined fill-icon text-error">warning</span>
+                        System Alerts
+                    </h2>
+<div class="bg-surface-container-lowest/50 rounded-xl p-4 border border-error/10">
+<div class="font-label-md text-label-md text-error mb-1">Node Disconnect: AP-South-2</div>
+<div class="font-body-md text-on-surface-variant text-sm">Connectivity lost at 14:02 UTC. Failover initiated automatically. Rerouting traffic through AP-South-1.</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Anchor) -->
+<!-- Content: ["Explore", "Rides", "Wallet", "Profile"], Icons: ["explore", "directions_car", "account_balance_wallet", "person"] -->
+<!-- Active Tab Logic: Command Center aligns best with "Explore" or we adapt to the requested "Command, Privacy, Drivers, Settings" intent while respecting JSON labels if strictly bound. 
+         Wait, the JSON says: label_texts: ["Explore", "Rides", "Wallet", "Profile"], icons: ["explore", "directions_car", "account_balance_wallet", "person"].
+         Conflict Protocol: Content & Identity (JSON) overrides prompt requests. I must use exact labels from JSON. 
+         Active Tab: "Explore" (closest to Command/Dashboard intent). -->
+<nav class="md:hidden bg-surface-container-lowest/60 backdrop-blur-2xl fixed bottom-0 w-full z-50 rounded-t-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] flex justify-around items-center h-20 pb-safe px-4 tap-highlight-transparent active:scale-90 transition-transform">
+<!-- Explore (Active) -->
+<div class="flex flex-col items-center gap-1 text-secondary drop-shadow-[0_0_8px_rgba(255,185,95,0.5)] cursor-pointer">
+<span class="material-symbols-outlined fill-icon">explore</span>
+<span class="font-data-label text-data-label uppercase text-[10px] tracking-widest">Explore</span>
+</div>
+<!-- Rides -->
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-data-label text-data-label uppercase text-[10px] tracking-widest">Rides</span>
+</div>
+<!-- Wallet -->
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-data-label text-data-label uppercase text-[10px] tracking-widest">Wallet</span>
+</div>
+<!-- Profile -->
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-data-label text-data-label uppercase text-[10px] tracking-widest">Profile</span>
+</div>
+</nav>
+</body></html>

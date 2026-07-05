@@ -1,0 +1,9 @@
+variable "name_prefix" { type = string }
+variable "environment" { type = string }
+variable "common_tags" { type = map(string) }
+variable "account_id" { type = string }
+variable "region" { type = string }
+variable "ecr_repository_arns" { type = list(string) }
+variable "secret_arns" { type = list(string) }
+variable "media_bucket_arn" { type = string }
+variable "documents_bucket_arn" { type = string }

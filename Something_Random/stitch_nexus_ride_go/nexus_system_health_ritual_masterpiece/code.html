@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEXUS - System Health</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#ffdad7",
+                        "on-background": "#271816",
+                        "background": "#fff8f7",
+                        "surface-container-highest": "#f9dcd9",
+                        "inverse-primary": "#ffb3ac",
+                        "on-primary-fixed-variant": "#930010",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#f1d3d0",
+                        "primary-fixed": "#ffdad6",
+                        "primary": "#af101a",
+                        "on-surface": "#271816",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fff2f0",
+                        "surface-container": "#ffe9e7",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "secondary": "#b3272a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#ffedeb",
+                        "on-primary-fixed": "#410003",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#bee9ff",
+                        "outline": "#8f6f6c",
+                        "primary-container": "#d32f2f",
+                        "surface-tint": "#ba1a20",
+                        "surface-container-low": "#fff0ef",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#f9dcd9",
+                        "surface-container-high": "#ffe2de",
+                        "secondary-container": "#fc5d59",
+                        "on-tertiary-fixed": "#001f2a",
+                        "tertiary-container": "#00799c",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "outline-variant": "#e4beba",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-secondary-fixed": "#410004",
+                        "on-secondary-container": "#600009",
+                        "tertiary": "#005f7b",
+                        "surface-bright": "#fff8f7",
+                        "surface": "#fff8f7",
+                        "on-surface-variant": "#5b403d",
+                        "inverse-surface": "#3e2c2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "auto",
+                        "card-padding": "40px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["17px", {"lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "body-lg": ["19px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-xl": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .pulse-glow {
+            animation: pulseGlow 2s infinite ease-in-out alternate;
+        }
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 10px rgba(175, 16, 26, 0.2); }
+            to { box-shadow: 0 0 25px rgba(175, 16, 26, 0.6); }
+        }
+        .graph-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 3s ease-out forwards;
+        }
+        @keyframes drawLine {
+            to { stroke-dashoffset: 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#F5F5F7] text-on-surface min-h-screen font-body-md selection:bg-primary/20 selection:text-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)] flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 w-full">
+<div class="flex items-center gap-3 cursor-pointer active:scale-95 transition-all duration-300 hover:opacity-80 group">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:rotate-12 transition-transform duration-300">rocket_launch</span>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary bg-clip-text" style="font-size: 24px;">NEXUS</span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Fleet Status</a>
+<a class="text-primary" href="#">System Health</a>
+<a class="hover:text-primary transition-colors" href="#">Diagnostics</a>
+</div>
+<button class="font-label-md text-label-md bg-primary text-on-primary px-6 py-2 rounded-full hover:bg-primary-container transition-colors duration-344 active:scale-95 shadow-sm">
+            Get Started
+        </button>
+</header>
+<!-- Main Canvas -->
+<main class="pt-32 pb-40 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto flex flex-col gap-section-gap">
+<!-- Hero Section -->
+<section class="flex flex-col items-center text-center max-w-3xl mx-auto mt-12">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EF5350]/10 text-primary font-label-md text-label-md mb-6 border border-[#EF5350]/20">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                LIVE DIAGNOSTICS ACTIVE
+            </div>
+<h1 class="font-display-xl text-display-xl tracking-tighter text-on-surface mb-6">System Health <span class="text-outline/40">Ritual</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Real-time monitoring of campus mobility infrastructure. Core propulsion arrays and neural pathway integrity are operating within optimal parameters.
+            </p>
+</section>
+<!-- Diagnostics Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Core Propulsion Card -->
+<div class="bg-surface-container-lowest rounded-[28px] p-card-padding border border-black/5 flex flex-col justify-between min-h-[400px] relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent pointer-events-none z-10"></div>
+<div class="flex justify-between items-start z-20">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bolt</span>
+                            Core Propulsion
+                        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Output efficiency across active fleet</p>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-display-lg text-primary block leading-none">98.4<span class="text-3xl">%</span></span>
+<span class="font-label-md text-label-md text-outline">OPTIMAL</span>
+</div>
+</div>
+<div class="mt-12 h-48 w-full relative z-20 flex items-end">
+<!-- Faux SVG Graph -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 400 150">
+<defs>
+<lineargradient id="gradientPropulsion" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#af101a" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#af101a" stop-opacity="0"></stop>
+</lineargradient>
+<filter height="140%" id="glow" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="4"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+</defs>
+<path d="M0,150 L0,100 Q40,120 80,90 T160,80 T240,110 T320,60 T400,40 L400,150 Z" fill="url(#gradientPropulsion)"></path>
+<path class="graph-line" d="M0,100 Q40,120 80,90 T160,80 T240,110 T320,60 T400,40" fill="none" filter="url(#glow)" stroke="#af101a" stroke-width="3"></path>
+</svg>
+</div>
+</div>
+<!-- Neural Network Card -->
+<div class="bg-surface-container-lowest rounded-[28px] p-card-padding border border-black/5 flex flex-col justify-between min-h-[400px] relative overflow-hidden group">
+<div class="flex justify-between items-start z-20">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-container">hub</span>
+                            Neural Network
+                        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Routing latency and sync integrity</p>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-display-lg text-tertiary-container block leading-none">12<span class="text-3xl text-outline">ms</span></span>
+<span class="font-label-md text-label-md text-outline">LATENCY</span>
+</div>
+</div>
+<div class="mt-12 h-48 w-full relative z-20 flex items-center justify-center gap-4">
+<!-- Faux Radar/Node Visualization -->
+<div class="relative w-32 h-32 flex items-center justify-center">
+<div class="absolute inset-0 border border-tertiary-container/30 rounded-full animate-ping" style="animation-duration: 3s;"></div>
+<div class="absolute inset-4 border border-tertiary-container/50 rounded-full animate-ping" style="animation-duration: 3s; animation-delay: 1s;"></div>
+<div class="absolute inset-8 border border-tertiary-container/70 rounded-full"></div>
+<div class="w-4 h-4 bg-tertiary-container rounded-full shadow-[0_0_15px_rgba(0,121,156,0.8)]"></div>
+<!-- Nodes -->
+<div class="absolute top-0 right-4 w-2 h-2 bg-tertiary-container rounded-full opacity-80"></div>
+<div class="absolute bottom-4 left-2 w-2 h-2 bg-tertiary-container rounded-full opacity-60"></div>
+<div class="absolute top-1/2 -right-2 w-2 h-2 bg-tertiary-container rounded-full opacity-90"></div>
+</div>
+</div>
+</div>
+<!-- Detailed Metrics Row -->
+<div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-black/5 flex flex-col gap-2">
+<span class="material-symbols-outlined text-outline">memory</span>
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Compute Load</span>
+<span class="font-headline-md text-headline-md text-on-surface">42%</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-black/5 flex flex-col gap-2">
+<span class="material-symbols-outlined text-outline">thermostat</span>
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Thermal Index</span>
+<span class="font-headline-md text-headline-md text-on-surface">Normal</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-black/5 flex flex-col gap-2">
+<span class="material-symbols-outlined text-outline">security</span>
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Security Posture</span>
+<span class="font-headline-md text-headline-md text-on-surface">Secure</span>
+</div>
+</div>
+<!-- Action Area -->
+<div class="lg:col-span-2 flex justify-center mt-12">
+<button class="pulse-glow bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest px-12 py-5 rounded-full hover:bg-primary-container transition-all duration-344 active:scale-95 flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sync</span>
+                    Initiate Deep System Sync
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only per Shell Logic for Top Level Destination) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/60 backdrop-blur-2xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] flex justify-around items-center h-20 pb-safe px-4 font-data-label text-data-label uppercase">
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">explore</span>
+            Explore
+        </a>
+<a class="flex flex-col items-center gap-1 text-secondary drop-shadow-[0_0_8px_rgba(255,185,95,0.5)]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+            Health
+        </a>
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+            Wallet
+        </a>
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+            Profile
+        </a>
+</nav>
+</body></html>

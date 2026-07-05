@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Curator - Maintenance Ritual</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#fc5d59",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#fff0ef",
+                        "on-secondary-fixed": "#410004",
+                        "surface-container-high": "#ffe2de",
+                        "outline": "#8f6f6c",
+                        "primary-container": "#d32f2f",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "tertiary": "#005f7b",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#271816",
+                        "inverse-on-surface": "#ffedeb",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface": "#fff8f7",
+                        "background": "#fff8f7",
+                        "surface-container-highest": "#f9dcd9",
+                        "on-background": "#271816",
+                        "outline-variant": "#e4beba",
+                        "on-primary-container": "#fff2f0",
+                        "on-surface-variant": "#5b403d",
+                        "secondary-fixed": "#ffdad7",
+                        "primary": "#af101a",
+                        "on-primary-fixed-variant": "#930010",
+                        "on-primary-fixed": "#410003",
+                        "inverse-surface": "#3e2c2a",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#b3272a",
+                        "surface-tint": "#ba1a20",
+                        "on-secondary-fixed-variant": "#910816",
+                        "surface-variant": "#f9dcd9",
+                        "primary-fixed": "#ffdad6",
+                        "surface-dim": "#f1d3d0",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "inverse-primary": "#ffb3ac",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fff8f7",
+                        "on-secondary-container": "#600009",
+                        "tertiary-container": "#00799c",
+                        "tertiary-fixed": "#bee9ff",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-tertiary-fixed": "#001f2a",
+                        "surface-container": "#ffe9e7",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-padding": "40px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "section-gap": "120px",
+                        "margin-desktop": "auto"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(228, 190, 186, 0.3); /* outline-variant */
+        }
+        .progress-bar-bg {
+            background-color: #f9dcd9; /* surface-variant */
+        }
+        .progress-bar-fill {
+            background-color: #af101a; /* primary */
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container relative">
+<!-- Background Shader -->
+<!-- STITCH_SHADER_START:ANIMATION_73 class="fixed inset-0 w-full h-full z-[-1] opacity-60" -->
+<div class="fixed inset-0 w-full h-full z-[-1] opacity-60" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_73" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_73');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+varying vec2 v_texCoord;
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 p = (uv - 0.5) * 2.0;
+    p.x *= u_resolution.x / u_resolution.y;
+    
+    float d = length(p);
+    float angle = atan(p.y, p.x);
+    
+    // Morphing flow
+    float flow = sin(d * 4.0 - u_time * 2.0) * 0.5 + 0.5;
+    float wave = sin(angle * 5.0 + u_time + d * 3.0) * 0.1;
+    
+    // Crimson aesthetic stops
+    vec3 color1 = vec3(0.827, 0.184, 0.184); // #d32f2f
+    vec3 color2 = vec3(0.961, 0.961, 0.969); // #f5f5f7
+    vec3 color3 = vec3(1.0, 1.0, 1.0);       // #ffffff
+    
+    float mask = smoothstep(0.4 + wave, 0.41 + wave, d);
+    float pulse = smoothstep(0.8, 0.0, d + wave * 2.0);
+    
+    vec3 finalColor = mix(color1, color2, flow);
+    finalColor = mix(finalColor, color3, pulse * 0.2);
+    
+    // Orbital rings
+    float ring = abs(sin(d * 25.0 - u_time * 3.0));
+    ring = smoothstep(0.05, 0.0, ring);
+    finalColor += color1 * ring * 0.3 * pulse;
+
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_73 -->
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl border-b border-outline-variant/30 bg-surface/80">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter h-20 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity duration-[0.344s] ease-in-out p-2 rounded-full hover:bg-surface-variant/50">
+<span class="material-symbols-outlined text-[24px]">signal_cellular_alt</span>
+</button>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2">
+<h1 class="font-headline-sm text-headline-sm text-primary md:font-headline-md md:text-headline-md tracking-tighter">NEXUS CURATOR</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity duration-[0.344s] ease-in-out p-2 rounded-full hover:bg-surface-variant/50">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-[120px] pb-[160px] md:pb-[120px] px-margin-mobile md:px-gutter max-w-[1440px] mx-auto min-h-screen flex flex-col justify-center">
+<div class="text-center mb-16 md:mb-24">
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-xl md:text-display-xl text-primary tracking-tighter mb-4">PRE-FLIGHT CHECK</h2>
+<p class="font-body-md text-body-md md:font-body-lg md:text-body-lg text-on-surface-variant max-w-2xl mx-auto">Initiate maintenance ritual to ensure optimal performance parameters before deployment.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-12 items-center">
+<!-- Left Panel: Status Indicators -->
+<div class="lg:col-span-3 space-y-8 order-2 lg:order-1">
+<!-- Propulsion -->
+<div class="glass-panel rounded-[28px] p-card-padding">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">rocket_launch</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Propulsion</h3>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">92%</span>
+</div>
+<div class="h-2 w-full progress-bar-bg rounded-full overflow-hidden">
+<div class="h-full progress-bar-fill rounded-full" style="width: 92%;"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 text-sm">Thrust vectors aligned. Plasma flow nominal.</p>
+</div>
+<!-- Atmosphere -->
+<div class="glass-panel rounded-[28px] p-card-padding">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">air</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Atmosphere</h3>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">98%</span>
+</div>
+<div class="h-2 w-full progress-bar-bg rounded-full overflow-hidden">
+<div class="h-full progress-bar-fill rounded-full" style="width: 98%;"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 text-sm">O2 scrubbers functioning. Pressure stable.</p>
+</div>
+</div>
+<!-- Center Panel: 3D Wireframe -->
+<div class="lg:col-span-6 h-[500px] lg:h-[700px] relative order-1 lg:order-2 flex items-center justify-center glass-panel rounded-[28px] overflow-hidden">
+<div class="absolute top-card-padding left-card-padding flex items-center gap-2 z-10 bg-white/50 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface text-xs uppercase tracking-widest">Scanning</span>
+</div>
+<!-- 3D Animation Placeholder -->
+<!-- STITCH_THREEJS_START:ANIMATION_74 class="absolute inset-0 w-full h-full mix-blend-multiply" -->
+<div class="absolute inset-0 w-full h-full mix-blend-multiply" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_74" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_74');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  (function() {
+  const container = document.getElementById('threejs-container-ANIMATION_N');
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || window.innerHeight;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(renderer.domElement);
+
+  // Group for the complex data node
+  const group = new THREE.Group();
+  scene.add(group);
+
+  // Central Core
+  const coreGeo = new THREE.IcosahedronGeometry(1, 2);
+  const coreMat = new THREE.MeshPhongMaterial({ 
+    color: 0xd32f2f, 
+    emissive: 0x440000,
+    wireframe: false,
+    flatShading: true
+  });
+  const core = new THREE.Mesh(coreGeo, coreMat);
+  group.add(core);
+
+  // Floating Data Rings
+  const ringGeo = new THREE.TorusGeometry(1.6, 0.02, 16, 100);
+  const ringMat = new THREE.MeshBasicMaterial({ color: 0xd32f2f, transparent: true, opacity: 0.4 });
+  
+  const ring1 = new THREE.Mesh(ringGeo, ringMat);
+  const ring2 = new THREE.Mesh(ringGeo, ringMat);
+  ring2.rotation.x = Math.PI / 2;
+  group.add(ring1);
+  group.add(ring2);
+
+  // Floating Particles
+  const pointsGeo = new THREE.BufferGeometry();
+  const pointsCoords = [];
+  for(let i = 0; i < 500; i++) {
+    pointsCoords.push((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10);
+  }
+  pointsGeo.setAttribute('position', new THREE.Float32BufferAttribute(pointsCoords, 3));
+  const pointsMat = new THREE.PointsMaterial({ color: 0xd32f2f, size: 0.05, transparent: true, opacity: 0.8 });
+  const particles = new THREE.Points(pointsGeo, pointsMat);
+  scene.add(particles);
+
+  const light = new THREE.PointLight(0xffffff, 1, 100);
+  light.position.set(5, 5, 5);
+  scene.add(light);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+
+  camera.position.z = 5;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    group.rotation.y += 0.005;
+    group.rotation.x += 0.002;
+    particles.rotation.y -= 0.001;
+    
+    const time = Date.now() * 0.001;
+    core.scale.setScalar(1 + Math.sin(time * 2) * 0.05);
+    
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  });
+
+  animate();
+})();
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_74 -->
+<!-- Overlay details for tech feel -->
+<div class="absolute bottom-card-padding right-card-padding text-right z-10">
+<p class="font-label-md text-label-md text-on-surface-variant text-xs opacity-70">UNIT ID: NX-8842</p>
+<p class="font-label-md text-label-md text-on-surface-variant text-xs opacity-70">DIAGNOSTIC CYCLE: ACTIVE</p>
+</div>
+</div>
+<!-- Right Panel: Structural & Action -->
+<div class="lg:col-span-3 space-y-8 order-3 lg:order-3">
+<!-- Structural Integrity -->
+<div class="glass-panel rounded-[28px] p-card-padding">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">security</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Integrity</h3>
+</div>
+<span class="font-label-md text-label-md text-error">78%</span>
+</div>
+<div class="h-2 w-full progress-bar-bg rounded-full overflow-hidden">
+<div class="h-full progress-bar-fill rounded-full bg-error" style="width: 78%;"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 text-sm">Minor micro-fractures detected on starboard hull. Maintenance required.</p>
+</div>
+<!-- Action Panel -->
+<div class="glass-panel rounded-[28px] p-card-padding flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-[48px] text-primary mb-6">build_circle</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Service Required</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 text-sm">Protocol Omega-7 recommended.</p>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md rounded-full py-4 px-6 hover:opacity-90 hover:scale-[0.98] transition-all duration-[0.344s] ease-in-out shadow-[0_8px_30px_rgb(175,16,26,0.2)]">
+                        Initiate Service
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[28px] backdrop-blur-xl border-t border-outline-variant/20 bg-white/80 md:hidden block">
+<div class="flex justify-around items-center h-24 pb-4 px-4 w-full max-w-[1440px] mx-auto">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform duration-[0.344s]">directions_car</span>
+<span class="font-label-md text-label-md text-[10px]">Active</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform duration-[0.344s]">payments</span>
+<span class="font-label-md text-label-md text-[10px]">Earnings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform duration-[0.344s]">calendar_today</span>
+<span class="font-label-md text-label-md text-[10px]">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold bg-secondary-container/20 rounded-full px-6 py-2 transition-transform duration-[0.344s] ease-in-out active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1" data-weight="fill">minor_crash</span>
+<span class="font-label-md text-label-md text-[10px]">Fleet</span>
+</a>
+</div>
+</nav>
+<script>
+        // Simple script to re-trigger progress bar animations on load for visual flair
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.progress-bar-fill');
+            bars.forEach(bar => {
+                const targetWidth = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = targetWidth;
+                }, 100);
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Masterpiece Car Selection</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#ffb3ac",
+                      "primary-fixed-dim": "#ffb3ac",
+                      "surface-container-low": "#fff0ef",
+                      "error-container": "#ffdad6",
+                      "surface-tint": "#ba1a20",
+                      "secondary-fixed": "#ffdad7",
+                      "on-surface-variant": "#5b403d",
+                      "on-secondary-fixed-variant": "#910816",
+                      "surface-container": "#ffe9e7",
+                      "surface-bright": "#fff8f7",
+                      "on-surface": "#271816",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#b3272a",
+                      "background": "#fff8f7",
+                      "on-secondary-container": "#600009",
+                      "tertiary-fixed-dim": "#7bd1f8",
+                      "surface-variant": "#f9dcd9",
+                      "primary-container": "#d32f2f",
+                      "on-tertiary-container": "#e9f7ff",
+                      "outline-variant": "#e4beba",
+                      "on-secondary-fixed": "#410004",
+                      "tertiary-fixed": "#bee9ff",
+                      "on-tertiary-fixed": "#001f2a",
+                      "outline": "#8f6f6c",
+                      "surface-container-highest": "#f9dcd9",
+                      "secondary-container": "#fc5d59",
+                      "on-primary-container": "#fff2f0",
+                      "primary-fixed": "#ffdad6",
+                      "inverse-surface": "#3e2c2a",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#ffedeb",
+                      "surface-dim": "#f1d3d0",
+                      "tertiary": "#005f7b",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#00799c",
+                      "on-error-container": "#93000a",
+                      "on-background": "#271816",
+                      "on-primary-fixed": "#410003",
+                      "on-tertiary-fixed-variant": "#004d65",
+                      "surface-container-high": "#ffe2de",
+                      "secondary-fixed-dim": "#ffb3ae",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#930010",
+                      "surface": "#fff8f7",
+                      "primary": "#af101a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "2xl": "28px"
+              },
+              "spacing": {
+                      "margin-desktop": "auto",
+                      "gutter": "24px",
+                      "margin-mobile": "20px",
+                      "section-gap": "120px",
+                      "card-padding": "40px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "display-xl": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-xl": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.015em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "17px",
+                              {
+                                      "lineHeight": "1.47",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "19px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.015em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog Base */
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Custom scrollbar to keep it clean */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        
+        .glass-overlay {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        .car-card-transition {
+            transition: all 0.344s ease-in-out;
+        }
+        
+        .car-card:active {
+            transform: scale(0.98);
+        }
+
+        /* Suppress BottomNavBar for this transactional flow */
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen flex flex-col relative pb-32">
+<!-- Top Navigation Anchor (Shared Component Hybrid) -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-6 py-4 max-w-[1440px] mx-auto left-1/2 -translate-x-1/2">
+<button class="text-primary dark:text-primary-fixed hover:opacity-70 transition-opacity duration-[0.344s] active:scale-95 ease-in-out">
+<span class="material-symbols-outlined font-display-lg" style="font-variation-settings: 'wght' 300;">arrow_back</span>
+</button>
+<div class="font-display-lg-mobile md:font-display-lg font-bold tracking-tighter text-primary dark:text-primary-fixed uppercase">
+            NEXUS
+        </div>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A sophisticated close-up portrait of a driver profile avatar in a high-end light mode aesthetic. Clean white background with subtle red accents. Professional and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXPgwqSgwaCmmr8PCMG4DeVqdiEzO4ajepB07z86UOXUSOkzrmYJ3y9u-RXXgnKlyGoG47Yj0tk8Rj0gJeIJ7cKS9IYXyOS0UTY7yj3wZ4B-6jmfIUfkaILsK3Kq0OeZhG20Gnvs5SgEWZ0T_4XmEId97EAa80lHdZ7XKe2_EVerdBrfAR0ThEYeWQmEjX7laKlg7FbLuCa0ysqMBs1EeUhK6c3n5YIY0oeLqBwthiQqqlRvGSWsvFKHcREbFmA7BwbHUtE96Zow"/>
+</div>
+</header>
+<main class="w-full max-w-[1440px] mx-margin-desktop px-margin-mobile md:px-gutter pt-28 flex flex-col gap-8 md:gap-section-gap">
+<!-- Hero Map Preview -->
+<section class="w-full relative h-[250px] md:h-[400px] rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm bg-surface">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80" data-alt="A hyper-minimalist, gallery-style 3D map rendering of a sophisticated urban grid in light mode. Pristine white fog background with delicate crimson red route lines indicating a high-end transport journey. High contrast, clean, editorial." data-location="New York City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0oLupWUVx62DiFWXH4aaRF8F-m50HdRhQmhTuZt9fr0hcrhyKaxHtdseq0vE0pS8bYuG0-wmOKSCvBlCoQBqSF0aqRfOB0qiSSEQI7ga7mC9QMmxetzdvf8bmztmLMqXvVq_J-UOr1z9GHxWQayV_llsicrlZ53gpWpKcL_32YXNYAldKrVmV1D66kRpvQkncAiete3iE4uO7cdR2xpnis42np66zryMdMsCaSyaNKZ-vatlXWqnf6LXSQjD_1MosDAPBH_Ql9g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
+<!-- Journey Summary Glass Pill -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 glass-overlay border border-outline-variant/20 rounded-full px-6 py-3 flex items-center gap-4">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">my_location</span>
+<span class="font-label-md text-label-md">Gallery 14</span>
+</div>
+<div class="w-8 border-t border-outline"></div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-surface text-[18px]">location_on</span>
+<span class="font-label-md text-label-md">The Standard</span>
+</div>
+<div class="ml-4 px-3 py-1 bg-surface-variant rounded-full text-on-surface font-label-md text-label-md">
+                     12 min
+                 </div>
+</div>
+</section>
+<!-- Category Toggle -->
+<section class="flex justify-center w-full">
+<div class="bg-surface border border-outline-variant/50 p-1 rounded-full flex gap-1 shadow-sm">
+<button class="px-8 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md car-card-transition">
+                    Solo
+                </button>
+<button class="px-8 py-2 rounded-full text-on-surface-variant hover:text-primary font-label-md text-label-md car-card-transition">
+                    Pool
+                </button>
+</div>
+</section>
+<!-- Vehicle Selection List -->
+<section class="flex flex-col gap-6 w-full max-w-3xl mx-auto">
+<!-- Option 1: Solo Compact -->
+<div class="relative w-full bg-white rounded-2xl border border-outline-variant/30 p-card-padding flex flex-col md:flex-row items-center gap-8 overflow-hidden car-card cursor-pointer group">
+<!-- Massive Background Typography -->
+<div class="absolute -top-10 -right-10 font-display-xl text-[180px] font-bold text-surface-variant/30 select-none pointer-events-none group-hover:text-surface-variant/50 transition-colors duration-[0.344s]">
+                    CMPT
+                </div>
+<div class="w-full md:w-1/2 relative z-10 flex justify-center">
+<img class="w-full max-w-[280px] drop-shadow-2xl object-contain group-hover:scale-105 car-card-transition" data-alt="A pristine studio render of a high-end compact car, like a premium Swift or Dzire. Side profile angle against a pure white background. Studio lighting, sharp reflections, minimal and elegant. Crimson accents subtly visible on rims." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjeiq7e9JYCtvJPAzmcYuzpXIvshCes-7uEWrZCumkF3P-wzuH4_vDwhHkbXUyJwGYk4tpubHMPynOkkBYnIfSZlEBw-19Ba1pR1dq3k-FYleJBp9cBg3O3xoyvNq6Vovs7HUQYDflWjoGv29ieSTmw_qdnVBtgpMHudLTs8A15sFYjRXxyTRyCOHnkIIEQIZ_Xxc3qf92N_E4NKLdiIt7Mc7j2VB8ypsY4u2chkzgZbLxCAki4wLDyivX_44UMJpC5EN4qd6ulA"/>
+</div>
+<div class="w-full md:w-1/2 relative z-10 flex flex-col items-start text-left">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Solo Compact</h3>
+<div class="flex items-center gap-1 text-on-surface-variant bg-surface-container px-2 py-1 rounded-full border border-outline-variant/20">
+<span class="material-symbols-outlined text-[14px]">person</span>
+<span class="font-label-md text-[12px]">4</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-outline mb-6">Efficient, swift, and strictly refined.</p>
+<div class="w-full flex items-end justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline">Est. Price</span>
+<span class="font-headline-md text-headline-md text-primary">$18.50</span>
+</div>
+<!-- Selection indicator -->
+<div class="w-6 h-6 rounded-full border border-outline group-hover:border-primary flex items-center justify-center car-card-transition">
+<div class="w-3 h-3 rounded-full bg-transparent group-hover:bg-primary car-card-transition"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Option 2: Solo Premium (Selected State Example) -->
+<div class="relative w-full bg-white rounded-2xl border-2 border-primary p-card-padding flex flex-col md:flex-row items-center gap-8 overflow-hidden car-card cursor-pointer group shadow-[0_0_0_4px_rgba(175,16,26,0.05)]">
+<!-- Massive Background Typography -->
+<div class="absolute -top-10 -right-10 font-display-xl text-[180px] font-bold text-primary/5 select-none pointer-events-none">
+                    PRM
+                </div>
+<!-- Badge -->
+<div class="absolute top-6 left-6 bg-[#EF5350] text-white px-3 py-1 rounded-full font-label-md text-[10px] uppercase tracking-wider z-20 shadow-sm">
+                    Recommended
+                </div>
+<div class="w-full md:w-1/2 relative z-10 flex justify-center">
+<img class="w-full max-w-[300px] drop-shadow-2xl object-contain scale-105 car-card-transition" data-alt="A luxurious studio render of a premium sedan car. Side profile angle against a pure white background. Flawless glossy finish, studio lighting highlighting the sleek silhouette. A sophisticated, expensive aesthetic with subtle crimson highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlllFTIIZlmcEQttCfmwhOsR2nz2VNx0k04HtnMdMYbcVIMVf84d8r4HsICi6LR6A2jVWoZc0jNhpzDQnW1LCk1aSozhuB13a9eF_Q1jK-ik6t2m1hl4t7hIBqj9U-KtLUq2fSXjknAyixqZlJRZQUSz1M-QNxl5tl-iybobHAo_xPOVdRNYTCiswlG7noYc2VCxGv-1DkXFR1pSWhpmRvmjHMz4bVGGBai-f-Lk7EpVMy2mxnPOt1C2jH-x01Nq6k4RB4OSQF6A"/>
+</div>
+<div class="w-full md:w-1/2 relative z-10 flex flex-col items-start text-left">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="font-headline-md text-headline-sm text-on-surface">Solo Premium</h3>
+<div class="flex items-center gap-1 text-primary bg-primary-fixed px-2 py-1 rounded-full border border-primary-fixed-dim">
+<span class="material-symbols-outlined text-[14px]">person</span>
+<span class="font-label-md text-[12px]">4</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-outline mb-6">The gallery standard. Uncompromising comfort.</p>
+<div class="w-full flex items-end justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline">Est. Price</span>
+<span class="font-headline-md text-headline-md text-primary">$24.00</span>
+</div>
+<!-- Active Selection indicator -->
+<div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Option 3: Solo XL -->
+<div class="relative w-full bg-white rounded-2xl border border-outline-variant/30 p-card-padding flex flex-col md:flex-row items-center gap-8 overflow-hidden car-card cursor-pointer group">
+<!-- Massive Background Typography -->
+<div class="absolute -top-10 -right-10 font-display-xl text-[180px] font-bold text-surface-variant/30 select-none pointer-events-none group-hover:text-surface-variant/50 transition-colors duration-[0.344s]">
+                    XL
+                </div>
+<div class="w-full md:w-1/2 relative z-10 flex justify-center">
+<img class="w-full max-w-[320px] drop-shadow-2xl object-contain group-hover:scale-105 car-card-transition" data-alt="A high-fidelity 3D render of a spacious, premium SUV (like an Ertiga or similar). Clean white studio backdrop. Imposing stance, deep black glossy finish, immaculate lighting emphasizing structural geometry. Premium luxury consumer electronics vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDalH1As4iIEo7BwjWjMs1vADd_CS-YcS7bHtQiDJ0Fw29UhZOOxikF5wl-KfhotiUHIKkliXSGgZfK73iP2EaE2rPu55ymaHtZ8nEpInakiWPGIV_h4_w5AjXa1OtuNe9Gyg2WoBkn-yYgBIrKKIGyZUH_Bm0QJ3PCQkABaSsaBtoYTXA4olsCSOXgfyjn4Qwlh7ydbUYH_ioO-Xolvj_Uid2uFqNid_07a2Z3dqGqMQc7yp6Li9c0akpVGmvR1kg0VD8t2fNieQ"/>
+</div>
+<div class="w-full md:w-1/2 relative z-10 flex flex-col items-start text-left">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Solo XL</h3>
+<div class="flex items-center gap-1 text-on-surface-variant bg-surface-container px-2 py-1 rounded-full border border-outline-variant/20">
+<span class="material-symbols-outlined text-[14px]">group</span>
+<span class="font-label-md text-[12px]">6</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-outline mb-6">Expansive space for larger groups or luggage.</p>
+<div class="w-full flex items-end justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline">Est. Price</span>
+<span class="font-headline-md text-headline-md text-primary">$32.00</span>
+</div>
+<div class="w-6 h-6 rounded-full border border-outline group-hover:border-primary flex items-center justify-center car-card-transition">
+<div class="w-3 h-3 rounded-full bg-transparent group-hover:bg-primary car-card-transition"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Bottom Action Area -->
+<div class="fixed bottom-0 left-0 w-full glass-overlay border-t border-outline-variant/30 p-6 flex justify-center items-center z-40 pb-safe pb-8">
+<button class="w-full max-w-md bg-[#ba1a20] hover:bg-primary text-white font-label-md text-label-md rounded-full py-4 px-8 uppercase tracking-widest car-card-transition shadow-lg shadow-primary/20 flex justify-center items-center gap-3">
+            Confirm Selection
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</body></html>

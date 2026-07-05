@@ -1,0 +1,9 @@
+variable "name_prefix" { type = string }
+variable "environment" { type = string }
+variable "common_tags" { type = map(string) }
+variable "vpc_id" { type = string }
+variable "database_subnet_ids" { type = list(string) }
+variable "sg_rds_id" { type = string }
+variable "instance_class" { type = string }
+variable "allocated_storage" { type = number }
+variable "max_allocated_storage" { type = number }

@@ -1,0 +1,36 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# NEXUS — Code Ownership
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Default owners for everything
+* @nexus/platform-team
+
+# Core infrastructure
+infrastructure/ @nexus/platform-team @nexus/devops
+.github/ @nexus/platform-team @nexus/devops
+
+# Shared packages — changes here affect ALL services
+packages/types/ @nexus/platform-team
+packages/utils/ @nexus/platform-team
+packages/database/ @nexus/platform-team
+packages/kafka/ @nexus/platform-team
+
+# Services
+services/auth/ @nexus/auth-team
+services/user/ @nexus/auth-team
+services/wallet/ @nexus/wallet-team
+services/bazaar/ @nexus/marketplace-team
+services/feast/ @nexus/marketplace-team
+services/swift/ @nexus/marketplace-team
+services/skills/ @nexus/marketplace-team
+services/rides/ @nexus/rides-team
+services/pulse/ @nexus/community-team
+services/trust/ @nexus/platform-team
+services/notifications/ @nexus/platform-team
+services/search/ @nexus/platform-team
+services/analytics/ @nexus/platform-team
+
+# Apps
+apps/mobile/ @nexus/mobile-team
+apps/web/ @nexus/web-team
+apps/admin/ @nexus/web-team

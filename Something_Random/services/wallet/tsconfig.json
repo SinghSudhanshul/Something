@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "noEmit": false,
+    "types": ["node"],
+    "paths": {
+      "@campusly/types": ["../../packages/types/src"],
+      "@campusly/database": ["../../packages/database/src"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+}

@@ -1,0 +1,88 @@
+# Campusly — The Campus Economy
+
+> One platform. Every need on campus.
+
+[![CI](https://github.com/campusly/campusly/actions/workflows/ci.yml/badge.svg)](https://github.com/campusly/campusly/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-UNLICENSED-blue)](LICENSE)
+
+Campusly is a trusted, closed-ecosystem super-app built for university campuses — where students buy, sell, earn, collaborate, eat, and connect, all within a verified student community.
+
+## 🚀 Core Modules
+
+| Module | Description |
+|--------|-------------|
+| **Marketplace** | Buy & sell second-hand goods with escrow protection |
+| **SkillHub** | Freelance services & collaboration |
+| **RunIt** | Errands & convenience tasks |
+| **CampusEats** | Food & beverage delivery |
+| **QuickGigs** | Micro-jobs & task board |
+| **CampusConnect** | Events, teams & community |
+| **CampusWallet** | Payments & financial layer |
+
+## 📚 Documentation
+
+- [PHASES.md](PHASES.md) — 100-week implementation roadmap
+- [CONTRIBUTING.md](CONTRIBUTING.md) — How to contribute
+- [docs/api/](docs/api/) — API documentation
+- [docs/architecture/](docs/architecture/) — Architecture docs
+
+## 🛠️ Development
+
+### Prerequisites
+
+- Node.js >= 20.0.0
+- Docker & Docker Compose
+- Git
+
+### Quick Start
+
+```bash
+# Clone and install
+git clone https://github.com/campusly/campusly.git
+cd campusly
+npm install
+
+# Start infrastructure (PostgreSQL, Redis, Kafka, etc.)
+npm run docker:up
+
+# Run development servers
+npm run dev
+```
+
+### Environment Setup
+
+```bash
+cp .env.example .env
+# Edit .env with your values
+```
+
+## 📁 Project Structure
+
+```
+campusly/
+├── apps/                    # Applications
+│   ├── mobile/              # React Native app
+│   ├── web/                 # Next.js web app
+│   └── admin/               # Admin dashboard
+├── services/                # Backend services
+│   ├── auth/                # Auth service
+│   ├── user/                # User service
+│   └── wallet/              # Wallet service
+├── packages/                # Shared packages
+│   ├── types/               # TypeScript types
+│   ├── database/            # DB schema types
+│   └── eslint-config/       # ESLint config
+├── infra/                   # Infrastructure
+│   ├── docker/              # Docker configs
+│   ├── terraform/           # AWS infrastructure
+│   └── k8s/                 # Kubernetes manifests
+└── docs/                    # Documentation
+```
+
+## 📖 See Also
+
+- [README.md](README.md) — Full business plan and technical blueprint
+
+## 📄 License
+
+UNLICENSED — All rights reserved.

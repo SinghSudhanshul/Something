@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEXUS - NETWORK EXPLORER</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#930010",
+                        "inverse-on-surface": "#ffedeb",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "outline-variant": "#e4beba",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#410003",
+                        "tertiary-fixed": "#bee9ff",
+                        "tertiary": "#005f7b",
+                        "on-secondary-container": "#600009",
+                        "primary-fixed": "#ffdad6",
+                        "on-surface": "#271816",
+                        "inverse-surface": "#3e2c2a",
+                        "error": "#ba1a1a",
+                        "secondary": "#b3272a",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#5b403d",
+                        "outline": "#8f6f6c",
+                        "secondary-container": "#fc5d59",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#ffb3ac",
+                        "surface-container-highest": "#f9dcd9",
+                        "surface-bright": "#fff8f7",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface": "#fff8f7",
+                        "surface-dim": "#f1d3d0",
+                        "background": "#fff8f7",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#ffe9e7",
+                        "on-tertiary-fixed": "#001f2a",
+                        "surface-variant": "#f9dcd9",
+                        "tertiary-container": "#00799c",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface-tint": "#ba1a20",
+                        "on-secondary-fixed-variant": "#910816",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-container-low": "#fff0ef",
+                        "on-secondary-fixed": "#410004",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ffe2de",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#d32f2f",
+                        "primary": "#af101a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#fff2f0",
+                        "on-background": "#271816"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "auto",
+                        "card-padding": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "body-lg": ["19px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-xl": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "body-md": ["17px", {"lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen relative overflow-hidden flex flex-col">
+<!-- TopAppBar (Hidden on Mobile) -->
+<header class="hidden md:flex justify-between items-center px-gutter h-20 w-full fixed top-0 z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-[20px] border-b border-outline-variant/30 transition-all duration-[0.344s] ease-in-out">
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant dark:text-outline hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95">
+<span class="material-symbols-outlined text-[24px]" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary dark:text-primary-fixed-dim">NEXUS</h1>
+</div>
+<!-- Web Navigation Cluster -->
+<nav class="flex gap-8">
+<a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors duration-[0.344s] ease-in-out font-label-md text-label-md flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+                Gallery
+            </a>
+<a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors duration-[0.344s] ease-in-out font-label-md text-label-md flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+                Book
+            </a>
+<a class="text-primary dark:text-primary-fixed-dim font-label-md text-label-md flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined fill">directions_car</span>
+                Rides
+            </a>
+<a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors duration-[0.344s] ease-in-out font-label-md text-label-md flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined">person</span>
+                Profile
+            </a>
+</nav>
+<button class="p-2 text-on-surface-variant dark:text-outline hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95">
+<span class="material-symbols-outlined text-[24px]" data-icon="account_circle">account_circle</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow relative mt-0 md:mt-20 h-[calc(100vh)] md:h-[calc(100vh-80px)] w-full">
+<!-- The Map (Background) -->
+<div class="absolute inset-0 z-0 bg-surface-variant">
+<!-- Simulated 3D Map Image -->
+<img class="w-full h-full object-cover opacity-90 mix-blend-multiply" data-alt="A highly detailed, modern 3D rendered map of an expansive university campus from a top-down isometric perspective. The scene is brightly lit with soft, high-key studio lighting creating a gallery-like minimalist aesthetic. Buildings are pristine white geometric blocks, set against a very pale grey fog background. Subtle red heatmap overlays indicate vehicle density." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4HPcgsR5XoEmetURpvZ6ve_S7obK7A7wITWAe1Q55T1YjkzDhe3boWxK8XHadOXoELDr6QUfAIxn9X9CiqmsyGPogtDTdT12vJMWN_-GEGkN2SEzpFHUS4cUzkSwOddhGyiXu_QJplu7QI0xx-s6HJPTNhQeWI0PQZ5s_IR_4pbziLIDw2qOYMItCgQXlnOolycmrkkTn29ZCp7b-EIbgOUtnO9UmwQ_LiZMY6YuPHovvag_LrYGtLMF7bURTIaZ3sNgS2JKh-A"/>
+<!-- Map Overlay Gradient for depth -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+</div>
+<!-- Floating UI Layer -->
+<div class="absolute inset-0 z-10 pointer-events-none p-margin-mobile md:p-gutter flex flex-col">
+<!-- Floating Search Bar (Top) -->
+<div class="pointer-events-auto w-full max-w-2xl mx-auto mt-4 md:mt-8 flex gap-4 items-center bg-surface/90 backdrop-blur-[24px] border border-outline-variant/30 rounded-full px-6 py-4 shadow-sm transition-all duration-[0.344s] focus-within:border-primary">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-body-lg text-body-lg text-on-surface placeholder-on-surface-variant/50 outline-none" placeholder="Search campus hubs..." type="text"/>
+<button class="bg-primary text-on-primary rounded-full px-6 py-2 font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors duration-[0.344s] ease-in-out">
+                    Locate
+                </button>
+</div>
+<div class="pointer-events-auto mt-6 text-center">
+<h2 class="font-headline-sm text-headline-sm tracking-tight text-on-surface drop-shadow-sm">NETWORK EXPLORER</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Live Fleet Availability</p>
+</div>
+<!-- Map Pins (Simulated Absolute Positioning) -->
+<!-- Solo Compact Cluster -->
+<div class="pointer-events-auto absolute top-1/3 left-1/4 group cursor-pointer hover:z-20 transition-all duration-[0.344s] ease-in-out">
+<div class="relative flex flex-col items-center">
+<div class="absolute -inset-4 bg-secondary-container/20 rounded-full blur-xl scale-150 animate-pulse"></div>
+<div class="bg-surface border border-outline-variant/50 rounded-2xl p-2 shadow-sm mb-2 group-hover:-translate-y-2 transition-transform duration-[0.344s]">
+<img class="w-16 h-12 object-contain" data-alt="A clean, minimalist 3D render of a small, sleek single-passenger electric autonomous vehicle. The vehicle is pure white with a glossy finish and a subtle dark red trim line. It sits on a bright, seamless studio background, exemplifying high-end industrial design and modern urban mobility solutions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgsZLqHg3a37rN90Zn28qFKkcuBoI0r_uC6yICIyTprm-sN0dWG1oDHCPli_jBJaXDPWpqIBGE0j5cFGYwoAVRHqSiVer2v_umZBIdKM5xxLj1tRcv_Q3zGfU9HbOVBMXsBSywL6ENeIMT3zfa3Gxes8-NrzbB94M4EaiTjQz_DCgn2p-pF8fTqwBlNNcnIfMi4ETSYUTXl9zhCGFlIHW-iQS_WnUz34-oRsxXUK9-pa5-vknUHgACRgkeSnDNFxOFGenJUIbHCQ"/>
+</div>
+<div class="bg-secondary text-on-secondary font-label-md text-label-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">electric_car</span>
+                        8
+                    </div>
+</div>
+</div>
+<!-- Solo Premium -->
+<div class="pointer-events-auto absolute top-1/2 right-1/3 group cursor-pointer hover:z-20 transition-all duration-[0.344s] ease-in-out">
+<div class="relative flex flex-col items-center">
+<div class="absolute -inset-4 bg-primary/20 rounded-full blur-xl scale-150 animate-pulse delay-150"></div>
+<div class="bg-surface border border-outline-variant/50 rounded-2xl p-2 shadow-sm mb-2 group-hover:-translate-y-2 transition-transform duration-[0.344s]">
+<img class="w-20 h-14 object-contain" data-alt="A luxurious, minimalist 3D render of a premium autonomous pod vehicle. The exterior is a matte dark metallic color with sharp, geometric lines and a wide glass canopy. It is presented on a pristine white background with soft, directional gallery lighting highlighting its elegant, expensive industrial design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyDc2MMSSMiHsOU_DQMTy3rM9iFlNeYAdessRrwq8voObbfmfr4g8fAIP_j0xfsHR3rn8P-6Vk7lry5O94IWdCnHYE0hKKhBLxRjM10PtW8LULhcvMjrjN2LGCtf_AgV3nLJLJOI8qg93IWTPnXopwH_0F6GzkobVlfcXZP7cwIdPDAyX9oFHUPXrODIHVNgflx42J0Mmy0RhoDenvsHBtUn88tt1tu0c5lQXHlsHNRp5Bqgck2ghpc6HIzzby1PgFXZW8HOjuQQ"/>
+</div>
+<div class="bg-primary text-on-primary font-label-md text-label-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">stars</span>
+                        2
+                    </div>
+</div>
+</div>
+<!-- Status Cards (Bottom Left Desktop / Bottom Mobile above Nav) -->
+<div class="mt-auto pointer-events-auto w-full max-w-sm mb-24 md:mb-8 grid gap-4">
+<div class="bg-surface border border-outline-variant/20 rounded-[28px] p-[24px] md:p-card-padding">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6">Fleet Status</h3>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="font-body-lg text-body-lg text-on-surface">Solo Compact</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">42 Available</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1 mb-6">
+<div class="bg-secondary h-1 rounded-full" style="width: 75%"></div>
+</div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="font-body-lg text-body-lg text-on-surface">Solo Premium</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">12 Available</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1 mb-6">
+<div class="bg-primary h-1 rounded-full" style="width: 30%"></div>
+</div>
+<button class="w-full bg-primary text-on-primary rounded-full py-4 font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors duration-[0.344s] ease-in-out">
+                        Summon Nearest
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-md flex justify-around items-center p-2 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-[24px] border border-outline-variant/20 rounded-full z-50 transition-all duration-[0.344s] ease-in-out active:scale-90">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform" data-icon="grid_view">grid_view</span>
+<span class="font-label-md text-label-md mt-1 text-[10px]">Gallery</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-md text-label-md mt-1 text-[10px]">Book</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container rounded-full px-6 py-2 group" href="#">
+<span class="material-symbols-outlined text-[24px] fill" data-icon="directions_car" data-weight="fill">directions_car</span>
+<span class="font-label-md text-label-md mt-1 text-[10px]">Rides</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out group" href="#">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform" data-icon="person">person</span>
+<span class="font-label-md text-label-md mt-1 text-[10px]">Profile</span>
+</a>
+</nav>
+</body></html>

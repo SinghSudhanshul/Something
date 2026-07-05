@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
+    </style>
+</head>
+<body>
+    <div class="fixed inset-0 w-full h-full" style="display:block;">
+        <canvas id="shader-canvas" style="display:block;width:100%;height:100%"></canvas>
+        <script>
+            (function() {
+                const canvas = document.getElementById('shader-canvas');
+                function syncSize() {
+                    const w = canvas.clientWidth || 1280;
+                    const h = canvas.clientHeight || 720;
+                    if (canvas.width !== w || canvas.height !== h) {
+                        canvas.width = w;
+                        canvas.height = h;
+                    }
+                }
+                if (typeof ResizeObserver !== 'undefined') {
+                    new ResizeObserver(syncSize).observe(canvas);
+                }
+                syncSize();
+
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                if (!gl) return;
+                const vs = `attribute vec2 a_position;
+                varying vec2 v_texCoord;
+                void main() {
+                  v_texCoord = a_position * 0.5 + 0.5;
+                  gl_Position = vec4(a_position, 0.0, 1.0);
+                }`;
+                const fs = `precision highp float;
+                uniform float u_time;
+                uniform vec2 u_resolution;
+                varying vec2 v_texCoord;
+                void main() {
+                    vec2 uv = v_texCoord;
+                    vec2 p = (uv - 0.5) * 2.0;
+                    p.x *= u_resolution.x / u_resolution.y;
+                    float d = length(p);
+                    float flow = sin(d * 8.0 - u_time * 1.5) * 0.5 + 0.5;
+                    vec3 color1 = vec3(0.827, 0.184, 0.184); // #d32f2f
+                    vec3 color2 = vec3(0.945, 0.945, 0.945); // #f1f1f1
+                    float mask = smoothstep(0.4, 0.41, d + sin(u_time) * 0.05);
+                    vec3 finalColor = mix(color1, color2, flow * (1.0 - mask));
+                    gl_FragColor = vec4(finalColor, 1.0);
+                }`;
+                function cs(type, src) {
+                    const s = gl.createShader(type);
+                    gl.shaderSource(s, src);
+                    gl.compileShader(s);
+                    return s;
+                }
+                const prog = gl.createProgram();
+                gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+                gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+                gl.linkProgram(prog);
+                gl.useProgram(prog);
+                const buf = gl.createBuffer();
+                gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+                gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+                const pos = gl.getAttribLocation(prog, 'a_position');
+                gl.enableVertexAttribArray(pos);
+                gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+                const uTime = gl.getUniformLocation(prog, 'u_time');
+                const uRes = gl.getUniformLocation(prog, 'u_resolution');
+
+                function render(t) {
+                    gl.viewport(0, 0, canvas.width, canvas.height);
+                    if (uTime) gl.uniform1f(uTime, t * 0.001);
+                    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+                    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                    requestAnimationFrame(render);
+                }
+                render(0);
+            })();
+        </script>
+    </div>
+</body>
+</html>

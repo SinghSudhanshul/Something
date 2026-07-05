@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus | Curator Performance Gallery (Masterpiece)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#f9dcd9",
+                        "surface-tint": "#ba1a20",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#fff0ef",
+                        "outline": "#8f6f6c",
+                        "on-secondary-container": "#600009",
+                        "primary-fixed": "#ffdad6",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "tertiary-fixed": "#bee9ff",
+                        "secondary": "#b3272a",
+                        "inverse-surface": "#3e2c2a",
+                        "on-primary-container": "#fff2f0",
+                        "inverse-on-surface": "#ffedeb",
+                        "surface-container-high": "#ffe2de",
+                        "on-tertiary-container": "#e9f7ff",
+                        "on-primary-fixed": "#410003",
+                        "inverse-primary": "#ffb3ac",
+                        "on-surface-variant": "#5b403d",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#f9dcd9",
+                        "tertiary": "#005f7b",
+                        "tertiary-container": "#00799c",
+                        "on-surface": "#271816",
+                        "primary": "#af101a",
+                        "on-tertiary-fixed": "#001f2a",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#f1d3d0",
+                        "on-background": "#271816",
+                        "surface-container": "#ffe9e7",
+                        "surface-bright": "#fff8f7",
+                        "background": "#fff8f7",
+                        "on-secondary-fixed": "#410004",
+                        "secondary-fixed": "#ffdad7",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "primary-container": "#d32f2f",
+                        "secondary-container": "#fc5d59",
+                        "outline-variant": "#e4beba",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fff8f7",
+                        "on-primary-fixed-variant": "#930010"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "card-padding": "40px",
+                        "margin-desktop": "auto",
+                        "section-gap": "120px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "display-lg-mobile": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "headline-sm": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #F5F5F7; }
+        .glass-overlay { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .fill-icon { font-variation-settings: 'FILL' 1; }
+        
+        .hover-elevate { transition: transform 0.344s ease-in-out, opacity 0.344s ease-in-out; }
+        .hover-elevate:hover { transform: translateY(-4px); }
+        
+        .card-radius { border-radius: 28px; }
+        .pill-radius { border-radius: 9999px; }
+        
+        /* Subtle entrance animation */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased min-h-screen flex flex-col pb-safe">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface-container-highest/80 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-[0.344s] ease-in-out">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter h-16 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity duration-[0.344s]">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30 shrink-0">
+<img alt="Driver Profile Portrait" class="w-full h-full object-cover" data-alt="A cinematic, high-fashion portrait of a professional driver. The lighting is dramatic and precise, highlighting their focused expression against a minimalist studio background. The mood is authoritative and premium, utilizing deep shadows and soft highlights to create depth. The color palette features rich skin tones, subtle crimson accents, and a cool white balance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAckqeg-KxShcH8Zook505tr7T4CLdwpnKmXhy2plbIPQwTrfeMsmnldz1VwshUpHnoDoJN1ZD_1cSH-4htm9TkZeXzqkpKH7C6PPVgx7eKn3cNKPq0WUtCImAEQ29eOLFN9Ott9MOGtXuqrSslSi1v8ZSRbWO3EB3AUFeUOReQ9I1d1_jPNADLwjejoCyn1j7HTMss3r69PJ8-Fr_7OQvBszjUPkiZrDlF14QyRwA_rb12RROABmJz3KGOiXNqGCNzmGFyUcan3w"/>
+</div>
+<span class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary dark:text-primary-fixed truncate">Nexus</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant dark:text-on-secondary-fixed-variant hover:opacity-80 transition-opacity duration-[0.344s]">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 px-margin-mobile md:px-gutter max-w-[1440px] mx-auto w-full flex flex-col gap-section-gap pb-32">
+<!-- Hero Title -->
+<section class="animate-fade-up text-center mt-12 mb-8">
+<h1 class="font-display-xl text-display-xl text-on-surface tracking-tighter mb-4">Masterpiece</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">An editorial view of your performance metrics. You are currently defining the standard of excellence.</p>
+</section>
+<!-- KPI Gallery (Bento Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-up delay-100">
+<!-- Customer Satisfaction -->
+<div class="bg-surface border border-outline-variant/30 card-radius p-card-padding flex flex-col hover-elevate h-[320px] justify-between relative overflow-hidden group">
+<div class="absolute inset-0 opacity-0 group-hover:opacity-5 bg-primary transition-opacity duration-[0.344s]"></div>
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="material-symbols-outlined text-primary fill-icon text-[32px]">star</span>
+<div class="bg-secondary-container text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md">Elite</div>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Customer Satisfaction</h2>
+</div>
+<div>
+<p class="font-display-xl text-display-xl text-primary tracking-tighter">4.98</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 border-t border-outline-variant/30 pt-4">Based on 1,204 lifetime trips.</p>
+</div>
+</div>
+<!-- Efficiency Rating -->
+<div class="bg-surface border border-outline-variant/30 card-radius p-card-padding flex flex-col hover-elevate h-[320px] justify-between relative overflow-hidden group">
+<div class="absolute inset-0 opacity-0 group-hover:opacity-5 bg-primary transition-opacity duration-[0.344s]"></div>
+<div>
+<span class="material-symbols-outlined text-on-surface text-[32px] mb-4">speed</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Efficiency Rating</h2>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<p class="font-display-lg text-display-lg text-on-surface tracking-tighter">94</p>
+<span class="font-body-lg text-body-lg text-on-surface-variant">%</span>
+</div>
+<div class="w-full h-1 bg-surface-variant rounded-full mt-4 overflow-hidden">
+<div class="h-full bg-on-surface w-[94%] rounded-full"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4">Top 5% of fleet average.</p>
+</div>
+</div>
+<!-- Safety Score -->
+<div class="bg-primary border border-primary-container card-radius p-card-padding flex flex-col hover-elevate h-[320px] justify-between text-on-primary">
+<div>
+<span class="material-symbols-outlined text-on-primary fill-icon text-[32px] mb-4">verified_user</span>
+<h2 class="font-headline-md text-headline-md">Safety Score</h2>
+</div>
+<div>
+<p class="font-display-xl text-display-xl tracking-tighter">100</p>
+<p class="font-body-md text-body-md text-on-primary/80 mt-2 border-t border-on-primary/20 pt-4">Zero reported incidents in 24 months.</p>
+</div>
+</div>
+</section>
+<!-- Gallery of Reviews -->
+<section class="animate-fade-up delay-200">
+<div class="flex justify-between items-end mb-12">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-on-surface">Gallery of Reviews</h2>
+<button class="hidden md:flex items-center gap-2 font-label-md text-label-md text-primary hover:opacity-80 transition-opacity duration-[0.344s]">
+                    View Archive <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Review 1 -->
+<div class="relative group">
+<div class="w-full h-[400px] card-radius overflow-hidden border border-outline-variant/30">
+<img alt="Passenger Portrait" class="w-full h-full object-cover transition-transform duration-[0.8s] group-hover:scale-105" data-alt="A cinematic portrait of a sophisticated passenger sitting in the back of a luxury vehicle. Soft, diffused lighting coming from the window highlights their content expression. The aesthetic is high-end editorial, utilizing a clean, pristine white and subtle crimson color palette to convey elegance and premium service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPTMq9KIUnkq5En9WXXNSs3289JvHpKBb82qA7kV2Z6CC_VOzciYC2MdSRJp0AjMxuth2P7prao7VyAXDFyMimoK_kgLH1dfUr18k8li87SBkrNnIxJKTF7KtEKpsA0jn7qeyA-xpFx0jU_ZfYpebbC6OVWOdite9g6RtzyAoznx1OulszdF2QTS_VLRFKx4UQUrnm3eE7nXsgxgusqhKM55JlpctmGscpkOi7v2AX-ddcrpbuyrLjOByL_N3H0uAk3TDNuqqbjg"/>
+</div>
+<div class="absolute bottom-6 left-6 right-6 bg-white/80 dark:bg-surface-container-highest/80 glass-overlay p-6 card-radius border border-outline-variant/30 hover-elevate">
+<div class="flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-primary fill-icon text-[18px]">star</span>
+<span class="material-symbols-outlined text-primary fill-icon text-[18px]">star</span>
+<span class="material-symbols-outlined text-primary fill-icon text-[18px]">star</span>
+<span class="material-symbols-outlined text-primary fill-icon text-[18px]">star</span>
+<span class="material-symbols-outlined text-primary fill-icon text-[18px]">star</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface italic">"An absolutely flawless experience. The vehicle was pristine and the driving was exceptionally smooth. True professional."</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-4 uppercase tracking-widest">— E. Caldwell, Executive</p>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="relative group md:mt-16">
+<div class="w-full h-[400px] card-radius overflow-hidden border border-outline-variant/30">
+<img alt="Passenger Portrait" class="w-full h-full object-cover transition-transform duration-[0.8s] group-hover:scale-105" data-alt="A close-up cinematic portrait of a discerning passenger looking thoughtfully out the window of a moving car at night. Cinematic city lights blur in the background. The mood is calm and reflective. The lighting is contrasty, with deep shadows and sharp, precise highlights, embodying a luxury, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnqrKjoL7nLB5_g4uz_HvnSFpQa1dUreJ0T9lxfGeMYcZDb5X3B1tOnJOXMtA21DV5qEPGSCCx19CAVSkuVMzxmE5ZlGxF7l5hjUGknL3Bl7g4scwg_cZv1ZYSfkZ2h8GhybPypRZNfDUgMM9NDKUN8_JrrevhZ18BFW-0oODpBidsBQZBOw2f-1PJGx3ZcVm5cHYUbMQKr6gVEeNcHNDbbQKrC99QAUwiGQT1UPTJPlg93bvgxJtxUaKEofG5fMoct-Eq9IRnKQ"/>
+</div>
+<div class="absolute bottom-6 left-6 right-6 bg-white/80 dark:bg-surface-container-highest/80 glass-overlay p-6 card-radius border border-outline-variant/30 hover-elevate">
+<div class="flex items-center gap-1 mb-2">
+<span class="material-symbols-outlined text-primary fill-icon text-[18px]">star</span>
+<span class="material-symbols-outlined text-primary fill-icon text-[18px]">star</span>
+<span class="material-symbols-outlined text-primary fill-icon text-[18px]">star</span>
+<span class="material-symbols-outlined text-primary fill-icon text-[18px]">star</span>
+<span class="material-symbols-outlined text-primary fill-icon text-[18px]">star</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface italic">"Impeccable timing and unmatched courtesy. It's rare to find this level of dedication to service."</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-4 uppercase tracking-widest">— M. Sterling</p>
+</div>
+</div>
+</div>
+<button class="md:hidden mt-8 w-full flex items-center justify-center gap-2 font-label-md text-label-md text-primary py-4 border border-outline-variant/30 card-radius hover:bg-surface-variant/50 transition-colors">
+                View Archive <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 md:hidden bg-white/80 dark:bg-surface-container-highest/80 backdrop-blur-md border-t border-outline-variant/30 flex justify-around items-center h-20 pb-safe px-4">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] Active: scale-95 transition-transform duration-[0.344s] ease-in-out w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1">speed</span>
+<span class="font-label-md text-label-md text-[10px]">Shift</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] Active: scale-95 transition-transform duration-[0.344s] ease-in-out w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1">priority_high</span>
+<span class="font-label-md text-label-md text-[10px]">Requests</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] Active: scale-95 transition-transform duration-[0.344s] ease-in-out w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-label-md text-label-md text-[10px]">Navigate</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:text-primary transition-colors duration-[0.344s] Active: scale-95 transition-transform duration-[0.344s] ease-in-out w-16 h-full" href="#">
+<span class="material-symbols-outlined fill-icon mb-1">leaderboard</span>
+<span class="font-label-md text-label-md text-[10px]">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] Active: scale-95 transition-transform duration-[0.344s] ease-in-out w-16 h-full" href="#">
+<span class="material-symbols-outlined mb-1">local_shipping</span>
+<span class="font-label-md text-label-md text-[10px]">Fleet</span>
+</a>
+</nav>
+</body></html>

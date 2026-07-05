@@ -1,0 +1,10 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# NEXUS — Kubernetes Manifests (Year 2 Scaffold)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nexus
+  labels:
+    app.kubernetes.io/name: nexus
+    app.kubernetes.io/part-of: nexus-platform

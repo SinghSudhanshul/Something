@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curator Training Rituals</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#fff0ef",
+                        "primary": "#af101a",
+                        "tertiary": "#005f7b",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-secondary-container": "#600009",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#5b403d",
+                        "on-primary-fixed": "#410003",
+                        "primary-fixed": "#ffdad6",
+                        "tertiary-container": "#00799c",
+                        "inverse-on-surface": "#ffedeb",
+                        "surface-bright": "#fff8f7",
+                        "secondary-fixed": "#ffdad7",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "error": "#ba1a1a",
+                        "surface": "#fff8f7",
+                        "outline-variant": "#e4beba",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#d32f2f",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface-dim": "#f1d3d0",
+                        "surface-container-highest": "#f9dcd9",
+                        "secondary": "#b3272a",
+                        "on-background": "#271816",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#bee9ff",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "on-tertiary-fixed": "#001f2a",
+                        "inverse-primary": "#ffb3ac",
+                        "surface-tint": "#ba1a20",
+                        "on-primary-fixed-variant": "#930010",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#3e2c2a",
+                        "surface-variant": "#f9dcd9",
+                        "on-secondary-fixed": "#410004",
+                        "background": "#fff8f7",
+                        "outline": "#8f6f6c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ffe2de",
+                        "surface-container": "#ffe9e7",
+                        "secondary-container": "#fc5d59",
+                        "on-surface": "#271816",
+                        "on-primary-container": "#fff2f0",
+                        "on-tertiary-fixed-variant": "#004d65"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "card": "28px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "auto",
+                        "base": "8px",
+                        "card-padding": "40px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog canvas */
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar to match aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5F5F7; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e4beba; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #af101a; 
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen pb-safe">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface-container-highest/80 backdrop-blur-[24px] border-b border-outline-variant/30 transition-all duration-[0.344s] ease-in-out">
+<div class="flex justify-between items-center px-margin-mobile md:px-8 h-16 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity duration-[0.344s]">
+<img alt="Driver Profile Portrait" class="w-10 h-10 rounded-full object-cover border border-outline-variant/30" data-alt="A striking minimalist profile portrait of a professional driver, shot in high-key lighting against a pristine white background. The subject wears an immaculately tailored dark uniform with subtle red accents. The aesthetic is extremely clean, high-end, and editorial, resembling a luxury magazine editorial shot. Focus is incredibly sharp, capturing an expression of quiet confidence and authoritative calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoxpIlczT2bLhL4Z4Ne342WK9oeZgGLS7kD2Bwlu1SKqK9UbC1wLy5-_iYXZ3OSgtCLy1EFMH5hB8Ok58kSQo-VQTviX6SMT5iTnQxd001JIENMgkVvgUwIM9Mu3RxuMaJ1OkGVVYPPIjDQSgxJufrU2vWPFwZpBAFIC_scNcipxsPwQ90GtfCZILqv2PO8Y4QcB9XyKP_unQ5YBX1rzUs-Znuk6TGLbylFaGYf_GJMNOZvSNHRrNhUbXPo7wu_OjnMdEtjxSGuA"/>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary dark:text-primary-fixed">Nexus</h1>
+<div class="flex items-center cursor-pointer hover:opacity-80 transition-opacity duration-[0.344s]">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed text-2xl">notifications</span>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-24 pb-32 md:pb-16 max-w-[1440px] mx-margin-desktop px-margin-mobile md:px-8">
+<!-- Hero Section -->
+<section class="mt-8 mb-section-gap flex flex-col items-center text-center">
+<div class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-secondary-container/10 border border-secondary-container/20 mb-8">
+<span class="font-label-md text-label-md text-secondary-container">Curator Status: Novice</span>
+</div>
+<h2 class="font-display-xl text-display-xl text-on-surface mb-6 max-w-4xl">Master the Art of Movement</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Elevate your precision and psychological understanding to achieve Elite Curator status.</p>
+</section>
+<!-- Progress Track (Bento Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap">
+<!-- XP / Level Card -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-[28px] p-card-padding border border-outline-variant/30 flex flex-col justify-between min-h-[400px] relative overflow-hidden group">
+<!-- Decorative background element -->
+<div class="absolute -right-20 -top-20 w-96 h-96 bg-primary-container/5 rounded-full blur-3xl group-hover:bg-primary-container/10 transition-colors duration-[0.344s]"></div>
+<div class="relative z-10">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Ascension Track</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Progress to Master Curator</p>
+</div>
+<div class="relative z-10 flex flex-col md:flex-row items-end justify-between gap-8 mt-12">
+<div>
+<span class="font-display-xl text-[120px] leading-none tracking-tighter text-on-surface font-bold">8,450</span>
+<span class="font-headline-sm text-headline-sm text-primary ml-2">XP</span>
+</div>
+<div class="w-full md:w-1/2">
+<div class="flex justify-between font-label-md text-label-md text-on-surface-variant mb-4">
+<span>Current: Novice</span>
+<span>Next: Elite (10k)</span>
+</div>
+<div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 84.5%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Training Hours -->
+<div class="md:col-span-4 bg-primary text-on-primary rounded-[28px] p-card-padding flex flex-col justify-between min-h-[400px]">
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2 opacity-90">Immersion Time</h3>
+<p class="font-body-md text-body-md opacity-80">Total focused training</p>
+</div>
+<div class="mt-auto">
+<div class="flex items-baseline gap-2">
+<span class="font-display-xl text-[80px] leading-none tracking-tighter font-bold">142</span>
+<span class="font-headline-sm text-headline-sm opacity-80">hrs</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Modules -->
+<section class="mb-section-gap">
+<div class="flex justify-between items-end mb-12">
+<h3 class="font-display-lg text-display-lg text-on-surface">Ritual Modules</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Precision Maneuvering -->
+<div class="bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 overflow-hidden group cursor-pointer hover:border-outline transition-colors duration-[0.344s] flex flex-col">
+<div class="h-64 w-full relative overflow-hidden bg-surface-container-highest">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-[0.344s] ease-in-out opacity-80 mix-blend-multiply" data-alt="A striking minimalist architectural photograph showing the sleek interior of a high-end electric vehicle transitioning smoothly through an immaculate, ultra-modern tunnel. The scene is illuminated by dramatic, high-contrast lighting with deep shadows and pristine white highlights, accented by intense, razor-thin crimson red light streaks indicating speed and precision. The aesthetic is highly polished, cinematic, and evokes a sense of flawless technological control." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkwobLqh_TuZcjv-IFChY38maPparAPN3TF_jILGMYI53-BokVq2Y-lDDLlPi0BmifsycjS5EvXXZjx6_EceO3K3A283W65ksaCubjeQ4NS0jWsJie6depaQlCo1EdO851xrfzKm2yn53c59IqF-UYY5WcxLI2_DIidfZQeiusdjtx5ZesBo_iEjEVUppwZdqqXowvR658vUbK9hvtKBhyKwcCoGe95Q357AyPfe293VVaUU_iiaOnxbLaMiKEm11cpSabLjWltg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="absolute bottom-6 left-8 bg-surface-container-lowest/80 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/30">
+<span class="font-label-md text-label-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">verified</span> Required
+                            </span>
+</div>
+</div>
+<div class="p-card-padding flex-grow flex flex-col">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4">Precision Maneuvering</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 flex-grow">Master spatial awareness and exact positioning in high-stakes environments. Focus on micro-adjustments.</p>
+<div class="flex items-center gap-6 mt-auto pt-6 border-t border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">schedule</span>
+<span class="font-label-md text-label-md text-on-surface-variant">45 Min</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">military_tech</span>
+<span class="font-label-md text-label-md text-on-surface-variant">+500 XP</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Customer Psychology -->
+<div class="bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 overflow-hidden group cursor-pointer hover:border-outline transition-colors duration-[0.344s] flex flex-col">
+<div class="h-64 w-full relative overflow-hidden bg-surface-container-highest">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-[0.344s] ease-in-out opacity-80 mix-blend-multiply" data-alt="An abstract, highly conceptual macro photograph depicting the intricate interplay of human connection and psychology. It features smooth, pristine white geometric surfaces intersecting in a clean, gallery-like space, with soft, diffused high-key lighting. Subtle, elegant deep red and dark grey elements provide stark contrast. The mood is intellectual, serene, and sophisticated, completely avoiding cliché corporate imagery in favor of high-end art gallery minimalism." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAnshE7wmAmnG4oWMRsMPpb5TTjI3o8X0tBV6w5--0uGXzZZF4e8N75YqeNGZSGnItvdNAFTfTxv4DaaPWw1MxQZGnUC7Q17EOuT6zN7b6od5n3oWqacDJkyUts0rk_FC2Grfh8P6BfA0giJFI47Hze2ToIzWumPq6wOAE9INGhWytubMOboceRbmISuapLHAqrEsHMBqktvU5pwPt7l49uk0awYxLcijYZUWPFjdf9SZsUhrqNXPvfh58T3KuXvaFi60DgLNZL3g')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+<div class="p-card-padding flex-grow flex flex-col">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4">Customer Psychology</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 flex-grow">Anticipate needs before they are voiced. Learn to read subtle cues and curate the perfect atmospheric experience.</p>
+<div class="flex items-center gap-6 mt-auto pt-6 border-t border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">schedule</span>
+<span class="font-label-md text-label-md text-on-surface-variant">60 Min</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">military_tech</span>
+<span class="font-label-md text-label-md text-on-surface-variant">+750 XP</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="flex justify-center mb-section-gap">
+<button class="bg-primary text-on-primary font-headline-sm text-headline-sm px-16 py-6 rounded-full hover:bg-on-secondary-fixed-variant transition-colors duration-[0.344s] ease-in-out flex items-center gap-4 group">
+                Start Ritual
+                <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform duration-[0.344s]">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<!-- Assuming "Shift" is the active tab based on intent (driver's main view) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-white/80 dark:bg-surface-container-highest/80 backdrop-blur-md transition-all duration-[0.344s] ease-in-out">
+<div class="flex justify-around items-center h-20 pb-safe px-4">
+<!-- Active: Shift -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold scale-95 transition-transform duration-[0.344s] ease-in-out" href="#">
+<span class="material-symbols-outlined filled mb-1">speed</span>
+<span class="font-label-md text-[12px] leading-tight">Shift</span>
+</a>
+<!-- Inactive: Requests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s]" href="#">
+<span class="material-symbols-outlined mb-1">priority_high</span>
+<span class="font-label-md text-[12px] leading-tight font-normal">Requests</span>
+</a>
+<!-- Inactive: Navigate -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s]" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-label-md text-[12px] leading-tight font-normal">Navigate</span>
+</a>
+<!-- Inactive: Analytics -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s]" href="#">
+<span class="material-symbols-outlined mb-1">leaderboard</span>
+<span class="font-label-md text-[12px] leading-tight font-normal">Analytics</span>
+</a>
+<!-- Inactive: Fleet -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s]" href="#">
+<span class="material-symbols-outlined mb-1">local_shipping</span>
+<span class="font-label-md text-[12px] leading-tight font-normal">Fleet</span>
+</a>
+</div>
+</nav>
+</body></html>

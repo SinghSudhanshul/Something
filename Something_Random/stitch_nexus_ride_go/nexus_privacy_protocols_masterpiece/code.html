@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus | Privacy Protocols</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config defined by Brand Style Guidance -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "background": "#fff8f7",
+                        "surface-bright": "#fff8f7",
+                        "primary-fixed": "#ffdad6",
+                        "surface-dim": "#f1d3d0",
+                        "tertiary-container": "#00799c",
+                        "surface-container-highest": "#f9dcd9",
+                        "outline": "#8f6f6c",
+                        "primary": "#af101a",
+                        "inverse-surface": "#3e2c2a",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-background": "#271816",
+                        "inverse-primary": "#ffb3ac",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#bee9ff",
+                        "on-primary-fixed": "#410003",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#e4beba",
+                        "surface-container-high": "#ffe2de",
+                        "surface-tint": "#ba1a20",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#fff2f0",
+                        "on-surface-variant": "#5b403d",
+                        "surface-container": "#ffe9e7",
+                        "secondary-fixed": "#ffdad7",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "on-surface": "#271816",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "primary-container": "#d32f2f",
+                        "secondary": "#b3272a",
+                        "on-secondary-fixed": "#410004",
+                        "surface-variant": "#f9dcd9",
+                        "on-tertiary-container": "#e9f7ff",
+                        "on-primary-fixed-variant": "#930010",
+                        "inverse-on-surface": "#ffedeb",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "tertiary": "#005f7b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-secondary-container": "#600009",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface": "#fff8f7",
+                        "surface-container-low": "#fff0ef",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "secondary-container": "#fc5d59"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "card-padding": "40px",
+                        "section-gap": "120px",
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "auto",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-sm": ["Inter", "sans-serif"],
+                        "display-xl": ["Inter", "sans-serif"],
+                        "display-lg-mobile": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"]
+                    },
+                    fontSize: {
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }]
+                    },
+                    transitionDuration: {
+                        'premium': '344ms',
+                    },
+                    transitionTimingFunction: {
+                        'premium-ease': 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom styles for precise control */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .architectural-grid {
+            background-image: 
+                linear-gradient(to right, rgba(143, 111, 108, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(143, 111, 108, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Premium Toggle Switch Styling */
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: theme('colors.primary');
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg min-h-screen flex flex-col architectural-grid antialiased">
+<!-- TopAppBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)] flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 transition-all duration-300">
+<div class="flex items-center gap-4 cursor-pointer active:scale-95 transition-all duration-300 hover:opacity-80">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 0;">rocket_launch</span>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary bg-clip-text hidden md:block" style="font-size: 32px; line-height: 1;">NEXUS</span>
+</div>
+<!-- Navigation Suppressed intentionally for focused sub-page layout, keeping only trailing action -->
+<div class="flex items-center">
+<button class="bg-primary text-on-primary rounded-full px-6 py-2 font-label-md text-label-md hover:bg-secondary transition-all duration-premium ease-premium-ease">
+                Get Started
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-section-gap px-margin-mobile md:px-8 max-w-[1440px] mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-[80px] max-w-3xl">
+<h1 class="font-display-xl text-display-lg-mobile md:text-display-xl text-on-background mb-6 tracking-tighter">
+                Privacy Protocols
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Control the flow of your digital footprint across the Nexus ecosystem. Adjust parameters to balance personalization with absolute architectural anonymity.
+            </p>
+</section>
+<!-- Bento Grid: Privacy Toggles -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Protocol Card 1: Location History -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 rounded-[28px] p-card-padding flex flex-col justify-between group hover:border-primary/20 transition-colors duration-premium ease-premium-ease relative overflow-hidden glass-panel">
+<div class="flex justify-between items-start z-10 relative">
+<div class="pr-8">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">location_on</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-3">Location History</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Chronicles your physical coordinates to optimize routing algorithms and spatial awareness logic. Data is continuously encrypted at rest.
+                        </p>
+</div>
+<!-- Toggle Switch -->
+<div class="relative inline-block w-14 align-middle select-none transition duration-200 ease-in mt-2 flex-shrink-0">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-surface-container-lowest border-2 border-outline-variant appearance-none cursor-pointer z-10 transition-transform duration-premium ease-premium-ease checked:translate-x-full checked:border-primary opacity-0 peer" id="toggle-location" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-8 rounded-full bg-surface-variant cursor-pointer transition-colors duration-premium ease-premium-ease peer-checked:bg-primary" for="toggle-location">
+<span class="toggle-dot absolute top-1 left-1 bg-surface-container-lowest w-6 h-6 rounded-full transition-transform duration-premium ease-premium-ease shadow-sm"></span>
+</label>
+</div>
+</div>
+</article>
+<!-- Protocol Card 2: Biometric Lock -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 rounded-[28px] p-card-padding flex flex-col justify-between group hover:border-primary/20 transition-colors duration-premium ease-premium-ease relative overflow-hidden glass-panel">
+<div class="flex justify-between items-start z-10 relative">
+<div class="pr-8">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">fingerprint</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-3">Biometric Lock</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Requires neural-link or standard localized fingerprint verification before accessing high-risk transactional nodes or secure zones.
+                        </p>
+</div>
+<!-- Toggle Switch -->
+<div class="relative inline-block w-14 align-middle select-none transition duration-200 ease-in mt-2 flex-shrink-0">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-surface-container-lowest border-2 border-outline-variant appearance-none cursor-pointer z-10 transition-transform duration-premium ease-premium-ease checked:translate-x-full checked:border-primary opacity-0 peer" id="toggle-biometric" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-8 rounded-full bg-surface-variant cursor-pointer transition-colors duration-premium ease-premium-ease peer-checked:bg-primary" for="toggle-biometric">
+<span class="toggle-dot absolute top-1 left-1 bg-surface-container-lowest w-6 h-6 rounded-full transition-transform duration-premium ease-premium-ease shadow-sm"></span>
+</label>
+</div>
+</div>
+</article>
+<!-- Protocol Card 3: Marketing Analytics -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 rounded-[28px] p-card-padding flex flex-col justify-between group hover:border-primary/20 transition-colors duration-premium ease-premium-ease relative overflow-hidden glass-panel">
+<div class="flex justify-between items-start z-10 relative">
+<div class="pr-8">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">monitoring</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-3">Marketing Analytics</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Aggregates anonymized, high-level usage patterns to refine the Nexus ecosystem. Disabling this protocol reduces personalized discovery.
+                        </p>
+</div>
+<!-- Toggle Switch -->
+<div class="relative inline-block w-14 align-middle select-none transition duration-200 ease-in mt-2 flex-shrink-0">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-surface-container-lowest border-2 border-outline-variant appearance-none cursor-pointer z-10 transition-transform duration-premium ease-premium-ease checked:translate-x-full checked:border-primary opacity-0 peer" id="toggle-marketing" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-8 rounded-full bg-surface-variant cursor-pointer transition-colors duration-premium ease-premium-ease peer-checked:bg-primary" for="toggle-marketing">
+<span class="toggle-dot absolute top-1 left-1 bg-surface-container-lowest w-6 h-6 rounded-full transition-transform duration-premium ease-premium-ease shadow-sm"></span>
+</label>
+</div>
+</div>
+</article>
+<!-- Protocol Card 4: Third-Party Sharing -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 rounded-[28px] p-card-padding flex flex-col justify-between group hover:border-primary/20 transition-colors duration-premium ease-premium-ease relative overflow-hidden glass-panel">
+<div class="flex justify-between items-start z-10 relative">
+<div class="pr-8">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">share</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-3">Third-Party Sharing</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Permits vetted external partners and auxiliary services to access isolated, non-critical datasets for seamless cross-platform functionality.
+                        </p>
+</div>
+<!-- Toggle Switch -->
+<div class="relative inline-block w-14 align-middle select-none transition duration-200 ease-in mt-2 flex-shrink-0">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-surface-container-lowest border-2 border-outline-variant appearance-none cursor-pointer z-10 transition-transform duration-premium ease-premium-ease checked:translate-x-full checked:border-primary opacity-0 peer" id="toggle-thirdparty" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-8 rounded-full bg-surface-variant cursor-pointer transition-colors duration-premium ease-premium-ease peer-checked:bg-primary" for="toggle-thirdparty">
+<span class="toggle-dot absolute top-1 left-1 bg-surface-container-lowest w-6 h-6 rounded-full transition-transform duration-premium ease-premium-ease shadow-sm"></span>
+</label>
+</div>
+</div>
+</article>
+</div>
+<!-- Danger Zone Action -->
+<div class="mt-[80px] pt-[40px] border-t border-outline-variant/30">
+<button class="flex items-center gap-2 text-primary font-label-md text-label-md hover:opacity-80 transition-opacity duration-premium ease-premium-ease">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">delete_forever</span>
+                Purge All Local Data
+            </button>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-lowest w-full py-8 mt-auto border-t border-primary/30 flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-4">
+<p class="font-data-label text-data-label text-outline uppercase tracking-wider text-sm">
+            © 2024 NEXUS MOBILITY. AEROSPACE GRADE PRECISION.
+        </p>
+<nav class="flex gap-6">
+<a class="font-data-label text-data-label text-primary underline hover:text-secondary transition-opacity duration-200 uppercase text-sm" href="#">Privacy</a>
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200 uppercase text-sm" href="#">Terms</a>
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200 uppercase text-sm" href="#">Safety</a>
+</nav>
+</footer>
+</body></html>

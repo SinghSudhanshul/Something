@@ -1,0 +1,34 @@
+FROM node:20.14.0-alpine AS base
+RUN apk add --no-cache dumb-init curl
+RUN corepack enable && corepack prepare pnpm@9.1.2 --activate
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+FROM base AS deps
+WORKDIR /app
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY turbo.json tsconfig.base.json ./
+# Use build cache for pnpm store
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch
+
+FROM deps AS build-deps
+WORKDIR /app
+COPY . .
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --offline --frozen-lockfile
+
+FROM build-deps AS builder
+WORKDIR /app
+ARG SERVICE_NAME
+RUN pnpm --filter @nexus/${SERVICE_NAME}... build
+RUN pnpm deploy --filter @nexus/${SERVICE_NAME} --prod /prod/service
+
+FROM base AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 nextjs
+COPY --from=builder --chown=nextjs:nodejs /prod/service ./
+USER nextjs
+EXPOSE 3000
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["node", "dist/index.js"]

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Curator - Diagnostic Scanner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#fff0ef",
+                    "outline": "#8f6f6c",
+                    "on-secondary-container": "#600009",
+                    "surface-tint": "#ba1a20",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#f9dcd9",
+                    "primary-fixed-dim": "#ffb3ac",
+                    "tertiary-fixed": "#bee9ff",
+                    "secondary": "#b3272a",
+                    "inverse-surface": "#3e2c2a",
+                    "primary-fixed": "#ffdad6",
+                    "surface-container-high": "#ffe2de",
+                    "on-tertiary-container": "#e9f7ff",
+                    "on-primary-fixed": "#410003",
+                    "inverse-primary": "#ffb3ac",
+                    "inverse-on-surface": "#ffedeb",
+                    "on-primary-container": "#fff2f0",
+                    "tertiary": "#005f7b",
+                    "surface-container-highest": "#f9dcd9",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#5b403d",
+                    "on-secondary-fixed-variant": "#910816",
+                    "primary": "#af101a",
+                    "on-tertiary-fixed": "#001f2a",
+                    "tertiary-container": "#00799c",
+                    "on-surface": "#271816",
+                    "surface-dim": "#f1d3d0",
+                    "on-background": "#271816",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#ffb3ae",
+                    "on-secondary-fixed": "#410004",
+                    "secondary-fixed": "#ffdad7",
+                    "on-tertiary-fixed-variant": "#004d65",
+                    "surface-container": "#ffe9e7",
+                    "surface-bright": "#fff8f7",
+                    "background": "#fff8f7",
+                    "surface": "#fff8f7",
+                    "on-primary-fixed-variant": "#930010",
+                    "secondary-container": "#fc5d59",
+                    "outline-variant": "#e4beba",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#7bd1f8",
+                    "primary-container": "#d32f2f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "margin-desktop": "auto",
+                    "margin-mobile": "20px",
+                    "card-padding": "40px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-xl": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                    "body-md": ["17px", {"lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                    "display-xl": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                    "body-lg": ["19px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog canvas override for gallery feel */
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased min-h-screen relative selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl border-b border-outline-variant/30 bg-white/80 flex justify-between items-center px-gutter h-16 transition-all duration-344 hover:opacity-80">
+<div class="flex items-center gap-4 cursor-pointer scale-95 hover:scale-100 transition-all duration-344 ease-in-out">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">signal_cellular_alt</span>
+</div>
+<h1 class="font-headline-sm text-headline-sm font-bold tracking-tighter text-primary">CURATOR OPS</h1>
+<!-- Desktop Navigation Cluster (Hidden on Mobile) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-344" href="#">Shift</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-344" href="#">Requests</a>
+<a class="text-primary font-bold font-label-md text-label-md border-b-2 border-primary pb-1" href="#">Fleet</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-344" href="#">Analytics</a>
+</nav>
+<div class="flex items-center gap-4 cursor-pointer scale-95 hover:scale-100 transition-all duration-344 ease-in-out">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">battery_charging_full</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-40 px-gutter max-w-[1440px] mx-auto flex flex-col gap-section-gap">
+<!-- Header & Action Section -->
+<section class="flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
+<div class="space-y-4">
+<span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/30 text-primary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-secondary-container mr-2 animate-pulse"></span>
+                    Diagnostic Mode Active
+                </span>
+<h2 class="font-display-lg md:font-display-xl text-display-lg-mobile md:text-display-xl text-on-surface tracking-tighter">System Scanner</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Initiate a comprehensive sub-routine analysis. The primary core is currently stabilized, but atmospheric sensors indicate minor kinetic fluctuations in the lower propulsion housing.
+                </p>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-10 py-5 rounded-full flex items-center gap-3 transition-all duration-344 ease-in-out hover:bg-secondary hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined">radar</span>
+                RUN DEEP SCAN
+            </button>
+</section>
+<!-- Cinematic Visual Section -->
+<section class="w-full relative rounded-xl overflow-hidden bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center p-2 group">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-lowest/50 z-10 pointer-events-none"></div>
+<img alt="Cinematic wireframe diagnostic rendering of vehicle" class="w-full h-auto max-h-[70vh] object-cover rounded-lg transition-transform duration-[10s] ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBucV65M31WauMIl28xTU74P5utTk3e3E6RGUGrF-QUebx-3-gdVj02gXPawFXqr6NhxHHzKWCyVI92bBfFmvw1GG2_Yov_FXIaY-ft-DmXWKhcUybehCc6m34brFEHnt-YjUeWKbfWGE2feLursTKlQL6sXGzFggDt4WaUDOGysH74J3IyT7LG4VYRbLB9ULwNj3Rc3gdNvAneLG3xiKKOeQgu39lBKqJD_EJSLtF3S8RnYRQsNPlBsOH_aDzayCvA7OHDAkPGzA"/>
+<!-- Overlay Scanning UI Element -->
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-secondary-container/80 z-20 shadow-[0_0_20px_#fc5d59] opacity-50 animate-[scan_4s_ease-in-out_infinite]"></div>
+</section>
+<!-- Telemetry Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Telemetry Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-card-padding border border-outline-variant/30 flex flex-col justify-between transition-all duration-344 hover:shadow-[0_10px_40px_-10px_rgba(175,16,26,0.1)]">
+<div class="flex items-start justify-between mb-8">
+<span class="material-symbols-outlined text-primary text-[32px]">rocket_launch</span>
+<span class="font-headline-sm text-headline-sm text-primary">98%</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-widest">Core Status</h3>
+<p class="font-headline-md text-headline-md text-on-surface leading-tight">Propulsion Integrity</p>
+</div>
+</div>
+<!-- Telemetry Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-card-padding border border-outline-variant/30 flex flex-col justify-between transition-all duration-344 hover:shadow-[0_10px_40px_-10px_rgba(175,16,26,0.1)]">
+<div class="flex items-start justify-between mb-8">
+<span class="material-symbols-outlined text-primary text-[32px]">air</span>
+<span class="font-headline-sm text-headline-sm text-secondary-container">96%</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-widest">Environment</h3>
+<p class="font-headline-md text-headline-md text-on-surface leading-tight">Atmospheric Balance</p>
+</div>
+</div>
+<!-- Telemetry Card 3 -->
+<div class="bg-primary rounded-xl p-card-padding flex flex-col justify-between transition-all duration-344 hover:shadow-[0_10px_40px_-10px_rgba(175,16,26,0.3)] relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/10 to-transparent pointer-events-none"></div>
+<div class="flex items-start justify-between mb-8 relative z-10">
+<span class="material-symbols-outlined text-on-primary text-[32px]">sync_alt</span>
+<span class="material-symbols-outlined text-on-primary text-[24px]">check_circle</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-label-md text-label-md text-on-primary/80 mb-2 uppercase tracking-widest">Alignment</h3>
+<p class="font-headline-md text-headline-md text-on-primary leading-tight">Kinetic Vectors Aligned</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 rounded-t-xl backdrop-blur-xl border-t border-outline-variant/30 bg-white/80 flex justify-around items-center py-4 px-2 md:hidden transition-transform duration-344">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-344 scale-95 hover:scale-100 ease-in-out group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:bg-surface-variant rounded-full p-1 transition-colors">timer</span>
+<span class="font-label-md text-label-md">Shift</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-344 scale-95 hover:scale-100 ease-in-out group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:bg-surface-variant rounded-full p-1 transition-colors">move_to_inbox</span>
+<span class="font-label-md text-label-md">Requests</span>
+</a>
+<!-- Active Tab: Fleet -->
+<a class="flex flex-col items-center justify-center text-primary font-bold transition-all duration-344 scale-100 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1 bg-surface-variant rounded-full p-1" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+<span class="font-label-md text-label-md">Fleet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-344 scale-95 hover:scale-100 ease-in-out group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:bg-surface-variant rounded-full p-1 transition-colors">insights</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+</nav>
+<style>
+        @keyframes scan {
+            0% { top: 10%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 90%; opacity: 0; }
+        }
+    </style>
+</body></html>

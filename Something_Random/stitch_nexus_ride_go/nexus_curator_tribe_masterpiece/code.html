@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus | Curator Tribe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#ffe9e7",
+                      "tertiary-container": "#00799c",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "background": "#fff8f7",
+                      "on-primary-fixed": "#410003",
+                      "surface-variant": "#f9dcd9",
+                      "on-secondary-fixed-variant": "#910816",
+                      "on-tertiary-container": "#e9f7ff",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#f1d3d0",
+                      "primary-fixed-dim": "#ffb3ac",
+                      "on-secondary-fixed": "#410004",
+                      "on-tertiary-fixed-variant": "#004d65",
+                      "inverse-primary": "#ffb3ac",
+                      "error-container": "#ffdad6",
+                      "outline": "#8f6f6c",
+                      "on-surface-variant": "#5b403d",
+                      "on-tertiary-fixed": "#001f2a",
+                      "tertiary-fixed": "#bee9ff",
+                      "tertiary": "#005f7b",
+                      "on-primary-container": "#fff2f0",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "primary-container": "#d32f2f",
+                      "on-secondary-container": "#600009",
+                      "on-primary-fixed-variant": "#930010",
+                      "tertiary-fixed-dim": "#7bd1f8",
+                      "surface": "#fff8f7",
+                      "secondary-fixed-dim": "#ffb3ae",
+                      "outline-variant": "#e4beba",
+                      "surface-container-high": "#ffe2de",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#ba1a20",
+                      "on-surface": "#271816",
+                      "inverse-surface": "#3e2c2a",
+                      "secondary-container": "#fc5d59",
+                      "inverse-on-surface": "#ffedeb",
+                      "on-background": "#271816",
+                      "surface-container-highest": "#f9dcd9",
+                      "secondary-fixed": "#ffdad7",
+                      "error": "#ba1a1a",
+                      "primary-fixed": "#ffdad6",
+                      "surface-container-low": "#fff0ef",
+                      "secondary": "#b3272a",
+                      "primary": "#af101a",
+                      "surface-bright": "#fff8f7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "margin-desktop": "auto",
+                      "card-padding": "40px",
+                      "section-gap": "120px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-xl": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "17px",
+                              {
+                                      "lineHeight": "1.47",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "19px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.015em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.015em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-xl": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background antialiased pb-24 md:pb-0 pt-20">
+<!-- Top Navigation (Hidden on Mobile) -->
+<header class="hidden md:flex bg-surface/80 dark:bg-surface/80 backdrop-blur-[24px] border-b border-outline-variant fixed top-0 w-full z-50 justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-2xl cursor-pointer">signal_cellular_alt</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">Crimson Gallery</span>
+</div>
+<nav class="flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] ease-in-out flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined text-2xl">schedule</span>
+                Shift
+            </a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] ease-in-out flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined text-2xl">hail</span>
+                Requests
+            </a>
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary font-bold hover:text-primary transition-colors duration-[0.344s] ease-in-out flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined text-2xl">groups</span>
+                Tribe
+            </a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] ease-in-out flex flex-col items-center gap-1" href="#">
+<span class="material-symbols-outlined text-2xl">payments</span>
+                Earnings
+            </a>
+</nav>
+<div>
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-3xl cursor-pointer hover:text-primary transition-colors duration-[0.344s] ease-in-out">account_circle</span>
+</div>
+</header>
+<!-- Mobile Top Header (Minimal) -->
+<header class="md:hidden bg-surface/80 dark:bg-surface/80 backdrop-blur-[24px] border-b border-outline-variant fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile py-4">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-2xl">signal_cellular_alt</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-inverse-primary">Crimson Gallery</span>
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-2xl">account_circle</span>
+</header>
+<main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Hero Section -->
+<section class="mt-8 mb-section-gap relative rounded-[28px] overflow-hidden min-h-[500px] md:min-h-[600px] flex items-end p-8 md:p-16 border border-outline-variant bg-surface-container-lowest">
+<!-- Animation Background -->
+<div class="absolute inset-0 z-0">
+<!-- STITCH_THREEJS_START:ANIMATION_89 class="absolute inset-0 w-full h-full opacity-60" -->
+<div class="absolute inset-0 w-full h-full opacity-60" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_89" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_89');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  (function() {
+  const container = document.getElementById('threejs-container-ANIMATION_N');
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || window.innerHeight;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(renderer.domElement);
+
+  const group = new THREE.Group();
+  scene.add(group);
+
+  // Geometric "Tribe" Node
+  const geometry = new THREE.IcosahedronGeometry(1.2, 1);
+  const material = new THREE.MeshPhongMaterial({ 
+    color: 0xd32f2f, 
+    wireframe: true,
+    transparent: true,
+    opacity: 0.6
+  });
+  
+  for(let i = 0; i < 3; i++) {
+    const mesh = new THREE.Mesh(geometry, material);
+    mesh.rotation.x = Math.random() * Math.PI;
+    mesh.rotation.y = Math.random() * Math.PI;
+    mesh.scale.setScalar(0.8 + i * 0.2);
+    group.add(mesh);
+  }
+
+  const light = new THREE.PointLight(0xffffff, 1, 100);
+  light.position.set(5, 5, 5);
+  scene.add(light);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+
+  camera.position.z = 5;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    group.rotation.y += 0.005;
+    group.children.forEach((child, i) => {
+        child.rotation.z += 0.002 * (i + 1);
+    });
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  });
+
+  animate();
+})();
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_89 -->
+</div>
+<div class="relative z-10 w-full flex flex-col md:flex-row justify-between items-end gap-6">
+<div class="max-w-2xl">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">TRIBE</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your collaborative elite network.</p>
+</div>
+<div class="flex gap-4 flex-wrap">
+<button class="bg-primary hover:bg-secondary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full transition-all duration-[0.344s] ease-in-out flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-lg">chat</span>
+                        Global Chat
+                    </button>
+<button class="bg-surface-container hover:bg-surface-variant text-on-background border border-outline-variant font-label-md text-label-md px-8 py-4 rounded-full transition-all duration-[0.344s] ease-in-out flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">leaderboard</span>
+                        Leaderboard
+                    </button>
+</div>
+</div>
+</section>
+<!-- Tribe Members Section -->
+<section class="mb-section-gap">
+<div class="flex justify-between items-center mb-12">
+<h2 class="font-headline-md text-headline-md text-on-background">Archon Co-Riders</h2>
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full font-label-md text-label-md">12 Online</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Member Card 1 -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-[24px] border border-outline-variant rounded-[28px] p-card-padding flex flex-col gap-6 hover:border-primary/30 transition-colors duration-[0.344s] ease-in-out group">
+<div class="flex justify-between items-start">
+<div class="w-20 h-20 rounded-full overflow-hidden border-2 border-surface-container">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of an elegant driver named Julian Vance. High-end editorial photography style, soft gallery lighting, clean pure white background with subtle red accents in their attire. The mood is confident and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZvjaHMRlwdDRcIIK6_PyMsS_9pdJ5Uue31LRpL-LfYVbNu7K_OonB40cm_qWhysfmrMr73lB0j04kxiVe5qPEuqZLGGu3-XmCF0SLM5qiT7qeglo5xSouwPXDBpjR6q8KemPSPlfONRbWJm_peN88iPnzr9x_prl5ps-VwMYBZHza_crLY1lUEvPHc11esTdGkh3BSWmaQCLjmtELl6QLvgUhcd1B2O8KeOkJt_QXoUQc51x5RLbVc2KZw_Z8sruuAX6VFW8GfQ"/>
+</div>
+<span class="bg-primary-container/20 text-primary-container px-3 py-1 rounded-full font-label-md text-[12px] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-container inline-block"></span>
+                            Active
+                        </span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-background mb-1">Julian Vance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Elite Class Driver</p>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">star</span>
+                            4.99 Rating
+                        </span>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-[0.344s] ease-in-out">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+<!-- Member Card 2 -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-[24px] border border-outline-variant rounded-[28px] p-card-padding flex flex-col gap-6 hover:border-primary/30 transition-colors duration-[0.344s] ease-in-out group">
+<div class="flex justify-between items-start">
+<div class="w-20 h-20 rounded-full overflow-hidden border-2 border-surface-container">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of an elegant driver named Elara Vance. High-end editorial photography style, soft gallery lighting, clean pure white background with subtle red accents in their attire. The mood is calm and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4nMu5_26I3MMVR6nVqcRqzp3FEK0NjYJSKzrAQ79WHLC1cZdtIOqRljCKr49_a_fBg7txnCdI7ERkDH06yvppyFQQAiNTOGeRWPFc7LqS-UqUM_coh2jfyAK-c7MDSt7XPocMNy8JSzrivmQ5o4LME8x7KTJZIf8wdQpBh5f3dJ_ybXWAgm6C4lj5KQGUOMB7sRQrvWYV09mGFbLgYm-8HX7BwIyHBfGWcbyGWoct4RX8IaqozVlrsLISpMvOsReUlN7V7DHvGQ"/>
+</div>
+<span class="bg-tertiary-container/20 text-tertiary-container px-3 py-1 rounded-full font-label-md text-[12px] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary-container inline-block"></span>
+                            On Shift
+                        </span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-background mb-1">Elara Vance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Curator Class Driver</p>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">star</span>
+                            5.00 Rating
+                        </span>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-[0.344s] ease-in-out">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+<!-- Member Card 3 -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-[24px] border border-outline-variant rounded-[28px] p-card-padding flex flex-col gap-6 hover:border-primary/30 transition-colors duration-[0.344s] ease-in-out group">
+<div class="flex justify-between items-start">
+<div class="w-20 h-20 rounded-full overflow-hidden border-2 border-surface-container">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a distinguished driver named Marcus Thorne. High-end editorial photography style, soft gallery lighting, clean pure white background with subtle red accents in their attire. The mood is experienced and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmKmjzhGgg4nbWrhUwjyVqYt-vYP_3qq-V2LJa56NyisuY-iaL9_QUCPSNeg0-9QMXqv2kztqcKFIz5_oKzMjAFnehXHRpL40Rb13vdRsGtsCHE2TBOftv6WrcAVxKNqE-sqhu0Tuw3c25-fmoWNcqRcyVnOdVLAsHius1g-h2eGwTAflzhy8Ex_ecuk1-FZ07Pw4tRBkZTi_Ekj7H_YUqHtnHUWCtdnFgRvP8656tPv1oCWMEpORHJKJeY8yFf2-X_GS3VJlVMg"/>
+</div>
+<span class="bg-primary-container/20 text-primary-container px-3 py-1 rounded-full font-label-md text-[12px] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-container inline-block"></span>
+                            Active
+                        </span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-background mb-1">Marcus Thorne</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Elite Class Driver</p>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">star</span>
+                            4.95 Rating
+                        </span>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-[0.344s] ease-in-out">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden bg-surface/80 dark:bg-surface/80 backdrop-blur-[24px] border-t border-outline-variant fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] ease-in-out py-2 px-4" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">schedule</span>
+<span class="font-label-md text-[10px]">Shift</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] ease-in-out py-2 px-4" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">hail</span>
+<span class="font-label-md text-[10px]">Requests</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-bold hover:text-primary transition-colors duration-[0.344s] ease-in-out py-2 px-4 relative" href="#">
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-secondary-container rounded-full"></span>
+<span class="material-symbols-outlined text-2xl mb-1">groups</span>
+<span class="font-label-md text-[10px]">Tribe</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] ease-in-out py-2 px-4" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">payments</span>
+<span class="font-label-md text-[10px]">Earnings</span>
+</a>
+</nav>
+</body></html>

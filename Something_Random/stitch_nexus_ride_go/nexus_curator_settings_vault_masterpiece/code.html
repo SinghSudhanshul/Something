@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus | Curator Settings Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#ffe9e7",
+                        "tertiary-container": "#00799c",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "background": "#fff8f7",
+                        "on-primary-fixed": "#410003",
+                        "surface-variant": "#f9dcd9",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-tertiary-container": "#e9f7ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#f1d3d0",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-secondary-fixed": "#410004",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "inverse-primary": "#ffb3ac",
+                        "error-container": "#ffdad6",
+                        "outline": "#8f6f6c",
+                        "on-surface-variant": "#5b403d",
+                        "on-tertiary-fixed": "#001f2a",
+                        "tertiary-fixed": "#bee9ff",
+                        "tertiary": "#005f7b",
+                        "on-primary-container": "#fff2f0",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-container": "#d32f2f",
+                        "on-secondary-container": "#600009",
+                        "on-primary-fixed-variant": "#930010",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "surface": "#fff8f7",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "outline-variant": "#e4beba",
+                        "surface-container-high": "#ffe2de",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#ba1a20",
+                        "on-surface": "#271816",
+                        "inverse-surface": "#3e2c2a",
+                        "secondary-container": "#fc5d59",
+                        "inverse-on-surface": "#ffedeb",
+                        "on-background": "#271816",
+                        "surface-container-highest": "#f9dcd9",
+                        "secondary-fixed": "#ffdad7",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffdad6",
+                        "surface-container-low": "#fff0ef",
+                        "secondary": "#b3272a",
+                        "primary": "#af101a",
+                        "surface-bright": "#fff8f7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "card": "28px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-desktop": "auto",
+                        "card-padding": "40px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-xl": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["17px", {"lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "body-lg": ["19px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-xl": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Masterpiece Mode GLSL Background Placeholder Styling */
+        #glsl-canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            pointer-events: none;
+            /* Placeholder gradient for visual feedback if WebGL fails/isn't provided */
+            background: linear-gradient(45deg, #1a0505, #3a0d11, #000000);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        #glsl-canvas-container.active {
+            opacity: 1;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Toggle Switch Styling */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #af101a;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #af101a;
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+        .toggle-label {
+            width: 3rem;
+            height: 1.5rem;
+            background-color: #e4beba;
+            border-radius: 9999px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.344s ease-in-out;
+        }
+        .toggle-label:after {
+            content: '';
+            position: absolute;
+            top: 0.125rem;
+            left: 0.125rem;
+            width: 1.25rem;
+            height: 1.25rem;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.344s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#F5F5F7] text-on-background min-h-screen font-body-md antialiased relative">
+<!-- Optional GLSL Background Container (Activated by Masterpiece Mode) -->
+<div id="glsl-canvas-container">
+<!-- In a real implementation, a <canvas> or <webgl-shader> would go here -->
+</div>
+<!-- TopAppBar (Suppressed as this is a focused settings page, 
+         but keeping a custom header for the operational vault context) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto py-6 backdrop-blur-[24px] border-b border-outline-variant bg-surface/80">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-[0.344s]">
+<span class="material-symbols-outlined text-[28px]">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Crimson Gallery</h1>
+</div>
+<div>
+<span class="material-symbols-outlined text-primary text-[28px]">settings</span>
+</div>
+</header>
+<main class="pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<section class="mb-[80px] max-w-3xl">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold tracking-tight mb-4 text-on-background">
+                OPERATIONS
+            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Configure your masterpiece environment. Fine-tune the telemetry, acoustics, and privacy protocols of your gallery experience.
+            </p>
+</section>
+<!-- Masterpiece Mode Toggle (Hero Feature) -->
+<section class="mb-section-gap">
+<div class="bg-surface rounded-card border border-outline-variant p-card-padding flex flex-col md:flex-row items-start md:items-center justify-between gap-8 transition-all duration-[0.344s] hover:border-primary/50">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined filled-icon">auto_awesome</span>
+                        Masterpiece Mode
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                        Engage immersive environmental renders. Activates hardware-accelerated GLSL backgrounds across the gallery interface.
+                    </p>
+</div>
+<div class="flex-shrink-0">
+<div class="relative inline-block w-12 mr-2 align-middle select-none">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 opacity-0" id="masterpiece-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-outline-variant cursor-pointer" for="masterpiece-toggle"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Configuration Area -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Telemetry Display -->
+<div class="bg-surface rounded-card border border-outline-variant p-card-padding flex flex-col justify-between h-full lg:col-span-2 group hover:border-outline transition-colors duration-[0.344s]">
+<div class="mb-8">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary">monitoring</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-4">Telemetry Display</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Adjust data density and visualization metrics for your curatorial dashboard.</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between py-3 border-b border-surface-variant">
+<span class="font-label-md text-label-md text-on-surface">Real-time Analytics</span>
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary focus:ring-offset-0 bg-surface h-5 w-5" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-variant">
+<span class="font-label-md text-label-md text-on-surface">Verbose Logging</span>
+<input class="rounded border-outline-variant text-primary focus:ring-primary focus:ring-offset-0 bg-surface h-5 w-5" type="checkbox"/>
+</div>
+</div>
+</div>
+<!-- Acoustic Signatures -->
+<div class="bg-surface rounded-card border border-outline-variant p-card-padding flex flex-col justify-between h-full group hover:border-outline transition-colors duration-[0.344s]">
+<div class="mb-8">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary">graphic_eq</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold mb-4">Acoustic Signatures</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage haptic feedback and spatial audio cues.</p>
+</div>
+<button class="w-full py-4 border border-outline-variant rounded-full font-label-md text-label-md text-on-surface hover:bg-surface-variant transition-colors duration-[0.344s]">
+                    Configure Audio
+                </button>
+</div>
+<!-- Redirections: Privacy Protocols & Notifications -->
+<div class="bg-surface rounded-card border border-outline-variant p-card-padding lg:col-span-3 flex flex-col md:flex-row gap-8">
+<!-- Privacy Protocols Link -->
+<a class="flex-1 group cursor-pointer border border-transparent hover:border-outline-variant p-6 rounded-xl transition-all duration-[0.344s]" href="{{DATA:SCREEN:SCREEN_13}}">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-[32px] group-hover:scale-110 transition-transform duration-[0.344s]">shield_lock</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm font-bold mb-2 group-hover:text-primary transition-colors duration-[0.344s]">Privacy Protocols</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage encryption keys, biometric access, and audit logs.</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-on-surface-variant group-hover:text-primary transition-colors duration-[0.344s]">arrow_forward</span>
+</div>
+</a>
+<div class="w-full md:w-px h-px md:h-auto bg-outline-variant"></div>
+<!-- Notification Aesthetics Link -->
+<a class="flex-1 group cursor-pointer border border-transparent hover:border-outline-variant p-6 rounded-xl transition-all duration-[0.344s]" href="{{DATA:SCREEN:SCREEN_79}}">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-[32px] group-hover:scale-110 transition-transform duration-[0.344s]">notifications_active</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm font-bold mb-2 group-hover:text-primary transition-colors duration-[0.344s]">Notification Aesthetics</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Customize alert frequencies, urgency thresholds, and visual styling.</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-on-surface-variant group-hover:text-primary transition-colors duration-[0.344s]">arrow_forward</span>
+</div>
+</a>
+</div>
+<!-- Account Credentials -->
+<div class="bg-surface rounded-card border border-outline-variant p-card-padding lg:col-span-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A minimalist, high-contrast abstract geometric portrait avatar, composed of sharp crimson and deep black shapes on a stark white background, evoking a sense of architectural precision and luxury digital art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHMQKjT5cZEO8QZgx25QyQf0SOcxvF8G0-knqELb53_o5L1svVdoRW-y4NMvxuy8VRUBtTYNFVUAaKlqn85zNjHzmQGOZbraXmzdsuxHTf1NuyK9KJNBzHSnywjhlKmQBXsjAYuqzo8IG1pskGDssqadKmt5QsIx2eWTC6JJ4Zp-rAdesaiUptQ9Rs_CY40iiKmZBqZjtzw_Eq7de7ROf06n88Bvq57Sbqfuk7GDC9swApz3deTdj7DnVSy_kJius0KXp-HWgDTQ"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold">Account Credentials</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Curator ID: #CR-8829-X</p>
+</div>
+</div>
+<button class="px-8 py-4 bg-primary text-on-primary rounded-full font-label-md text-label-md hover:bg-secondary transition-colors duration-[0.344s]">
+                    Manage Identity
+                </button>
+</div>
+</div>
+</main>
+<script>
+        // Masterpiece Mode Toggle Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('masterpiece-toggle');
+            const bgContainer = document.getElementById('glsl-canvas-container');
+
+            if (toggle && bgContainer) {
+                toggle.addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        bgContainer.classList.add('active');
+                        document.body.classList.add('text-white'); // Example of adjusting text for dark bg
+                        document.body.classList.remove('text-on-background');
+                        // In a real scenario, you'd initialize or unpause the GLSL shader here
+                    } else {
+                        bgContainer.classList.remove('active');
+                        document.body.classList.remove('text-white');
+                        document.body.classList.add('text-on-background');
+                        // Pause/destroy shader here
+                    }
+                });
+            }
+        });
+    </script>
+</body></html>

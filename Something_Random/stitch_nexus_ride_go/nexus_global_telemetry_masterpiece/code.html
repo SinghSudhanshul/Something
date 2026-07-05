@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global Fleet Telemetry - World View</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#fc5d59",
+                    "tertiary-fixed": "#bee9ff",
+                    "tertiary-fixed-dim": "#7bd1f8",
+                    "outline-variant": "#e4beba",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#3e2c2a",
+                    "error": "#ba1a1a",
+                    "primary-container": "#d32f2f",
+                    "secondary-fixed": "#ffdad7",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#410003",
+                    "surface": "#fff8f7",
+                    "on-primary-container": "#fff2f0",
+                    "surface-dim": "#f1d3d0",
+                    "surface-container-low": "#fff0ef",
+                    "on-secondary-fixed-variant": "#910816",
+                    "tertiary-container": "#00799c",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "primary": "#af101a",
+                    "surface-container": "#ffe9e7",
+                    "background": "#fff8f7",
+                    "surface-container-highest": "#f9dcd9",
+                    "on-tertiary-fixed-variant": "#004d65",
+                    "surface-variant": "#f9dcd9",
+                    "surface-bright": "#fff8f7",
+                    "on-surface": "#271816",
+                    "inverse-primary": "#ffb3ac",
+                    "on-surface-variant": "#5b403d",
+                    "on-primary-fixed-variant": "#930010",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#ffedeb",
+                    "on-tertiary-container": "#e9f7ff",
+                    "outline": "#8f6f6c",
+                    "surface-container-high": "#ffe2de",
+                    "surface-tint": "#ba1a20",
+                    "primary-fixed": "#ffdad6",
+                    "on-tertiary-fixed": "#001f2a",
+                    "on-secondary-container": "#600009",
+                    "secondary-fixed-dim": "#ffb3ae",
+                    "on-secondary-fixed": "#410004",
+                    "tertiary": "#005f7b",
+                    "secondary": "#b3272a",
+                    "primary-fixed-dim": "#ffb3ac",
+                    "on-background": "#271816"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "margin-desktop": "auto",
+                    "card-padding": "40px",
+                    "base": "8px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "display-xl": [
+                            "Inter"
+                    ],
+                    "headline-sm": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.022em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "19px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-xl": [
+                            "80px",
+                            {
+                                    "lineHeight": "1.05",
+                                    "letterSpacing": "-0.022em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-sm": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.015em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.015em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "56px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.022em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "17px",
+                            {
+                                    "lineHeight": "1.47",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog Base */
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto backdrop-blur-[24px] border-b border-outline-variant bg-surface/80 dark:bg-surface/80 flat no shadows ease-in-out duration-[0.344s] py-4">
+<div class="flex items-center gap-4">
+<span aria-hidden="true" class="material-symbols-outlined text-primary dark:text-inverse-primary text-2xl">signal_cellular_alt</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">Crimson Gallery</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s]" href="#">Shift</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s]" href="#">Requests</a>
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary font-bold" href="#">Tribe</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s]" href="#">Earnings</a>
+</div>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-variant transition-colors duration-[0.344s]">
+<span aria-hidden="true" class="material-symbols-outlined text-primary dark:text-inverse-primary text-2xl">account_circle</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop pt-32 min-h-screen flex flex-col gap-section-gap">
+<!-- Hero Section: World View -->
+<section class="relative w-full rounded-[28px] overflow-hidden bg-surface-container-lowest border border-outline-variant">
+<!-- Map Visualization -->
+<div class="relative w-full h-[60vh] md:h-[70vh] bg-[#1a1a1a]">
+<img alt="Global Fleet Telemetry Map" class="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUHgiZCwERg7edBJBKXendeRTApE-BqYAxeOx-_SQdUalt2qZt99f1RrpKYII-d0P75E9_s1piQxUBVLAl7QFHWZjCdZD8m4TTTogOowpTucyAfcZUgyIZrSVB-YXVNUTRg9DccU8KalwnJ_5vwezuX7A8ddumZAuoYVPsmyDLYWcmCsVMKsEYL-A9sI-Bbw2aK3aRJyLNjqRmwdk_MqaJVMSz8xq0iE2V74MuR1Yfv53k2TfhesNkfTWPBKoZYx2r5kPORoOi1g"/>
+<!-- Telemetry Overlay Data -->
+<div class="absolute inset-0 p-card-padding flex flex-col justify-between pointer-events-none">
+<div class="flex justify-between items-start">
+<div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-white mb-2 tracking-tight drop-shadow-md">World View</h1>
+<p class="font-body-lg text-white/80 max-w-md">Real-time global telemetry and demand distribution across all active operational nodes.</p>
+</div>
+<div class="hidden md:flex flex-col items-end gap-2">
+<div class="bg-black/50 backdrop-blur-md rounded-full px-4 py-2 border border-white/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">satellite_alt</span>
+<span class="font-label-md text-white">Uplink Active</span>
+</div>
+</div>
+</div>
+<!-- Glassmorphic KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-auto pointer-events-auto">
+<!-- KPI 1 -->
+<div class="bg-white/80 backdrop-blur-[24px] rounded-[28px] p-card-padding border border-white/50 shadow-sm transition-transform duration-[0.344s] hover:-translate-y-1 cursor-default">
+<p class="font-label-md text-on-surface-variant uppercase tracking-wider mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">groups</span>
+                                Total Active Units
+                            </p>
+<p class="font-display-lg-mobile md:font-display-lg text-on-surface tracking-tighter">15,432</p>
+<p class="font-body-md text-tertiary-container mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                                +12% vs last hour
+                            </p>
+</div>
+<!-- KPI 2 -->
+<div class="bg-white/80 backdrop-blur-[24px] rounded-[28px] p-card-padding border border-white/50 shadow-sm transition-transform duration-[0.344s] hover:-translate-y-1 cursor-default">
+<p class="font-label-md text-on-surface-variant uppercase tracking-wider mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">speed</span>
+                                Global Velocity
+                            </p>
+<p class="font-display-lg-mobile md:font-display-lg text-on-surface tracking-tighter">8.4<span class="font-headline-md text-on-surface-variant ml-1">k/m</span></p>
+<p class="font-body-md text-primary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">warning</span>
+                                Peak load detected
+                            </p>
+</div>
+<!-- KPI 3 -->
+<div class="bg-white/80 backdrop-blur-[24px] rounded-[28px] p-card-padding border border-white/50 shadow-sm transition-transform duration-[0.344s] hover:-translate-y-1 cursor-default">
+<p class="font-label-md text-on-surface-variant uppercase tracking-wider mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+                                Security Status
+                            </p>
+<p class="font-display-lg-mobile md:font-display-lg text-on-surface tracking-tighter">Optimal</p>
+<p class="font-body-md text-on-surface-variant mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">shield</span>
+                                All protocols nominal
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Active Hubs Section -->
+<section class="flex flex-col gap-8 pb-section-gap">
+<div class="flex items-center justify-between border-b border-outline-variant pb-4">
+<h2 class="font-headline-md text-on-surface tracking-tight">Active Hubs</h2>
+<button class="font-label-md text-primary hover:text-primary-container transition-colors duration-[0.344s] uppercase tracking-wider">View All Nodes</button>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Hub List Item 1 -->
+<div class="bg-surface-container-lowest rounded-[28px] p-6 border border-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-primary transition-colors duration-[0.344s] group cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl text-primary">location_city</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors duration-[0.344s]">London</h3>
+<p class="font-body-md text-on-surface-variant">EMEA Primary Node</p>
+</div>
+</div>
+<div class="flex items-center gap-8 md:gap-12 w-full md:w-auto justify-between md:justify-end border-t md:border-t-0 border-outline-variant pt-4 md:pt-0">
+<div class="flex flex-col items-start md:items-end">
+<span class="font-label-md text-on-surface-variant uppercase">Demand</span>
+<span class="font-headline-sm text-on-surface">3.2x</span>
+</div>
+<div class="flex flex-col items-start md:items-end">
+<span class="font-label-md text-on-surface-variant uppercase">Active Units</span>
+<span class="font-headline-sm text-on-surface">4,210</span>
+</div>
+<div class="flex items-center gap-2 bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-md">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse"></div>
+                            High Load
+                        </div>
+</div>
+</div>
+<!-- Hub List Item 2 -->
+<div class="bg-surface-container-lowest rounded-[28px] p-6 border border-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-primary transition-colors duration-[0.344s] group cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl text-primary">domain</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors duration-[0.344s]">New York</h3>
+<p class="font-body-md text-on-surface-variant">AMER Primary Node</p>
+</div>
+</div>
+<div class="flex items-center gap-8 md:gap-12 w-full md:w-auto justify-between md:justify-end border-t md:border-t-0 border-outline-variant pt-4 md:pt-0">
+<div class="flex flex-col items-start md:items-end">
+<span class="font-label-md text-on-surface-variant uppercase">Demand</span>
+<span class="font-headline-sm text-on-surface">1.8x</span>
+</div>
+<div class="flex flex-col items-start md:items-end">
+<span class="font-label-md text-on-surface-variant uppercase">Active Units</span>
+<span class="font-headline-sm text-on-surface">3,850</span>
+</div>
+<div class="flex items-center gap-2 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full font-label-md">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+                            Nominal
+                        </div>
+</div>
+</div>
+<!-- Hub List Item 3 -->
+<div class="bg-surface-container-lowest rounded-[28px] p-6 border border-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-primary transition-colors duration-[0.344s] group cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl text-primary">public</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors duration-[0.344s]">Tokyo</h3>
+<p class="font-body-md text-on-surface-variant">APAC Primary Node</p>
+</div>
+</div>
+<div class="flex items-center gap-8 md:gap-12 w-full md:w-auto justify-between md:justify-end border-t md:border-t-0 border-outline-variant pt-4 md:pt-0">
+<div class="flex flex-col items-start md:items-end">
+<span class="font-label-md text-on-surface-variant uppercase">Demand</span>
+<span class="font-headline-sm text-on-surface">2.1x</span>
+</div>
+<div class="flex flex-col items-start md:items-end">
+<span class="font-label-md text-on-surface-variant uppercase">Active Units</span>
+<span class="font-headline-sm text-on-surface">5,120</span>
+</div>
+<div class="flex items-center gap-2 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full font-label-md">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+                            Nominal
+                        </div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 backdrop-blur-[24px] border-t border-outline-variant bg-surface/80 dark:bg-surface/80 flat no shadows ease-in-out duration-[0.344s]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] py-2 w-full" href="#">
+<span aria-hidden="true" class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">schedule</span>
+<span class="font-label-md text-label-md">Shift</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] py-2 w-full" href="#">
+<span aria-hidden="true" class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">hail</span>
+<span class="font-label-md text-label-md">Requests</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-bold py-2 w-full" href="#">
+<span aria-hidden="true" class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="font-label-md text-label-md">Tribe</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] py-2 w-full" href="#">
+<span aria-hidden="true" class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">payments</span>
+<span class="font-label-md text-label-md">Earnings</span>
+</a>
+</nav>
+</body></html>

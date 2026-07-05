@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Elite Tier Rewards - NEXUS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#ffdad7",
+                        "on-background": "#271816",
+                        "background": "#fff8f7",
+                        "surface-container-highest": "#f9dcd9",
+                        "inverse-primary": "#ffb3ac",
+                        "on-primary-fixed-variant": "#930010",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#f1d3d0",
+                        "primary-fixed": "#ffdad6",
+                        "primary": "#af101a",
+                        "on-surface": "#271816",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fff2f0",
+                        "surface-container": "#ffe9e7",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "secondary": "#b3272a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#ffedeb",
+                        "on-primary-fixed": "#410003",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#bee9ff",
+                        "outline": "#8f6f6c",
+                        "primary-container": "#d32f2f",
+                        "surface-tint": "#ba1a20",
+                        "surface-container-low": "#fff0ef",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#f9dcd9",
+                        "surface-container-high": "#ffe2de",
+                        "secondary-container": "#fc5d59",
+                        "on-tertiary-fixed": "#001f2a",
+                        "tertiary-container": "#00799c",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "outline-variant": "#e4beba",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-secondary-fixed": "#410004",
+                        "on-secondary-container": "#600009",
+                        "tertiary": "#005f7b",
+                        "surface-bright": "#fff8f7",
+                        "surface": "#fff8f7",
+                        "on-surface-variant": "#5b403d",
+                        "inverse-surface": "#3e2c2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "auto",
+                        "card-padding": "40px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["17px", {"lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "body-lg": ["19px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-xl": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #F5F5F7; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .hairline-border { border: 1px solid rgba(0,0,0,0.05); }
+        .ease-heavy { transition: all 0.344s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        /* Progress Ring Animation */
+        @keyframes progress {
+            from { stroke-dashoffset: 283; }
+            to { stroke-dashoffset: 70; } /* 75% complete */
+        }
+        .progress-ring { stroke-dasharray: 283; animation: progress 2s ease-out forwards; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)]">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4 cursor-pointer active:scale-95 ease-heavy hover:opacity-80">
+<span class="material-symbols-outlined text-primary text-3xl">rocket_launch</span>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary bg-clip-text hidden md:block">NEXUS</span>
+<span class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary bg-clip-text md:hidden">NEXUS</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary ease-heavy transition-all duration-300" href="#">Explore</a>
+<a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary ease-heavy transition-all duration-300" href="#">Rides</a>
+<a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary ease-heavy transition-all duration-300" href="#">Wallet</a>
+<a class="font-headline-md text-headline-md text-primary ease-heavy transition-all duration-300" href="#">Profile</a>
+</nav>
+<button class="bg-primary text-on-primary rounded-full px-6 py-2 font-label-md text-label-md hover:bg-secondary ease-heavy">Get Started</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-32 max-w-[1440px] mx-auto w-full px-margin-mobile md:px-margin-desktop">
+<!-- Hero Section: Elite Badge & Progress -->
+<section class="flex flex-col md:flex-row items-center gap-16 mb-section-gap">
+<div class="w-full md:w-1/2 flex justify-center">
+<div class="relative w-64 h-64 md:w-96 md:h-96">
+<!-- Progress Ring -->
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="#e4beba" stroke-width="2"></circle>
+<circle class="progress-ring" cx="50" cy="50" fill="none" r="45" stroke="#af101a" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<!-- Badge Center -->
+<div class="absolute inset-4 rounded-full bg-surface-container-lowest hairline-border flex flex-col items-center justify-center shadow-2xl">
+<span class="material-symbols-outlined text-primary text-6xl md:text-8xl mb-4" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<h2 class="font-headline-md text-headline-md text-on-background">Elite Tier</h2>
+<p class="font-label-md text-label-md text-outline mt-2">Curator Level IV</p>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex flex-col gap-6 text-center md:text-left">
+<div class="inline-flex items-center gap-2 bg-error-container text-on-error-container px-4 py-1 rounded-full w-max mx-auto md:mx-0">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+<span class="font-label-md text-label-md">Ascension Imminent</span>
+</div>
+<h1 class="font-display-xl text-display-xl text-on-background hidden md:block tracking-tighter">Ascension<br/>Status</h1>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-background md:hidden tracking-tighter">Ascension Status</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    You are 1,250 curation points away from achieving Pinnacle Status. Your dedication to high-performance logistics and exceptional passenger experiences sets the standard for the NEXUS fleet.
+                </p>
+<div class="mt-4">
+<button class="bg-primary text-on-primary rounded-full px-8 py-4 font-label-md text-label-md hover:bg-secondary ease-heavy w-full md:w-auto">View Ascension Criteria</button>
+</div>
+</div>
+</section>
+<!-- Exclusive Rewards Gallery (Bento Grid) -->
+<section class="mb-section-gap">
+<h3 class="font-headline-md text-headline-md text-on-background mb-12 border-b hairline-border pb-4">Curator Privileges</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Large Card 1 -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-[28px] hairline-border p-card-padding flex flex-col md:flex-row gap-8 ease-heavy hover:shadow-lg relative overflow-hidden group">
+<div class="w-full md:w-1/2 flex flex-col justify-center z-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">palette</span>
+<h4 class="font-headline-sm text-headline-sm text-on-background mb-2">Fleet Customization Credits</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Unlock exclusive aerospace-grade exterior finishes and interior ambient configurations for your assigned vessels.</p>
+<button class="text-primary font-label-md text-label-md flex items-center gap-2 group-hover:text-secondary ease-heavy w-max">
+                            Redeem Credits <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+<div class="w-full md:w-1/2 h-64 md:h-auto rounded-xl overflow-hidden z-10 relative">
+<div class="bg-cover bg-center w-full h-full absolute inset-0 ease-heavy group-hover:scale-105" data-alt="A highly detailed close-up of a sleek, aerodynamic vehicle exterior featuring a premium matte black finish with vibrant crimson red accent lines. The setting is a brightly lit, sterile design studio typical of high-end automotive manufacturing. The lighting is pristine white, reflecting off subtle metallic surfaces, creating a gallery-like minimalist aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNOFXdR9VNs2CvUy3CTxXvA9KjLL2CyzrhS5T8J6Rut_Gve3sB2rba9Lj0VzCEMEnhBFxr1HQQEwJxVj_Cp0zpwEk6b4hTnFiI0G5yp0pULUe1VGm6Yrqd8aFT-Cyh9cuMLqQLGyDSWAJuAVNERVakGh9K3_LDwmaXcW4pW6_bFbMg3oTjFKPM4-fpPyhSgs5GUKsroQUV6UffjrI6-zotPryDvMVzfjA6O7yUVwN1zjd61gkypbDGRlHVH1nVbThTL2yhOipAsw')"></div>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="bg-surface-container-lowest rounded-[28px] hairline-border p-card-padding flex flex-col justify-between ease-heavy hover:shadow-lg group">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4">chair</span>
+<h4 class="font-headline-sm text-headline-sm text-on-background mb-2">Premium Lounge</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">24/7 access to global NEXUS Hub sanctuaries.</p>
+</div>
+<div class="mt-8 h-40 rounded-xl overflow-hidden relative">
+<div class="bg-cover bg-center w-full h-full absolute inset-0 ease-heavy group-hover:scale-105" data-alt="An expansive, luxurious airport-style waiting lounge rendered in pristine whites and deep blacks. The space features minimalist white leather seating, massive floor-to-ceiling windows letting in bright natural light, and subtle red ambient lighting accents along the floorboards. The mood is calm, exclusive, and highly modern." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQxF2c9RA4BvDKpy85nuEm9e-q-3q1xG6axHoDKNca6thHwoRlV12hJeTJTKQHSOqzLAeUkEtWSUjUJCo0pz3oF43e-iYg8oZHeVhJnYRbcykZfLc4rNx6VA4SQ0BAtoW4rB7mIUxyZdvvlK359y-nMgcLqjygXHtKWSmMxFfRIcRVKQIbppHvdeEAtxNi9mnuLBTMuGRUB5OuYXkSVxfzQb6pFU05HoCviEzv3Ksu4wIpqvEPZUuylzOLh4hmHwToaAZVobkwvA')"></div>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="bg-surface-container-lowest rounded-[28px] hairline-border p-card-padding flex flex-col justify-between ease-heavy hover:shadow-lg group">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4">bolt</span>
+<h4 class="font-headline-sm text-headline-sm text-on-background mb-2">Priority Dispatch</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">First access to high-yield routes and VIP clientele.</p>
+</div>
+<div class="mt-8 bg-surface-dim rounded-xl h-40 flex items-center justify-center">
+<span class="font-display-xl text-display-xl text-primary opacity-20">#1</span>
+</div>
+</div>
+<!-- Large Card 2 -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-[28px] hairline-border p-card-padding flex flex-col md:flex-row gap-8 ease-heavy hover:shadow-lg relative overflow-hidden group">
+<div class="w-full md:w-1/2 h-64 md:h-auto rounded-xl overflow-hidden z-10 relative order-2 md:order-1">
+<div class="bg-cover bg-center w-full h-full absolute inset-0 ease-heavy group-hover:scale-105" data-alt="A sophisticated digital dashboard displayed on an ultra-wide screen inside a minimalist vehicle cabin. The UI shows complex telemetry data in crisp white text against a deep black background, with critical alerts highlighted in sharp crimson. The environment is high-contrast, suggesting an advanced, aerospace-grade command center." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB__njL8DpLNoHABFHmunZ7c6NxtMESO6TS1J_zLLH6hhQna8jTX-fhDISbQ1T6baljy_zyBEn33KT_OF-1C3K2Pg9-N3NS1DDQuQqiOQq40NGVammWpmOiJu5DkrzXprhpu4cTswmQzmgaQ0JQhmQI-LkK6sY3rCXcxwR5I5hce8sG-G_y4rQ1welJqzOHkCBaTloIeeFfx1m_OTYmLgpwaaB2IpSF6wPgv1XnEOqzULX0VUUykVZr5cdU5lnMhbk3tKgcfB4iiw')"></div>
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-center z-10 order-1 md:order-2">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">memory</span>
+<h4 class="font-headline-sm text-headline-sm text-on-background mb-2">Advanced Telemetry Suite</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Gain access to Level 5 diagnostic overlays and predictive maintenance algorithms for peak operational efficiency.</p>
+<button class="text-primary font-label-md text-label-md flex items-center gap-2 group-hover:text-secondary ease-heavy w-max">
+                            Initialize Overlay <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/60 backdrop-blur-2xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex justify-around items-center h-20 pb-safe px-4">
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl">explore</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl">directions_car</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Rides</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Wallet</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-secondary drop-shadow-[0_0_8px_rgba(255,185,95,0.5)] hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Profile</span>
+</div>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-8 mt-auto bg-surface-container-lowest border-t border-primary/30 flat no shadows">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-4 max-w-[1440px] mx-auto w-full">
+<span class="font-display-lg text-primary text-xl tracking-tighter">NEXUS</span>
+<span class="font-data-label text-data-label text-primary uppercase text-xs">© 2024 NEXUS MOBILITY. AEROSPACE GRADE PRECISION.</span>
+<div class="flex gap-6">
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200 text-sm" href="#">Privacy</a>
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200 text-sm" href="#">Terms</a>
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200 text-sm" href="#">Safety</a>
+</div>
+</div>
+</footer>
+</body></html>

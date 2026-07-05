@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus - Cargo Configuration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdad7",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fff8f7",
+                        "surface-tint": "#ba1a20",
+                        "on-primary-fixed": "#410003",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#fff2f0",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ffe2de",
+                        "secondary": "#b3272a",
+                        "on-secondary-container": "#600009",
+                        "inverse-surface": "#3e2c2a",
+                        "on-surface": "#271816",
+                        "on-background": "#271816",
+                        "tertiary-container": "#00799c",
+                        "primary-container": "#d32f2f",
+                        "background": "#fff8f7",
+                        "on-tertiary-fixed": "#001f2a",
+                        "inverse-on-surface": "#ffedeb",
+                        "outline-variant": "#e4beba",
+                        "on-tertiary-container": "#e9f7ff",
+                        "tertiary": "#005f7b",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#f9dcd9",
+                        "secondary-container": "#fc5d59",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "tertiary-fixed": "#bee9ff",
+                        "surface-container": "#ffe9e7",
+                        "on-surface-variant": "#5b403d",
+                        "inverse-primary": "#ffb3ac",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "surface-bright": "#fff8f7",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#fff0ef",
+                        "on-primary-fixed-variant": "#930010",
+                        "surface-container-highest": "#f9dcd9",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "surface-dim": "#f1d3d0",
+                        "primary": "#af101a",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "primary-fixed": "#ffdad6",
+                        "outline": "#8f6f6c",
+                        "on-secondary-fixed": "#410004",
+                        "fog": "#F5F5F7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "card-padding": "40px",
+                        "margin-desktop": "auto",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "display-xl": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                        "body-lg": ["19px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                        "body-md": ["17px", {"lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            /* Using the requested Fog color as a custom class since it wasn't in the provided theme config explicitly mapped to background, 
+               but was requested in the design guidelines. Overriding the default bg here for the gallery minimalist feel. */
+            background-color: #F5F5F7; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen pb-32">
+<!-- Top Navigation Contextual (Transactional Flow - Suppressing main JSON navs) -->
+<header class="fixed top-0 w-full z-50 bg-[#F5F5F7]/80 backdrop-blur-[24px] border-b border-outline-variant/30 transition-all duration-[0.344s] ease-in-out">
+<div class="flex items-center justify-between px-gutter h-20 w-full max-w-[1440px] mx-auto">
+<button class="p-2 -ml-2 rounded-full hover:bg-surface-container-highest transition-colors duration-[0.344s]">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tighter uppercase text-center absolute left-1/2 -translate-x-1/2">CARGO</h1>
+<div class="w-10 h-10"></div> <!-- Balancer -->
+</div>
+</header>
+<main class="w-full max-w-[1440px] mx-auto pt-28 px-gutter flex flex-col gap-8 md:gap-12">
+<!-- Contextual Hero Imagery / Aesthetic Anchor -->
+<section class="w-full aspect-[21/9] md:aspect-[3/1] rounded-[28px] overflow-hidden relative border border-outline-variant/30">
+<div class="bg-cover bg-center w-full h-full absolute inset-0" data-alt="A highly detailed, cinematic studio shot of premium, minimalist hard-shell luggage in deep crimson and matte black, resting on a pristine white marble floor. The lighting is bright and architectural, creating sharp, elegant shadows in a stark, modern gallery space. The overall mood is luxurious, high-end, and perfectly aligned with a light-mode, gallery-minimalist aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA95IjNqcMlMlcT8G41_yB1gytgvqtLZBs9qwjrgV4nRL6NqQlkWuF9JW4X_bd64_EgpY56tRL19ecUqb_Dd_GPSI2G6YCIEgy76nOlYswF_A14ASwz9d4uy_I2RGLMDPfsefzTPfx1xRuOUjabsaDs5JQJ2Y-x7nPmVBbtOd7XBYfSwbi_IlLU-ANA_aac-tWWIf-WdKBkkBKTRYOg_YcD33BMtiWnCB-OjYwrN5W2I0Md_9LXON4R0mGHxnEtok21ampkOmR4eA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-6 left-6 md:bottom-10 md:left-10">
+<p class="font-label-md text-label-md text-surface-container-lowest uppercase tracking-widest opacity-80">Capacity Planning</p>
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-surface-container-lowest mt-1">Specify Load</h2>
+</div>
+</section>
+<!-- Configuration Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
+<!-- Carry-On Card -->
+<div class="bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 p-[32px] md:p-card-padding flex flex-col justify-between min-h-[200px] transition-transform duration-[0.344s] ease-in-out hover:-translate-y-1 relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 opacity-5 group-hover:opacity-10 transition-opacity duration-[0.344s]">
+<span class="material-symbols-outlined text-[160px]">work</span>
+</div>
+<div class="flex items-start gap-4 z-10">
+<span class="material-symbols-outlined text-[32px] text-on-surface">work</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Carry-On</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-[200px]">Small duffels, backpacks, or standard cabin bags.</p>
+</div>
+</div>
+<div class="flex items-center justify-between mt-8 z-10">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Quantity</p>
+<div class="flex items-center gap-4 bg-surface-container/50 border border-outline-variant/50 rounded-full p-1.5 backdrop-blur-sm">
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest text-on-surface flex items-center justify-center border border-outline-variant/20 hover:bg-surface-variant transition-colors duration-[0.344s]" onclick="updateCount('carryon', -1)">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-on-surface w-6 text-center" id="carryon-count">0</span>
+<button class="w-10 h-10 rounded-full bg-on-surface text-surface-container-lowest flex items-center justify-center hover:bg-on-surface/80 transition-colors duration-[0.344s]" onclick="updateCount('carryon', 1)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Large Suitcase Card -->
+<div class="bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 p-[32px] md:p-card-padding flex flex-col justify-between min-h-[200px] transition-transform duration-[0.344s] ease-in-out hover:-translate-y-1 relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 opacity-5 group-hover:opacity-10 transition-opacity duration-[0.344s]">
+<span class="material-symbols-outlined text-[160px]">luggage</span>
+</div>
+<div class="flex items-start gap-4 z-10">
+<span class="material-symbols-outlined text-[32px] text-on-surface">luggage</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Large Suitcase</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-[200px]">Full-size checked baggage or heavy equipment.</p>
+</div>
+</div>
+<div class="flex items-center justify-between mt-8 z-10">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Quantity</p>
+<div class="flex items-center gap-4 bg-surface-container/50 border border-outline-variant/50 rounded-full p-1.5 backdrop-blur-sm">
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest text-on-surface flex items-center justify-center border border-outline-variant/20 hover:bg-surface-variant transition-colors duration-[0.344s]" onclick="updateCount('large', -1)">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-on-surface w-6 text-center" id="large-count">2</span>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-primary/90 transition-colors duration-[0.344s] shadow-[0_4px_14px_rgba(175,16,26,0.3)]" onclick="updateCount('large', 1)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Info snippet -->
+<div class="w-full max-w-4xl mx-auto flex items-center justify-center gap-2 opacity-60">
+<span class="material-symbols-outlined text-[18px]">info</span>
+<p class="font-body-md text-body-md text-on-surface text-center">Accurate cargo details ensure we dispatch the perfect vehicle class.</p>
+</div>
+</main>
+<!-- Bottom Action Bar (Fixed) -->
+<div class="fixed bottom-0 left-0 w-full px-gutter pb-8 pt-6 bg-[#F5F5F7]/80 backdrop-blur-[24px] border-t border-outline-variant/30 z-50">
+<div class="max-w-[1440px] mx-auto flex justify-center">
+<button class="w-full max-w-md bg-primary text-on-primary font-label-md text-label-md rounded-full py-5 uppercase tracking-widest hover:scale-[0.98] transition-transform duration-[0.344s] ease-in-out flex items-center justify-center gap-3 shadow-lg shadow-primary/20">
+<span>Confirm Cargo</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<script>
+        function updateCount(type, change) {
+            const el = document.getElementById(type + '-count');
+            let current = parseInt(el.innerText);
+            let newValue = current + change;
+            if (newValue >= 0 && newValue <= 10) {
+                el.innerText = newValue;
+                
+                // Add a tiny animation tick
+                el.style.transform = change > 0 ? 'scale(1.2)' : 'scale(0.8)';
+                setTimeout(() => {
+                    el.style.transform = 'scale(1)';
+                    el.style.transition = 'transform 0.2s ease-out';
+                }, 50);
+            }
+        }
+    </script>
+</body></html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Driver Navigation &amp; In-Ride</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "surface": "#fff8f7",
+                        "secondary-container": "#fc5d59",
+                        "on-primary-fixed": "#410003",
+                        "surface-variant": "#f9dcd9",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "background": "#fff8f7",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#ffe9e7",
+                        "primary-container": "#d32f2f",
+                        "inverse-primary": "#ffb3ac",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#410004",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#005f7b",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-container-low": "#fff0ef",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#ffedeb",
+                        "tertiary-container": "#00799c",
+                        "on-background": "#271816",
+                        "surface-bright": "#fff8f7",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "tertiary-fixed": "#bee9ff",
+                        "on-error-container": "#93000a",
+                        "primary": "#af101a",
+                        "on-primary-container": "#fff2f0",
+                        "outline": "#8f6f6c",
+                        "on-tertiary-container": "#e9f7ff",
+                        "primary-fixed": "#ffdad6",
+                        "surface-container-high": "#ffe2de",
+                        "on-surface-variant": "#5b403d",
+                        "on-surface": "#271816",
+                        "surface-tint": "#ba1a20",
+                        "surface-container-highest": "#f9dcd9",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "outline-variant": "#e4beba",
+                        "on-primary-fixed-variant": "#930010",
+                        "inverse-surface": "#3e2c2a",
+                        "on-tertiary-fixed": "#001f2a",
+                        "secondary": "#b3272a",
+                        "on-secondary-container": "#600009",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface-dim": "#f1d3d0",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#910816"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "card-padding": "40px",
+                        "section-gap": "120px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "auto",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog Base */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(143, 111, 108, 0.3); /* hairline outline-variant/30 */
+        }
+        .card-shape {
+            border-radius: 28px;
+            background-color: #FFFFFF;
+            border: 1px solid rgba(228, 190, 186, 0.5); /* outline-variant */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased text-on-background h-screen flex flex-col md:flex-row relative">
+<!-- Top App Bar (Web) / Full Nav Header - Hidden on mobile, visible on md+ -->
+<header class="hidden md:flex justify-between items-center px-gutter h-20 w-full glass-panel fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl cursor-pointer">menu</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">NEXUS</span>
+</div>
+<nav class="flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] ease-in-out" href="#">Gallery</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] ease-in-out" href="#">Book</a>
+<!-- Active State Navigation -->
+<a class="font-label-md text-label-md text-primary transition-colors duration-[0.344s] ease-in-out flex flex-col items-center" href="#">
+                Rides
+                <div class="h-1 w-4 bg-primary rounded-full mt-1"></div>
+</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] ease-in-out" href="#">Profile</a>
+</nav>
+<span class="material-symbols-outlined text-primary text-3xl cursor-pointer">account_circle</span>
+</header>
+<!-- Main Navigation/Content Area -->
+<main class="flex-1 relative w-full h-full md:mt-20">
+<!-- Full Bleed Map Background -->
+<div class="absolute inset-0 z-0 bg-surface-container-low" data-alt="A clean, minimalist overhead map view of a modern city center. The map style is high-contrast light mode with crisp white roads over a subtle pale grey background. A bright, crimson red line traces a navigation route through the city blocks. The aesthetic is extremely polished, reminiscent of luxury vehicle navigation screens. High fidelity, crisp geometry." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_7MlNLaq-DhTgNC2tagwEnQiTyq6I07hALpwiUfG_DLw0q_tlVY5r4cKG-47G_Gf-S2U375uGOfHTJdAr3teGg8lzdf2Ow8mqU2G6DHqeYF11qxrS2a5UEJZoBTPGqdC9so7CZ1AmDkNh98l0Vtj5JnVSDfnS6NlKqb2SF8bT3n7V4ijDoehR8tOvkRzq7lI4o89YEQY7_wldruX4Mrdqb0GxxWgZpAB8PVqD9v-Li8B0aIBmoQe-IS1kc1DgR074MTQsE146jQ')">
+<!-- Simulated route line container for visual depth if needed -->
+</div>
+<!-- Overlays Layer -->
+<div class="absolute inset-0 z-10 pointer-events-none flex flex-col justify-between p-gutter md:p-[40px] pb-32 md:pb-[40px]">
+<!-- Top Section: Next Hub Instructions -->
+<div class="w-full flex justify-center pointer-events-auto mt-4 md:mt-0">
+<div class="glass-panel card-shape px-8 py-6 w-full max-w-2xl flex items-center gap-6 shadow-sm">
+<div class="bg-surface-container rounded-full p-4 flex-shrink-0 border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-4xl icon-fill" data-icon="turn_right">turn_right</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-1 uppercase tracking-widest">Next Hub Instruction</p>
+<h1 class="font-headline-md text-headline-md text-on-surface">In 800ft, Turn Right on Grand Ave</h1>
+<p class="font-body-md text-body-md text-primary mt-2">Arriving at Sector 4 Drop-off in 4 mins</p>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Co-rider & Safety Controls -->
+<div class="w-full flex flex-col md:flex-row justify-between items-end gap-4 pointer-events-auto">
+<!-- Co-Rider Info Card -->
+<div class="card-shape p-6 w-full md:w-auto min-w-[320px]">
+<p class="font-label-md text-label-md text-outline mb-4">CURRENT CO-RIDER</p>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/50">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a sophisticated individual with neat hair, wearing a sleek modern jacket. The lighting is soft and high-key, creating a clean white background. The style is crisp, high-end editorial, consistent with a luxury brand identity. Bright, welcoming, but formal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXYNLvgge-ih47kGXavpEeKElcIYFaYEhf6-QNPhN7p7ZosuTEV9G698zKPMGGHEkexUHla8moX914fNt_AA9nsRtFbOnWzty55z7qrYN_Esv58cQcoGU-o_PPoCJmJG4c0EF8blPcdaVCb5jAJ9tmi8kKRhE6OmaEhIGcETTmqXnuC3P-bFqLGDojVyFNtpdw9IPyJd-z4WKsz4wqaNMqG0WP1zYHf03lsql01J4mlJo7niywl-liyONB3yIAwi2azp6zP1Aq2A"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Julian Vance</h3>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-tertiary text-sm icon-fill" data-icon="verified">verified</span>
+<span class="font-label-md text-label-md text-tertiary">Verified Traveler</span>
+</div>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="flex-1 bg-surface-container-low hover:bg-surface-container transition-colors duration-[0.344s] ease-in-out text-on-surface font-label-md text-label-md py-3 rounded-full border border-outline-variant/50">Message</button>
+<button class="w-12 h-12 flex items-center justify-center bg-surface-container-low hover:bg-surface-container transition-colors duration-[0.344s] ease-in-out text-on-surface rounded-full border border-outline-variant/50">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+</div>
+</div>
+<!-- Action Buttons Stack -->
+<div class="flex flex-col gap-4 w-full md:w-auto">
+<!-- Safety & Protocol -->
+<button class="glass-panel card-shape px-6 py-4 flex items-center justify-between gap-4 hover:bg-white transition-all duration-[0.344s] ease-in-out active:scale-95 group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error icon-fill" data-icon="shield">shield</span>
+<span class="font-label-md text-label-md text-on-surface group-hover:text-error transition-colors">Safety &amp; Protocol</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</button>
+<!-- Primary Action -->
+<button class="bg-primary hover:bg-surface-tint text-on-primary font-label-md text-label-md px-8 py-5 rounded-full transition-all duration-[0.344s] ease-in-out active:scale-95 flex justify-center items-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" data-icon="trip_origin">trip_origin</span>
+                        End Ride at Next Hub
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile) - Hidden on md+ -->
+<!-- Applying Shared Components JSON exact classes for BottomNavBar -->
+<nav class="md:hidden bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-[24px] border border-outline-variant/20 fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-md flex justify-around items-center p-2 rounded-full z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="grid_view">grid_view</span>
+<span class="font-label-md text-label-md mt-1 text-[10px]">Gallery</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-md text-label-md mt-1 text-[10px]">Book</span>
+</a>
+<!-- Active State Mapping to "Rides" -->
+<a class="flex flex-col items-center justify-center bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container rounded-full px-6 py-2 transition-all duration-[0.344s] ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined text-2xl icon-fill" data-icon="directions_car">directions_car</span>
+<span class="font-label-md text-label-md mt-1 text-[10px]">Rides</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
+<span class="font-label-md text-label-md mt-1 text-[10px]">Profile</span>
+</a>
+</nav>
+</body></html>

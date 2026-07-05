@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global Safety Protocol</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#ffdad7",
+                    "on-background": "#271816",
+                    "background": "#fff8f7",
+                    "surface-container-highest": "#f9dcd9",
+                    "inverse-primary": "#ffb3ac",
+                    "on-primary-fixed-variant": "#930010",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#f1d3d0",
+                    "primary-fixed": "#ffdad6",
+                    "primary": "#af101a",
+                    "on-surface": "#271816",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#fff2f0",
+                    "surface-container": "#ffe9e7",
+                    "secondary-fixed-dim": "#ffb3ae",
+                    "secondary": "#b3272a",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#ffedeb",
+                    "on-primary-fixed": "#410003",
+                    "tertiary-fixed-dim": "#7bd1f8",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#bee9ff",
+                    "outline": "#8f6f6c",
+                    "primary-container": "#d32f2f",
+                    "surface-tint": "#ba1a20",
+                    "surface-container-low": "#fff0ef",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#f9dcd9",
+                    "surface-container-high": "#ffe2de",
+                    "secondary-container": "#fc5d59",
+                    "on-tertiary-fixed": "#001f2a",
+                    "tertiary-container": "#00799c",
+                    "on-tertiary-fixed-variant": "#004d65",
+                    "outline-variant": "#e4beba",
+                    "on-tertiary-container": "#e9f7ff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#ffb3ac",
+                    "on-secondary-fixed-variant": "#910816",
+                    "on-secondary-fixed": "#410004",
+                    "on-secondary-container": "#600009",
+                    "tertiary": "#005f7b",
+                    "surface-bright": "#fff8f7",
+                    "surface": "#fff8f7",
+                    "on-surface-variant": "#5b403d",
+                    "inverse-surface": "#3e2c2a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "auto",
+                    "card-padding": "40px",
+                    "margin-mobile": "20px",
+                    "base": "8px",
+                    "section-gap": "120px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "display-xl": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["17px", {"lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "body-lg": ["19px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                    "display-xl": ["80px", {"lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(143, 111, 108, 0.2);
+        }
+        .pulse-bg {
+            animation: pulse-glow 8s infinite alternate ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: inset 0 0 150px rgba(175, 16, 26, 0.05); background-color: #fff8f7; }
+            100% { box-shadow: inset 0 0 250px rgba(175, 16, 26, 0.15); background-color: #ffe9e7; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md pulse-bg antialiased selection:bg-primary selection:text-on-primary relative overflow-x-hidden">
+<!-- TopAppBar Navigation suppressed for transactional/task-focused intent -->
+<main class="flex-grow flex items-center justify-center p-4 md:p-8 relative z-10 w-full max-w-[1440px] mx-margin-desktop">
+<div class="glass-panel w-full max-w-4xl rounded-[28px] overflow-hidden flex flex-col relative z-20">
+<!-- Header Section -->
+<div class="p-card-padding border-b border-outline-variant text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-surface-variant/50 to-transparent z-0"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary text-6xl mb-4" data-weight="fill" style="font-variation-settings: 'FILL' 1;">security</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-2">Global Safety Protocol</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Authorize critical system overrides and monitor real-time network integrity.</p>
+</div>
+</div>
+<!-- Content Area -->
+<div class="p-card-padding grid grid-cols-1 md:grid-cols-2 gap-12 items-start bg-surface-container-lowest">
+<!-- Status Column -->
+<div class="flex flex-col gap-8">
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center relative">
+<div class="absolute inset-0 rounded-full border-4 border-tertiary-container border-t-transparent animate-spin"></div>
+<span class="material-symbols-outlined text-tertiary-container text-3xl">check_circle</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-1">Safety Status: Nominal</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">All primary nodes active.</p>
+</div>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-outline uppercase tracking-widest mb-4">Active Safety Nodes</h3>
+<ul class="space-y-3">
+<li class="flex items-center justify-between p-4 bg-surface rounded-lg border border-surface-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container" data-weight="fill" style="font-variation-settings: 'FILL' 1;">router</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Alpha Sector</span>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-semibold uppercase tracking-wider">Secure</span>
+</li>
+<li class="flex items-center justify-between p-4 bg-surface rounded-lg border border-surface-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container" data-weight="fill" style="font-variation-settings: 'FILL' 1;">router</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Beta Sector</span>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-semibold uppercase tracking-wider">Secure</span>
+</li>
+<li class="flex items-center justify-between p-4 bg-surface-container rounded-lg border border-outline-variant border-dashed">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-weight="fill" style="font-variation-settings: 'FILL' 1;">router</span>
+<span class="font-body-md text-body-md text-outline">Gamma Sector</span>
+</div>
+<span class="px-3 py-1 bg-surface-variant text-outline rounded-full text-xs font-semibold uppercase tracking-wider">Standby</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Action Column -->
+<div class="flex flex-col gap-6 justify-center h-full">
+<div class="bg-error-container/20 p-8 rounded-2xl border border-error/30 text-center flex flex-col items-center">
+<span class="material-symbols-outlined text-error text-5xl mb-4" data-weight="fill" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Emergency Override</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">This action will instantly sever all external network connections and initiate physical facility lockdown protocols. Requires Level 5 clearance.</p>
+<button class="w-full bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-headline-sm text-headline-sm py-5 px-8 rounded-full transition-all duration-344 ease-in-out cursor-pointer active:scale-95 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl">
+<span class="material-symbols-outlined">lock</span>
+                            Initialize Lockdown
+                        </button>
+</div>
+<div class="text-center">
+<button class="text-outline hover:text-on-surface font-label-md text-label-md transition-colors duration-300 flex items-center justify-center gap-2 mx-auto">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+                            Return to Dashboard
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- SideNav / BottomNavBar suppressed for transactional/task-focused intent -->
+</body></html>

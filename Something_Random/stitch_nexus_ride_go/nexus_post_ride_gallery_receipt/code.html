@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Journey Complete - Nexus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#ba1a20",
+                        "secondary-fixed": "#ffdad7",
+                        "on-surface-variant": "#5b403d",
+                        "on-secondary-fixed-variant": "#910816",
+                        "surface-container": "#ffe9e7",
+                        "surface-bright": "#fff8f7",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb3ac",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "surface-container-low": "#fff0ef",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "surface-variant": "#f9dcd9",
+                        "primary-container": "#d32f2f",
+                        "on-tertiary-container": "#e9f7ff",
+                        "outline-variant": "#e4beba",
+                        "on-secondary-fixed": "#410004",
+                        "tertiary-fixed": "#bee9ff",
+                        "on-surface": "#271816",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#b3272a",
+                        "background": "#fff8f7",
+                        "on-secondary-container": "#600009",
+                        "surface-dim": "#f1d3d0",
+                        "tertiary": "#005f7b",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#001f2a",
+                        "outline": "#8f6f6c",
+                        "surface-container-highest": "#f9dcd9",
+                        "secondary-container": "#fc5d59",
+                        "on-primary-container": "#fff2f0",
+                        "primary-fixed": "#ffdad6",
+                        "inverse-surface": "#3e2c2a",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#ffedeb",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#930010",
+                        "surface": "#fff8f7",
+                        "primary": "#af101a",
+                        "tertiary-container": "#00799c",
+                        "on-error-container": "#93000a",
+                        "on-background": "#271816",
+                        "on-primary-fixed": "#410003",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface-container-high": "#ffe2de"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "card-padding": "40px",
+                        "base": "8px",
+                        "margin-desktop": "auto",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog background */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen pb-32">
+<!-- Header (Suppressed bottom nav as this is a transactional end-state) -->
+<header class="fixed top-0 w-full bg-white/80 backdrop-blur-3xl border-b border-white/10 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 z-50 flat no shadows transition-all duration-300 ease-in-out">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">hub</span>
+<span class="font-display-lg-mobile text-display-lg-mobile font-bold text-primary tracking-tighter">NEXUS</span>
+</div>
+<button class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-variant/50 px-4 py-2 rounded-full transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<main class="pt-32 px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto space-y-section-gap">
+<!-- Hero Section -->
+<section class="text-center space-y-6">
+<h1 class="font-display-xl text-display-xl text-on-surface uppercase tracking-tighter leading-none">Journey<br/>Complete</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your masterpiece has been recorded in the gallery.</p>
+</section>
+<!-- Trip Summary Glassmorphic Card -->
+<section class="bg-white/80 backdrop-blur-[20px] rounded-[28px] border border-white/20 p-card-padding relative overflow-hidden">
+<!-- Map Map Layer -->
+<div class="absolute inset-0 z-0 opacity-20">
+<img class="w-full h-full object-cover grayscale mix-blend-multiply" data-alt="A highly stylized, minimalist overhead map view of an urban landscape. The streets are depicted in clean, thin lines against a stark white background, resembling high-end editorial design. The route is highlighted in a vibrant, deep crimson (#AF101A) that snakes through the grid, creating a striking contrast. The lighting is bright and even, reinforcing the clean, pristine 'light-mode' aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzo8KRL3ccER2Y7Y7w73cRg-G-FkN9ATyzMOSCjv694n5T-Cz9aIwKvopPrdYFzOMKNoi7NO8Cz4zfvX3D10Sco-ruiO-jO5gChETl3q2d82ClEVCJKw29KaB5RvrySU2AkCGWmSnfndP1F_ByTtCg4ASi5-xqAQWQhcQFAA4dpJseruuByUshJuVKXE56lNESmJDOKUNrUymsEbLcVdzAQclp_oHss2F4cIKwtCCLUOrLZyRXJk6fhZYOHfqa5Jmqnvl0f5vHwQ"/>
+</div>
+<div class="relative z-10 space-y-8">
+<div class="text-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest block mb-2">Total Investment</span>
+<h2 class="font-display-lg text-display-lg text-primary">$24.00</h2>
+</div>
+<div class="grid grid-cols-2 gap-gutter pt-8 border-t border-surface-variant/50">
+<div class="space-y-1">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Duration</span>
+<p class="font-headline-md text-headline-md text-on-surface">18 min</p>
+</div>
+<div class="space-y-1 text-right">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Distance</span>
+<p class="font-headline-md text-headline-md text-on-surface">4.2 mi</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Rate Your Masterpiece -->
+<section class="bg-white rounded-[28px] border border-surface-variant p-card-padding text-center space-y-8">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Rate Your Masterpiece</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">How was your curator?</p>
+</div>
+<div class="flex justify-center gap-4" id="star-rating">
+<!-- Stars -->
+<button class="star-btn transition-all duration-344 ease-in-out hover:scale-110 text-outline group">
+<span class="material-symbols-outlined text-[48px] group-hover:text-primary transition-colors duration-344">star</span>
+</button>
+<button class="star-btn transition-all duration-344 ease-in-out hover:scale-110 text-outline group">
+<span class="material-symbols-outlined text-[48px] group-hover:text-primary transition-colors duration-344">star</span>
+</button>
+<button class="star-btn transition-all duration-344 ease-in-out hover:scale-110 text-outline group">
+<span class="material-symbols-outlined text-[48px] group-hover:text-primary transition-colors duration-344">star</span>
+</button>
+<button class="star-btn transition-all duration-344 ease-in-out hover:scale-110 text-outline group">
+<span class="material-symbols-outlined text-[48px] group-hover:text-primary transition-colors duration-344">star</span>
+</button>
+<button class="star-btn transition-all duration-344 ease-in-out hover:scale-110 text-outline group">
+<span class="material-symbols-outlined text-[48px] group-hover:text-primary transition-colors duration-344">star</span>
+</button>
+</div>
+<div class="pt-4">
+<input class="w-full bg-transparent border-b border-surface-variant focus:border-primary font-body-md text-body-md py-4 px-2 outline-none transition-colors duration-344 placeholder-on-surface-variant/50" placeholder="Add a note to the gallery..." type="text"/>
+</div>
+</section>
+<!-- Fare Breakdown -->
+<section class="bg-white rounded-[28px] border border-surface-variant p-card-padding space-y-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface border-b border-surface-variant/50 pb-4">Gallery Receipt</h3>
+<div class="space-y-4 font-body-lg text-body-lg text-on-surface-variant">
+<div class="flex justify-between">
+<span>Base Canvas</span>
+<span>$12.00</span>
+</div>
+<div class="flex justify-between">
+<span>Distance</span>
+<span>$8.50</span>
+</div>
+<div class="flex justify-between">
+<span>Time</span>
+<span>$3.50</span>
+</div>
+<div class="flex justify-between text-primary">
+<span>Surge Demand</span>
+<span>$0.00</span>
+</div>
+</div>
+<div class="flex justify-between border-t border-surface-variant/50 pt-4 font-headline-sm text-headline-sm text-on-surface">
+<span>Total</span>
+<span>$24.00</span>
+</div>
+</section>
+<!-- Actions -->
+<section class="space-y-4">
+<button class="w-full bg-primary text-white rounded-full py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-surface-tint transition-all duration-344 ease-in-out flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">share</span>
+                Share to Gallery
+            </button>
+<button class="w-full bg-transparent border border-outline text-on-surface rounded-full py-4 font-label-md text-label-md uppercase tracking-widest hover:border-primary hover:text-primary transition-all duration-344 ease-in-out">
+                View Past Masterpieces
+            </button>
+</section>
+</main>
+<script>
+        // Simple star rating interaction
+        const stars = document.querySelectorAll('.star-btn');
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                stars.forEach((s, i) => {
+                    const icon = s.querySelector('span');
+                    if (i <= index) {
+                        icon.style.fontVariationSettings = "'FILL' 1";
+                        s.classList.replace('text-outline', 'text-primary');
+                    } else {
+                        icon.style.fontVariationSettings = "'FILL' 0";
+                        s.classList.replace('text-primary', 'text-outline');
+                    }
+                });
+            });
+            
+            // Hover effects for rating
+            star.addEventListener('mouseenter', () => {
+                 stars.forEach((s, i) => {
+                    const icon = s.querySelector('span');
+                    if (i <= index) {
+                         icon.style.fontVariationSettings = "'FILL' 1";
+                    }
+                 });
+            });
+            
+             star.addEventListener('mouseleave', () => {
+                 stars.forEach((s) => {
+                     if(!s.classList.contains('text-primary')) {
+                         const icon = s.querySelector('span');
+                         icon.style.fontVariationSettings = "'FILL' 0";
+                     }
+                 });
+            });
+        });
+    </script>
+</body></html>

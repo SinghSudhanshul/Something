@@ -1,0 +1,236 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# NEXUS — Kong API Gateway Declarative Configuration
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+_format_version: "3.0"
+_transform: true
+
+services:
+  # ── Auth Service ─────────────────────────────────────
+  - name: auth-service
+    url: http://host.docker.internal:3001
+    routes:
+      - name: auth-route
+        paths:
+          - /api/v1/auth
+        strip_path: true
+        plugins:
+          - name: jwt
+            enabled: false
+      - name: verify-route
+        paths:
+          - /api/v1/verify
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 60
+          policy: local
+
+  # ── Bazaar Service ───────────────────────────────────
+  - name: bazaar-service
+    url: http://host.docker.internal:3002
+    routes:
+      - name: bazaar-route
+        paths:
+          - /api/v1/bazaar
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 100
+          policy: local
+
+  # ── Wallet Service ───────────────────────────────────
+  - name: wallet-service
+    url: http://host.docker.internal:3003
+    routes:
+      - name: wallet-route
+        paths:
+          - /api/v1/wallet
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 50
+          policy: local
+
+  # ── Feast Service ────────────────────────────────────
+  - name: feast-service
+    url: http://host.docker.internal:3004
+    routes:
+      - name: feast-route
+        paths:
+          - /api/v1/feast
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 100
+          policy: local
+
+  # ── Rides Service ────────────────────────────────────
+  - name: rides-service
+    url: http://host.docker.internal:3005
+    routes:
+      - name: rides-route
+        paths:
+          - /api/v1/rides
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 100
+          policy: local
+
+  # ── Swift Service ────────────────────────────────────
+  - name: swift-service
+    url: http://host.docker.internal:3006
+    routes:
+      - name: swift-route
+        paths:
+          - /api/v1/swift
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 100
+          policy: local
+
+  # ── Skills Service ───────────────────────────────────
+  - name: skills-service
+    url: http://host.docker.internal:3007
+    routes:
+      - name: skills-route
+        paths:
+          - /api/v1/skills
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 100
+          policy: local
+
+  # ── Pulse Service ────────────────────────────────────
+  - name: pulse-service
+    url: http://host.docker.internal:3008
+    routes:
+      - name: pulse-route
+        paths:
+          - /api/v1/pulse
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 100
+          policy: local
+
+  # ── Trust Service ────────────────────────────────────
+  - name: trust-service
+    url: http://host.docker.internal:3009
+    routes:
+      - name: trust-route
+        paths:
+          - /api/v1/trust
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 50
+          policy: local
+
+  # ── Notifications Service ────────────────────────────
+  - name: notifications-service
+    url: http://host.docker.internal:3010
+    routes:
+      - name: notifications-route
+        paths:
+          - /api/v1/notifications
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 200
+          policy: local
+
+  # ── Search Service ───────────────────────────────────
+  - name: search-service
+    url: http://host.docker.internal:3011
+    routes:
+      - name: search-route
+        paths:
+          - /api/v1/search
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 200
+          policy: local
+
+  # ── Analytics Service ────────────────────────────────
+  - name: analytics-service
+    url: http://host.docker.internal:3012
+    routes:
+      - name: analytics-route
+        paths:
+          - /api/v1/analytics
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 100
+          policy: local
+
+  # ── User Service (Week 6) ────────────────────────────
+  - name: user-service
+    url: http://host.docker.internal:3013
+    routes:
+      - name: user-routes
+        paths:
+          - /api/v1/users
+        strip_path: false
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 60
+          hour: 600
+          policy: local
+      - name: request-size-limiting
+        config:
+          allowed_payload_size: 6
+
+# ── Global Plugins ───────────────────────────────────
+plugins:
+  - name: cors
+    config:
+      origins:
+        - "http://localhost:3000"
+        - "http://localhost:3100"
+      methods:
+        - GET
+        - POST
+        - PUT
+        - PATCH
+        - DELETE
+        - OPTIONS
+      headers:
+        - Authorization
+        - Content-Type
+        - X-Correlation-ID
+      credentials: true
+      max_age: 3600
+
+  - name: jwt
+    config:
+      key_claim_name: sub
+      claims_to_verify:
+        - exp
+      header_names:
+        - authorization
+      secret_is_base64: false
+
+consumers:
+  - username: nexus-app
+    jwt_secrets:
+      - key: nexus-app-key
+        secret: ${JWT_ACCESS_SECRET}

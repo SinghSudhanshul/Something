@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Admin | Privacy &amp; User Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#f1d3d0",
+                        "surface-container-low": "#fff0ef",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-primary-fixed": "#410003",
+                        "surface": "#fff8f7",
+                        "on-primary-container": "#fff2f0",
+                        "on-primary": "#ffffff",
+                        "primary": "#af101a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#00799c",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "outline-variant": "#e4beba",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#3e2c2a",
+                        "primary-container": "#d32f2f",
+                        "tertiary-fixed": "#bee9ff",
+                        "secondary-container": "#fc5d59",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-container-high": "#ffe2de",
+                        "on-secondary-container": "#600009",
+                        "surface-tint": "#ba1a20",
+                        "primary-fixed": "#ffdad6",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-tertiary-container": "#e9f7ff",
+                        "outline": "#8f6f6c",
+                        "on-background": "#271816",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "on-secondary-fixed": "#410004",
+                        "tertiary": "#005f7b",
+                        "secondary": "#b3272a",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "surface-variant": "#f9dcd9",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface-bright": "#fff8f7",
+                        "surface-container": "#ffe9e7",
+                        "surface-container-highest": "#f9dcd9",
+                        "background": "#fff8f7",
+                        "on-primary-fixed-variant": "#930010",
+                        "inverse-on-surface": "#ffedeb",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#ffb3ac",
+                        "on-surface": "#271816",
+                        "on-surface-variant": "#5b403d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-desktop": "auto",
+                        "card-padding": "40px",
+                        "base": "8px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F5F5F7; }
+        .fog-bg { background-color: #F5F5F7; }
+        .glass-panel { backdrop-filter: blur(24px); background-color: rgba(255, 255, 255, 0.8); }
+        .hairline-border { border: 1px solid rgba(0,0,0,0.05); }
+        .transition-expensive { transition: all 0.344s ease-in-out; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="fog-bg text-on-surface font-body-md min-h-screen flex flex-col md:flex-row">
+<!-- NavigationDrawer (Web) / BottomNavBar (Mobile) logic handled via layout -->
+<!-- NavigationDrawer (Web) -->
+<nav class="hidden md:flex bg-surface-dim/95 backdrop-blur-3xl h-screen w-80 rounded-r-xl border-r border-primary/20 shadow-2xl flex-col p-6 gap-4 sticky top-0 z-40">
+<div class="flex items-center justify-start gap-4 mb-8">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A minimalist, high-contrast black and white portrait of a professional individual with a sharp, modern haircut. The lighting is studio-quality, emphasizing sleekness and authority. The background is a stark white, fitting a premium gallery aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlnvRMQMzI7vnyAPOYHX3zq00alJKcmn5tV7hcgCmOU64Lcncsgve6Xs2p9cHKkcYiWcKqd2IdaYWG7nnTuOiaqOHC1KCk_nNCg69hKN0AGGuii9qQABFLuRh4pdTXDZL8OgcsRuumnzlnxF9sXLSdd9yOaXcewyewQcfAruLR2fZm_luL8g0ISoMu2XSFD4IDduR6Iha9Ok_XQDldXWvzi4H18kqhHE1sgVzqNnxQSTGWlbC-pvyOfGt-3N2fPRrlvGq3yDRg-A"/>
+<div>
+<h2 class="font-display-lg text-primary text-xl">Alex Nexus</h2>
+<p class="font-body-md text-on-surface-variant text-sm">Verified Student</p>
+<p class="font-label-md text-primary/70 text-xs mt-1">Tier: Voyager</p>
+</div>
+</div>
+<ul class="flex flex-col gap-2">
+<li><a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:pl-6 transition-all duration-300 ease-in-out" href="#"><span class="material-symbols-outlined">map</span><span class="font-label-md">Campus Map</span></a></li>
+<li><a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:pl-6 transition-all duration-300 ease-in-out" href="#"><span class="material-symbols-outlined">calendar_month</span><span class="font-label-md">Schedule</span></a></li>
+<li><a class="flex items-center gap-3 p-3 rounded-lg bg-primary/10 text-primary border-l-4 border-primary transition-all duration-300 ease-in-out" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span><span class="font-label-md">Safety Center</span></a></li>
+<li><a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:pl-6 transition-all duration-300 ease-in-out" href="#"><span class="material-symbols-outlined">settings</span><span class="font-label-md">Settings</span></a></li>
+<li><a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:pl-6 transition-all duration-300 ease-in-out" href="#"><span class="material-symbols-outlined">help_center</span><span class="font-label-md">Help</span></a></li>
+</ul>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0 pb-24 md:pb-0">
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden bg-background/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)] flex items-center justify-between px-margin-mobile py-4 transition-expensive">
+<div class="flex items-center gap-2 text-primary cursor-pointer active:scale-95 transition-expensive">
+<span class="material-symbols-outlined text-2xl">rocket_launch</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary bg-clip-text">NEXUS</h1>
+<button class="font-label-md text-label-md text-primary cursor-pointer active:scale-95 transition-expensive hover:opacity-80">Get Started</button>
+</header>
+<div class="px-margin-mobile md:px-margin-desktop py-24 max-w-[1440px] mx-auto w-full">
+<!-- Hero / Header -->
+<div class="mb-section-gap pt-12 md:pt-0">
+<h1 class="font-display-xl text-display-xl text-on-surface tracking-tighter mb-6">Privacy Vault</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A high-fidelity interface for managing user data, encryption statuses, and architectural permissions. Gallery-grade precision.</p>
+</div>
+<!-- Search & Filter -->
+<div class="mb-gutter flex flex-col md:flex-row gap-4">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest hairline-border rounded-full py-4 pl-12 pr-4 font-body-md text-on-surface focus:outline-none focus:border-primary transition-expensive shadow-sm" placeholder="Search user directory..." type="text"/>
+</div>
+<button class="bg-surface-container-lowest text-on-surface hairline-border rounded-full px-8 py-4 font-label-md flex items-center justify-center gap-2 hover:bg-surface-dim transition-expensive">
+<span class="material-symbols-outlined">filter_list</span> Filters
+                </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap">
+<!-- User Directory Panel (Spans 8 cols on desktop) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-[28px] p-card-padding hairline-border flex flex-col gap-6">
+<h3 class="font-headline-md text-headline-md text-on-surface border-b border-outline-variant/30 pb-4">User Directory</h3>
+<!-- Editorial Profile Card 1 -->
+<div class="flex items-start gap-6 p-4 rounded-xl hover:bg-surface-container-low transition-expensive cursor-pointer border border-transparent hover:border-outline-variant/50">
+<img class="w-16 h-16 rounded-full object-cover" data-alt="A close-up, high-contrast monochrome portrait of a young woman with a sleek, minimalist style. She is looking slightly off-camera. The lighting highlights architectural bone structure against a pure white background, emphasizing a premium gallery aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZObPkB0r3geEzKR3hY59KbqHTxU7XWuVj7f0TFNtQlMKBSqlv_jGJoM1NReihYNU3I-bhrtv0agJ7TQ7Zeh1Ih6OutZ4j314FM4bWcdEmvmv12-UqpfnfGuyOS0sm3B7IySAE9WNyQnSu7vHIQKqW0IaGHagFgO0bu7Yf925GBJ_VC1V3eEJ3kNeKFhvnomyIzSM9ojVQJc6OAnSg0-CUku4bh4j6v_bJ15T3c_BsdXGQuEHYl8aTxghjNrykOUTCQN4v1goaNQ"/>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-label-md text-on-surface text-lg">Elena Rostova</h4>
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full font-label-md text-xs">High Clearance</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm mb-2">elena.r@nexus.io</p>
+<div class="flex gap-4">
+<span class="text-xs font-label-md text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">lock_open</span> Unencrypted Log</span>
+<span class="text-xs font-label-md text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">history</span> 2h ago</span>
+</div>
+</div>
+</div>
+<!-- Editorial Profile Card 2 -->
+<div class="flex items-start gap-6 p-4 rounded-xl hover:bg-surface-container-low transition-expensive cursor-pointer border border-transparent hover:border-outline-variant/50">
+<img class="w-16 h-16 rounded-full object-cover" data-alt="A sharp, minimalist portrait of a man in a dark tailored shirt against a pure white background. The lighting is bright and high-key, creating a clean, modern aesthetic suitable for a high-end editorial UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7bO-U2EMu8AAf9KxumiyBoEKbmvEhLf0aPgfmfYtzOqF04ifUL6DzoqLcJLHj0jMf98HGgDyhYkiIA-jzNBVIdojX-4XF1HpZ-c7YKzMJO7t7YrXjsoAJnAuLx7K_ACt3mE-A9xS4Jz9QCAI1kfmMlt1q-i1xml3uC1zGHf3p69EOtyPny9I8J73AXWO2RbIJPlNU7RDModVDYpHaSB3iYPs74nIpv9lUxkCX-kRpV_8awAhBWH5BFfAIajhCYZKywc0nammDYA"/>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-label-md text-on-surface text-lg">Marcus Vance</h4>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-md text-xs">Standard</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm mb-2">m.vance@nexus.io</p>
+<div class="flex gap-4">
+<span class="text-xs font-label-md text-tertiary-container flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">enhanced_encryption</span> Encrypted</span>
+<span class="text-xs font-label-md text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">history</span> 1d ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Encryption & Access Status (Spans 4 cols on desktop) -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Encryption Status -->
+<div class="bg-surface-container-lowest rounded-[28px] p-card-padding hairline-border">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Encryption</h3>
+<span class="material-symbols-outlined text-primary text-3xl">shield_locked</span>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-sm mb-1 font-label-md">
+<span class="text-on-surface-variant">Global Standard</span>
+<span class="text-on-surface">98%</span>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[98%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-1 font-label-md">
+<span class="text-on-surface-variant text-secondary">Vulnerable Nodes</span>
+<span class="text-secondary">2%</span>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[2%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Emergency Protocol -->
+<div class="bg-surface-container-lowest rounded-[28px] p-card-padding border border-secondary/30 relative overflow-hidden group">
+<div class="absolute inset-0 bg-secondary/5 group-hover:bg-secondary/10 transition-expensive"></div>
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-2 relative z-10 flex items-center gap-2"><span class="material-symbols-outlined">warning</span> Critical Actions</h3>
+<p class="font-body-md text-on-surface-variant mb-6 relative z-10 text-sm">Immediate suspension of all non-essential data access nodes.</p>
+<button class="w-full bg-secondary text-white rounded-full py-4 font-label-md uppercase tracking-wider hover:bg-on-secondary-fixed-variant transition-expensive relative z-10 shadow-lg shadow-secondary/20 active:scale-95">Revoke All Access</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-8 mt-auto border-t border-primary/30 flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-4">
+<span class="font-display-lg text-primary text-2xl tracking-tighter">NEXUS</span>
+<p class="font-data-label text-data-label text-outline text-sm uppercase tracking-wider">© 2024 NEXUS MOBILITY. AEROSPACE GRADE PRECISION.</p>
+<div class="flex gap-6">
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200 uppercase text-sm" href="#">Privacy</a>
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200 uppercase text-sm" href="#">Terms</a>
+<a class="font-data-label text-data-label text-primary underline hover:text-secondary transition-opacity duration-200 uppercase text-sm" href="#">Safety</a>
+</div>
+</footer>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden bg-surface-container-lowest/60 backdrop-blur-2xl fixed bottom-0 w-full z-50 rounded-t-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] flex justify-around items-center h-20 pb-safe px-4 transition-expensive">
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl">explore</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Explore</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl">directions_car</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Rides</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Wallet</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary drop-shadow-[0_0_8px_rgba(255,185,95,0.5)] tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-data-label text-data-label uppercase text-[10px]">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus - Vehicle Customization</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#fff0ef",
+                        "primary": "#af101a",
+                        "tertiary": "#005f7b",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-secondary-container": "#600009",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#5b403d",
+                        "on-primary-fixed": "#410003",
+                        "primary-fixed": "#ffdad6",
+                        "tertiary-container": "#00799c",
+                        "inverse-on-surface": "#ffedeb",
+                        "surface-bright": "#fff8f7",
+                        "secondary-fixed": "#ffdad7",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "error": "#ba1a1a",
+                        "surface": "#fff8f7",
+                        "outline-variant": "#e4beba",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#d32f2f",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface-dim": "#f1d3d0",
+                        "surface-container-highest": "#f9dcd9",
+                        "secondary": "#b3272a",
+                        "on-background": "#271816",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#bee9ff",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "on-tertiary-fixed": "#001f2a",
+                        "inverse-primary": "#ffb3ac",
+                        "surface-tint": "#ba1a20",
+                        "on-primary-fixed-variant": "#930010",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#3e2c2a",
+                        "surface-variant": "#f9dcd9",
+                        "on-secondary-fixed": "#410004",
+                        "background": "#fff8f7",
+                        "outline": "#8f6f6c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ffe2de",
+                        "surface-container": "#ffe9e7",
+                        "secondary-container": "#fc5d59",
+                        "on-surface": "#271816",
+                        "on-primary-container": "#fff2f0",
+                        "on-tertiary-fixed-variant": "#004d65"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-desktop": "auto",
+                        "base": "8px",
+                        "card-padding": "40px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    fontFamily: {
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog Level 0 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .hairline-border {
+            border: 1px solid rgba(143, 111, 108, 0.2); /* outline-variant at low opacity */
+        }
+        
+        .interactive-ease {
+            transition: all 0.344s ease-in-out;
+        }
+        
+        /* Custom hide scrollbar for horizontal lists */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen flex flex-col relative pb-[100px] md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface-container-highest/80 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-[0.344s] ease-in-out">
+<div class="flex justify-between items-center px-margin-mobile h-16 max-w-[1440px] mx-auto">
+<!-- Leading Avatar -->
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden flex-shrink-0 cursor-pointer interactive-ease hover:opacity-80">
+<img alt="Driver Profile Portrait" class="w-full h-full object-cover" data-alt="Close up portrait photograph of a confident logistics driver, wearing a smart casual dark jacket against a clean minimalist studio background. The lighting is soft and flattering, highlighting professionalism and a premium service aesthetic. Neutral warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB049mrj1qhhaOWw8qX0s1zIo3qBv0SOLjztX6k-74DiwMnqe8TLl3VzPg0WSi8njLeh994YH_uFxXFSquvwst8Z0brWUr8qDljfbAoovPSAPWUryBlz_p6VdwTyoLXc51Rhpeju4DWr7LLcs6X_RXrcNRIQ8VzwVdo10bOp5Gr6QwN0REcv64PV26kipoxNOSyGCj2lXSx2oNhrTA4oE9O1N--ORzjp4KNgXkT4FxHAoAFiqfaeNDAmXuBOOai6XdrwRHxC6Dcg"/>
+</div>
+<!-- Headline / Brand -->
+<h1 class="font-display-lg text-display-lg-mobile md:font-display-lg md:text-display-lg tracking-tighter text-primary dark:text-primary-fixed flex-grow text-center font-extrabold truncate px-4">
+                Nexus
+            </h1>
+<!-- Trailing Icon -->
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant interactive-ease hover:opacity-80 focus:outline-none">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+</div>
+<!-- Desktop Navigation Integration (Hidden on Mobile) -->
+<nav class="hidden md:flex justify-center border-t border-outline-variant/20 py-3 gap-8">
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant interactive-ease hover:text-primary font-label-md text-label-md flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">speed</span> Shift
+            </a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant interactive-ease hover:text-primary font-label-md text-label-md flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">priority_high</span> Requests
+            </a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant interactive-ease hover:text-primary font-label-md text-label-md flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">explore</span> Navigate
+            </a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant interactive-ease hover:text-primary font-label-md text-label-md flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">leaderboard</span> Analytics
+            </a>
+<a class="text-on-surface dark:text-on-primary-fixed-variant font-bold interactive-ease hover:text-primary font-label-md text-label-md flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span> Fleet
+            </a>
+</nav>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 md:pt-40 max-w-[1440px] mx-auto w-full px-margin-mobile md:px-gutter pb-section-gap flex flex-col gap-section-gap">
+<!-- Hero Section: 3D Preview -->
+<section class="relative w-full max-w-5xl mx-auto flex flex-col items-center">
+<div class="w-full aspect-[4/3] md:aspect-[16/9] rounded-[28px] overflow-hidden glass-panel hairline-border relative flex items-center justify-center p-card-padding">
+<!-- Fallback / Static Image for 3D Car -->
+<div class="absolute inset-0 z-0">
+<img alt="Nexus Vehicle 3D Preview" class="w-full h-full object-cover opacity-90" data-alt="A highly realistic, dramatic cinematic 3D render of a futuristic autonomous delivery vehicle in a minimalist white studio. The vehicle is sleek, featuring smooth curves, glass panels, and a premium deep crimson chrome finish. Soft, volumetric studio lighting highlights the geometric forms and creates a sense of high-end consumer electronics presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBehQpO5dc6w7fw-dmT5a95Nh4zwvRyp_8yfxb9LoXyONGPE0UG4ZRVC8s69Vxl3_ICZ2NIjhB0vYQkZ0a-Lfd7lXZTbUYvRwc_17CtRjb9gJmXa6wlzmkPhKYg6t3q0_jFibM86AfJo1nkGXAJi82F8YDD2nUslqxlCX2FRlauEJtofINM8HmNv570aIncH61TH_yvIIqRBhv56lstk9aHTBkGf6RaCpcfTR6LvzWn7lA6NRcygDDCF5ePqCUw_QU6IAevVYMqw"/>
+</div>
+<!-- Floating Info Overlay -->
+<div class="absolute bottom-8 left-8 right-8 flex justify-between items-end z-10 pointer-events-none">
+<div class="glass-panel px-6 py-4 rounded-xl hairline-border">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-1">Crimson Chrome</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Applied to Nexus Unit Alpha</p>
+</div>
+<div class="glass-panel w-12 h-12 rounded-full flex items-center justify-center hairline-border interactive-ease hover:scale-105 pointer-events-auto cursor-pointer">
+<span class="material-symbols-outlined text-primary">360</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Customization Controls Section -->
+<section class="max-w-4xl mx-auto w-full bg-white rounded-[28px] hairline-border p-card-padding flex flex-col gap-10">
+<div class="text-center md:text-left">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Aesthetic Configuration</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Select a signature finish to define your fleet's visual presence.</p>
+</div>
+<!-- Liveries Selector -->
+<div>
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-6">Signature Finishes</h4>
+<!-- Horizontal scroll area for swatches -->
+<div class="flex overflow-x-auto gap-8 pb-6 hide-scrollbar">
+<!-- Option 1 -->
+<button class="flex flex-col items-center gap-4 flex-shrink-0 group focus:outline-none interactive-ease">
+<div class="w-20 h-20 rounded-full hairline-border p-1 interactive-ease group-hover:border-primary group-focus:border-primary">
+<div class="w-full h-full rounded-full bg-gradient-to-br from-gray-800 to-black shadow-inner"></div>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary group-focus:text-primary group-focus:font-bold interactive-ease">Stealth Carbon</span>
+</button>
+<!-- Option 2 (Active) -->
+<button class="flex flex-col items-center gap-4 flex-shrink-0 group focus:outline-none interactive-ease">
+<div class="w-20 h-20 rounded-full border-2 border-primary p-1 interactive-ease">
+<div class="w-full h-full rounded-full bg-gradient-to-br from-[#af101a] to-[#600009] shadow-inner relative flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<span class="font-body-md text-body-md text-primary font-bold interactive-ease">Crimson Chrome</span>
+</button>
+<!-- Option 3 -->
+<button class="flex flex-col items-center gap-4 flex-shrink-0 group focus:outline-none interactive-ease">
+<div class="w-20 h-20 rounded-full hairline-border p-1 interactive-ease group-hover:border-primary group-focus:border-primary">
+<div class="w-full h-full rounded-full bg-gradient-to-br from-blue-100 to-gray-300 shadow-inner"></div>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary group-focus:text-primary group-focus:font-bold interactive-ease">Nebula Matte</span>
+</button>
+<!-- Option 4 -->
+<button class="flex flex-col items-center gap-4 flex-shrink-0 group focus:outline-none interactive-ease">
+<div class="w-20 h-20 rounded-full hairline-border p-1 interactive-ease group-hover:border-primary group-focus:border-primary">
+<div class="w-full h-full rounded-full bg-[#FFFFFF] border border-gray-200 shadow-inner"></div>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary group-focus:text-primary group-focus:font-bold interactive-ease">Pristine White</span>
+</button>
+</div>
+</div>
+<!-- Details & Action -->
+<div class="mt-4 pt-8 border-t hairline-border flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left max-w-sm">
+<span class="inline-block px-3 py-1 bg-surface-variant text-primary rounded-full font-label-md text-label-md mb-3">Premium Tier</span>
+<p class="font-body-md text-body-md text-on-surface-variant">High-gloss, metallic crimson finish with scratch-resistant nanocoating. Enhances brand visibility by 42% in urban environments.</p>
+</div>
+<button class="bg-primary text-white font-label-md text-label-md py-4 px-10 rounded-full interactive-ease hover:bg-on-secondary-container active:scale-95 w-full md:w-auto flex-shrink-0 flex items-center justify-center gap-2">
+                    Commit Aesthetic <span class="material-symbols-outlined text-[18px]">verified</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-white/80 dark:bg-surface-container-highest/80 backdrop-blur-md border-t border-outline-variant/30 flex justify-around items-center h-20 pb-safe px-4 transition-all duration-[0.344s] ease-in-out">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] focus:outline-none">
+<span class="material-symbols-outlined mb-1">speed</span>
+<span class="font-label-md text-label-md text-[10px]">Shift</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] focus:outline-none">
+<span class="material-symbols-outlined mb-1">priority_high</span>
+<span class="font-label-md text-label-md text-[10px]">Requests</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] focus:outline-none">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-label-md text-label-md text-[10px]">Navigate</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] focus:outline-none">
+<span class="material-symbols-outlined mb-1">leaderboard</span>
+<span class="font-label-md text-label-md text-[10px]">Analytics</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:text-primary transition-colors duration-[0.344s] focus:outline-none active:scale-95">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-label-md text-label-md text-[10px]">Fleet</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus | Curator Leaderboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#f9dcd9",
+                        "surface-tint": "#ba1a20",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#fff0ef",
+                        "outline": "#8f6f6c",
+                        "on-secondary-container": "#600009",
+                        "primary-fixed": "#ffdad6",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "tertiary-fixed": "#bee9ff",
+                        "secondary": "#b3272a",
+                        "inverse-surface": "#3e2c2a",
+                        "on-primary-container": "#fff2f0",
+                        "inverse-on-surface": "#ffedeb",
+                        "surface-container-high": "#ffe2de",
+                        "on-tertiary-container": "#e9f7ff",
+                        "on-primary-fixed": "#410003",
+                        "inverse-primary": "#ffb3ac",
+                        "on-surface-variant": "#5b403d",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#f9dcd9",
+                        "tertiary": "#005f7b",
+                        "tertiary-container": "#00799c",
+                        "on-surface": "#271816",
+                        "primary": "#af101a",
+                        "on-tertiary-fixed": "#001f2a",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#f1d3d0",
+                        "on-background": "#271816",
+                        "surface-container": "#ffe9e7",
+                        "surface-bright": "#fff8f7",
+                        "background": "#fff8f7",
+                        "on-secondary-fixed": "#410004",
+                        "secondary-fixed": "#ffdad7",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "primary-container": "#d32f2f",
+                        "secondary-container": "#fc5d59",
+                        "outline-variant": "#e4beba",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fff8f7",
+                        "on-primary-fixed-variant": "#930010"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "card-padding": "40px",
+                        "margin-desktop": "auto",
+                        "section-gap": "120px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Subtle Glow Animation for Archon Cards */
+        @keyframes archonGlow {
+            0% { box-shadow: 0 0 15px rgba(175, 16, 26, 0.05); border-color: rgba(228, 190, 186, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(175, 16, 26, 0.15); border-color: rgba(175, 16, 26, 0.3); }
+            100% { box-shadow: 0 0 15px rgba(175, 16, 26, 0.05); border-color: rgba(228, 190, 186, 0.3); }
+        }
+        .archon-card {
+            animation: archonGlow 4s infinite ease-in-out;
+            transition: transform 0.344s ease-in-out;
+        }
+        .archon-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Hide scrollbar for clean gallery look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff8f7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e4beba;
+            border-radius: 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface-container-highest/80 backdrop-blur-md flex justify-between items-center px-margin-mobile h-16 transition-all duration-[0.344s] ease-in-out">
+<!-- Brand -->
+<div class="flex items-center gap-4">
+<span class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary dark:text-primary-fixed">Nexus</span>
+</div>
+<!-- Desktop Navigation Cluster (Hidden on Mobile) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-opacity duration-[0.344s]" href="#">Shift</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-opacity duration-[0.344s]" href="#">Requests</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-opacity duration-[0.344s]" href="#">Navigate</a>
+<!-- Active State -->
+<a class="font-label-md text-label-md text-on-surface hover:opacity-80 transition-opacity duration-[0.344s] flex items-center gap-2" href="#">
+<span class="material-symbols-outlined icon-fill">leaderboard</span>
+                Analytics
+            </a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-opacity duration-[0.344s]" href="#">Fleet</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<button class="text-on-surface hover:opacity-80 transition-opacity duration-[0.344s]">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A tightly cropped, high-fashion editorial portrait of a professional driver. The lighting is bright and soft, typical of a modern light-mode interface. The subject exudes confidence, set against a pristine, purely white minimalist background. The photography style is extremely crisp and high-resolution, matching a premium gallery aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeIQ3tYcD_-NTLjdD91dZHdthTqxS-LzBE3DTPbYC4CHEPzgLZxQkccSZiwunYW2hH2HDhBq3pP1OYUzQYQRxLZKreQ0YXYJMF8sq7U_bB1fW2j7Ub6jXqnoLzWC2WkqXhK0N48KrMo7bxF_hA1UCFpBw27AZlI48kzh2YhQ9dcsEo-X_iHPhP4pK33qI57GE_M_ogrw4Lq7e_l9vVLXM_k2tpmriH23XmJd0Bi4YRfS2Lxd24D9Vg2igpMV2xNzlL8G_Bk_AYjQ"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 md:pt-32 px-margin-mobile md:px-gutter max-w-[1440px] mx-margin-desktop">
+<!-- Hero Header -->
+<section class="mb-16 md:mb-section-gap max-w-3xl">
+<h1 class="font-display-xl text-display-lg-mobile md:text-display-xl text-on-surface tracking-tighter mb-4">Masterpiece.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                The absolute pinnacle of curation. Ranks are determined by combined Impact Score and Precision metrics over a rolling 30-day epoch. Only the top three achieve <span class="font-bold text-primary">Archon</span> status.
+            </p>
+</section>
+<!-- The Archons (Top 3 Bento Grid) -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-secondary-container icon-fill text-[32px]">workspace_premium</span>
+<h2 class="font-headline-md text-headline-sm md:text-headline-md text-on-surface">The Archons</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Rank 2 -->
+<div class="bg-surface-container-lowest/90 backdrop-blur-xl border border-outline-variant/30 rounded-[28px] p-card-padding flex flex-col justify-between archon-card relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity duration-[0.344s]">
+<span class="font-display-xl text-[120px] font-bold text-primary leading-none">2</span>
+</div>
+<div>
+<div class="w-20 h-20 rounded-full overflow-hidden mb-6 border-2 border-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A clean, highly stylized studio portrait of a young female curator. Soft, diffused lighting creates a serene mood on her face. The background is a flawless, expansive light gray fog color. The aesthetic is strictly minimalist and corporate premium, emphasizing structural clarity and a professional, modern presence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCihyubN-N26NfiMyz4GLmCHnzzpDnx_2H2AZdiAPzfbo-UBwXflgwcMZKJDhcmPwcTgUzm2EyHXSVa48GvZy7rNEZNB8lij9H-gO19UfUzomDT_15zhr8gBNZ4ie-kAJLXiElK_i33IGShTdEYiv6bvdu0_zJtI8CVP9eIBBJrpKcxumKMnfS2k1tjpBqV5VUEBc1GX3b81KLWqQKDeS8AnmMaWc0iAa1KpvwD-W3Zs4K3ROmAPd66omME68Z0DTnP_U27Mrk6aw"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Elara Vance</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-6">Campus Vanguard</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Impact Score</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">94.2k</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-body-md text-body-md text-on-surface-variant">Precision</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">99.1%</span>
+</div>
+</div>
+</div>
+<!-- Rank 1 (The Apex) -->
+<div class="bg-surface-container-lowest/90 backdrop-blur-xl border-2 border-primary/20 rounded-[28px] p-card-padding flex flex-col justify-between archon-card relative overflow-hidden transform md:-translate-y-4 shadow-lg shadow-primary/5">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity duration-[0.344s]">
+<span class="font-display-xl text-[140px] font-bold text-primary leading-none">1</span>
+</div>
+<div class="mb-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md mb-6">
+                            Apex Curator
+                        </span>
+<div class="w-24 h-24 rounded-full overflow-hidden mb-6 border-4 border-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A striking, editorial-grade portrait of a distinguished male curator. The lighting is cinematic yet bright, characteristic of a high-end light-mode gallery interface. The background is pure white. He is dressed sharply, embodying an authoritative and highly refined aesthetic that communicates immense expertise and premium quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLd_EBb9UDE9FziGu2F9GHTo6LsevWzJJwPLjQr56cMXDBXvp44zcggknPXmVrPcvW14DcW2HaytDRGlLcy-0CSoqconKmn0w9ioPwyfKsIz5xZviAx1NzaBA-67Vgltm9aGaQDXdMfV_4OZNSDSAun6VofYVGfzBIvz_RJEWfwHPNtEat_ML-tzar3aD629XlpA4zwg3fK7qiI89gyvaSfoFtSdxF1vtOZX4RM09wJbB05YSrDKhJyBUnVIboXsmndf1oniiWyg"/>
+</div>
+<h3 class="font-headline-md text-headline-sm md:text-headline-md text-on-surface mb-1">Julian Thorne</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-6">Master Synthesist</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Impact Score</span>
+<span class="font-headline-sm text-headline-sm text-primary">112.8k</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-body-md text-body-md text-on-surface-variant">Precision</span>
+<span class="font-headline-sm text-headline-sm text-primary">99.8%</span>
+</div>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="bg-surface-container-lowest/90 backdrop-blur-xl border border-outline-variant/30 rounded-[28px] p-card-padding flex flex-col justify-between archon-card relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity duration-[0.344s]">
+<span class="font-display-xl text-[120px] font-bold text-primary leading-none">3</span>
+</div>
+<div>
+<div class="w-20 h-20 rounded-full overflow-hidden mb-6 border-2 border-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A modern, high-contrast portrait of a creative professional curator. Bright, even lighting highlights an expressive but focused demeanor. The setting is absolutely minimal, featuring only a pristine white canvas background. The overall tone is contemporary, clean, and tightly aligned with a luxury tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqKsoM4zWATqh_PGDBhLS-UtgsyoOFHZNgkqSeLtzWCfFNtHBq9CtgbahJn-bjjCckOODzpG4SueoscXc5mtPp6sdVsm48_QONIMCCE1PKsZ0-zutcU3iF0vmQ1K0GRNakAtw4c1Knn0PgUYXuzBBvxHdWuXG9xRn4OyT0L00Ve00RmC1fJ1pVpppwyWPx-ga7bqFGm1MSBAY2eRSBuimBb3jbzo0dbrROy8dq3JmXpoYxJXO1NlQz7qO_AanriddWtAR8FUZFEg"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Marcus Lin</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-6">Data Sculptor</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Impact Score</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">89.5k</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-body-md text-body-md text-on-surface-variant">Precision</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">98.4%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Standard Leaderboard List -->
+<section class="mb-section-gap max-w-4xl mx-auto">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-8 border-b border-outline-variant/30 pb-4">Global Rank</h2>
+<div class="flex flex-col gap-4">
+<!-- List Item 4 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-6 flex items-center justify-between hover:border-outline-variant transition-all duration-[0.344s]">
+<div class="flex items-center gap-6">
+<span class="font-headline-md text-headline-md text-on-surface-variant w-8 text-center">4</span>
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A crisp, minimal avatar photograph of a professional. Bright white background, even light mode illumination. High-end, clean aesthetic typical of corporate luxury profiles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqgSYDwJJxP8bhwf5DcuBLyR8Ww9MBUcsvwS0DB3xeqPqHsK1Ftd9Yz99RTXA3E9YKJyuYs4av72J1jzX4lZsEcWOoSVtmdzPGRzairOAfFOmiBO48lmp3SIHcC-oOlCPz67T6_ZgfTKf92PZAL86EzAMzveC1S_dDRYw3PGaKlwDIDIlou9zAuZcyz9TUAJR87NuJp9Pm7UpWuedR5VU8lBrL04wPufL5WczhaMCAhXzoyn5hpqMhFnFhYNFAosRtauTwXnHhzw"/>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface text-lg">Sarah Jenkins</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant">Urban Logistics</p>
+</div>
+</div>
+<div class="flex items-center gap-8 text-right">
+<div>
+<p class="font-body-md text-[13px] text-on-surface-variant">Impact</p>
+<p class="font-label-md text-label-md text-on-surface">82.1k</p>
+</div>
+<div>
+<p class="font-body-md text-[13px] text-on-surface-variant">Precision</p>
+<p class="font-label-md text-label-md text-on-surface">97.9%</p>
+</div>
+</div>
+</div>
+<!-- List Item 5 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-6 flex items-center justify-between hover:border-outline-variant transition-all duration-[0.344s]">
+<div class="flex items-center gap-6">
+<span class="font-headline-md text-headline-md text-on-surface-variant w-8 text-center">5</span>
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, gallery-style minimalist avatar photograph. Pure white background, high-key lighting. The portrait exudes professional authority and modern simplicity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbAqXljrxbcZDGsJ19GoGqgoDY4s4LW0q8krXgv70Fstq-uA6pYQbhQ46FLwu3vnWXjHVsc8j5316uVok7pFBUGktAZqAFZQ6ZUgfiN0r_OpRVoRs4RHTDmGnt2XKb8DjNHY8CFj-8wBfOUA2_EC-XILfNd11gd0lM4VSpNLHjMDeFpi_wkDYLOPdZ-VhNf6-P8jxyMgStdfNKy4FQm9go4ZyPX5Tjms7yCFkc-ckr2xNWCaFmLYbyWDm1Zv71dHbg5hB7M5hhRQ"/>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface text-lg">David Cho</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant">Network Optimization</p>
+</div>
+</div>
+<div class="flex items-center gap-8 text-right">
+<div>
+<p class="font-body-md text-[13px] text-on-surface-variant">Impact</p>
+<p class="font-label-md text-label-md text-on-surface">78.4k</p>
+</div>
+<div>
+<p class="font-body-md text-[13px] text-on-surface-variant">Precision</p>
+<p class="font-label-md text-label-md text-on-surface">98.1%</p>
+</div>
+</div>
+</div>
+<!-- List Item 6 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-6 flex items-center justify-between hover:border-outline-variant transition-all duration-[0.344s]">
+<div class="flex items-center gap-6">
+<span class="font-headline-md text-headline-md text-on-surface-variant w-8 text-center">6</span>
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A bright, editorial quality headshot against a stark white backdrop. The lighting is completely flat and flawless, perfectly suited for a minimalist luxury interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGjFP8pYAQdjmXDSlqtQxrRraz0x7KEIyPyimFi6-4sTdJTh6oJC9biTRAp2-GBNJhFyNCYJ5HWt8Z3Q25Rz4gObeayDVXl7x3ijhKC_0chLWEG7xPzwcc4NaW9_eKb11f1ADPGDLcmTN_zEKTY6iUVlIfVNNn07cV1vvjW8qgHWqR7Lz5wA0JKJNz5oAkzf0BuoFBe44CGiqa8x5fSlxF6rgfvQDydevEeQzBAU2Vfk6lQ8GIfndjt5SK5iZMMrnad4GAXjkoyA"/>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface text-lg">Amina Rossi</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant">Route Synthesis</p>
+</div>
+</div>
+<div class="flex items-center gap-8 text-right">
+<div>
+<p class="font-body-md text-[13px] text-on-surface-variant">Impact</p>
+<p class="font-label-md text-label-md text-on-surface">75.0k</p>
+</div>
+<div>
+<p class="font-body-md text-[13px] text-on-surface-variant">Precision</p>
+<p class="font-label-md text-label-md text-on-surface">96.5%</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 text-center">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full hover:opacity-90 transition-all duration-[0.344s] hover:scale-[1.02]">
+                    Load Full Roster
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-outline-variant/30 bg-white/80 dark:bg-surface-container-highest/80 backdrop-blur-md flex justify-around items-center h-20 pb-safe px-4 md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] w-16">
+<span class="material-symbols-outlined mb-1">speed</span>
+<span class="font-label-md text-[10px] tracking-wide">Shift</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] w-16">
+<span class="material-symbols-outlined mb-1">priority_high</span>
+<span class="font-label-md text-[10px] tracking-wide">Requests</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] w-16">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-label-md text-[10px] tracking-wide">Navigate</span>
+</button>
+<!-- Active State -->
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold Active: scale-95 transition-transform duration-[0.344s] ease-in-out w-16">
+<span class="material-symbols-outlined icon-fill mb-1">leaderboard</span>
+<span class="font-label-md text-[10px] tracking-wide">Analytics</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] w-16">
+<span class="material-symbols-outlined mb-1">local_shipping</span>
+<span class="font-label-md text-[10px] tracking-wide">Fleet</span>
+</button>
+</nav>
+</body></html>

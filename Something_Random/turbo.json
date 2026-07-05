@@ -1,0 +1,75 @@
+{
+  "$schema": "https://v2-9-18.turborepo.dev/schema.json",
+  "globalDependencies": [
+    ".env",
+    ".env.*"
+  ],
+  "globalEnv": [
+    "NODE_ENV",
+    "CI",
+    "DATABASE_URL",
+    "REDIS_URL",
+    "KAFKA_BROKERS"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ],
+      "cache": true
+    },
+    "dev": {
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": false,
+      "persistent": true
+    },
+    "test": {
+      "dependsOn": [
+        "build"
+      ],
+      "outputs": [
+        "coverage/**"
+      ],
+      "cache": true
+    },
+    "lint": {
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "outputs": []
+    },
+    "type-check": {
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "outputs": []
+    },
+    "db:migrate": {
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": false,
+      "outputs": []
+    },
+    "db:seed": {
+      "dependsOn": [
+        "db:migrate"
+      ],
+      "cache": false,
+      "outputs": []
+    },
+    "clean": {
+      "cache": false,
+      "outputs": []
+    }
+  },
+  "concurrency": "16"
+}

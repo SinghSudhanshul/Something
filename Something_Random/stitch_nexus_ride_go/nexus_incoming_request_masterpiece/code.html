@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Nexus - Ride Request</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "surface": "#fff8f7",
+                        "secondary-container": "#fc5d59",
+                        "on-primary-fixed": "#410003",
+                        "surface-variant": "#f9dcd9",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "background": "#fff8f7",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#ffe9e7",
+                        "primary-container": "#d32f2f",
+                        "inverse-primary": "#ffb3ac",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#410004",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#005f7b",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-container-low": "#fff0ef",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#ffedeb",
+                        "tertiary-container": "#00799c",
+                        "on-background": "#271816",
+                        "surface-bright": "#fff8f7",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "tertiary-fixed": "#bee9ff",
+                        "on-error-container": "#93000a",
+                        "primary": "#af101a",
+                        "on-primary-container": "#fff2f0",
+                        "outline": "#8f6f6c",
+                        "on-tertiary-container": "#e9f7ff",
+                        "primary-fixed": "#ffdad6",
+                        "surface-container-high": "#ffe2de",
+                        "on-surface-variant": "#5b403d",
+                        "on-surface": "#271816",
+                        "surface-tint": "#ba1a20",
+                        "surface-container-highest": "#f9dcd9",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "outline-variant": "#e4beba",
+                        "on-primary-fixed-variant": "#930010",
+                        "inverse-surface": "#3e2c2a",
+                        "on-tertiary-fixed": "#001f2a",
+                        "secondary": "#b3272a",
+                        "on-secondary-container": "#600009",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface-dim": "#f1d3d0",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#910816"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "card-padding": "40px",
+                        "section-gap": "120px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "auto",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>.map-bg {
+    background-color: #f0f0f0;
+    /* Fallback */
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCXj8vylT-ckbFYl6B5OpmOQGzO8nu8bAYSDf2d00i-0erKJ9q2F0rbg2ork3MKPnSYCSLxCEjPTgKBeY1-6dVuVyEsZ15vHhcSUAI-CL1hJ7ujVn4KYrB7SOR832ni7fwzvBxXU5gRv9S9fG5d7s6mrGcob6jtXLzWIVKr24ugLfiCdOksGXIGOmOyEd2oZvebmySvrqS9gyTdY8rKIwAAINEigouskHorSdPi85Uc9I6C-Cu_E_KU6iOUVFaak4IwYCDPDa4Btg);
+    background-size: cover;
+    background-position: center
+    }
+/* Slider styling */
+.slider-track {
+    background: rgba(175, 16, 26, 0.1);
+    position: relative;
+    overflow: hidden
+    }
+.slider-thumb {
+    touch-action: none;
+    transition: transform 0.1s
+    }
+.slider-thumb.dragging {
+    transform: scale(0.95)
+    }
+.shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear
+    }
+@keyframes shimmer {
+    0% {
+        background-position: 100% 0;
+        } 100% {
+        background-position: -100% 0;
+        }
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background h-screen w-screen overflow-hidden font-body-md select-none">
+<!-- Top Navigation (Transactional/Focused state, so global nav is suppressed, showing contextual top bar) -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-[20px] border-b border-outline-variant/30 flex justify-between items-center px-gutter h-20 transition-all duration-[0.344s] ease-in-out">
+<button aria-label="Go offline" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-variant/50 transition-colors duration-[0.344s] ease-in-out text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">power_settings_new</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest text-xs">Curator Rating</span>
+<div class="flex items-center gap-1 text-primary">
+<span class="font-headline-sm text-headline-sm">4.98</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<button aria-label="Filters" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-variant/50 transition-colors duration-[0.344s] ease-in-out text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">tune</span>
+</button>
+</header>
+<!-- Full Screen Map Background -->
+<div class="absolute inset-0 z-0 map-bg" data-alt="A cinematic, minimalist map interface in light mode. The map shows a stylized city layout with pale grey roads and very subtle, muted terrain. A vibrant, high-contrast primary red route line arcs elegantly across the map, leading to a pulsing pickup indicator. The overall aesthetic is clean, high-end gallery minimalism, evoking luxury navigation systems." data-location="New York City" style="">
+<!-- Map Overlay Gradient (to ensure bottom card readability) -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+<!-- Simulated Map Elements -->
+<div class="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center animate-pulse">
+<div class="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-primary/40 flex items-center justify-center">
+<div class="w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(175,16,26,0.8)] ring-4 ring-white"></div>
+</div>
+</div>
+<div class="mt-2 px-3 py-1 bg-surface rounded-full shadow-sm border border-outline-variant/30 text-xs font-label-md text-primary">
+                3 MIN AWAY
+            </div>
+</div>
+<!-- Route Line Mock -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M 50 40 C 60 70, 40 80, 50 100" fill="none" stroke="rgba(175,16,26,0.6)" stroke-dasharray="2, 1" stroke-width="0.5"></path>
+</svg>
+</div>
+<!-- Floating Request Card (Bottom) -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-md z-40 flex flex-col gap-4">
+<!-- Details Card -->
+<div class="bg-surface/90 backdrop-blur-[24px] border border-outline-variant/30 rounded-[28px] p-card-padding shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transform transition-transform duration-[0.344s] hover:-translate-y-1">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="inline-block px-3 py-1 bg-surface-variant text-primary font-label-md text-[10px] rounded-full uppercase tracking-widest mb-2 border border-primary/10">Premium Request</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-1">The Grand Minimalist Museum</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 0;">location_on</span>
+                        1.2 miles • Pickup
+                    </p>
+</div>
+<div class="text-right">
+<div class="font-headline-md text-headline-md text-primary tracking-tighter">£45</div>
+<div class="font-body-md text-[13px] text-on-surface-variant">Est. Value</div>
+</div>
+</div>
+<div class="h-[1px] w-full bg-outline-variant/30 my-4"></div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center border border-outline-variant/50 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A sophisticated, high-key portrait of a passenger waiting. Bright lighting, minimalist background. The person looks elegant and calm, aligning with the premium gallery aesthetic. Very clean composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6azwQhkfGVlrIzgLJLGIQDg0lJPJSZiF68HB0jMbm8BhOiemQMl6X1qhkU99iOHtrkuNgqEBUNpKYVs9aJApaMhdW-H9nIQb6Bjk8mrrzNb7GB9wT8csi7ep6fMXm3HSZ-miSpx1YAC8wbHYA6lmRvQd_EADm9njrsgBShRYXku2H2w1EYrdTD11k-QWgsD0WLaBSlAh_jqUtFO6dljxNetlTJCu_A-zhPifUoaWilLLwqKq_jOtfMJacA9ZqKCjaqN7ho2YBUQ"/>
+</div>
+<div class="flex-1">
+<h3 class="font-label-md text-label-md text-on-surface">Eleanor V.</h3>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="mx-1">•</span>
+<span>12 trips</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Acceptance Slider -->
+<div class="w-full h-[72px] rounded-full slider-track border border-primary/20 flex items-center px-2 relative" id="accept-slider-container">
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase opacity-80 shimmer bg-clip-text text-transparent">Slide to Accept</span>
+</div>
+<div class="w-[56px] h-[56px] bg-primary rounded-full flex items-center justify-center text-on-primary shadow-lg cursor-grab active:cursor-grabbing slider-thumb z-10" id="accept-slider-thumb">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</div>
+</div>
+<div class="text-center">
+<button class="font-label-md text-[12px] text-on-surface-variant uppercase tracking-widest hover:text-primary transition-colors duration-[0.344s]">Decline</button>
+</div>
+</div>
+<script>
+        // Simple slider logic for visual demonstration
+        const container = document.getElementById('accept-slider-container');
+        const thumb = document.getElementById('accept-slider-thumb');
+        let isDragging = false;
+        let startX;
+        let currentX = 0;
+        const maxScroll = container.offsetWidth - thumb.offsetWidth - 16; // 16px for padding
+
+        thumb.addEventListener('mousedown', startDrag);
+        thumb.addEventListener('touchstart', startDrag, {passive: true});
+
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('touchmove', drag, {passive: false});
+
+        document.addEventListener('mouseup', endDrag);
+        document.addEventListener('touchend', endDrag);
+
+        function startDrag(e) {
+            isDragging = true;
+            thumb.classList.add('dragging');
+            startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+            // Provide subtle haptic feedback if available
+            if (navigator.vibrate) navigator.vibrate(10);
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            e.preventDefault(); // Prevent scrolling on touch
+            
+            const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+            const walk = x - startX;
+            currentX = Math.max(0, Math.min(walk, maxScroll));
+            
+            thumb.style.transform = `translateX(${currentX}px) scale(0.95)`;
+            
+            // Visual feedback based on progress
+            const progress = currentX / maxScroll;
+            container.style.backgroundColor = `rgba(175, 16, 26, ${0.1 + (progress * 0.2)})`;
+        }
+
+        function endDrag() {
+            if (!isDragging) return;
+            isDragging = false;
+            thumb.classList.remove('dragging');
+            
+            if (currentX > maxScroll * 0.8) {
+                // Accepted
+                thumb.style.transform = `translateX(${maxScroll}px)`;
+                if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
+                thumb.innerHTML = `<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check</span>`;
+                setTimeout(() => {
+                    alert('Ride Accepted');
+                    // Reset
+                    currentX = 0;
+                    thumb.style.transform = `translateX(0px)`;
+                    thumb.innerHTML = `<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>`;
+                    container.style.backgroundColor = '';
+                }, 500);
+            } else {
+                // Snap back
+                currentX = 0;
+                thumb.style.transition = 'transform 0.344s cubic-bezier(0.4, 0, 0.2, 1)';
+                thumb.style.transform = `translateX(0px)`;
+                container.style.backgroundColor = '';
+                setTimeout(() => {
+                    thumb.style.transition = 'transform 0.1s';
+                }, 344);
+            }
+        }
+    </script>
+</body></html>

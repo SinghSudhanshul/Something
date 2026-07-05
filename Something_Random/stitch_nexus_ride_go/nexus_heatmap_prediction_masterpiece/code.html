@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Campus Heatmap &amp; Prediction Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#fff0ef",
+                        "primary": "#af101a",
+                        "tertiary": "#005f7b",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-secondary-container": "#600009",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#5b403d",
+                        "on-primary-fixed": "#410003",
+                        "primary-fixed": "#ffdad6",
+                        "tertiary-container": "#00799c",
+                        "inverse-on-surface": "#ffedeb",
+                        "surface-bright": "#fff8f7",
+                        "secondary-fixed": "#ffdad7",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "error": "#ba1a1a",
+                        "surface": "#fff8f7",
+                        "outline-variant": "#e4beba",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#d32f2f",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface-dim": "#f1d3d0",
+                        "surface-container-highest": "#f9dcd9",
+                        "secondary": "#b3272a",
+                        "on-background": "#271816",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#bee9ff",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "on-tertiary-fixed": "#001f2a",
+                        "inverse-primary": "#ffb3ac",
+                        "surface-tint": "#ba1a20",
+                        "on-primary-fixed-variant": "#930010",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#3e2c2a",
+                        "surface-variant": "#f9dcd9",
+                        "on-secondary-fixed": "#410004",
+                        "background": "#fff8f7",
+                        "outline": "#8f6f6c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ffe2de",
+                        "surface-container": "#ffe9e7",
+                        "secondary-container": "#fc5d59",
+                        "on-surface": "#271816",
+                        "on-primary-container": "#fff2f0",
+                        "on-tertiary-fixed-variant": "#004d65"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "card": "28px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "auto",
+                        "base": "8px",
+                        "card-padding": "40px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog Base */
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(228, 190, 186, 0.3); /* outline-variant/30 */
+        }
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(175, 16, 26, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(175, 16, 26, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(175, 16, 26, 0); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased overflow-hidden h-screen w-full relative font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface-container-highest/80 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile md:px-gutter h-16 transition-all duration-[0.344s] ease-in-out">
+<div class="flex items-center gap-4">
+<!-- Leading Avatar -->
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="Driver Profile Portrait" class="w-full h-full object-cover" data-alt="A polished, professional headshot of a delivery fleet driver against a minimalist light grey background. The lighting is studio quality, high-key and soft, emphasizing a premium, authoritative yet welcoming aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbzqATr1y6J_yFxggxf-8TYF1D3zLEYgI9VOSLPNVlrpPMycUrA2miQdj3C0EVueAl6Tn3elY942qoZ2bUFPMIkhU9vG-debw6AKoStSMJiGNok1jiIj_kNYCxAdMJ1KVX4c0qqGVw-EYi3skNOcbS8-GL29Z8bFJx2vzgxK1glmbXvNkLxEV5e2csJoE_yBc1fVzDT_6nKQEMu6O42iEjKS-JcNNjXHBRju9TBm4p66786SHQ1Jud3XUIEoaqfBaw0ulUQg9O5A"/>
+</div>
+<!-- Headline / Brand -->
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary dark:text-primary-fixed">Nexus</h1>
+</div>
+<!-- Web Navigation Shell (Hidden on Mobile) -->
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary hover:opacity-80 transition-all duration-[0.344s] font-label-md" href="#">Shift</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary hover:opacity-80 transition-all duration-[0.344s] font-label-md" href="#">Requests</a>
+<a class="text-on-surface dark:text-on-primary-fixed-variant font-bold border-b-2 border-primary h-full flex items-center hover:opacity-80 transition-all duration-[0.344s] font-label-md" href="#">Navigate</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary hover:opacity-80 transition-all duration-[0.344s] font-label-md" href="#">Analytics</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary hover:opacity-80 transition-all duration-[0.344s] font-label-md" href="#">Fleet</a>
+</nav>
+<!-- Trailing Icon -->
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity duration-[0.344s]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Canvas Map Background -->
+<div class="absolute inset-0 z-0 w-full h-full" data-alt="A highly detailed, cinematic map view of an urban campus from a top-down perspective. The map style is minimalist, using light greys and whites, contrasted with intense, glowing deep crimson heat-map overlays indicating high activity zones. The lighting implies a clean, high-end gallery aesthetic with sharp clarity." data-location="Campus Map" style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg')">
+<!-- Simulated Heat Map Points (Visual flair) -->
+<div class="absolute top-1/3 left-1/4 w-32 h-32 bg-primary rounded-full blur-[60px] opacity-60"></div>
+<div class="absolute top-1/2 right-1/3 w-48 h-48 bg-primary rounded-full blur-[80px] opacity-40"></div>
+<div class="absolute bottom-1/4 left-1/2 w-24 h-24 bg-secondary rounded-full blur-[40px] opacity-50 pulse-ring"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 w-full h-full pt-20 pb-24 md:pb-8 px-4 md:px-margin-desktop max-w-[1440px] mx-auto flex flex-col justify-between pointer-events-none">
+<!-- Top Section: Predictive Intel -->
+<div class="w-full flex justify-end mt-4 pointer-events-auto">
+<div class="glass-panel rounded-card p-6 w-full md:w-[420px] flex flex-col gap-4 shadow-sm border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="radar">radar</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Predictive Intel</h2>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/20 flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Surge Warning</span>
+<div class="bg-secondary-container px-2 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-md text-[10px] text-on-surface font-bold leading-none">10m</span>
+</div>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface leading-tight mt-1">
+<span class="font-bold text-primary">15% Surge</span> expected at Sector 4. High demand density building near the North Gate.
+                    </p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/20 flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl" data-icon="trending_up">trending_up</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase">Current Velocity</p>
+<p class="font-headline-md text-headline-md text-on-surface tracking-tight">4.2 <span class="font-body-md text-body-md text-on-surface-variant">req/hr</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Actions & Monumental Data -->
+<div class="w-full flex flex-col md:flex-row gap-6 items-end justify-between pointer-events-auto mb-4">
+<!-- Earnings Data -->
+<div class="glass-panel rounded-card p-8 flex flex-col gap-2 border border-outline-variant/30 w-full md:w-auto">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Projected Shift Earnings</p>
+<div class="flex items-baseline gap-2">
+<span class="font-display-xl text-display-xl text-on-surface tracking-tighter">$142</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant">.50</span>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="bg-primary hover:bg-secondary text-white rounded-full px-8 py-5 flex items-center justify-center gap-3 transition-all duration-[0.344s] ease-in-out w-full md:w-auto transform hover:scale-[1.02] active:scale-95 shadow-sm">
+<span class="material-symbols-outlined" data-icon="route">route</span>
+<span class="font-label-md text-[18px] font-bold tracking-wide">Route to High Demand</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-white/80 dark:bg-surface-container-highest/80 backdrop-blur-md border-t border-outline-variant/30 flex justify-around items-center h-20 pb-safe px-4">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="speed">speed</span>
+<span class="font-label-md text-[10px]">Shift</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="priority_high">priority_high</span>
+<span class="font-label-md text-[10px]">Requests</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold scale-95 transition-transform duration-[0.344s] ease-in-out w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="explore" data-weight="fill" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-md text-[10px]">Navigate</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-md text-[10px]">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors duration-[0.344s] w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-md text-[10px]">Fleet</span>
+</a>
+</nav>
+</body></html>

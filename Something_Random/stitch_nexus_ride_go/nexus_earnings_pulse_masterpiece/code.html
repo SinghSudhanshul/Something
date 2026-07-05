@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Curator - Earnings Pulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#fc5d59",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#fff0ef",
+                        "on-secondary-fixed": "#410004",
+                        "surface-container-high": "#ffe2de",
+                        "outline": "#8f6f6c",
+                        "primary-container": "#d32f2f",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "tertiary": "#005f7b",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#271816",
+                        "inverse-on-surface": "#ffedeb",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface": "#fff8f7",
+                        "background": "#fff8f7",
+                        "surface-container-highest": "#f9dcd9",
+                        "on-background": "#271816",
+                        "outline-variant": "#e4beba",
+                        "on-primary-container": "#fff2f0",
+                        "on-surface-variant": "#5b403d",
+                        "secondary-fixed": "#ffdad7",
+                        "primary": "#af101a",
+                        "on-primary-fixed-variant": "#930010",
+                        "on-primary-fixed": "#410003",
+                        "inverse-surface": "#3e2c2a",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#b3272a",
+                        "surface-tint": "#ba1a20",
+                        "on-secondary-fixed-variant": "#910816",
+                        "surface-variant": "#f9dcd9",
+                        "primary-fixed": "#ffdad6",
+                        "surface-dim": "#f1d3d0",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "inverse-primary": "#ffb3ac",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fff8f7",
+                        "on-secondary-container": "#600009",
+                        "tertiary-container": "#00799c",
+                        "tertiary-fixed": "#bee9ff",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-tertiary-fixed": "#001f2a",
+                        "surface-container": "#ffe9e7",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-padding": "40px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "section-gap": "120px",
+                        "margin-desktop": "auto"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<header class="bg-surface/80 dark:bg-surface-dim/80 fixed top-0 w-full z-50 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile h-20 transition-all duration-[0.344s] ease-in-out">
+<button class="hover:opacity-80 transition-opacity duration-[0.344s] ease-in-out flex items-center justify-center p-2 text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+</button>
+<div class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary dark:text-primary-fixed uppercase">
+            NEXUS CURATOR
+        </div>
+<button class="hover:opacity-80 transition-opacity duration-[0.344s] ease-in-out flex items-center justify-center p-2 text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</header>
+<main class="pt-[120px] pb-[160px] md:pb-24 max-w-[1440px] mx-margin-desktop px-margin-mobile md:px-card-padding flex flex-col gap-section-gap">
+<section class="relative w-full rounded-[28px] overflow-hidden bg-surface-container-lowest border border-outline-variant p-card-padding min-h-[500px] flex flex-col justify-between">
+<div class="absolute inset-0 z-0 opacity-40 mix-blend-multiply">
+<!-- STITCH_SHADER_START:ANIMATION_73 class="absolute inset-0 w-full h-full" -->
+<div class="absolute inset-0 w-full h-full" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_73" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_73');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+varying vec2 v_texCoord;
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 p = (uv - 0.5) * 2.0;
+    p.x *= u_resolution.x / u_resolution.y;
+    
+    float d = length(p);
+    float angle = atan(p.y, p.x);
+    
+    // Morphing flow
+    float flow = sin(d * 4.0 - u_time * 2.0) * 0.5 + 0.5;
+    float wave = sin(angle * 5.0 + u_time + d * 3.0) * 0.1;
+    
+    // Crimson aesthetic stops
+    vec3 color1 = vec3(0.827, 0.184, 0.184); // #d32f2f
+    vec3 color2 = vec3(0.961, 0.961, 0.969); // #f5f5f7
+    vec3 color3 = vec3(1.0, 1.0, 1.0);       // #ffffff
+    
+    float mask = smoothstep(0.4 + wave, 0.41 + wave, d);
+    float pulse = smoothstep(0.8, 0.0, d + wave * 2.0);
+    
+    vec3 finalColor = mix(color1, color2, flow);
+    finalColor = mix(finalColor, color3, pulse * 0.2);
+    
+    // Orbital rings
+    float ring = abs(sin(d * 25.0 - u_time * 3.0));
+    ring = smoothstep(0.05, 0.0, ring);
+    finalColor += color1 * ring * 0.3 * pulse;
+
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_73 -->
+</div>
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-start gap-gutter mb-12">
+<div>
+<h1 class="font-display-xl text-display-xl tracking-tighter text-on-surface">Earnings Pulse</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-xl">A monumental financial visualization tracking velocity, aggregate yields, and instantaneous surge indices.</p>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary rounded-full px-8 py-4 font-label-md text-label-md uppercase transition-all duration-[0.344s] ease-in-out active:scale-95">
+                    Generate Report
+                </button>
+</div>
+<div class="relative z-10 w-full h-[300px] bg-white/60 backdrop-blur-2xl border border-outline-variant/50 rounded-xl flex items-end justify-center overflow-hidden">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 300">
+<defs>
+<lineargradient id="crimsonFade" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#af101a" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#af101a" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,300 L0,200 C150,220 250,120 400,180 C550,240 700,50 850,90 C950,110 1000,40 1000,40 L1000,300 Z" fill="url(#crimsonFade)"></path>
+<path class="stroke-primary stroke-[2px]" d="M0,200 C150,220 250,120 400,180 C550,240 700,50 850,90 C950,110 1000,40 1000,40" fill="none"></path>
+</svg>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[28px] p-card-padding flex flex-col justify-between min-h-[240px]">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Today's Yield</span>
+<div class="font-display-lg text-display-lg text-on-surface tracking-tighter mt-auto">
+                    $1,248<span class="text-on-surface-variant/50">.50</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[28px] p-card-padding flex flex-col justify-between min-h-[240px]">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Tips Accrued</span>
+<div class="font-display-lg text-display-lg text-on-surface tracking-tighter mt-auto">
+                    $312<span class="text-on-surface-variant/50">.00</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[28px] p-card-padding flex flex-col justify-between min-h-[240px]">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Surge Bonus</span>
+<div class="font-display-lg text-display-lg text-secondary tracking-tighter mt-auto">
+                    +$84<span class="text-secondary/50">.20</span>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-lowest border border-outline-variant rounded-[28px] p-card-padding">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-6 mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Recent Contributions</h2>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Editorial Ledger</span>
+</div>
+<div class="flex flex-col gap-0">
+<div class="group flex flex-col md:flex-row justify-between items-start md:items-center py-6 border-b border-outline-variant/20 hover:bg-surface-variant/30 transition-colors duration-[0.344s] px-4 -mx-4 rounded-lg cursor-pointer">
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">Sector 7 Perimeter Run</span>
+<span class="font-body-md text-body-md text-on-surface-variant">High-density urban traverse. Perfect execution rating.</span>
+</div>
+<div class="flex flex-col items-end mt-4 md:mt-0 text-right">
+<span class="font-headline-sm text-headline-sm text-on-surface">+$142.50</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-1">14:32 PST</span>
+</div>
+</div>
+<div class="group flex flex-col md:flex-row justify-between items-start md:items-center py-6 border-b border-outline-variant/20 hover:bg-surface-variant/30 transition-colors duration-[0.344s] px-4 -mx-4 rounded-lg cursor-pointer">
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">Nexus Hub Delivery</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Priority secure transport. Time bonus applied.</span>
+</div>
+<div class="flex flex-col items-end mt-4 md:mt-0 text-right">
+<span class="font-headline-sm text-headline-sm text-on-surface">+$89.00</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-1">11:15 PST</span>
+</div>
+</div>
+<div class="group flex flex-col md:flex-row justify-between items-start md:items-center py-6 hover:bg-surface-variant/30 transition-colors duration-[0.344s] px-4 -mx-4 rounded-lg cursor-pointer">
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">Zone C Routine Patrol</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Standard sector observation and mapping logic.</span>
+</div>
+<div class="flex flex-col items-end mt-4 md:mt-0 text-right">
+<span class="font-headline-sm text-headline-sm text-on-surface">+$64.20</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-1">08:45 PST</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<nav class="md:hidden bg-white/80 dark:bg-inverse-surface/80 fixed bottom-0 w-full z-50 rounded-t-[28px] backdrop-blur-xl border-t border-outline-variant/20 flex justify-around items-center h-24 pb-4 px-4">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-[0.344s] ease-in-out transition-transform active:scale-95 font-label-md text-label-md w-[72px]" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="directions_car">directions_car</span>
+            Active
+        </a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-secondary-fixed-dim font-bold bg-secondary-container/20 rounded-full px-6 py-2 transition-transform duration-[0.344s] ease-in-out active:scale-95 font-label-md text-label-md min-w-[72px]" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="payments" data-weight="fill" style="font-variation-settings: 'FILL' 1;">payments</span>
+            Earnings
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-[0.344s] ease-in-out transition-transform active:scale-95 font-label-md text-label-md w-[72px]" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today">calendar_today</span>
+            Schedule
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-colors duration-[0.344s] ease-in-out transition-transform active:scale-95 font-label-md text-label-md w-[72px]" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="minor_crash">minor_crash</span>
+            Fleet
+        </a>
+</nav>
+</body></html>

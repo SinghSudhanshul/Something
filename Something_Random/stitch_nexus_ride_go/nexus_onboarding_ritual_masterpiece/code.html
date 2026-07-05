@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curator Onboarding - Crimson Gallery</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#fc5d59",
+                        "tertiary-fixed": "#bee9ff",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "outline-variant": "#e4beba",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#3e2c2a",
+                        "error": "#ba1a1a",
+                        "primary-container": "#d32f2f",
+                        "secondary-fixed": "#ffdad7",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#410003",
+                        "surface": "#fff8f7",
+                        "on-primary-container": "#fff2f0",
+                        "surface-dim": "#f1d3d0",
+                        "surface-container-low": "#fff0ef",
+                        "on-secondary-fixed-variant": "#910816",
+                        "tertiary-container": "#00799c",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary": "#af101a",
+                        "surface-container": "#ffe9e7",
+                        "background": "#fff8f7",
+                        "surface-container-highest": "#f9dcd9",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface-variant": "#f9dcd9",
+                        "surface-bright": "#fff8f7",
+                        "on-surface": "#271816",
+                        "inverse-primary": "#ffb3ac",
+                        "on-surface-variant": "#5b403d",
+                        "on-primary-fixed-variant": "#930010",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#ffedeb",
+                        "on-tertiary-container": "#e9f7ff",
+                        "outline": "#8f6f6c",
+                        "surface-container-high": "#ffe2de",
+                        "surface-tint": "#ba1a20",
+                        "primary-fixed": "#ffdad6",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-secondary-container": "#600009",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "on-secondary-fixed": "#410004",
+                        "tertiary": "#005f7b",
+                        "secondary": "#b3272a",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-background": "#271816"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "28px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-desktop": "auto",
+                        "card-padding": "40px",
+                        "base": "8px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "display-xl": ["Inter", "sans-serif"],
+                        "headline-sm": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container pb-[100px]">
+<!-- TopAppBar (From JSON) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto bg-surface/80 backdrop-blur-[24px] border-b border-outline-variant py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl">signal_cellular_alt</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">
+            Crimson Gallery
+        </div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] ease-in-out cursor-pointer text-2xl">account_circle</span>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full h-[618px] min-h-[600px] flex items-center justify-center overflow-hidden border-b border-outline-variant">
+<!-- Background Animation Placeholder -->
+<iframe class="absolute inset-0 w-full h-full border-none pointer-events-none object-cover" src="{{DATA:SCREEN:SCREEN_100}}" style="z-index: 0;" title="Background Animation"></iframe>
+<!-- Fog Overlay for readability -->
+<div class="absolute inset-0 bg-background/40 backdrop-blur-sm z-10"></div>
+<div class="relative z-20 text-center px-gutter max-w-[1024px] mx-auto">
+<h1 class="font-display-xl text-display-xl text-on-surface md:text-display-xl text-display-lg-mobile mb-6">
+                The Ritual of Onboarding
+            </h1>
+<div class="w-24 h-1 bg-primary mx-auto"></div>
+</div>
+</section>
+<!-- Editorial Text Section -->
+<section class="max-w-[800px] mx-auto px-gutter py-section-gap text-center">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8">The Curator Oath</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-16 leading-relaxed">
+            To curate is to command the visual narrative. We rely on your absolute discretion and unparalleled taste. This network is an exclusive syndicate of the highest caliber aesthetic arbiters. By initiating this sequence, you commit to maintaining the pristine standards of the Crimson Gallery.
+        </p>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8">Operational Standards</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Every interaction is deliberate. Every asset is vetted. Your biometric signature will serve as your ultimate credential. Ensure your environment is secure before proceeding with the synchronization protocol.
+        </p>
+</section>
+<!-- Cards Section (Bento Grid Style) -->
+<section class="max-w-[1440px] mx-auto px-gutter pb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface/80 backdrop-blur-[24px] rounded-2xl border border-outline-variant p-card-padding flex flex-col items-center text-center hover:bg-surface-container transition-colors duration-[0.344s] ease-in-out">
+<div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-on-primary-container fill text-3xl">fingerprint</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Biometric Verification</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Your unique physical signature is required to generate cryptographic keys for access. Ensure clean sensor contact.
+                </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface/80 backdrop-blur-[24px] rounded-2xl border border-outline-variant p-card-padding flex flex-col items-center text-center hover:bg-surface-container transition-colors duration-[0.344s] ease-in-out relative overflow-hidden">
+<div class="w-16 h-16 rounded-full bg-surface-variant flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">history_edu</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Contract Ritual</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Review and digitally seal the irrevocable terms of service. This binds your identity to the gallery's immutable ledger.
+                </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface/80 backdrop-blur-[24px] rounded-2xl border border-outline-variant p-card-padding flex flex-col items-center text-center hover:bg-surface-container transition-colors duration-[0.344s] ease-in-out">
+<div class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-on-tertiary-container text-3xl">sync</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Network Synchronization</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Establish a secure, encrypted tunnel to the core servers. Do not disconnect power during this phase.
+                </p>
+</div>
+</div>
+</section>
+<!-- Transactional Bottom Bar (Overrides Standard BottomNavBar for Onboarding Intent) -->
+<div class="fixed bottom-0 w-full z-50 bg-surface/80 backdrop-blur-[24px] border-t border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto py-4 left-0 right-0">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-[0.344s] ease-in-out flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">close</span>
+            Exit Protocol
+        </button>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full hover:bg-on-primary-fixed hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out flex items-center gap-2 shadow-sm shadow-primary/20">
+            Begin Ritual
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</body></html>

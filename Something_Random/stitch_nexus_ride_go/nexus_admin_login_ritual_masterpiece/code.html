@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Admin | Security Protocol</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#f1d3d0",
+                        "surface-container-low": "#fff0ef",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-primary-fixed": "#410003",
+                        "surface": "#fff8f7",
+                        "on-primary-container": "#fff2f0",
+                        "on-primary": "#ffffff",
+                        "primary": "#af101a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#00799c",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "outline-variant": "#e4beba",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#3e2c2a",
+                        "primary-container": "#d32f2f",
+                        "tertiary-fixed": "#bee9ff",
+                        "secondary-container": "#fc5d59",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-container-high": "#ffe2de",
+                        "on-secondary-container": "#600009",
+                        "surface-tint": "#ba1a20",
+                        "primary-fixed": "#ffdad6",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-tertiary-container": "#e9f7ff",
+                        "outline": "#8f6f6c",
+                        "on-background": "#271816",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "on-secondary-fixed": "#410004",
+                        "tertiary": "#005f7b",
+                        "secondary": "#b3272a",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "surface-variant": "#f9dcd9",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface-bright": "#fff8f7",
+                        "surface-container": "#ffe9e7",
+                        "surface-container-highest": "#f9dcd9",
+                        "background": "#fff8f7",
+                        "on-primary-fixed-variant": "#930010",
+                        "inverse-on-surface": "#ffedeb",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#ffb3ac",
+                        "on-surface": "#271816",
+                        "on-surface-variant": "#5b403d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-desktop": "auto",
+                        "card-padding": "40px",
+                        "base": "8px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }]
+                    },
+                    "animation": {
+                        "pulse-glow": "pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                        "float": "float 6s ease-in-out infinite"
+                    },
+                    "keyframes": {
+                        "pulse-glow": {
+                            "0%, 100%": { boxShadow: "0 0 20px 0 rgba(175, 16, 26, 0.3)" },
+                            "50%": { boxShadow: "0 0 50px 10px rgba(175, 16, 26, 0.6)" }
+                        },
+                        "float": {
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-10px)" }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-architectural-grid {
+            background-image: linear-gradient(to right, rgba(143, 111, 108, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(143, 111, 108, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen flex items-center justify-center relative overflow-hidden font-body-md text-on-surface">
+<!-- Atmospheric Background Layers -->
+<div class="absolute inset-0 bg-gradient-to-br from-surface-dim/40 via-background to-background z-0"></div>
+<div class="absolute inset-0 bg-architectural-grid z-0"></div>
+<!-- Subtle Light Orbs -->
+<div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10 animate-float" style="animation-delay: 0s;"></div>
+<div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-surface-dim/20 rounded-full blur-[120px] -z-10 animate-float" style="animation-delay: -3s;"></div>
+<!-- Main Authentication Canvas -->
+<main class="relative z-10 w-full max-w-[540px] px-margin-mobile md:px-0">
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-[28px] p-card-padding shadow-2xl shadow-primary/5 backdrop-blur-xl flex flex-col items-center">
+<!-- Brand & Security Header -->
+<div class="flex flex-col items-center mb-16 w-full">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-6 border border-primary/10 relative">
+<span class="material-symbols-outlined text-primary text-3xl z-10">fingerprint</span>
+<div class="absolute inset-0 border border-primary/30 rounded-full animate-ping opacity-20"></div>
+</div>
+<h1 class="font-display-lg text-display-lg tracking-tighter text-on-background uppercase mb-2">Nexus</h1>
+<h2 class="font-headline-sm text-headline-sm text-on-surface-variant tracking-widest uppercase text-sm">Security Protocol</h2>
+<div class="h-px w-12 bg-primary/30 mt-6"></div>
+</div>
+<!-- Authentication Form -->
+<form class="w-full flex flex-col gap-8" onsubmit="event.preventDefault();">
+<!-- Admin Identifier -->
+<div class="flex flex-col gap-3 group">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-[0.2em] pl-6 transition-colors duration-300 group-focus-within:text-primary">
+                        Admin Identifier
+                    </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors duration-300">
+                            badge
+                        </span>
+<input autocomplete="off" class="w-full h-20 pl-16 pr-6 bg-surface border border-outline/20 rounded-[28px] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-[0.344s] ease-in-out font-body-lg text-body-lg text-on-background placeholder:text-outline-variant/50" placeholder="Enter your clearance ID" type="text"/>
+</div>
+</div>
+<!-- Biometric Token -->
+<div class="flex flex-col gap-3 group">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-[0.2em] pl-6 transition-colors duration-300 group-focus-within:text-primary">
+                        Biometric Token
+                    </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors duration-300">
+                            visibility_off
+                        </span>
+<input autocomplete="new-password" class="w-full h-20 pl-16 pr-6 bg-surface border border-outline/20 rounded-[28px] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-[0.344s] ease-in-out font-body-lg text-body-lg text-on-background placeholder:text-outline-variant/50 tracking-[0.3em]" placeholder="••••••••••••" type="password"/>
+</div>
+</div>
+<!-- Action Anchor -->
+<div class="mt-8">
+<button class="w-full h-20 rounded-full bg-primary text-on-primary font-label-md text-label-md uppercase tracking-[0.2em] relative overflow-hidden transition-all duration-[0.344s] ease-in-out hover:bg-on-primary-fixed-variant hover:scale-[1.02] active:scale-[0.98] animate-pulse-glow flex items-center justify-center gap-4" type="submit">
+<span>Authorize Access</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- System Status -->
+<div class="mt-12 flex items-center gap-2 text-on-surface-variant/60 font-body-md text-sm">
+<div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div>
+<span>Encrypted Connection Active</span>
+</div>
+</div>
+</main>
+</body></html>

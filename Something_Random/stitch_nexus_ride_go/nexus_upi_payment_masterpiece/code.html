@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UPI GATEWAY</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#930010",
+                        "inverse-on-surface": "#ffedeb",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "outline-variant": "#e4beba",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#410003",
+                        "tertiary-fixed": "#bee9ff",
+                        "tertiary": "#005f7b",
+                        "on-secondary-container": "#600009",
+                        "primary-fixed": "#ffdad6",
+                        "on-surface": "#271816",
+                        "inverse-surface": "#3e2c2a",
+                        "error": "#ba1a1a",
+                        "secondary": "#b3272a",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#5b403d",
+                        "outline": "#8f6f6c",
+                        "secondary-container": "#fc5d59",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#ffb3ac",
+                        "surface-container-highest": "#f9dcd9",
+                        "surface-bright": "#fff8f7",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface": "#fff8f7",
+                        "surface-dim": "#f1d3d0",
+                        "background": "#fff8f7",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#ffe9e7",
+                        "on-tertiary-fixed": "#001f2a",
+                        "surface-variant": "#f9dcd9",
+                        "tertiary-container": "#00799c",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface-tint": "#ba1a20",
+                        "on-secondary-fixed-variant": "#910816",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-container-low": "#fff0ef",
+                        "on-secondary-fixed": "#410004",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ffe2de",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#d32f2f",
+                        "primary": "#af101a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#fff2f0",
+                        "on-background": "#271816"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "auto",
+                        "card-padding": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog canvas */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased min-h-screen flex flex-col items-center justify-center py-section-gap px-gutter">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-[20px] border-b border-outline-variant/30 flex justify-between items-center px-gutter h-20 transition-all duration-[0.344s] ease-in-out">
+<button class="text-primary dark:text-primary-fixed-dim hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-primary dark:text-primary-fixed-dim">
+            NEXUS
+        </div>
+<button class="text-primary dark:text-primary-fixed-dim hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[600px] mt-24 pb-24">
+<div class="bg-surface rounded-[28px] border border-outline-variant/30 p-card-padding flex flex-col items-center gap-12">
+<div class="text-center">
+<h1 class="font-headline-md text-headline-md text-on-surface mb-2">UPI GATEWAY</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Scan to initiate secure payment</p>
+</div>
+<!-- Heavy Glassmorphic Orb for QR -->
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Orb Background -->
+<div class="absolute inset-0 rounded-full bg-surface-container-highest/40 backdrop-blur-[40px] border border-outline-variant/20 shadow-[inset_0_4px_40px_rgba(255,255,255,0.8)] z-0"></div>
+<!-- QR Code Placeholder inside the orb -->
+<div class="relative z-10 w-40 h-40 bg-surface rounded-xl flex items-center justify-center overflow-hidden border border-outline-variant/30">
+<img class="object-cover w-full h-full opacity-90 mix-blend-multiply" data-alt="A high-contrast, perfectly crisp, modern quick response (QR) code centered on a pure white square background. The black blocks of the QR code form a complex matrix. The aesthetic is clean, technological, and perfectly aligned with a premium digital payment interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbUde6OIZ__iYl2AJSMlbw1p7CxrYjZrryaw7AGJyi7OGppFKT-LijmH91JaB_ibjL7g_GQV3rdM6vF78SJOmOvehB8qEu2s8WW0xv0dBezldGg-dZNkvWRu4SFilLBXzudAV-ATrTiIaC4iuRHO8hXjgCRJrZXJBtWivS_4C361lvQmQkXYf7IYFzLCVcDitb3GL6A64t6AAci2WLek5roVAjvygGLrIPALqHimr_bY_zAwpfEIzVPkeRHCVeDazstCyZQ36V6A"/>
+</div>
+</div>
+<!-- UPI ID Input -->
+<div class="w-full">
+<label class="sr-only" for="upi-id">Enter UPI ID</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant z-10" style="font-variation-settings: 'FILL' 0;">alternate_email</span>
+<input class="w-full bg-surface-container-low border border-outline-variant/50 rounded-full py-4 pl-12 pr-6 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-[0.344s] ease-in-out placeholder:text-on-surface-variant/50" id="upi-id" placeholder="Enter UPI ID" type="text"/>
+</div>
+</div>
+<!-- Payment Partners (Logos) -->
+<div class="w-full flex flex-col items-center gap-4">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Supported Partners</p>
+<div class="flex items-center justify-center gap-6">
+<!-- GPay Placeholder -->
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+<img class="w-10 h-10 object-contain" data-alt="A minimalist logo representing Google Pay (GPay) featuring clean, geometric shapes in subtle branding colors on a pristine white background. The icon is sharp, modern, and aligned with high-end editorial UI design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJdIpGL7ccPb7x3gNU8SmDNWeCDOr-l6t-MwDDcxd92slGyVot-VusbLBVEkrqw7h1kDgsmMDo1khgsTK9dircz5ARZ8JZK_xpYRS3Ae24Jpyl2X63s-7we7o6Z--vUYZg8jkF7zzi873kzIiZQcY_jIo_Zvy0deM1Kkh6jLGZCTagzpe4ZRhuL6CwGcemOiec_YYYn87oezSRwl7TS7a4FtAbRMW3p43nxXvDhd7n5ygt8ePNKVryq9HJp0tWo2XadxNOIwT3SA"/>
+</div>
+<!-- PhonePe Placeholder -->
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+<img class="w-10 h-10 object-contain" data-alt="A minimalist logo representing PhonePe featuring a distinct, recognizable brand symbol in subtle purplish-blue tones on a pristine white background. The icon is sharp, modern, and fits seamlessly into a luxury digital payment interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFi7tE3dvc8lGcm6CCyGu92Fj-Gr-seHUwNW_IK9aN3x42phUHth11wxI0IEydXpps5yI3iuO_GzzEnQcLUvViPOX787N0nEMEoDrpCgj9j-d1yqetH7DIfkot6WrQToi-P8oaoAwtECpqA47ps_pRFnhWs61g84oTDxA6F2FYNuS4OnvEyYaS5QKvtv742AVdizXGRFOQzHbTlWK0Xoi_i52R0KTXKyBRTGz8s3TMNmIn7mcN9jMUcSPRjXEkoVUNNWYCwchbyg"/>
+</div>
+<!-- Paytm Placeholder -->
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+<img class="w-10 h-10 object-contain" data-alt="A minimalist logo representing Paytm featuring clean typography and branding colors on a pristine white background. The icon is sharp, modern, and perfectly suited for a premium digital payment gateway screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtlBhzBwsMhrqTNQoZoCjUrmIe8xbs_gR3uCG6nNGC2XqzYjyq-LpJs7gIAC86s4cf9NXxqiEuRGTIYOktxkp-gTcBjS0K7GWfd-c0IF2tToriTrpqfS8w9bzX7btDFL7IagYf5H9EFZwvOcqR7QzcFYNgdhWHUxMeS3ywYeoddOSWVq32o_XQKsOIaOCzY_kh1Q24yn3ApDFHzkLJb1wDQd_ilKooiIcyvnRzar2oIBEDK3LMtyl0c7gV7vNzvJu9Vq0KAlMSoA"/>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md rounded-full py-4 px-8 hover:bg-primary/90 transition-all duration-[0.344s] ease-in-out active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+                Verify &amp; Pay
+            </button>
+</div>
+</main>
+</body></html>

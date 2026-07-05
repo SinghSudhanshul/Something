@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEXUS - Wallet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#bee9ff",
+                        "surface-tint": "#ba1a20",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "secondary": "#b3272a",
+                        "on-secondary-fixed-variant": "#910816",
+                        "inverse-primary": "#ffb3ac",
+                        "on-primary-fixed": "#410003",
+                        "on-background": "#271816",
+                        "primary-fixed": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#600009",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-tertiary-fixed": "#001f2a",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#930010",
+                        "outline": "#8f6f6c",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "on-surface-variant": "#5b403d",
+                        "background": "#fff8f7",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#fc5d59",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#fff0ef",
+                        "surface-bright": "#fff8f7",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#f9dcd9",
+                        "on-secondary-fixed": "#410004",
+                        "tertiary-container": "#00799c",
+                        "primary": "#af101a",
+                        "surface-dim": "#f1d3d0",
+                        "on-tertiary-container": "#e9f7ff",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#005f7b",
+                        "on-primary-container": "#fff2f0",
+                        "on-surface": "#271816",
+                        "inverse-surface": "#3e2c2a",
+                        "outline-variant": "#e4beba",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#f9dcd9",
+                        "surface": "#fff8f7",
+                        "surface-container-high": "#ffe2de",
+                        "surface-container": "#ffe9e7",
+                        "primary-container": "#d32f2f",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#ffedeb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "card-padding": "40px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-desktop": "auto",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F5F5F7; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .btn-hover-ease { transition: all 0.344s ease-in-out; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background font-body-md antialiased pb-24 md:pb-0 pt-20 md:pt-0 min-h-screen flex flex-col">
+<!-- TopAppBar (Web & Mobile) -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)]">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-2 cursor-pointer active:scale-95 transition-all duration-300 hover:opacity-80">
+<span class="material-symbols-outlined text-primary text-[32px]">rocket_launch</span>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary bg-clip-text">NEXUS</span>
+</div>
+<!-- Web Navigation -->
+<nav class="hidden md:flex gap-8 items-center font-label-md text-label-md">
+<a class="text-on-surface-variant hover:opacity-80 transition-all duration-300 cursor-pointer active:scale-95" href="#">Explore</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-all duration-300 cursor-pointer active:scale-95" href="#">Rides</a>
+<a class="text-primary hover:opacity-80 transition-all duration-300 cursor-pointer active:scale-95" href="#">Wallet</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-all duration-300 cursor-pointer active:scale-95" href="#">Profile</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md hover:bg-secondary btn-hover-ease hidden md:block">
+                Get Started
+            </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow flex flex-col items-center justify-start w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-gutter">
+<!-- Wallet Card (Glassmorphic) -->
+<div class="md:col-span-12 lg:col-span-5 flex flex-col gap-8">
+<div class="glass-panel rounded-[28px] p-card-padding shadow-sm relative overflow-hidden group">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-700"></div>
+<div class="relative z-10 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Nexus Wallet</h2>
+<span class="material-symbols-outlined text-outline">account_balance_wallet</span>
+</div>
+<div class="flex flex-col gap-1 my-4">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Available Balance</span>
+<span class="font-display-xl text-display-xl text-primary md:hidden">$124.50</span>
+<span class="font-display-xl text-display-xl text-primary hidden md:block tracking-tighter">$124.50</span>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<button class="flex-1 bg-primary text-on-primary rounded-full py-4 font-label-md text-label-md btn-hover-ease active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span> Add Funds
+                            </button>
+<button class="flex-1 bg-surface text-primary border border-outline-variant rounded-full py-4 font-label-md text-label-md btn-hover-ease hover:border-primary hover:bg-surface-variant active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">arrow_downward</span> Withdraw
+                            </button>
+</div>
+</div>
+</div>
+<!-- Payment Methods Minimal -->
+<div class="bg-surface rounded-[28px] p-card-padding border border-white/50">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-6">Linked Methods</h3>
+<div class="flex items-center justify-between p-4 border border-outline-variant rounded-xl mb-4 hover:border-primary btn-hover-ease cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-8 bg-on-surface rounded flex items-center justify-center text-surface text-xs font-bold">VISA</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface">•••• 4242</span>
+<span class="text-xs text-outline">Primary</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">check_circle</span>
+</div>
+<button class="w-full py-4 border border-dashed border-outline-variant rounded-xl text-on-surface-variant font-label-md text-label-md hover:border-primary hover:text-primary btn-hover-ease flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span> Link New Card
+                    </button>
+</div>
+</div>
+<!-- Recent Transactions (Gallery Minimalist) -->
+<div class="md:col-span-12 lg:col-span-7 flex flex-col gap-6">
+<div class="flex items-baseline justify-between mb-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Journey Investments</h2>
+<a class="font-label-md text-label-md text-primary hover:text-secondary btn-hover-ease" href="#">View All</a>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Transaction 1 -->
+<div class="bg-surface rounded-[28px] p-6 border border-white/50 flex items-center justify-between hover:shadow-md btn-hover-ease cursor-pointer group">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 bg-surface-variant rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Aerospace Route Beta</span>
+<span class="font-body-md text-body-md text-outline">Today, 09:42 AM</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-on-surface">-$42.00</span>
+<span class="text-xs text-outline px-2 py-1 bg-surface-variant rounded-full mt-1">Completed</span>
+</div>
+</div>
+<!-- Transaction 2 -->
+<div class="bg-surface rounded-[28px] p-6 border border-white/50 flex items-center justify-between hover:shadow-md btn-hover-ease cursor-pointer group">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 bg-surface-variant rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined">add</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Wallet Top-up</span>
+<span class="font-body-md text-body-md text-outline">Yesterday, 14:15 PM</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-primary">+$100.00</span>
+<span class="text-xs text-outline px-2 py-1 bg-surface-variant rounded-full mt-1">Completed</span>
+</div>
+</div>
+<!-- Transaction 3 -->
+<div class="bg-surface rounded-[28px] p-6 border border-white/50 flex items-center justify-between hover:shadow-md btn-hover-ease cursor-pointer group">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 bg-surface-variant rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Campus Link Sigma</span>
+<span class="font-body-md text-body-md text-outline">Oct 24, 18:30 PM</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-on-surface">-$18.50</span>
+<span class="text-xs text-outline px-2 py-1 bg-surface-variant rounded-full mt-1">Completed</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container-lowest/60 backdrop-blur-2xl text-secondary font-data-label text-data-label uppercase fixed bottom-0 w-full z-50 rounded-t-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] flex justify-around items-center h-20 pb-safe px-4">
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span>Explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">directions_car</span>
+<span>Rides</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-secondary drop-shadow-[0_0_8px_rgba(255,185,95,0.5)] hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span>Wallet</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span>Profile</span>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest text-primary font-data-label text-data-label w-full py-8 mt-auto border-t border-primary/30 flat no shadows flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-4 max-w-[1440px] mx-auto">
+<div class="font-display-lg text-primary text-[24px]">NEXUS</div>
+<div class="text-center md:text-left text-outline">© 2024 NEXUS MOBILITY. AEROSPACE GRADE PRECISION.</div>
+<div class="flex gap-6">
+<a class="text-outline hover:text-secondary transition-opacity duration-200" href="#">Privacy</a>
+<a class="text-outline hover:text-secondary transition-opacity duration-200" href="#">Terms</a>
+<a class="text-outline hover:text-secondary transition-opacity duration-200" href="#">Safety</a>
+</div>
+</footer>
+</body></html>

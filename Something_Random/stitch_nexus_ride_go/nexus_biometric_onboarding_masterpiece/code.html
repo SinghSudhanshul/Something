@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Masterpiece | Biometric Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdad7",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#fff8f7",
+                    "surface-tint": "#ba1a20",
+                    "on-primary-fixed": "#410003",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#fff2f0",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#910816",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#ffe2de",
+                    "secondary": "#b3272a",
+                    "on-secondary-container": "#600009",
+                    "inverse-surface": "#3e2c2a",
+                    "on-surface": "#271816",
+                    "on-background": "#271816",
+                    "tertiary-container": "#00799c",
+                    "primary-container": "#d32f2f",
+                    "background": "#fff8f7",
+                    "on-tertiary-fixed": "#001f2a",
+                    "inverse-on-surface": "#ffedeb",
+                    "outline-variant": "#e4beba",
+                    "on-tertiary-container": "#e9f7ff",
+                    "tertiary": "#005f7b",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#f9dcd9",
+                    "secondary-container": "#fc5d59",
+                    "on-tertiary-fixed-variant": "#004d65",
+                    "tertiary-fixed": "#bee9ff",
+                    "surface-container": "#ffe9e7",
+                    "on-surface-variant": "#5b403d",
+                    "inverse-primary": "#ffb3ac",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#ffb3ae",
+                    "surface-bright": "#fff8f7",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#fff0ef",
+                    "on-primary-fixed-variant": "#930010",
+                    "surface-container-highest": "#f9dcd9",
+                    "tertiary-fixed-dim": "#7bd1f8",
+                    "surface-dim": "#f1d3d0",
+                    "primary": "#af101a",
+                    "primary-fixed-dim": "#ffb3ac",
+                    "primary-fixed": "#ffdad6",
+                    "outline": "#8f6f6c",
+                    "on-secondary-fixed": "#410004"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "card-padding": "40px",
+                    "margin-desktop": "auto",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "display-xl": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-sm": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "display-lg-mobile": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.015em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-xl": [
+                            "80px",
+                            {
+                                    "lineHeight": "1.05",
+                                    "letterSpacing": "-0.022em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "56px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.022em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "19px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.015em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "17px",
+                            {
+                                    "lineHeight": "1.47",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.022em",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog Canvas */
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid theme('colors.primary');
+            animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .pulse-ring:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .pulse-ring:nth-child(3) {
+            animation-delay: 1.2s;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 0;
+            }
+        }
+
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-top: 1px solid theme('colors.outline-variant');
+        }
+        
+        /* Suppressing TopAppBar and BottomNavBar as this is a linear/transactional onboarding screen per logic mandate */
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen text-on-surface font-sans antialiased overflow-hidden flex flex-col items-center justify-between">
+<!-- Top Spacer / Back Action -->
+<header class="w-full px-gutter py-8 flex items-center justify-start max-w-[1440px] mx-auto relative z-10">
+<button class="flex items-center justify-center w-12 h-12 rounded-full border border-outline-variant/30 bg-surface-container-lowest hover:bg-surface-variant transition-colors duration-[0.344s] ease-in-out group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors duration-[0.344s]" style="font-variation-settings: 'FILL' 0;">
+                arrow_back
+            </span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 w-full max-w-[1440px] mx-auto flex flex-col items-center justify-center px-gutter relative z-0 mt-[-80px]">
+<!-- Architectural Headlines -->
+<div class="text-center mb-16 flex flex-col items-center space-y-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface-variant tracking-widest uppercase">Secure Access</h2>
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface font-bold tracking-tighter">IDENTITY</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mt-6 text-center">
+                Configure biometric authentication for seamless, encrypted entry into the Nexus ecosystem.
+            </p>
+</div>
+<!-- Biometric Core -->
+<div class="relative flex items-center justify-center w-48 h-48 mb-12">
+<!-- Pulse Rings -->
+<div class="pulse-ring"></div>
+<div class="pulse-ring"></div>
+<!-- Central Icon Container -->
+<div class="relative z-10 flex items-center justify-center w-32 h-32 bg-surface-container-lowest rounded-full shadow-[0_0_40px_rgba(175,16,26,0.15)] border border-primary/20">
+<span class="material-symbols-outlined text-primary" style="font-size: 64px; font-variation-settings: 'FILL' 0, 'wght' 200;">
+                    fingerprint
+                </span>
+</div>
+<!-- Decorative structural lines -->
+<div class="absolute inset-0 border border-outline-variant/20 rounded-full scale-150 pointer-events-none"></div>
+<div class="absolute inset-0 border border-outline-variant/10 rounded-full scale-[2] pointer-events-none"></div>
+</div>
+</main>
+<!-- Bottom Action Container (Glassmorphic) -->
+<footer class="w-full glass-panel fixed bottom-0 left-0 right-0 z-20 pb-12 pt-8 px-gutter flex flex-col items-center justify-center">
+<div class="w-full max-w-md flex flex-col space-y-6">
+<button class="w-full py-4 px-8 bg-primary hover:bg-secondary text-on-primary font-label-md text-label-md rounded-full transition-all duration-[0.344s] ease-in-out transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center space-x-2">
+<span>Scan Now</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">
+                    arrow_forward
+                </span>
+</button>
+<button class="w-full py-4 px-8 bg-transparent text-on-surface-variant hover:text-on-surface font-label-md text-label-md rounded-full transition-colors duration-[0.344s] ease-in-out flex items-center justify-center">
+                Skip for now
+            </button>
+</div>
+</footer>
+</body></html>

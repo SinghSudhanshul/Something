@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Masterpiece | Weather-Responsive Fleet View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#ffdad7",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fff8f7",
+                      "surface-tint": "#ba1a20",
+                      "on-primary-fixed": "#410003",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-container": "#fff2f0",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#910816",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#ffe2de",
+                      "secondary": "#b3272a",
+                      "on-secondary-container": "#600009",
+                      "inverse-surface": "#3e2c2a",
+                      "on-surface": "#271816",
+                      "on-background": "#271816",
+                      "tertiary-container": "#00799c",
+                      "primary-container": "#d32f2f",
+                      "background": "#fff8f7",
+                      "on-tertiary-fixed": "#001f2a",
+                      "inverse-on-surface": "#ffedeb",
+                      "outline-variant": "#e4beba",
+                      "on-tertiary-container": "#e9f7ff",
+                      "tertiary": "#005f7b",
+                      "on-secondary": "#ffffff",
+                      "surface-variant": "#f9dcd9",
+                      "secondary-container": "#fc5d59",
+                      "on-tertiary-fixed-variant": "#004d65",
+                      "tertiary-fixed": "#bee9ff",
+                      "surface-container": "#ffe9e7",
+                      "on-surface-variant": "#5b403d",
+                      "inverse-primary": "#ffb3ac",
+                      "on-error": "#ffffff",
+                      "secondary-fixed-dim": "#ffb3ae",
+                      "surface-bright": "#fff8f7",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#fff0ef",
+                      "on-primary-fixed-variant": "#930010",
+                      "surface-container-highest": "#f9dcd9",
+                      "tertiary-fixed-dim": "#7bd1f8",
+                      "surface-dim": "#f1d3d0",
+                      "primary": "#af101a",
+                      "primary-fixed-dim": "#ffb3ac",
+                      "primary-fixed": "#ffdad6",
+                      "outline": "#8f6f6c",
+                      "on-secondary-fixed": "#410004"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "120px",
+                      "gutter": "24px",
+                      "margin-mobile": "20px",
+                      "card-padding": "40px",
+                      "margin-desktop": "auto",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-xl": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.015em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-xl": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "19px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.015em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "17px",
+                              {
+                                      "lineHeight": "1.47",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog Base */
+            color: #271816; /* on-background */
+        }
+        
+        /* Subtle rain overlay effect using CSS */
+        .weather-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            background-image: 
+                linear-gradient(rgba(0, 31, 42, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 31, 42, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.5;
+            animation: rain 2s linear infinite;
+        }
+
+        @keyframes rain {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 100vh; }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen relative overflow-x-hidden">
+<!-- Weather Effects Overlay -->
+<div class="weather-overlay"></div>
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex fixed top-0 w-full z-50 bg-white/80 dark:bg-surface-container/80 backdrop-blur-[24px] border-b border-outline-variant/30 transition-all duration-[0.344s] ease-in-out">
+<div class="flex items-center justify-between px-gutter h-20 w-full max-w-[1440px] mx-auto">
+<button class="text-primary dark:text-primary-fixed hover:opacity-70 transition-opacity duration-[0.344s] ease-in-out flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-primary-fixed">NEXUS</h1>
+<button class="text-primary dark:text-primary-fixed hover:opacity-70 transition-opacity duration-[0.344s] ease-in-out flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden fixed top-0 w-full z-50 bg-white/80 dark:bg-surface-container/80 backdrop-blur-[24px] border-b border-outline-variant/30 transition-all duration-[0.344s] ease-in-out">
+<div class="flex items-center justify-between px-gutter h-16 w-full mx-auto">
+<button class="text-primary dark:text-primary-fixed hover:opacity-70 transition-opacity duration-[0.344s] ease-in-out flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary dark:text-primary-fixed">NEXUS</h1>
+<button class="text-primary dark:text-primary-fixed hover:opacity-70 transition-opacity duration-[0.344s] ease-in-out flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 md:pt-32 pb-32 max-w-[1440px] mx-auto px-gutter md:px-card-padding">
+<!-- Hero Header -->
+<section class="mb-section-gap flex flex-col items-center justify-center text-center">
+<span class="inline-flex items-center gap-2 bg-tertiary-container/10 text-tertiary-container px-4 py-2 rounded-full font-label-md text-label-md mb-6 backdrop-blur-sm">
+<span class="material-symbols-outlined text-sm">water_drop</span>
+                Climate Shield Activated
+            </span>
+<h2 class="font-display-xl text-display-lg-mobile md:text-display-xl text-on-surface mb-6 max-w-3xl">ATMOSPHERE</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Fleet dynamic response protocol engaged. Optimizing thermal profiles and traction parameters for current precipitation levels.
+            </p>
+</section>
+<!-- Bento Grid Fleet View -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+<!-- Main Featured Vehicle -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 overflow-hidden relative group">
+<div class="absolute top-6 left-6 z-20 flex gap-2">
+<span class="bg-[#EF5350] text-white px-3 py-1 rounded-full font-label-md text-label-md shadow-sm">
+                        Optimized for Weather
+                    </span>
+<span class="glass-panel text-on-surface px-3 py-1 rounded-full font-label-md text-label-md flex items-center gap-1 border border-outline-variant/20">
+<span class="material-symbols-outlined text-sm">thermostat</span> 18°C
+                    </span>
+</div>
+<div class="h-[400px] w-full relative">
+<div class="bg-cover bg-center w-full h-full transition-transform duration-[0.344s] ease-in-out group-hover:scale-105" data-alt="A sleek, high-end electric autonomous vehicle navigating a wet, reflective city street at dusk. The vehicle is styled in a minimalist, gallery aesthetic with smooth pure white surfaces and striking deep crimson accents. The lighting is high-key, highlighting the rain drops on the pristine glass canopy. The mood is sophisticated and safe, emphasizing advanced technology responding to weather." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6nweSkDf6Yh4eNcoF7uhBvhKWPTrDujkHBlwh8VKlLAwOAH_tT5rauB3OYTe26tLm5dVOxyrFmJTqf9Uou0nN-fFfK4JzR34hlhTYsAT5M5n1U_ZcxgOc2J-mBiM6tOkRclV4F8dGz0piFdKBCpKsDcNJytmSzpWBSlmgnV0Q551HxPt9LKyiJx0BXzEo6pbgq7dEYfs77I010dXgK3TPv3hhIMwh6AX8h1WDvXah-NjFFjbQ3s-5O5gZB2sg3nN5u8-DfqfY-g')"></div>
+<!-- Gradient overlay for text readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="p-card-padding relative z-10 -mt-20 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest to-transparent">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="font-headline-md text-headline-sm md:text-headline-md text-on-surface mb-2">Nexus Alpha - Unit 04</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Active Traction Control Level 3</p>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md hover:bg-secondary transition-colors duration-[0.344s] ease-in-out">
+                            View Telemetry
+                        </button>
+</div>
+</div>
+</div>
+<!-- Climate Metrics Column -->
+<div class="md:col-span-4 flex flex-col gap-6 md:gap-8">
+<!-- Metric Card 1 -->
+<div class="bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 p-card-padding flex-1 flex flex-col justify-center relative overflow-hidden">
+<div class="absolute -right-10 -top-10 opacity-5">
+<span class="material-symbols-outlined text-[150px]" style="font-variation-settings: 'FILL' 1;">air</span>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined">humidity_percentage</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Surface Moisture</span>
+</div>
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">
+                        84%
+                    </div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Grip thresholds adjusted.</p>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 p-card-padding flex-1 flex flex-col justify-center relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 opacity-5 text-primary">
+<span class="material-symbols-outlined text-[150px]" style="font-variation-settings: 'FILL' 1;">electric_bolt</span>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Dynamic Routing</span>
+</div>
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">
+                        Active
+                    </div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Rerouting away from identified pooling zones.</p>
+</div>
+</div>
+</section>
+<!-- Secondary Fleet Grid -->
+<section class="mt-section-gap">
+<div class="flex justify-between items-end mb-8">
+<h3 class="font-headline-md text-headline-sm md:text-headline-md text-on-surface">Active Deployment</h3>
+<a class="font-label-md text-label-md text-primary hover:opacity-70 transition-opacity duration-[0.344s] flex items-center gap-1" href="#">
+                    All Units <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Unit Card 1 -->
+<div class="bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 p-card-padding hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-shadow duration-[0.344s] ease-in-out">
+<div class="flex justify-between items-start mb-6">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">directions_car</span>
+</div>
+<span class="bg-tertiary-container/10 text-tertiary-container px-3 py-1 rounded-full font-label-md text-label-md text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Stable
+                        </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">Unit 12 - Delta</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">En route to North Sector</p>
+<div class="w-full bg-surface-variant h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[60%]"></div>
+</div>
+</div>
+<!-- Unit Card 2 -->
+<div class="bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 p-card-padding hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-shadow duration-[0.344s] ease-in-out border-l-4 border-l-primary">
+<div class="flex justify-between items-start mb-6">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">warning</span>
+</div>
+<span class="bg-[#EF5350]/10 text-[#EF5350] px-3 py-1 rounded-full font-label-md text-label-md text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">sync</span> Adapting
+                        </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">Unit 08 - Sigma</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Heavy rain detected on route</p>
+<div class="w-full bg-surface-variant h-1 rounded-full overflow-hidden">
+<div class="bg-[#EF5350] h-full w-[40%] animate-pulse"></div>
+</div>
+</div>
+<!-- Unit Card 3 -->
+<div class="bg-surface-container-lowest rounded-[28px] border border-outline-variant/30 p-card-padding hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-shadow duration-[0.344s] ease-in-out">
+<div class="flex justify-between items-start mb-6">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+</div>
+<span class="bg-tertiary-container/10 text-tertiary-container px-3 py-1 rounded-full font-label-md text-label-md text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Stable
+                        </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">Transport 02</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Approaching Hub Alpha</p>
+<div class="w-full bg-surface-variant h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 w-[90%] max-w-md rounded-full bg-white/80 dark:bg-surface-container/80 backdrop-blur-[24px] border border-outline-variant/30 z-50">
+<div class="flex justify-around items-center p-2">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-2 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-[0.344s]">
+<span class="material-symbols-outlined mb-1 text-[24px]" style="font-variation-settings: 'FILL' 0;">explore</span>
+<span class="font-label-md text-[10px] tracking-wider uppercase">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container rounded-full px-6 py-2 scale-95 transition-transform duration-[0.344s] ease-in-out">
+<span class="material-symbols-outlined mb-1 text-[24px]" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+<span class="font-label-md text-[10px] tracking-wider uppercase">Fleet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-2 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-[0.344s]">
+<span class="material-symbols-outlined mb-1 text-[24px]" style="font-variation-settings: 'FILL' 0;">map</span>
+<span class="font-label-md text-[10px] tracking-wider uppercase">Routes</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-2 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-[0.344s]">
+<span class="material-symbols-outlined mb-1 text-[24px]" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-md text-[10px] tracking-wider uppercase">Profile</span>
+</button>
+</div>
+</nav>
+</body></html>

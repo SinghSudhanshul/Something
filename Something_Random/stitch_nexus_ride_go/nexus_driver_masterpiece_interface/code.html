@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus - Driver Command Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#ba1a20",
+                        "secondary-fixed": "#ffdad7",
+                        "on-surface-variant": "#5b403d",
+                        "on-secondary-fixed-variant": "#910816",
+                        "surface-container": "#ffe9e7",
+                        "surface-bright": "#fff8f7",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb3ac",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "surface-container-low": "#fff0ef",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "surface-variant": "#f9dcd9",
+                        "primary-container": "#d32f2f",
+                        "on-tertiary-container": "#e9f7ff",
+                        "outline-variant": "#e4beba",
+                        "on-secondary-fixed": "#410004",
+                        "tertiary-fixed": "#bee9ff",
+                        "on-surface": "#271816",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#b3272a",
+                        "background": "#fff8f7",
+                        "on-secondary-container": "#600009",
+                        "surface-dim": "#f1d3d0",
+                        "tertiary": "#005f7b",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#001f2a",
+                        "outline": "#8f6f6c",
+                        "surface-container-highest": "#f9dcd9",
+                        "secondary-container": "#fc5d59",
+                        "on-primary-container": "#fff2f0",
+                        "primary-fixed": "#ffdad6",
+                        "inverse-surface": "#3e2c2a",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#ffedeb",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#930010",
+                        "surface": "#fff8f7",
+                        "primary": "#af101a",
+                        "tertiary-container": "#00799c",
+                        "on-error-container": "#93000a",
+                        "on-background": "#271816",
+                        "on-primary-fixed": "#410003",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface-container-high": "#ffe2de"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "card": "28px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "card-padding": "40px",
+                        "base": "8px",
+                        "margin-desktop": "auto",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fog-bg {
+            background-color: #F5F5F7;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hairline-border {
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .button-transition {
+            transition: all 0.344s ease-in-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="fog-bg text-on-surface min-h-screen flex flex-col font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full bg-white/80 backdrop-blur-3xl border-b border-white/10 transition-all duration-300 ease-in-out z-50">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto h-20">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">hub</span>
+<span class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg font-bold text-primary tracking-tighter">NEXUS</span>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary font-bold transition-all duration-300 ease-in-out hover:bg-surface-variant/50 px-4 py-2 rounded-full" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant transition-all duration-300 ease-in-out hover:bg-surface-variant/50 px-4 py-2 rounded-full" href="#">Rides</a>
+<a class="font-label-md text-label-md text-on-surface-variant transition-all duration-300 ease-in-out hover:bg-surface-variant/50 px-4 py-2 rounded-full" href="#">Profile</a>
+</nav>
+<button class="hidden md:flex font-label-md text-label-md bg-primary text-on-primary px-8 py-3 rounded-full button-transition hover:opacity-90 active:scale-95">
+                Get Started
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-32 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto w-full flex flex-col items-center justify-center min-h-[calc(100vh-160px)]">
+<!-- Hero Section -->
+<div class="text-center w-full max-w-4xl mx-auto mb-section-gap opacity-0 translate-y-8 animate-[fadeInUp_1s_ease-out_forwards]">
+<span class="inline-block bg-error/10 text-error font-label-md text-label-md px-4 py-1.5 rounded-full mb-6 hairline-border uppercase tracking-widest">System Online</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-xl md:text-display-xl text-on-surface mb-6">READY FOR SERVICE</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Campus demand is rising. Awaiting your command to initiate shift.</p>
+</div>
+<!-- Central Orb & Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter w-full max-w-5xl relative">
+<!-- Left Stat Card -->
+<div class="md:col-span-3 bg-white rounded-card hairline-border p-card-padding flex flex-col justify-between opacity-0 translate-y-8 animate-[fadeInUp_1s_ease-out_0.2s_forwards]">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4 icon-filled">account_balance_wallet</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Earnings</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Current Shift</p>
+</div>
+<div class="mt-8">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface block">$0.00</span>
+<span class="font-label-md text-label-md text-primary mt-2 inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> Projecting High Demand
+                    </span>
+</div>
+</div>
+<!-- Center Map Orb -->
+<div class="md:col-span-6 relative flex justify-center items-center py-12 md:py-0 opacity-0 translate-y-8 animate-[fadeInUp_1s_ease-out_0.4s_forwards]">
+<div class="w-64 h-64 md:w-80 md:h-80 rounded-full glass-panel hairline-border overflow-hidden relative shadow-[0_0_40px_rgba(175,16,26,0.1)] flex items-center justify-center p-2">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container relative">
+<img alt="Campus Map Heatmap" class="w-full h-full object-cover opacity-80" data-alt="A highly detailed, stylized minimalist map of a university campus viewed from directly above. The map uses a light-mode color palette dominated by crisp white and very light grey fog tones. Subtle, glowing crimson gradients overlay specific building footprints and pathways to indicate heatmaps of 'Current Demand'. The design is extremely clean, architectural, and high-end, resembling luxury editorial graphics with no text labels." data-location="University Campus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1nz1RWnEYn8Cr1NCMXH4G4bsroPypps446yu4Uv2RXtj913D6Ck_IXaNm4MVWLvOsYOLjrV5IQiz7KjdhBWrfKe8-WGDhKzf7o1GwHjHdmo4FMQp74kmaM9wxo_ZCDrEi56F2W_w7l9Nc7ubI6jEd_bEdo3QoSHqbKmHNQ406v2mlsOSvRejmzBXkSw0y8262dORmx42n5DlNZzUguIYKl952Gofhz_XOzpJ-lpCiI4OtIxOyDGvuKfTnvezkqzK-n2uVs7u9bQ"/>
+<!-- Pulse Ring Effect -->
+<div class="absolute inset-0 rounded-full border-2 border-primary/20 animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+<!-- Center Marker -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full shadow-[0_0_15px_rgba(175,16,26,0.8)] z-10 border-2 border-white"></div>
+</div>
+</div>
+<!-- Floating START Button -->
+<button class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-primary text-on-primary font-headline-sm text-headline-sm px-12 py-5 rounded-full button-transition hover:bg-on-primary-fixed-variant hover:scale-105 active:scale-95 shadow-[0_10px_30px_rgba(175,16,26,0.3)] z-20 whitespace-nowrap tracking-wide">
+                    START SHIFT
+                </button>
+</div>
+<!-- Right Stat Card -->
+<div class="md:col-span-3 bg-white rounded-card hairline-border p-card-padding flex flex-col justify-between opacity-0 translate-y-8 animate-[fadeInUp_1s_ease-out_0.6s_forwards]">
+<div>
+<span class="material-symbols-outlined text-tertiary-container text-4xl mb-4 icon-filled">star</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Rating</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Lifetime Average</p>
+</div>
+<div class="mt-8">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface block">4.98</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-2 inline-flex items-center gap-1">
+                        Top 5% of Drivers
+                    </span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-md bg-white/80 backdrop-blur-3xl rounded-full border border-white/20 flex justify-around items-center p-2 z-50">
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-6 py-2 transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined text-2xl mb-1 icon-filled">explore</span>
+<span class="font-label-sm text-label-sm text-[11px] font-semibold">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 transition-colors hover:text-primary active:scale-95" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">directions_car</span>
+<span class="font-label-sm text-label-sm text-[11px] font-semibold">Rides</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 transition-colors hover:text-primary active:scale-95" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">person</span>
+<span class="font-label-sm text-label-sm text-[11px] font-semibold">Profile</span>
+</a>
+</nav>
+<style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(2rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</body></html>

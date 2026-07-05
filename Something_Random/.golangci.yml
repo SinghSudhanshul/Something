@@ -1,0 +1,59 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# golangci-lint Configuration for NEXUS Go Services
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+run:
+  timeout: 5m
+  go: "1.22"
+
+linters:
+  enable:
+    # Default
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    # Security
+    - gosec
+    # Code quality
+    - bodyclose
+    - exhaustive
+    - nilnil
+    - noctx
+    - sqlclosecheck
+    - prealloc
+    - unconvert
+    - unparam
+    # Style
+    - gofmt
+    - goimports
+    - misspell
+    - revive
+
+linters-settings:
+  gosec:
+    excludes:
+      - G104  # We explicitly handle errors where needed
+  exhaustive:
+    default-signifies-exhaustive: true
+  revive:
+    rules:
+      - name: exported
+        arguments:
+          - "checkPrivateReceivers"
+      - name: unused-parameter
+      - name: unreachable-code
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gosec
+        - bodyclose
+    - text: "G114"
+      linters:
+        - gosec
+  max-issues-per-linter: 50
+  max-same-issues: 5

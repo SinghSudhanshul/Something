@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusRide - Nexus Ride &amp; Go</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Custom ease for premium feel */
+        .premium-transition {
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 344ms;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface-container-highest": "#f9dcd9",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffdad6",
+                        "on-surface-variant": "#5b403d",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#ffb3ac",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-tertiary-fixed": "#001f2a",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "inverse-surface": "#3e2c2a",
+                        "background": "#fff8f7",
+                        "error-container": "#ffdad6",
+                        "outline": "#8f6f6c",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "surface": "#fff8f7",
+                        "surface-container-high": "#ffe2de",
+                        "surface-container": "#ffe9e7",
+                        "secondary-fixed": "#ffdad7",
+                        "on-secondary-fixed": "#410004",
+                        "surface-dim": "#f1d3d0",
+                        "outline-variant": "#e4beba",
+                        "surface-tint": "#ba1a20",
+                        "on-primary-container": "#fff2f0",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#600009",
+                        "on-primary-fixed-variant": "#930010",
+                        "surface-variant": "#f9dcd9",
+                        "on-surface": "#271816",
+                        "tertiary-container": "#00799c",
+                        "secondary-container": "#fc5d59",
+                        "on-error": "#ffffff",
+                        "tertiary": "#005f7b",
+                        "inverse-on-surface": "#ffedeb",
+                        "primary": "#af101a",
+                        "on-background": "#271816",
+                        "surface-container-low": "#fff0ef",
+                        "primary-container": "#d32f2f",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-primary-fixed": "#410003",
+                        "tertiary-fixed": "#bee9ff",
+                        "surface-bright": "#fff8f7",
+                        "secondary": "#b3272a"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "auto",
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "card-padding": "40px"
+                    },
+                    fontFamily: {
+                        "headline-sm": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background antialiased relative min-h-screen font-body-md overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Global Atmosphere Shader -->
+<!-- TopAppBar Shared Component -->
+<header class="fixed top-0 w-full flex justify-between items-center px-margin-mobile h-16 z-50 bg-white/80 dark:bg-surface/80 backdrop-blur-2xl border-b border-outline-variant/20 transition-all duration-300" id="topAppBar">
+<button aria-label="Menu" class="text-primary dark:text-primary-fixed-dim hover:opacity-70 transition-opacity duration-[344ms] active:scale-95 ease-in-out p-2 -ml-2 rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim tracking-tighter absolute left-1/2 -translate-x-1/2">
+            CampusRide
+        </h1>
+<button aria-label="User Profile" class="hover:opacity-70 transition-opacity duration-[344ms] active:scale-95 ease-in-out p-1 -mr-1 rounded-full overflow-hidden w-10 h-10 border border-outline-variant/20">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A highly detailed close-up portrait of a university student looking directly at the camera with a confident, friendly expression. The lighting is soft and bright, creating a clean, modern aesthetic typical of high-end corporate or university profile photos. The background is a stark, minimal solid white to match the Gallery Minimalist UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1UmRES7R0zSOGAVxL28BVimM4Xdb1wH230wbN6B3V7ZWxdo-dkuaKh5hfseAOtBWL0Cq5-Z6lrmWWmj-I2fbIFSq8vP6qEg3JTC7LlXdJOc_nnnMSYft7r8pqeq9XOR5A_lM9atAD1uG4BuC57WXTCBaIeS5oFbxB2JhVOg0xhgzJEqQvInb05KAfqSgh8JVz21hhogk0NjgXuME_GqB9hwOwGKKNsmsP_2IZu0hpRFc7KZpvBVqworVhMCF5bUT6p7n43uSylg"/>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 md:pb-24 max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop w-full flex flex-col gap-section-gap">
+<!-- 1. Glassmorphic Hero -->
+<section class="flex flex-col items-center justify-center min-h-[618px] text-center pt-12 relative">
+<div class="max-w-4xl mx-auto flex flex-col gap-8 items-center z-10">
+<h2 class="font-display-lg-mobile md:font-display-xl text-display-lg-mobile md:text-display-xl text-on-surface tracking-tighter leading-tight drop-shadow-sm">
+                    Your Campus.<br/>
+<span class="text-primary">Your Ride.</span><br/>
+                    On Demand.
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Experience the next generation of seamless campus mobility. Designed for speed, built for safety.
+                </p>
+<!-- Glassmorphic Search -->
+<div class="w-full max-w-lg mt-8 flex flex-col gap-8">
+<!-- Dual Input Search -->
+<div class="relative group">
+<div class="absolute inset-0 bg-primary/5 rounded-[28px] blur-xl group-hover:bg-primary/10 transition-colors duration-[344ms]"></div>
+<div class="relative bg-white/40 backdrop-blur-2xl border border-white/40 rounded-[28px] p-4 flex flex-col gap-3 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
+<div class="flex items-center gap-4 px-2">
+<span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-body-md text-body-md w-full placeholder-on-surface-variant/60" placeholder="Current location" type="text" value="My Location"/>
+</div>
+<div class="h-[1px] bg-outline-variant/20 mx-2"></div>
+<div class="flex items-center gap-4 px-2">
+<span class="material-symbols-outlined text-primary text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface font-body-md text-body-md w-full placeholder-on-surface-variant/60" placeholder="Where to?" type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md rounded-full w-full py-4 mt-2 premium-transition hover:bg-primary-container hover:text-on-primary-container active:scale-95 flex items-center justify-center gap-2 shadow-sm">
+                Ride Now
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- For You Section -->
+<div class="flex flex-col gap-4 text-left">
+<h3 class="font-headline-sm text-headline-sm text-on-surface px-2">For you</h3>
+<div class="grid grid-cols-4 gap-3">
+<button class="flex flex-col items-center gap-2 p-3 rounded-[20px] bg-white/40 backdrop-blur-2xl border border-white/30 premium-transition hover:bg-white/60 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<span class="font-label-md text-[12px] text-on-surface">Trip</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-[20px] bg-white/40 backdrop-blur-2xl border border-white/30 premium-transition hover:bg-white/60 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">electric_rickshaw</span>
+</div>
+<span class="font-label-md text-[12px] text-on-surface">Auto</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-[20px] bg-white/40 backdrop-blur-2xl border border-white/30 premium-transition hover:bg-white/60 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">key</span>
+</div>
+<span class="font-label-md text-[12px] text-on-surface">Rentals</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-[20px] bg-white/40 backdrop-blur-2xl border border-white/30 premium-transition hover:bg-white/60 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_city</span>
+</div>
+<span class="font-label-md text-[12px] text-on-surface">Intercity</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-[20px] bg-white/40 backdrop-blur-2xl border border-white/30 premium-transition hover:bg-white/60 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">pedal_bike</span>
+</div>
+<span class="font-label-md text-[12px] text-on-surface">Bike</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-[20px] bg-white/40 backdrop-blur-2xl border border-white/30 premium-transition hover:bg-white/60 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<span class="font-label-md text-[12px] text-on-surface">Reserve</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-[20px] bg-white/40 backdrop-blur-2xl border border-white/30 premium-transition hover:bg-white/60 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">elderly</span>
+</div>
+<span class="font-label-md text-[12px] text-on-surface">Seniors</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-3 rounded-[20px] bg-white/40 backdrop-blur-2xl border border-white/30 premium-transition hover:bg-white/60 active:scale-95">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">more_horiz</span>
+</div>
+<span class="font-label-md text-[12px] text-on-surface">See all</span>
+</button>
+</div>
+<button class="mt-2 text-primary font-label-md text-label-md flex items-center justify-center gap-1 hover:opacity-70 transition-opacity">
+            See all campus ride options
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Way to Go (Categories) -->
+<section class="flex flex-col gap-12 relative z-10">
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-center">Select Your Experience</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Pool Card -->
+<div class="bg-white/40 backdrop-blur-2xl border border-white/30 rounded-[28px] p-card-padding flex flex-col gap-6 premium-transition hover:bg-white/60 hover:shadow-lg cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 premium-transition">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">Pool Rides</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Share the journey, split the cost. Perfect for daily commutes.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">From</span>
+<span class="font-headline-sm text-headline-sm text-primary">₹25</span>
+</div>
+</div>
+<!-- Solo Card -->
+<div class="bg-white/40 backdrop-blur-2xl border border-white/30 rounded-[28px] p-card-padding flex flex-col gap-6 premium-transition hover:bg-white/60 hover:shadow-lg cursor-pointer group relative overflow-hidden">
+<div class="absolute top-6 right-6 bg-secondary-container text-on-secondary-container font-label-md text-[11px] px-3 py-1 rounded-full uppercase tracking-widest font-bold">Fastest</div>
+<div class="w-16 h-16 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant group-hover:scale-110 premium-transition">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">local_taxi</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">Solo Cab</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Direct route, zero stops. For when time is of the essence.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">From</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">₹150</span>
+</div>
+</div>
+<!-- Peer Card -->
+<div class="bg-white/40 backdrop-blur-2xl border border-white/30 rounded-[28px] p-card-padding flex flex-col gap-6 premium-transition hover:bg-white/60 hover:shadow-lg cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary group-hover:scale-110 premium-transition">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">pedal_bike</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">Peer Sharing</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Catch a ride with a fellow student heading your way.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">From</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">₹15</span>
+</div>
+</div>
+<!-- Airport Run Card -->
+<div class="bg-white/40 backdrop-blur-2xl border border-white/30 rounded-[28px] p-card-padding flex flex-col gap-6 premium-transition hover:bg-white/60 hover:shadow-lg cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 group-hover:scale-110 premium-transition">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">flight_takeoff</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">Airport Run</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Scheduled drops. Fixed rates. Never miss a flight.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">From</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">₹350</span>
+</div>
+</div>
+<!-- Rent a Ride Card -->
+<div class="bg-white/40 backdrop-blur-2xl border border-white/30 rounded-[28px] p-card-padding flex flex-col gap-6 premium-transition hover:bg-white/60 hover:shadow-lg cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 group-hover:scale-110 premium-transition">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">electric_scooter</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">Rent a Ride</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Self-drive scooters and bikes for ultimate freedom.</p>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">From</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">₹10/hr</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Live Board -->
+<section class="flex flex-col gap-12 relative z-10">
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-center">Live Campus Board</h3>
+<div class="flex flex-col gap-4 max-w-2xl mx-auto w-full">
+<!-- Live Entry 1 -->
+<div class="bg-white/40 backdrop-blur-2xl border border-white/30 rounded-[28px] p-6 flex items-center gap-4 premium-transition hover:bg-white/60">
+<img alt="Ananya R." class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFqlyJDk7_b30kGPzwUzs6CYZImFVdp8TFy-u_sr3m5FhPw6-S0ad9buRQPAGS2cXiRQ0E4Slk0Mx7oDZP0qoLlUThXCoqSkw_mGOZV79txQ4FLtKEtIvzeXgkJfhSRmlnzJyoFuQGq5Yl0WuPyLQ4OoeURG98-o0YPe8KNX8Z2PfZ4Zo7FmS1oCiEwqZ6imrzemOJ2NUsWUNS5v0YzPg7gs90pJ0UV5plbIrd7FP5TeAqU-GH6zICNUk05yLHl4rc0WU8ubjD5Q"/>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Ananya R.</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Library to Main Gate</p>
+</div>
+<div class="bg-primary/10 text-primary font-label-md text-[11px] px-3 py-1 rounded-full uppercase tracking-widest font-bold">2 Seats Left</div>
+</div>
+<!-- Live Entry 2 -->
+<div class="bg-white/40 backdrop-blur-2xl border border-white/30 rounded-[28px] p-6 flex items-center gap-4 premium-transition hover:bg-white/60">
+<img alt="Vikram S." class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfIl5yj0Cp8RufDohCrjKW4Jn0sxiA8lUv70qSQAXSxV0YiX5dcZNe8OmcVLPYzajwN1x1SN16n994L6dlNxZCO6HnV4yR2AGfxuNd0BPpIyVjFSDfMUxHs4johYcD4DPbahDc9UTmqx1FeH6BrR1ZfXwN22AG8zyzOyM1W75TY7WpkCVFydqhTD4xpC41IFE9-o9j_DQRHgSPAWhxmJtidMbwl_hFdbG3AGjZRVhGcrmk3dx5OeXd6r7A7B9m8GMinbzUnexkOQ"/>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Vikram S.</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Tech Park to Hostel D</p>
+</div>
+<div class="bg-primary/10 text-primary font-label-md text-[11px] px-3 py-1 rounded-full uppercase tracking-widest font-bold">1 Seat Left</div>
+</div>
+<!-- Live Entry 3 -->
+<div class="bg-white/40 backdrop-blur-2xl border border-white/30 rounded-[28px] p-6 flex items-center gap-4 premium-transition hover:bg-white/60">
+<img alt="Sana K." class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL-RzxbpGG6tzqq28UhKHRikJpDr_d_dfrqxy2cy2FtEN6d4MjEO6ggq7AhQ0b2w3hfrl_fkYryZoPKwV4uoaActMiKGNTPEvypvZ2POSKDrkZDkuG-8UYb-lNxT7aOLgiJOhoPImzaIEIbIZEOzc1S29rvNWlaeRjxz33CKGUpxIgj4vsvE1XOGwfoARXDIAdjfFE1-gIiFhQDtkqYRtahT7mY-M8wbv_j9R0ML2GnNao0jQBFztw6u6g9EPWIaUZIcLBo3MySw"/>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Sana K.</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Gate to Airport</p>
+</div>
+<div class="bg-secondary-container text-on-secondary-container font-label-md text-[11px] px-3 py-1 rounded-full uppercase tracking-widest font-bold">Full</div>
+</div>
+</div>
+</section>
+<!-- 4. Safety -->
+<section class="flex flex-col gap-12 relative z-10 text-center">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Uncompromised Safety</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+        Every ride is tracked. Every driver is a verified student. 24/7 SOS support directly linked to campus security.
+    </p>
+</section>
+<!-- 5. Verification -->
+<section class="flex flex-col gap-12 relative z-10 text-center mb-16">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">100% Verified Community</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+        Only active university email addresses are permitted. Your journey is shared only with your peers.
+    </p>
+</section>
+</main>
+<!-- BottomNavBar Shared Component (Mobile Only) -->
+<nav aria-label="Bottom Navigation" class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] rounded-full bg-white/80 dark:bg-surface/80 backdrop-blur-2xl border border-outline-variant/20 z-50 flex justify-around items-center px-4 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+<!-- Active Tab: Ride -->
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-6 py-2 premium-transition active:scale-90 my-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+<span class="font-label-md text-[11px] mt-1">Ride</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary premium-transition active:scale-90" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md text-[11px] mt-1">Activity</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary premium-transition active:scale-90" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-md text-[11px] mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary premium-transition active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-[11px] mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

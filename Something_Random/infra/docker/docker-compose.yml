@@ -1,0 +1,173 @@
+version: '3.8'
+
+services:
+  # PostgreSQL - Primary Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: campusly-postgres
+    environment:
+      POSTGRES_USER: campusly
+      POSTGRES_PASSWORD: campusly_dev_password
+      POSTGRES_DB: campusly
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U campusly"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - campusly-network
+
+  # PostgreSQL - Wallet Service (isolated)
+  postgres-wallet:
+    image: postgres:16-alpine
+    container_name: campusly-postgres-wallet
+    environment:
+      POSTGRES_USER: campusly_wallet
+      POSTGRES_PASSWORD: campusly_wallet_dev_password
+      POSTGRES_DB: campusly_wallet
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_wallet_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U campusly_wallet"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - campusly-network
+
+  # Redis - Cache & Session Store
+  redis:
+    image: redis:7-alpine
+    container_name: campusly-redis
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - campusly-network
+
+  # Redis - For WebSocket pub/sub (separate instance)
+  redis-pubsub:
+    image: redis:7-alpine
+    container_name: campusly-redis-pubsub
+    ports:
+      - "6380:6379"
+    networks:
+      - campusly-network
+
+  # Kafka - Event Streaming
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: campusly-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - campusly-network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: campusly-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    networks:
+      - campusly-network
+
+  # Elasticsearch - Search Engine
+  elasticsearch:
+    image: elasticsearch:8.11.0
+    container_name: campusly-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health | grep -vq 'status\":\"red'"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    networks:
+      - campusly-network
+
+  # MongoDB - Chat & Notifications
+  mongodb:
+    image: mongo:7
+    container_name: campusly-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - campusly-network
+
+  # MinIO - S3-compatible local storage (for development)
+  minio:
+    image: minio/minio:latest
+    container_name: campusly-minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: campusly_dev
+      MINIO_ROOT_PASSWORD: campusly_dev_password
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - campusly-network
+
+  # Mailhog - Local email testing
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: campusly-mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - campusly-network
+
+volumes:
+  postgres_data:
+  postgres_wallet_data:
+  redis_data:
+  elasticsearch_data:
+  mongodb_data:
+  minio_data:
+
+networks:
+  campusly-network:
+    driver: bridge

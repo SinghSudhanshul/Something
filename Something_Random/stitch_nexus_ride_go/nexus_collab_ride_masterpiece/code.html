@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Masterpiece - Collaborative Ride Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdad7",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fff8f7",
+                        "surface-tint": "#ba1a20",
+                        "on-primary-fixed": "#410003",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#fff2f0",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#910816",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ffe2de",
+                        "secondary": "#b3272a",
+                        "on-secondary-container": "#600009",
+                        "inverse-surface": "#3e2c2a",
+                        "on-surface": "#271816",
+                        "on-background": "#271816",
+                        "tertiary-container": "#00799c",
+                        "primary-container": "#d32f2f",
+                        "background": "#fff8f7",
+                        "on-tertiary-fixed": "#001f2a",
+                        "inverse-on-surface": "#ffedeb",
+                        "outline-variant": "#e4beba",
+                        "on-tertiary-container": "#e9f7ff",
+                        "tertiary": "#005f7b",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#f9dcd9",
+                        "secondary-container": "#fc5d59",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "tertiary-fixed": "#bee9ff",
+                        "surface-container": "#ffe9e7",
+                        "on-surface-variant": "#5b403d",
+                        "inverse-primary": "#ffb3ac",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "surface-bright": "#fff8f7",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#fff0ef",
+                        "on-primary-fixed-variant": "#930010",
+                        "surface-container-highest": "#f9dcd9",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "surface-dim": "#f1d3d0",
+                        "primary": "#af101a",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "primary-fixed": "#ffdad6",
+                        "outline": "#8f6f6c",
+                        "on-secondary-fixed": "#410004"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "card-padding": "40px",
+                        "margin-desktop": "auto",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Hide scrollbar for clean gallery look */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Custom easing for luxurious interactions */
+        .premium-transition {
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.344s;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar per Shared Components JSON -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface-container/80 backdrop-blur-[24px] border-b border-outline-variant/30 flex items-center justify-between px-gutter h-20 max-w-[1440px] mx-auto left-0 right-0 premium-transition">
+<button class="text-primary dark:text-primary-fixed hover:opacity-70 premium-transition flex items-center justify-center p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-primary dark:text-primary-fixed select-none">
+            NEXUS
+        </h1>
+<button class="text-primary dark:text-primary-fixed hover:opacity-70 premium-transition flex items-center justify-center p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-section-gap px-gutter md:px-margin-desktop max-w-[1440px] mx-auto min-h-screen">
+<!-- Bento Grid Layout for Settings -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Primary Intent & Roster (Span 7) -->
+<div class="lg:col-span-7 flex flex-col gap-16">
+<!-- Architectural Header -->
+<div class="flex flex-col gap-4">
+<h2 class="font-display-lg-mobile md:font-display-xl text-display-lg-mobile md:text-display-xl text-on-surface uppercase tracking-tighter">
+                        TRIBE
+                    </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Curate your collaborative journey. Invite campus curators and manage shared expenses seamlessly within the Nexus ecosystem.
+                    </p>
+</div>
+<!-- Search Input Module -->
+<div class="relative group w-full max-w-xl">
+<div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-primary premium-transition">search</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-5 pl-14 pr-6 font-body-lg text-body-lg text-on-surface placeholder-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary premium-transition shadow-sm hover:shadow-md" placeholder="Search campus curators..." type="text"/>
+</div>
+<!-- Active Co-Riders List -->
+<div class="flex flex-col gap-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Active Co-Riders</h3>
+<div class="flex flex-col gap-4">
+<!-- Co-Rider Item 1 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant premium-transition group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="relative w-16 h-16 rounded-full overflow-hidden border border-surface-variant bg-surface-container flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a stylish young adult in a minimalist, brightly lit studio. The aesthetic is light-mode Gallery Minimalist with pure white backgrounds and deep contrasting shadows. The person is looking away, conveying a sense of thoughtful curation. Subtle crimson lighting accents highlight their profile, enforcing the premium Nexus visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCf7bf63oGvqwdReAtwCeLNWiIr3ADZHBD1lPo0zNWRMwWF8-FZtAYXsOnhaOQ7TPA4XY0J6GStBjmWxa9nbw46_9MkRutYfHiuA3FeJtIMr9bQW3PaJCs2tCvc5a4nTfVAcbn14u5-9eVMxJSo7ZJKbDjGrRFS0fqktBTZR0PCO6c_Ic8713RZLRCvuy1Uzw819PVWTVBBk7-FMpJSC0GChX-3Be0qicW3Re7Aam9J7HKwzhXvRfnLQ1b4z-H_yNrxviQAslapw"/>
+<div class="absolute inset-0 bg-white/10 backdrop-blur-[2px]"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary premium-transition">Elena R.</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Design Curator</span>
+</div>
+</div>
+<span class="bg-surface-container text-primary rounded-full px-4 py-1.5 font-label-md text-label-md uppercase tracking-wider text-xs">Joined</span>
+</div>
+<!-- Co-Rider Item 2 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 hover:border-outline-variant premium-transition group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="relative w-16 h-16 rounded-full overflow-hidden border border-surface-variant bg-surface-container flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="An abstract, generative portrait silhouette created with soft glowing white and pale grey gradients on a pristine white background. The style is highly architectural and minimal, suitable for an avatar placeholder in a luxury digital application. A faint touch of pure crimson bleeds into the lower edge, tying it to the global brand palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALMh7bsrxc1wu-0mtvTx-ZwpscyhcnuF3bp9t3zOoMgjw4Nhkgi-MnHEDnx1qgfYHLAzyUgzQ2a_WQjosLRMY56bYtwfEWzxHtdQBIGvimqz7bpXA3Ysx_eaFev2arVd0888bs30UfYNy_rpgQNsskO8NuD864FCVpY2jnabJuOV97cRBLdRCVGVMfw1VV8tes_ej4GF4ah0lTFhd8YEOgEqVNcwG7yf8WlWu14Eo84rC8c6Riy0tpMR5L9qoNWDtWKNcuY4kW8Q"/>
+<div class="absolute inset-0 bg-white/10 backdrop-blur-[2px]"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary premium-transition">Marcus T.</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Engineering</span>
+</div>
+</div>
+<button class="bg-surface-container text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container rounded-full px-4 py-1.5 font-label-md text-label-md uppercase tracking-wider text-xs premium-transition">
+                                Invite
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Settings & Toggles (Span 5) -->
+<div class="lg:col-span-5 flex flex-col gap-8 lg:sticky lg:top-32">
+<!-- Fare Splitting Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 p-card-padding flex flex-col gap-8 shadow-sm">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 0;">payments</span>
+<h3 class="font-headline-md text-headline-md text-on-surface tracking-tight">Fare Allocation</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Distribute ride costs symmetrically among active tribe members.
+                        </p>
+</div>
+<!-- Split Fare Toggle Area -->
+<div class="flex items-center justify-between py-6 border-y border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface text-lg">Split Fare</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm">Currently tracking 2 riders</span>
+</div>
+<!-- Premium Custom Toggle -->
+<label class="relative inline-flex items-center cursor-pointer group">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-16 h-8 bg-surface-container-high rounded-full peer peer-checked:bg-primary premium-transition border border-outline-variant/50 peer-checked:border-primary"></div>
+<div class="absolute left-1 top-1 bg-surface-container-lowest w-6 h-6 rounded-full premium-transition peer-checked:translate-x-8 shadow-sm border border-outline-variant/20 flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary opacity-0 peer-checked:opacity-100 premium-transition"></div>
+</div>
+</label>
+</div>
+<!-- Estimated Cost Breakdown -->
+<div class="flex flex-col gap-4 pt-2">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Total Estimate</span>
+<span class="font-label-md text-label-md text-on-surface">$24.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Your Share</span>
+<span class="font-headline-sm text-headline-sm text-primary">$12.00</span>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full bg-primary hover:bg-secondary text-on-primary font-label-md text-label-md py-5 rounded-full premium-transition mt-4 uppercase tracking-widest shadow-sm hover:shadow-md">
+                        Confirm Allocation
+                    </button>
+</div>
+<!-- Secondary Information Card -->
+<div class="bg-surface-container-low rounded-xl border border-outline-variant/30 p-8 flex items-start gap-4">
+<span class="material-symbols-outlined text-on-surface-variant mt-1" style="font-variation-settings: 'FILL' 0;">info</span>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed">
+                        Splitting fares locks the current route. Any deviations during transit will require a manual override by the primary booker.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple script to handle interaction states for the interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const inviteButtons = document.querySelectorAll('button');
+            inviteButtons.forEach(btn => {
+                if(btn.textContent.trim() === 'Invite') {
+                    btn.addEventListener('click', function() {
+                        this.textContent = 'Invited';
+                        this.classList.replace('bg-surface-container', 'bg-primary-container');
+                        this.classList.replace('text-on-surface-variant', 'text-on-primary-container');
+                        this.classList.replace('hover:bg-primary-container', 'hover:bg-primary');
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>

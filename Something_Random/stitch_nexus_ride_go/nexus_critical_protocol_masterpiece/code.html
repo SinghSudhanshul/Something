@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CRITICAL PROTOCOL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#930010",
+                    "inverse-on-surface": "#ffedeb",
+                    "tertiary-fixed-dim": "#7bd1f8",
+                    "outline-variant": "#e4beba",
+                    "primary-fixed-dim": "#ffb3ac",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#410003",
+                    "tertiary-fixed": "#bee9ff",
+                    "tertiary": "#005f7b",
+                    "on-secondary-container": "#600009",
+                    "primary-fixed": "#ffdad6",
+                    "on-surface": "#271816",
+                    "inverse-surface": "#3e2c2a",
+                    "error": "#ba1a1a",
+                    "secondary": "#b3272a",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#5b403d",
+                    "outline": "#8f6f6c",
+                    "secondary-container": "#fc5d59",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#ffb3ac",
+                    "surface-container-highest": "#f9dcd9",
+                    "surface-bright": "#fff8f7",
+                    "on-tertiary-fixed-variant": "#004d65",
+                    "surface": "#fff8f7",
+                    "surface-dim": "#f1d3d0",
+                    "background": "#fff8f7",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#ffe9e7",
+                    "on-tertiary-fixed": "#001f2a",
+                    "surface-variant": "#f9dcd9",
+                    "tertiary-container": "#00799c",
+                    "on-tertiary-container": "#e9f7ff",
+                    "surface-tint": "#ba1a20",
+                    "on-secondary-fixed-variant": "#910816",
+                    "secondary-fixed": "#ffdad7",
+                    "surface-container-low": "#fff0ef",
+                    "on-secondary-fixed": "#410004",
+                    "secondary-fixed-dim": "#ffb3ae",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#ffe2de",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#d32f2f",
+                    "primary": "#af101a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#fff2f0",
+                    "on-background": "#271816"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "auto",
+                    "card-padding": "40px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-sm": [
+                            "Inter"
+                    ],
+                    "display-xl": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "display-lg-mobile": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.015em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "19px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.015em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-xl": [
+                            "80px",
+                            {
+                                    "lineHeight": "1.05",
+                                    "letterSpacing": "-0.022em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "56px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.022em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.022em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "17px",
+                            {
+                                    "lineHeight": "1.47",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(186, 26, 26, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 40px rgba(186, 26, 26, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(186, 26, 26, 0);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col pt-20 pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-[20px] fixed top-0 w-full z-50 border-b border-outline-variant/30 flex justify-between items-center px-gutter h-20 transition-all duration-[0.344s] ease-in-out">
+<button aria-label="Menu" class="text-primary dark:text-primary-fixed-dim hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-primary dark:text-primary-fixed-dim">
+            NEXUS
+        </div>
+<button aria-label="Account" class="text-primary dark:text-primary-fixed-dim hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center justify-center px-gutter py-12 max-w-[1440px] mx-margin-desktop w-full gap-section-gap">
+<!-- Header Section -->
+<section class="text-center w-full max-w-3xl">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-error mb-4">CRITICAL PROTOCOL</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Immediate action required. Initiating safety measures.</p>
+</section>
+<!-- SOS Button Section -->
+<section class="flex flex-col items-center justify-center relative w-full">
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-64 h-64 md:w-96 md:h-96 rounded-full border border-error/20 pulse-ring"></div>
+</div>
+<button aria-label="SOS" class="relative z-10 w-48 h-48 md:w-64 md:h-64 rounded-full bg-error text-on-error flex flex-col items-center justify-center hover:bg-error/90 active:scale-95 transition-all duration-[0.344s] ease-in-out shadow-lg">
+<span class="material-symbols-outlined filled-icon text-[64px] mb-2" data-icon="warning">warning</span>
+<span class="font-headline-md text-headline-md">SOS</span>
+</button>
+<p class="font-label-md text-label-md text-error mt-8 text-center uppercase tracking-widest">Hold to activate</p>
+</section>
+<!-- Action Cards Grid -->
+<section class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Action Card 1 -->
+<button class="bg-surface-container-highest p-card-padding rounded-[28px] border border-error/30 flex flex-col items-center justify-center gap-4 hover:bg-error/10 active:scale-95 transition-all duration-[0.344s] ease-in-out text-center">
+<div class="w-16 h-16 rounded-full bg-error/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Quick Call Security</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-2">Connect immediately with response teams.</span>
+</button>
+<!-- Action Card 2 -->
+<button class="bg-surface-container-highest p-card-padding rounded-[28px] border border-outline-variant/30 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high active:scale-95 transition-all duration-[0.344s] ease-in-out text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Broadcast to Contacts</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-2">Alert emergency contacts with your location.</span>
+</button>
+<!-- Action Card 3 -->
+<button class="bg-surface-container-highest p-card-padding rounded-[28px] border border-outline-variant/30 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high active:scale-95 transition-all duration-[0.344s] ease-in-out text-center">
+<div class="w-16 h-16 rounded-full bg-surface-variant text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Share Live Analytics</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-2">Transmit real-time status data to authorities.</span>
+</button>
+</section>
+<!-- Status Indicator -->
+<section class="w-full max-w-3xl flex items-center justify-between p-6 bg-error-container rounded-[28px] border border-error/50">
+<div class="flex items-center gap-4">
+<div class="w-4 h-4 rounded-full bg-error animate-pulse"></div>
+<span class="font-label-md text-label-md text-on-error-container uppercase tracking-wide">System Armed</span>
+</div>
+<span class="font-body-md text-body-md text-on-error-container opacity-80">Location Services: Active</span>
+</section>
+</main>
+<!-- BottomNavBar (Hidden on md, suppressed per instructions for transactional/focused intent, but included as structural anchor if needed by system, overriding suppression for strict adherence to provided JSON rendering if demanded, but semantically it should be suppressed. I will omit it based on the Semantic Shell Mandate: "Automatic Suppression: You MUST exclude the navigation shell if the page intent is: Linear/Transactional... Task-Focused... The UX Goal: If the user is in a focused journey or a "dead end" relative to the global nav, hide the shell to prioritize the Canvas." - This is an Emergency Protocol screen, highly focused. Suppressing Bottom Nav.) -->
+</body></html>

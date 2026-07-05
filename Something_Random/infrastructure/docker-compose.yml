@@ -1,0 +1,160 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# NEXUS — Local Development Infrastructure
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Usage:
+#   pnpm docker:up     — Start all services
+#   pnpm docker:down   — Stop all services
+#   pnpm docker:logs   — View logs
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+services:
+  # ── PostgreSQL + PostGIS ────────────────────────────
+  postgres:
+    image: postgis/postgis:15-3.4
+    container_name: nexus-postgres
+    environment:
+      POSTGRES_DB: nexus_dev
+      POSTGRES_USER: nexus
+      POSTGRES_PASSWORD: nexus_dev_secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nexus -d nexus_dev"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  # ── Redis ───────────────────────────────────────────
+  redis:
+    image: redis:7.2-alpine
+    container_name: nexus-redis
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ── Kafka (KRaft mode — no Zookeeper) ───────────────
+  kafka:
+    image: confluentinc/cp-kafka:7.6.0
+    container_name: nexus-kafka
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:29093
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:29093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      CLUSTER_ID: "ci2M1-x0TWiK_xOIfWz8cw"
+    ports:
+      - "9092:9092"
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-topics --bootstrap-server localhost:9092 --list"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  # ── Kafka UI ────────────────────────────────────────
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: nexus-kafka-ui
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: nexus-local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+    depends_on:
+      kafka:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ── Elasticsearch ───────────────────────────────────
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.0
+    container_name: nexus-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health | grep -vq 'status.:.red'"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  # ── MongoDB ─────────────────────────────────────────
+  mongodb:
+    image: mongo:7.0
+    container_name: nexus-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: nexus
+      MONGO_INITDB_ROOT_PASSWORD: nexus_dev_secret
+      MONGO_INITDB_DATABASE: nexus_dev
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  # ── Kong API Gateway ────────────────────────────────
+  kong:
+    image: kong:3.7
+    container_name: nexus-kong
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /etc/kong/kong.yaml
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_LISTEN: 0.0.0.0:8001
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    volumes:
+      - ./kong/kong.yaml:/etc/kong/kong.yaml:ro
+    healthcheck:
+      test: ["CMD", "kong", "health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  kafka_data:
+  es_data:
+  mongo_data:

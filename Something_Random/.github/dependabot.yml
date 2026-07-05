@@ -1,0 +1,82 @@
+version: 2
+updates:
+  # npm (root + all workspaces)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "npm"
+    groups:
+      fastify:
+        patterns:
+          - "@fastify/*"
+          - "fastify"
+          - "fastify-*"
+      aws-sdk:
+        patterns:
+          - "@aws-sdk/*"
+      typescript:
+        patterns:
+          - "typescript"
+          - "@typescript-eslint/*"
+          - "@types/*"
+      testing:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
+          - "testcontainers"
+          - "@testcontainers/*"
+
+  # Go modules (wallet + rides)
+  - package-ecosystem: "gomod"
+    directory: "/services/wallet"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "go"
+
+  - package-ecosystem: "gomod"
+    directory: "/services/rides"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "go"
+
+  # Python (analytics)
+  - package-ecosystem: "pip"
+    directory: "/services/analytics"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "python"
+
+  # Docker
+  - package-ecosystem: "docker"
+    directory: "/infrastructure/docker"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "docker"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "ci"

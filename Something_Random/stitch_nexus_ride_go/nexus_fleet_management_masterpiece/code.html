@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEXUS - Active Fleet Status</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#bee9ff",
+                      "surface-tint": "#ba1a20",
+                      "secondary-fixed-dim": "#ffb3ae",
+                      "secondary": "#b3272a",
+                      "on-secondary-fixed-variant": "#910816",
+                      "inverse-primary": "#ffb3ac",
+                      "on-primary-fixed": "#410003",
+                      "on-background": "#271816",
+                      "primary-fixed": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#004d65",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#600009",
+                      "primary-fixed-dim": "#ffb3ac",
+                      "on-tertiary-fixed": "#001f2a",
+                      "secondary-fixed": "#ffdad7",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#930010",
+                      "outline": "#8f6f6c",
+                      "tertiary-fixed-dim": "#7bd1f8",
+                      "on-surface-variant": "#5b403d",
+                      "background": "#fff8f7",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#fc5d59",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#fff0ef",
+                      "surface-bright": "#fff8f7",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#f9dcd9",
+                      "on-secondary-fixed": "#410004",
+                      "tertiary-container": "#00799c",
+                      "primary": "#af101a",
+                      "surface-dim": "#f1d3d0",
+                      "on-tertiary-container": "#e9f7ff",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#005f7b",
+                      "on-primary-container": "#fff2f0",
+                      "on-surface": "#271816",
+                      "inverse-surface": "#3e2c2a",
+                      "outline-variant": "#e4beba",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#f9dcd9",
+                      "surface": "#fff8f7",
+                      "surface-container-high": "#ffe2de",
+                      "surface-container": "#ffe9e7",
+                      "primary-container": "#d32f2f",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#ffedeb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "card": "28px"
+              },
+              "spacing": {
+                      "section-gap": "120px",
+                      "card-padding": "40px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "margin-desktop": "auto",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "display-lg-mobile": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "display-xl": ["Inter"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                      "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                      "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                      "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                      "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                      "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                      "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                      "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog Base */
+            color: #271816; /* on-background */
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .premium-card {
+            background-color: #FFFFFF;
+            border-radius: 28px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 40px;
+        }
+        .transition-premium {
+            transition: all 0.344s ease-in-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-on-background pb-24 md:pb-0 pt-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)] flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 max-w-[1440px] mx-auto left-0 right-0">
+<div class="flex items-center gap-4 text-primary hover:opacity-80 transition-all duration-300 cursor-pointer active:scale-95">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">rocket_launch</span>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary bg-clip-text hidden md:block" style="font-size: 32px;">NEXUS</span>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8 font-label-md text-label-md uppercase tracking-widest">
+<a class="text-on-surface-variant hover:opacity-80 transition-all duration-300" href="#">Explore</a>
+<a class="text-primary hover:opacity-80 transition-all duration-300 border-b-2 border-primary pb-1" href="#">Rides</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-all duration-300" href="#">Wallet</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-all duration-300" href="#">Profile</a>
+</nav>
+<button class="bg-primary text-on-primary font-label-md text-label-md uppercase px-6 py-3 rounded-full hover:bg-surface-tint transition-premium">
+            Get Started
+        </button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-margin-mobile md:px-gutter mt-12">
+<!-- Hero Section -->
+<section class="mb-section-gap">
+<h1 class="font-display-xl text-display-xl tracking-tighter text-on-background mb-4 uppercase">FLEET</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Active status overview of the Nexus luxury mobility network. Real-time availability and demand forecasting across all operational zones.
+            </p>
+</section>
+<!-- Fleet Status Cards (Bento Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-section-gap">
+<!-- Solo Compact -->
+<div class="glass-panel rounded-card p-card-padding flex flex-col justify-between group hover:-translate-y-1 transition-premium cursor-pointer">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-1">Solo Compact</h3>
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Agile City</span>
+</div>
+<span class="bg-surface-container-lowest border border-outline/20 px-3 py-1 rounded-full text-xs font-semibold text-primary">Live</span>
+</div>
+<div class="relative h-48 mb-8 rounded-xl overflow-hidden bg-surface-container-lowest flex items-center justify-center">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-premium mix-blend-multiply" data-alt="A sleek, minimalist electric compact vehicle rendered in a bright, high-key studio environment. The vehicle features aerospace-grade materials, subtle crimson accents, and is positioned against a pristine white backdrop. The lighting is soft and even, highlighting the flawless metallic surfaces and futuristic, aerodynamic curves. The overall aesthetic is clean, luxurious, and highly technical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT9Xcj0lHjrrltSvw_pq1EWfO-DJpHsFU9fH-Um-kHFcUFQ-ASO7LHPWo6Ef5Qx__IqWE5iZzkqMuP2xR3_O1S6hxf6GGalbhCK2aJp7sOyfdzdS7M-gdfg9zUWk0NjiF5_qLnuazLFBoLHIUR9BZ-N-RYd2Oa3ujaRizqi7oNRAXJGLHqUu4MeojZrQcwD7VBg9tEzUBH_3nbFTk4MS6YEQx_Ep1pLNtN7DU-DFMb-HmfwCaaN7CrhmMAy3Mh-6XZA4gUi3Xj0g"/>
+</div>
+<div class="flex items-end justify-between border-t border-outline/10 pt-6">
+<div>
+<span class="block font-label-md text-label-md text-on-surface-variant mb-1">Available Units</span>
+<span class="font-display-lg text-display-lg text-primary leading-none">142</span>
+</div>
+<div class="text-right">
+<span class="block font-label-md text-label-md text-on-surface-variant mb-1">Demand</span>
+<span class="font-headline-sm text-headline-sm text-on-background leading-none">High</span>
+</div>
+</div>
+</div>
+<!-- Premium -->
+<div class="premium-card flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-premium cursor-pointer shadow-sm">
+<!-- Decorative Accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-0"></div>
+<div class="flex justify-between items-start mb-8 relative z-10">
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-1">Premium</h3>
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Executive Class</span>
+</div>
+<span class="bg-primary/10 px-3 py-1 rounded-full text-xs font-semibold text-primary">Optimal</span>
+</div>
+<div class="relative h-48 mb-8 rounded-xl overflow-hidden bg-background flex items-center justify-center relative z-10">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-premium duration-700" data-alt="A luxurious, mid-sized executive electric sedan shown in a pristine, gallery-like white space. The vehicle boasts a sharp, minimalist design language with deep black tinted windows and subtle crimson lighting accents along its aerodynamic side panels. High-contrast, cool white studio lighting reflects off its polished exterior, emphasizing a sense of premium prestige and modern structural geometry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqcaZjqYelYmckGLxOdaBnMs_G-BcymQRHdwfiGEs6yoCp0cyt4eSpo2FeelCwHXxoBYnbw2D2CEVPNS4vsHHTj2JIgc0RxHrP97mvXOr5piWt0DxfPiYbmfaCJQX-FkznN5nWeT4kI7s1-u0uk0dQK3e0fqiR2ZoK26ARUOs8AQJEAh0_HYUnLkCWGZkOiQpdMOd8yaAubHmWL0ZT6iDq-xp7-pYxs9-eQhTdiRCTiijz8wU3B16z9jKqHj2ds_1KCqdd47nuHw"/>
+</div>
+<div class="flex items-end justify-between border-t border-outline/10 pt-6 relative z-10">
+<div>
+<span class="block font-label-md text-label-md text-on-surface-variant mb-1">Available Units</span>
+<span class="font-display-lg text-display-lg text-on-background leading-none">86</span>
+</div>
+<div class="text-right">
+<span class="block font-label-md text-label-md text-on-surface-variant mb-1">Demand</span>
+<span class="font-headline-sm text-headline-sm text-on-background leading-none">Stable</span>
+</div>
+</div>
+</div>
+<!-- XL Config -->
+<div class="glass-panel rounded-card p-card-padding flex flex-col justify-between group hover:-translate-y-1 transition-premium cursor-pointer">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-1">XL</h3>
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Group Transit</span>
+</div>
+<span class="bg-surface-tint text-on-primary px-3 py-1 rounded-full text-xs font-semibold shadow-sm">Surge</span>
+</div>
+<div class="relative h-48 mb-8 rounded-xl overflow-hidden bg-surface-container-lowest flex items-center justify-center">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-premium mix-blend-multiply" data-alt="An expansive, luxury electric SUV or transit pod viewed from a slight angle in a minimalist, bright white studio. The vehicle's design is imposing yet sleek, featuring massive matte-finish wheels and a panoramic glass roof. Subtle but striking crimson pinstriping highlights its imposing structural presence. The atmosphere is clinical and high-tech, focusing purely on the vehicle's premium materiality and scale." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkAfgna24fClwoKj-xJr3fl1fiveHtEYUhFtZ1kujQaDDvhbxsOXN0JQQjIZls7dvgDYX0iKDf2tZmxEWsKGGcX-ZFS07YHMFBe1Xsll2S9fLKE1_xwotpwS59dL6Kr4C4OHjBntoOewY3CBVQHaZ7WGKaf0gEPflrpSketUAmwGZjrmo6hiyBycsZ5aPY5-tq-uXYZrmXVNwJtOuH0LvHMJXt4u3VlJMn1N_l0ThiU5nPU5t05m8IoDscxESbr5PLxmKF5kpFew"/>
+</div>
+<div class="flex items-end justify-between border-t border-outline/10 pt-6">
+<div>
+<span class="block font-label-md text-label-md text-on-surface-variant mb-1">Available Units</span>
+<span class="font-display-lg text-display-lg text-primary leading-none">12</span>
+</div>
+<div class="text-right">
+<span class="block font-label-md text-label-md text-on-surface-variant mb-1">Demand</span>
+<span class="font-headline-sm text-headline-sm text-primary leading-none">Critical</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Fleet Health & Supply Dynamics -->
+<section class="mb-section-gap grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-4 flex flex-col justify-center pr-8">
+<h2 class="font-headline-md text-headline-md mb-4">Network Dynamics</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                    Current supply versus anticipated demand over the next 4 hours. Automated redistribution protocols are active in central sectors.
+                </p>
+<button class="self-start border border-outline text-on-background font-label-md text-label-md uppercase px-6 py-3 rounded-full hover:border-primary hover:text-primary transition-premium flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 0;">tune</span>
+                    Adjust Parameters
+                </button>
+</div>
+<div class="lg:col-span-8 premium-card">
+<div class="flex justify-between items-center mb-12">
+<h3 class="font-headline-sm text-headline-sm">Supply vs. Demand</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Demand</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Supply</span>
+</div>
+</div>
+</div>
+<!-- Minimalist Bar Chart Concept -->
+<div class="flex items-end gap-2 h-64 border-b border-outline/20 pb-4 relative">
+<!-- Y-Axis Labels -->
+<div class="absolute left-0 top-0 bottom-4 flex flex-col justify-between text-xs text-outline pr-4 border-r border-outline/10 text-right w-12">
+<span>100%</span>
+<span>50%</span>
+<span>0%</span>
+</div>
+<div class="ml-16 flex justify-between w-full h-full items-end">
+<!-- Hour 1 -->
+<div class="flex flex-col items-center gap-2 w-1/5 group">
+<div class="w-full flex items-end justify-center gap-1 h-[200px]">
+<div class="w-8 bg-outline-variant rounded-t-sm h-[60%] transition-premium group-hover:opacity-80"></div>
+<div class="w-8 bg-primary rounded-t-sm h-[40%] transition-premium group-hover:opacity-80"></div>
+</div>
+<span class="font-label-md text-xs text-on-surface-variant uppercase">Now</span>
+</div>
+<!-- Hour 2 -->
+<div class="flex flex-col items-center gap-2 w-1/5 group">
+<div class="w-full flex items-end justify-center gap-1 h-[200px]">
+<div class="w-8 bg-outline-variant rounded-t-sm h-[55%] transition-premium group-hover:opacity-80"></div>
+<div class="w-8 bg-primary rounded-t-sm h-[65%] transition-premium group-hover:opacity-80"></div>
+</div>
+<span class="font-label-md text-xs text-on-surface-variant uppercase">+1H</span>
+</div>
+<!-- Hour 3 -->
+<div class="flex flex-col items-center gap-2 w-1/5 group">
+<div class="w-full flex items-end justify-center gap-1 h-[200px]">
+<div class="w-8 bg-outline-variant rounded-t-sm h-[45%] transition-premium group-hover:opacity-80"></div>
+<div class="w-8 bg-primary rounded-t-sm h-[85%] transition-premium group-hover:opacity-80"></div>
+</div>
+<span class="font-label-md text-xs text-on-surface-variant uppercase">+2H</span>
+</div>
+<!-- Hour 4 -->
+<div class="flex flex-col items-center gap-2 w-1/5 group">
+<div class="w-full flex items-end justify-center gap-1 h-[200px]">
+<div class="w-8 bg-outline-variant rounded-t-sm h-[70%] transition-premium group-hover:opacity-80"></div>
+<div class="w-8 bg-primary rounded-t-sm h-[50%] transition-premium group-hover:opacity-80"></div>
+</div>
+<span class="font-label-md text-xs text-on-surface-variant uppercase">+3H</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container-lowest/60 backdrop-blur-2xl fixed bottom-0 w-full z-50 rounded-t-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] flex justify-around items-center h-20 pb-safe px-4 tap-highlight-transparent active:scale-90 transition-transform">
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">explore</span>
+<span class="font-data-label text-data-label uppercase text-xs">Explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-secondary drop-shadow-[0_0_8px_rgba(255,185,95,0.5)] cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+<span class="font-data-label text-data-label uppercase text-xs">Rides</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_balance_wallet</span>
+<span class="font-data-label text-data-label uppercase text-xs">Wallet</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-data-label text-data-label uppercase text-xs">Profile</span>
+</div>
+</nav>
+</body></html>

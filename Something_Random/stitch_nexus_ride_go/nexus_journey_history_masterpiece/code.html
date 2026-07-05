@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Journey Archive - NEXUS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#930010",
+                      "inverse-on-surface": "#ffedeb",
+                      "tertiary-fixed-dim": "#7bd1f8",
+                      "outline-variant": "#e4beba",
+                      "primary-fixed-dim": "#ffb3ac",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#410003",
+                      "tertiary-fixed": "#bee9ff",
+                      "tertiary": "#005f7b",
+                      "on-secondary-container": "#600009",
+                      "primary-fixed": "#ffdad6",
+                      "on-surface": "#271816",
+                      "inverse-surface": "#3e2c2a",
+                      "error": "#ba1a1a",
+                      "secondary": "#b3272a",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#5b403d",
+                      "outline": "#8f6f6c",
+                      "secondary-container": "#fc5d59",
+                      "on-error-container": "#93000a",
+                      "inverse-primary": "#ffb3ac",
+                      "surface-container-highest": "#f9dcd9",
+                      "surface-bright": "#fff8f7",
+                      "on-tertiary-fixed-variant": "#004d65",
+                      "surface": "#fff8f7",
+                      "surface-dim": "#f1d3d0",
+                      "background": "#fff8f7",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#ffe9e7",
+                      "on-tertiary-fixed": "#001f2a",
+                      "surface-variant": "#f9dcd9",
+                      "tertiary-container": "#00799c",
+                      "on-tertiary-container": "#e9f7ff",
+                      "surface-tint": "#ba1a20",
+                      "on-secondary-fixed-variant": "#910816",
+                      "secondary-fixed": "#ffdad7",
+                      "surface-container-low": "#fff0ef",
+                      "on-secondary-fixed": "#410004",
+                      "secondary-fixed-dim": "#ffb3ae",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#ffe2de",
+                      "on-primary": "#ffffff",
+                      "primary-container": "#d32f2f",
+                      "primary": "#af101a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#fff2f0",
+                      "on-background": "#271816"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "section-gap": "120px",
+                      "gutter": "24px",
+                      "margin-mobile": "20px",
+                      "margin-desktop": "auto",
+                      "card-padding": "40px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "display-xl": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.015em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "19px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.015em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-xl": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.05",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "56px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.022em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "17px",
+                              {
+                                      "lineHeight": "1.47",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        body {
+            background-color: #F5F5F7; /* Fog Base */
+            color: #271816;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen relative pb-[100px] md:pb-0">
+<!-- Top Navigation (Web & Mobile) -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-[20px] border-b border-outline-variant/30 flex justify-between items-center px-gutter h-20">
+<button class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary dark:text-primary-fixed-dim">NEXUS</span>
+<button class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-[120px] px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<div class="mb-section-gap text-center md:text-left">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tighter uppercase mb-4">JOURNEY ARCHIVE</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A curated timeline of your past masterpieces. Precision meets performance in every mile traveled.</p>
+</div>
+<!-- Vertical Timeline (Bento Grid Inspired Layout) -->
+<div class="relative max-w-4xl mx-auto">
+<!-- Continuous Timeline Line -->
+<div class="absolute left-[39px] md:left-1/2 top-0 bottom-0 w-[1px] bg-outline-variant/30 -translate-x-1/2 hidden md:block"></div>
+<!-- Timeline Entry 1 -->
+<div class="relative flex flex-col md:flex-row items-start md:items-center mb-[80px] group">
+<!-- Date Node (Left on Desktop) -->
+<div class="w-full md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0 hidden md:block">
+<span class="font-headline-md text-headline-md text-on-surface-variant tracking-tighter uppercase">OCT 24, 2023</span>
+</div>
+<!-- Center Marker -->
+<div class="absolute left-[39px] md:left-1/2 -translate-x-1/2 w-[16px] h-[16px] rounded-full bg-surface border border-outline-variant z-10 group-hover:border-primary transition-colors duration-[0.344s] hidden md:flex items-center justify-center">
+<div class="w-[6px] h-[6px] rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-[0.344s]"></div>
+</div>
+<!-- Card Content (Right on Desktop) -->
+<div class="w-full md:w-1/2 md:pl-12">
+<!-- Mobile Date Node -->
+<div class="mb-4 md:hidden">
+<span class="font-headline-sm text-headline-sm text-on-surface-variant tracking-tighter uppercase">OCT 24, 2023</span>
+</div>
+<div class="bg-surface rounded-[28px] border border-outline-variant/30 p-card-padding transition-all duration-[0.344s] hover:border-outline-variant/60">
+<div class="flex justify-between items-start mb-6">
+<div class="bg-surface-variant rounded-full w-[48px] h-[48px] flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[24px]">directions_car</span>
+</div>
+<span class="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary font-label-md text-label-md uppercase tracking-wider">
+                                Complete
+                            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Coastal Highway Run</h3>
+<div class="flex items-center text-on-surface-variant font-body-md text-body-md mb-6">
+<span class="material-symbols-outlined text-[18px] mr-2">location_on</span>
+                            Pacific Coast Highway, CA
+                        </div>
+<div class="w-full h-[120px] rounded-lg overflow-hidden bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="A pristine white luxury electric vehicle driving along a dramatic coastal highway at sunset. The ocean waves crash below. The lighting is golden hour, creating deep shadows and highlighting the sleek, minimalist curves of the car. The overall aesthetic is high-end editorial photography with a focus on pristine engineering and cinematic mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD5DfC1glW73K8fAEDy4zA-WOhd769fM7JVpZtJr2uVQNEn3ArDMDtEeyBNs340V3yODigUyYTOj9LpGnN2fA-MTaKtw7MN_su7PpLVJM6Phs3U9mk1rpcxNGqoiXp25GGbvBdpBab0qSuMukTFE030w7S4nSFoW5rfHv24chEAKl0RD4Z9bDLv2BFr5qsD0j9w2uWTIvmx9Qtayz95B3Fo273pvX60FUdO3y-t107kFEtTN0j96GQP4uroWRzMvC-1gO_nnNF-Q"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Entry 2 -->
+<div class="relative flex flex-col md:flex-row items-start md:items-center mb-[80px] group">
+<!-- Card Content (Left on Desktop - Alternating) -->
+<div class="w-full md:w-1/2 md:pr-12 md:order-1 order-2">
+<!-- Mobile Date Node -->
+<div class="mb-4 md:hidden">
+<span class="font-headline-sm text-headline-sm text-on-surface-variant tracking-tighter uppercase">SEP 12, 2023</span>
+</div>
+<div class="bg-surface rounded-[28px] border border-outline-variant/30 p-card-padding transition-all duration-[0.344s] hover:border-outline-variant/60">
+<div class="flex justify-between items-start mb-6">
+<div class="bg-surface-variant rounded-full w-[48px] h-[48px] flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[24px]">directions_car</span>
+</div>
+<span class="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary font-label-md text-label-md uppercase tracking-wider">
+                                Complete
+                            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Mountain Pass Ascend</h3>
+<div class="flex items-center text-on-surface-variant font-body-md text-body-md mb-6">
+<span class="material-symbols-outlined text-[18px] mr-2">location_on</span>
+                            Angeles Crest, CA
+                        </div>
+<div class="w-full h-[120px] rounded-lg overflow-hidden bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="A high-performance modern vehicle navigating a sharp curve on a winding mountain pass. The environment is rugged, with misty fog partially obscuring the peaks. High-contrast lighting with deep, rich blacks and stark white accents, emphasizing the vehicle's dynamic stance and the sheer scale of the landscape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1IQ6L-YpV9aGesdCOcsk_yu4CdQbMt8JcZLLpnpEyJU1vch_lFZsghXJi7grNZLGa57N0G8q6ZbCFdOUH2hQeyOSG6kaY52291F4fvytami08UwBou9CJfN6P7xrn_sYOtjMQPpKZUB7-hfiA2KHgI6yK6BHG-MKoKTZpp129B12aclZ5bxRfiZkYsomlh6C_ZS5G-F6YpHRGMzddAf6KLIzfakzQJv8WuUh8HbR1PBpikkRAzBCRr7cFpmZTL1-BE1IelC7qKw"/>
+</div>
+</div>
+</div>
+<!-- Center Marker -->
+<div class="absolute left-[39px] md:left-1/2 -translate-x-1/2 w-[16px] h-[16px] rounded-full bg-surface border border-outline-variant z-10 group-hover:border-primary transition-colors duration-[0.344s] hidden md:flex items-center justify-center md:order-2">
+<div class="w-[6px] h-[6px] rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-[0.344s]"></div>
+</div>
+<!-- Date Node (Right on Desktop) -->
+<div class="w-full md:w-1/2 md:pl-12 md:text-left mb-4 md:mb-0 hidden md:block md:order-3">
+<span class="font-headline-md text-headline-md text-on-surface-variant tracking-tighter uppercase">SEP 12, 2023</span>
+</div>
+</div>
+<!-- Timeline Entry 3 -->
+<div class="relative flex flex-col md:flex-row items-start md:items-center mb-[80px] group">
+<!-- Date Node (Left on Desktop) -->
+<div class="w-full md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0 hidden md:block">
+<span class="font-headline-md text-headline-md text-on-surface-variant tracking-tighter uppercase">AUG 05, 2023</span>
+</div>
+<!-- Center Marker -->
+<div class="absolute left-[39px] md:left-1/2 -translate-x-1/2 w-[16px] h-[16px] rounded-full bg-surface border border-outline-variant z-10 group-hover:border-primary transition-colors duration-[0.344s] hidden md:flex items-center justify-center">
+<div class="w-[6px] h-[6px] rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-[0.344s]"></div>
+</div>
+<!-- Card Content (Right on Desktop) -->
+<div class="w-full md:w-1/2 md:pl-12">
+<!-- Mobile Date Node -->
+<div class="mb-4 md:hidden">
+<span class="font-headline-sm text-headline-sm text-on-surface-variant tracking-tighter uppercase">AUG 05, 2023</span>
+</div>
+<div class="bg-surface rounded-[28px] border border-outline-variant/30 p-card-padding transition-all duration-[0.344s] hover:border-outline-variant/60">
+<div class="flex justify-between items-start mb-6">
+<div class="bg-surface-variant rounded-full w-[48px] h-[48px] flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[24px]">directions_car</span>
+</div>
+<span class="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary font-label-md text-label-md uppercase tracking-wider">
+                                Complete
+                            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Urban Midnight Cruise</h3>
+<div class="flex items-center text-on-surface-variant font-body-md text-body-md mb-6">
+<span class="material-symbols-outlined text-[18px] mr-2">location_on</span>
+                            Downtown Metropolis
+                        </div>
+<div class="w-full h-[120px] rounded-lg overflow-hidden bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="A sleek minimalist car driving through an ultra-modern cityscape at night. The city lights blur into streaks of white and crimson against the deep black canvas of the night sky. The reflective glass surfaces of towering skyscrapers create a sense of vast, pristine urban architecture. Minimalist, premium, and moody." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM_MGEOTWn8QfEjgw-T3rawLgn6oRPmzJ8enEDhK88ZEI2wzWOQ6bwS9KcIWK76igZuc4msdb56sYG-Iw0fe4uEiSL9WTko_kWFP013k1vgjv8OjVhaKT90kGj0GYHX9MRaDmQRDtZYW1D50e902Z500xrurMF9CqSDiVQYhIWRX1qZnCITwkCQQJsmyPcKR4lls7N2yKoqDsuEL6yWC3VT12ti1ilRBvAh-PjowTVGX0kP6rnFj0DS4zCbj_6-6mOcyXg938pqw"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-md flex justify-around items-center p-2 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-[24px] rounded-full z-50 border border-outline-variant/20">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out active:scale-90">
+<span class="material-symbols-outlined mb-1">grid_view</span>
+<span class="font-label-md text-label-md">Gallery</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out active:scale-90">
+<span class="material-symbols-outlined mb-1">auto_awesome</span>
+<span class="font-label-md text-label-md">Book</span>
+</button>
+<!-- Active State: 'Rides' (Maps to Activity/Journey Archive) -->
+<button class="flex flex-col items-center justify-center bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container rounded-full px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out active:scale-90">
+<span class="material-symbols-outlined icon-fill mb-1">directions_car</span>
+<span class="font-label-md text-label-md">Rides</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out active:scale-90">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</nav>
+</body></html>

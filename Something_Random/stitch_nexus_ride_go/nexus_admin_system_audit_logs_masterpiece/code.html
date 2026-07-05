@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Admin | System Audit Logs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#fff8f7",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#600009",
+                        "inverse-primary": "#ffb3ac",
+                        "tertiary": "#005f7b",
+                        "on-error": "#ffffff",
+                        "primary": "#af101a",
+                        "surface-dim": "#f1d3d0",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "tertiary-fixed": "#bee9ff",
+                        "surface-bright": "#fff8f7",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-primary-container": "#fff2f0",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#930010",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-primary-fixed": "#410003",
+                        "outline-variant": "#e4beba",
+                        "on-background": "#271816",
+                        "surface": "#fff8f7",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "secondary-fixed": "#ffdad7",
+                        "tertiary-container": "#00799c",
+                        "on-surface": "#271816",
+                        "inverse-on-surface": "#ffedeb",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "inverse-surface": "#3e2c2a",
+                        "surface-container-highest": "#f9dcd9",
+                        "primary-fixed": "#ffdad6",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#910816",
+                        "surface-container-low": "#fff0ef",
+                        "secondary-container": "#fc5d59",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#ba1a20",
+                        "on-tertiary-container": "#e9f7ff",
+                        "on-surface-variant": "#5b403d",
+                        "surface-container": "#ffe9e7",
+                        "primary-container": "#d32f2f",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#8f6f6c",
+                        "on-secondary-fixed": "#410004",
+                        "surface-variant": "#f9dcd9",
+                        "surface-container-high": "#ffe2de",
+                        "secondary": "#b3272a",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "auto",
+                        "card-padding": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F5F5F7; } /* Fog background */
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .luxury-transition { transition: all 0.344s ease-in-out; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)]">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4 cursor-pointer active:scale-95 luxury-transition hover:opacity-80">
+<span class="material-symbols-outlined text-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary bg-clip-text hidden md:block">NEXUS</span>
+<span class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary bg-clip-text md:hidden">NEXUS</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<span class="font-label-md text-label-md text-on-surface-variant hover:text-primary cursor-pointer luxury-transition">Dashboard</span>
+<span class="font-label-md text-label-md text-primary cursor-pointer luxury-transition">Audit Logs</span>
+<span class="font-label-md text-label-md text-on-surface-variant hover:text-primary cursor-pointer luxury-transition">Users</span>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-md text-label-md hover:bg-on-primary-fixed-variant luxury-transition cursor-pointer active:scale-95">
+                Get Started
+            </button>
+</div>
+</header>
+<main class="flex-grow pt-[120px] pb-section-gap max-w-[1440px] mx-auto w-full px-margin-mobile md:px-margin-desktop">
+<!-- Header Section -->
+<section class="mb-section-gap">
+<h1 class="font-display-xl text-display-xl tracking-tighter text-on-background mb-4 md:block hidden">System Audit Logs</h1>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-on-background mb-4 md:hidden block">System Audit Logs</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Architectural log of all system actions. High-fidelity tracking of security events, data access, and administrative operations.</p>
+</section>
+<!-- Bento Grid: Summary Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-section-gap">
+<!-- Recent Operations Card -->
+<div class="bg-surface-container-lowest rounded-[28px] p-card-padding border border-outline-variant luxury-transition hover:border-primary">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-[28px]">settings_backup_restore</span>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Recent Operations</h2>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-surface-variant pb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">System Update</span>
+<span class="font-label-md text-label-md bg-surface-variant text-on-background px-3 py-1 rounded-full">Success</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-variant pb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">DB Migration</span>
+<span class="font-label-md text-label-md bg-secondary-container text-on-error px-3 py-1 rounded-full">Failed</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Cache Flush</span>
+<span class="font-label-md text-label-md bg-surface-variant text-on-background px-3 py-1 rounded-full">Success</span>
+</div>
+</div>
+</div>
+<!-- Security Events Card -->
+<div class="bg-surface-container-lowest rounded-[28px] p-card-padding border border-outline-variant luxury-transition hover:border-primary">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-error text-[28px]">security</span>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Security Events</h2>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-surface-variant pb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Failed Login (x5)</span>
+<span class="font-label-md text-label-md bg-error text-on-error px-3 py-1 rounded-full">Critical</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-variant pb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">API Key Rotated</span>
+<span class="font-label-md text-label-md bg-surface-variant text-on-background px-3 py-1 rounded-full">Info</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">New Admin Added</span>
+<span class="font-label-md text-label-md bg-tertiary-container text-on-tertiary px-3 py-1 rounded-full">Warn</span>
+</div>
+</div>
+</div>
+<!-- Data Access Card -->
+<div class="glass-panel rounded-[28px] p-card-padding border border-outline-variant relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="bg-cover bg-center w-full h-full" data-alt="Abstract data visualization with flowing geometric lines and subtle glowing red nodes on a pristine white background. Minimalist tech aesthetic, high key lighting, conveying secure data flow." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgAJS0DC7vlhOBA--T8t7cgkrMfg-1pjyxeuJiIW1yBhrCC07zhZubTOwzSBq13qjEMb4aIukEIE7A-xSSFbVciTQHyj5LlEfjLcqrHBvK8xkKqou2kkF8fQ9Ota00f-csNeFpK6u3H7lIgxT3g_c4U_ImDaDjfYdGokadFc3ykhgZCJlpIp6iN1K3UR-rJ1RQ2y0pMCdkuOgXJtOoDMzQJevZ6Lgdz9eejFRWW4GZQ24XxcyJ14sKuD-uWMtdKHXo9cphpaipng')"></div>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-tertiary text-[28px]">database</span>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Data Access</h2>
+</div>
+<p class="font-display-lg text-display-lg text-on-background tracking-tighter mb-2">1.2M</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Queries in last 24h</p>
+</div>
+</div>
+</section>
+<!-- Activity Stream -->
+<section class="bg-surface-container-lowest rounded-[28px] p-card-padding border border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-on-background mb-8 border-b border-surface-variant pb-4">Activity Stream</h2>
+<div class="space-y-8">
+<!-- Log Entry 1 -->
+<div class="flex flex-col md:flex-row gap-6 luxury-transition hover:bg-surface-container-low p-4 rounded-xl -mx-4">
+<div class="md:w-48 flex-shrink-0">
+<p class="font-headline-sm text-headline-sm text-primary tracking-tighter">14:05:22</p>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mt-1">2024-10-24</p>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-3 mb-2">
+<span class="bg-[#EF5350] text-white px-3 py-1 rounded-full font-label-md text-label-md">High Priority</span>
+<span class="font-label-md text-label-md text-on-background font-bold">Admin Privileges Escalated</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">User ID: usr_892xaf granted superadmin access by sys_auth_service.</p>
+<div class="font-mono text-sm text-outline bg-surface p-3 rounded-lg border border-surface-variant overflow-x-auto">
+                            { "action": "role_update", "target": "usr_892xaf", "new_role": "superadmin", "actor": "sys_auth_service" }
+                        </div>
+</div>
+</div>
+<!-- Log Entry 2 -->
+<div class="flex flex-col md:flex-row gap-6 luxury-transition hover:bg-surface-container-low p-4 rounded-xl -mx-4">
+<div class="md:w-48 flex-shrink-0">
+<p class="font-headline-sm text-headline-sm text-on-background tracking-tighter">13:42:01</p>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mt-1">2024-10-24</p>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-3 mb-2">
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-md text-label-md">Standard</span>
+<span class="font-label-md text-label-md text-on-background font-bold">Configuration Sync Completed</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Global routing tables synchronized across eu-west and us-east clusters.</p>
+</div>
+</div>
+<!-- Log Entry 3 -->
+<div class="flex flex-col md:flex-row gap-6 luxury-transition hover:bg-surface-container-low p-4 rounded-xl -mx-4">
+<div class="md:w-48 flex-shrink-0">
+<p class="font-headline-sm text-headline-sm text-on-background tracking-tighter">11:15:45</p>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mt-1">2024-10-24</p>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-3 mb-2">
+<span class="bg-error text-on-error px-3 py-1 rounded-full font-label-md text-label-md">Critical</span>
+<span class="font-label-md text-label-md text-on-background font-bold">Unauthorized Access Attempt</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Multiple failed login attempts detected from IP 192.168.1.100. Account temporarily locked.</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-surface-variant flex justify-center">
+<button class="border border-outline text-on-background px-8 py-3 rounded-full font-label-md text-label-md hover:border-primary hover:text-primary luxury-transition">
+                    Load More Logs
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-8 mt-auto border-t border-primary/30 flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-4 max-w-[1440px] mx-auto">
+<span class="font-display-lg text-primary text-[24px]">NEXUS</span>
+<span class="font-data-label text-data-label text-outline">© 2024 NEXUS MOBILITY. AEROSPACE GRADE PRECISION.</span>
+<div class="flex gap-4">
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200" href="#">Privacy</a>
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200" href="#">Terms</a>
+<a class="font-data-label text-data-label text-outline hover:text-secondary transition-opacity duration-200" href="#">Safety</a>
+</div>
+</footer>
+</body></html>

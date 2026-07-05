@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#930010",
+                        "inverse-on-surface": "#ffedeb",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "outline-variant": "#e4beba",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#410003",
+                        "tertiary-fixed": "#bee9ff",
+                        "tertiary": "#005f7b",
+                        "on-secondary-container": "#600009",
+                        "primary-fixed": "#ffdad6",
+                        "on-surface": "#271816",
+                        "inverse-surface": "#3e2c2a",
+                        "error": "#ba1a1a",
+                        "secondary": "#b3272a",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#5b403d",
+                        "outline": "#8f6f6c",
+                        "secondary-container": "#fc5d59",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#ffb3ac",
+                        "surface-container-highest": "#f9dcd9",
+                        "surface-bright": "#fff8f7",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "surface": "#fff8f7",
+                        "surface-dim": "#f1d3d0",
+                        "background": "#fff8f7",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#ffe9e7",
+                        "on-tertiary-fixed": "#001f2a",
+                        "surface-variant": "#f9dcd9",
+                        "tertiary-container": "#00799c",
+                        "on-tertiary-container": "#e9f7ff",
+                        "surface-tint": "#ba1a20",
+                        "on-secondary-fixed-variant": "#910816",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-container-low": "#fff0ef",
+                        "on-secondary-fixed": "#410004",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ffe2de",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#d32f2f",
+                        "primary": "#af101a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#fff2f0",
+                        "on-background": "#271816"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "auto",
+                        "card-padding": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F5F7; /* Fog background from style guidance */
+        }
+        /* Custom styles that aren't easily handled by tailwind classes */
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hairline-border {
+            border: 1px solid rgba(0, 0, 0, 0.05); /* Very subtle border for light mode */
+        }
+        .hairline-bottom {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface font-body-md antialiased min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-[20px] border-b border-outline-variant/30 transition-all duration-[0.344s] ease-in-out">
+<div class="flex justify-between items-center px-gutter h-20 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4 cursor-pointer hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95 text-on-surface-variant dark:text-outline" data-icon="menu">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-primary dark:text-primary-fixed-dim">
+                NEXUS
+            </div>
+<div class="flex items-center gap-4 cursor-pointer hover:text-primary transition-colors duration-[0.344s] ease-in-out active:scale-95 text-on-surface-variant dark:text-outline" data-icon="account_circle">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-32 px-gutter max-w-[1440px] mx-auto">
+<div class="max-w-2xl mx-auto">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-section-gap/2 text-center mt-12">SYSTEM SETTINGS</h1>
+<!-- Settings List Container -->
+<div class="bg-white rounded-[28px] hairline-border overflow-hidden">
+<!-- Item 1: Identity Verification -->
+<a class="flex items-center justify-between px-card-padding py-8 hairline-bottom hover:bg-surface-variant/20 transition-colors duration-[0.344s] ease-in-out group" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors duration-[0.344s] ease-in-out text-[28px]">fingerprint</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Identity Verification</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors duration-[0.344s] ease-in-out text-[24px]">chevron_right</span>
+</a>
+<!-- Item 2: Privacy Protocols -->
+<a class="flex items-center justify-between px-card-padding py-8 hairline-bottom hover:bg-surface-variant/20 transition-colors duration-[0.344s] ease-in-out group" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors duration-[0.344s] ease-in-out text-[28px]">shield_lock</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Privacy Protocols</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors duration-[0.344s] ease-in-out text-[24px]">chevron_right</span>
+</a>
+<!-- Item 3: Biometric Access -->
+<a class="flex items-center justify-between px-card-padding py-8 hairline-bottom hover:bg-surface-variant/20 transition-colors duration-[0.344s] ease-in-out group" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors duration-[0.344s] ease-in-out text-[28px]">face</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Biometric Access</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors duration-[0.344s] ease-in-out text-[24px]">chevron_right</span>
+</a>
+<!-- Item 4: Notification Aesthetics -->
+<a class="flex items-center justify-between px-card-padding py-8 hover:bg-surface-variant/20 transition-colors duration-[0.344s] ease-in-out group" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors duration-[0.344s] ease-in-out text-[28px]">notifications_active</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Notification Aesthetics</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors duration-[0.344s] ease-in-out text-[24px]">chevron_right</span>
+</a>
+</div>
+<!-- Log Out Section -->
+<div class="mt-section-gap flex justify-center pb-section-gap">
+<button class="font-body-lg text-body-lg text-outline hover:text-error transition-colors duration-[0.344s] ease-in-out bg-transparent border-none cursor-pointer flex items-center gap-2 group">
+<span class="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform duration-[0.344s]">logout</span>
+                    Log Out
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) - Profile is active since this is settings -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-md flex justify-around items-center p-2 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-[24px] border border-outline-variant/20 rounded-full z-50">
+<!-- Gallery -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out active:scale-90 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform duration-[0.344s]">grid_view</span>
+<span class="font-label-md text-label-md">Gallery</span>
+</a>
+<!-- Book -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out active:scale-90 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform duration-[0.344s]">auto_awesome</span>
+<span class="font-label-md text-label-md">Book</span>
+</a>
+<!-- Rides -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-6 py-2 hover:text-primary dark:hover:text-primary-fixed transition-all duration-[0.344s] ease-in-out active:scale-90 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform duration-[0.344s]">directions_car</span>
+<span class="font-label-md text-label-md">Rides</span>
+</a>
+<!-- Profile (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container rounded-full px-6 py-2 transition-all duration-[0.344s] ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+</body></html>

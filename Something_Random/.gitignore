@@ -1,0 +1,74 @@
+# ── Dependencies ────────────────────────
+node_modules/
+.pnpm-store/
+
+# ── Build outputs ───────────────────────
+dist/
+build/
+.next/
+out/
+
+# ── Environment files ───────────────────
+.env
+.env.local
+.env.*.local
+
+# ── IDE ─────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS ──────────────────────────────────
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# ── Test & Coverage ─────────────────────
+coverage/
+.nyc_output/
+junit.xml
+
+# ── Turborepo ───────────────────────────
+.turbo/
+
+# ── Python ──────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+*.egg
+.venv/
+venv/
+
+# ── Go ──────────────────────────────────
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+/services/wallet/wallet
+/services/rides/rides
+
+# ── Terraform ───────────────────────────
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log
+
+# ── Docker ──────────────────────────────
+docker-compose.override.yml
+
+# ── Logs ────────────────────────────────
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Misc ────────────────────────────────
+*.generated.ts
+*.tsbuildinfo

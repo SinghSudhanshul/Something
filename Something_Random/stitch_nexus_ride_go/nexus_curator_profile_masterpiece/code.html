@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Masterpiece - Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#bee9ff",
+                        "surface-tint": "#ba1a20",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "secondary": "#b3272a",
+                        "on-secondary-fixed-variant": "#910816",
+                        "inverse-primary": "#ffb3ac",
+                        "on-primary-fixed": "#410003",
+                        "on-background": "#271816",
+                        "primary-fixed": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004d65",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#600009",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-tertiary-fixed": "#001f2a",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#930010",
+                        "outline": "#8f6f6c",
+                        "tertiary-fixed-dim": "#7bd1f8",
+                        "on-surface-variant": "#5b403d",
+                        "background": "#fff8f7",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#fc5d59",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#fff0ef",
+                        "surface-bright": "#fff8f7",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#f9dcd9",
+                        "on-secondary-fixed": "#410004",
+                        "tertiary-container": "#00799c",
+                        "primary": "#af101a",
+                        "surface-dim": "#f1d3d0",
+                        "on-tertiary-container": "#e9f7ff",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#005f7b",
+                        "on-primary-container": "#fff2f0",
+                        "on-surface": "#271816",
+                        "inverse-surface": "#3e2c2a",
+                        "outline-variant": "#e4beba",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#f9dcd9",
+                        "surface": "#fff8f7",
+                        "surface-container-high": "#ffe2de",
+                        "surface-container": "#ffe9e7",
+                        "primary-container": "#d32f2f",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#ffedeb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "card-padding": "40px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-desktop": "auto",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-lg": ["19px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "body-md": ["17px", { "lineHeight": "1.47", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "display-xl": ["80px", { "lineHeight": "1.05", "letterSpacing": "-0.022em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F5F5F7; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .transition-weight { transition: all 0.344s ease-in-out; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background min-h-screen flex flex-col pt-[72px] pb-[100px] md:pb-0">
+<!-- TopAppBar (Web) -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(45,110,248,0.3)] flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 hidden md:flex transition-weight">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">rocket_launch</span>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary bg-clip-text">NEXUS</span>
+</div>
+<nav class="flex gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-weight" href="#">Explore</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-weight" href="#">Rides</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-weight" href="#">Wallet</a>
+<a class="font-body-md text-body-md text-primary font-bold transition-weight" href="#">Profile</a>
+</nav>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 rounded-full hover:opacity-80 transition-weight cursor-pointer active:scale-95">Get Started</button>
+</header>
+<!-- TopAppBar (Mobile Fallback) -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-margin-mobile py-4 md:hidden transition-weight">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">rocket_launch</span>
+<span class="font-headline-md text-headline-md tracking-tighter text-primary bg-clip-text">NEXUS</span>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-1.5 rounded-full hover:opacity-80 transition-weight cursor-pointer active:scale-95">Get Started</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-[1440px] mx-auto w-full px-margin-mobile md:px-gutter mt-12 md:mt-24 mb-section-gap">
+<!-- Profile Header: Large Portrait & Core Stats -->
+<section class="mb-24 flex flex-col md:flex-row items-center md:items-start gap-12">
+<!-- Portrait -->
+<div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border border-outline-variant shadow-sm flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A striking portrait of a modern university student acting as a high-end mobility curator. The subject is confident, well-lit, set against a pristine minimalist studio backdrop. The lighting is high-key white, reflecting a premium editorial aesthetic. Hints of deep crimson accents in the clothing subtlely connect to the brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjNfrPjP2oPD-24HbecjDikNG8XbtEcmohy6pngcxsCA6_O04xiNCR0juBd1gTBaabL-g2MqVdnL-Qae-nRINv8do2L_6-PQXfPw4Lqp46XCqwTPjK6kuJq-2ld5WEv4CrJVvii48Oc0zst4MdMoZAg0vytBxLYgRtw4Qyts7gzTVKJa5_C4z97qpHEZ0asREItjQFtCVUPnV5o1BQsLa_7SQAH4WTjro66WPVEaxotR-ZSAIVaHP2Q_gVokGPLN9H_G6HCjxuJg"/>
+</div>
+<!-- Details -->
+<div class="flex flex-col justify-center text-center md:text-left">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-2">Alex Nexus</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Masterpiece Campus Curator</p>
+<!-- Curator Stats Bento -->
+<div class="flex flex-wrap justify-center md:justify-start gap-4">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[28px] p-6 flex flex-col items-center min-w-[160px]">
+<span class="font-headline-md text-headline-md text-primary">4.98</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-2 uppercase tracking-widest">Curator Rating</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[28px] p-6 flex flex-col items-center min-w-[160px]">
+<span class="font-headline-md text-headline-md text-on-surface">1.2k</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-2 uppercase tracking-widest">Journeys</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[28px] p-6 flex flex-col items-center min-w-[160px]">
+<span class="font-headline-md text-headline-md text-on-surface">Tier</span>
+<span class="font-label-md text-label-md text-primary mt-2 uppercase tracking-widest font-bold">Voyager</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Resume Section -->
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8 border-b border-outline-variant pb-4">Trust Resume</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Verifications -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[28px] p-card-padding">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Verifications
+                    </h3>
+<ul class="space-y-4">
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">badge</span>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Verified Student Status</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">University Identity Confirmed</p>
+</div>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">directions_car</span>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Vehicle Inspection Passed</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Aerospace Grade Precision Check</p>
+</div>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">history_edu</span>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Background Cleared</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Comprehensive Security Audit</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Safety Badges -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-[28px] p-card-padding">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+                        Safety Accolades
+                    </h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="border border-outline-variant rounded-xl p-4 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-3xl text-secondary mb-2" style="font-variation-settings: 'FILL' 1;">local_police</span>
+<span class="font-label-md text-label-md text-on-surface">Flawless Record</span>
+</div>
+<div class="border border-outline-variant rounded-xl p-4 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-3xl text-secondary mb-2" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+<span class="font-label-md text-label-md text-on-surface">Community Favorite</span>
+</div>
+<div class="border border-outline-variant rounded-xl p-4 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-3xl text-secondary mb-2" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-md text-label-md text-on-surface">Eco-Driver</span>
+</div>
+<div class="border border-outline-variant rounded-xl p-4 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-3xl text-secondary mb-2" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">Top 1%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/60 backdrop-blur-2xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] flex justify-around items-center h-20 pb-safe px-4 md:hidden transition-weight">
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-md text-label-md uppercase">Explore</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-label-md text-label-md uppercase">Rides</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-md text-label-md uppercase">Wallet</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary drop-shadow-[0_0_8px_rgba(255,185,95,0.5)] hover:text-primary transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md uppercase">Profile</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-8 mt-auto bg-surface-container-lowest border-t border-primary/30 flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-4 transition-weight">
+<div class="font-display-lg text-primary text-2xl tracking-tighter">NEXUS</div>
+<div class="font-label-md text-label-md text-outline">
+            © 2024 NEXUS MOBILITY. AEROSPACE GRADE PRECISION.
+        </div>
+<div class="flex gap-4">
+<a class="font-label-md text-label-md text-outline hover:text-secondary transition-opacity duration-200" href="#">Privacy</a>
+<a class="font-label-md text-label-md text-outline hover:text-secondary transition-opacity duration-200" href="#">Terms</a>
+<a class="font-label-md text-label-md text-outline hover:text-secondary transition-opacity duration-200" href="#">Safety</a>
+</div>
+</footer>
+</body></html>
