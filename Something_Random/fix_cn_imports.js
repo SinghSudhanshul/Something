@@ -29,7 +29,6 @@ function processDirectory(dir) {
 
       if (content !== original) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`Updated alias imports in ${fullPath}`);
       }
     }
   }
