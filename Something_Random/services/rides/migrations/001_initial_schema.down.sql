@@ -1,0 +1,6 @@
+BEGIN;
+DROP TABLE IF EXISTS audit_logs;
+DROP TABLE IF EXISTS driver_locations;
+DROP TABLE IF EXISTS ride_sessions;
+DROP TABLE IF EXISTS users;
+COMMIT;
