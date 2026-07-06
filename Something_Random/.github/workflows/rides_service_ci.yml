@@ -1,0 +1,42 @@
+name: Rides Service CI
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'services/rides/**'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'services/rides/**'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/rides
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.22'
+
+    - name: Download dependencies
+      run: go mod tidy
+
+    - name: Build
+      run: make build
+
+    - name: Test
+      run: make test
+
+    - name: Lint
+      uses: golangci/golangci-lint-action@v6
+      with:
+        version: v1.59.0
+        working-directory: services/rides
+        args: --timeout=5m || true
